@@ -1,0 +1,9 @@
+E:\StoreManagement\StoreManagement\StoreManagement\bin\Debug\StoreManagement.exe.config
+E:\StoreManagement\StoreManagement\StoreManagement\bin\Debug\StoreManagement.exe
+E:\StoreManagement\StoreManagement\StoreManagement\bin\Debug\StoreManagement.pdb
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.csprojResolveAssemblyReference.cache
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Properties.Resources.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.csproj.GenerateResource.Cache
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.exe
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.pdb
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Form1.resources
