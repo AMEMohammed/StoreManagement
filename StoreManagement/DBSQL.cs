@@ -183,8 +183,36 @@ namespace StoreManagement
             }
             catch
             { reslt = 0; }
+
             return reslt;
         }
+        //////
+        //////
+        //// Check Qunnty is Here InCheckQuntity
+        public int CheckQuntityISHereInCheckQuntity(int IDCategory,int IDType)
+        {
+            int reslt = 0;
+            try
+            {
+                cmd = new SqlCommand("select IDCheck from CheckQuntity where IDCategory=@IDCategory and IDType=@IDType", con);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@IDCategory", IDCategory);
+                cmd.Parameters.AddWithValue("@IDType", IDType);
+               
+                con.Open();
+                reslt = (int)cmd.ExecuteScalar();
+                con.Close();
+
+            }
+            catch
+            { reslt = 0; }
+
+            return reslt;
+
+        }
+        
+        ///
+        ///
 
 
 
