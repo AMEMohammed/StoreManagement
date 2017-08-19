@@ -7,3 +7,5 @@ E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.csp
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.exe
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.pdb
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Form1.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmCategory.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmTypeQuntity.resources

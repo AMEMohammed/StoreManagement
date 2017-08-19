@@ -27,9 +27,15 @@ namespace StoreManagement
         /// 
         // get all category
 
-      public  DataTable  GetAllCategory()
+      public  DataTable  GetAllCategoryAR()
         {
             string qury = "SELECT [IDCategory] as 'رقم الصنف',[NameCategory] as 'اسم الصنف' FROM  [StoreManagement].[dbo].[Category]";
+            return ExecuteQurySelect(qury);
+
+        }
+        public DataTable GetAllCategory()
+        {
+            string qury = "SELECT [IDCategory] ,[NameCategory] FROM  [StoreManagement].[dbo].[Category]";
             return ExecuteQurySelect(qury);
 
         }
@@ -65,10 +71,18 @@ namespace StoreManagement
         // Update Category 
         public int UpdateCategory(int id,string name)
         {
-            string qury = " UPDATE [StoreManagement].[dbo].[Category]  SET[NameCategory] = @name  WHERE IDCategory=@id";
-            return ExecuteQury(qury, id, name, 2);
+            int resl = 0;
+            cmd = new SqlCommand("UPDATE [StoreManagement].[dbo].[Category] SET [NameCategory]=@name1  WHERE  IDCategory=@id1", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@name1", name);
+            cmd.Parameters.AddWithValue("@id1", id);
+            con.Open();
+            resl = cmd.ExecuteNonQuery();
+            con.Close();
+            return resl;
+           
 
-       }
+        }
 
         //
         // delete Category
@@ -212,15 +226,106 @@ namespace StoreManagement
         }
         
         ///
+        /// get currentQuntity in Account
+        /// 
+        public int GetQuntityInAccount(int IDAcount)
+        {
+            int reslt = 0;
+            cmd = new SqlCommand("select Quntity from Account where IDAccount=@IDAccount", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@IDAccount", IDAcount);
+            con.Open();
+            reslt = (int)cmd.ExecuteScalar();
+            con.Close();
+            return reslt;
+
+        }
+        ////
+        // get currnt quntity chack quntity
         ///
+        public int GetQuntityInChackQuntity(int IDChack)
+        {
+            int resl = 0;
+            cmd = new SqlCommand("select CurrntQuntity from CheckQuntity where IDCheck=@IDCheck", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@IDCheck", IDChack);
+            con.Open();
+            resl = (int)cmd.ExecuteScalar();
+            con.Close();
+            return resl;
 
 
+        }
+        
+        ////////
+        ////////
+        /// Update quntity account
+        /// 
+        public int UpdateQuntityAccount(int IDAccount ,int newquntity)
+        {
+            int resl = 0;
+            cmd = new SqlCommand("UPDATE [Account]   SET [Quntity] = @newquntity WHERE IDAccount =@IDAccount", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@IDAccount", IDAccount);
+            cmd.Parameters.AddWithValue("@newquntity", newquntity);
+            con.Open();
+            resl = cmd.ExecuteNonQuery();
+            con.Close();
+            return resl;
+        }
 
+        ////////////
+        ///////
+        /// update quntity chackquntity
+        /// 
+        public int UpadateQintityInchekQuntity(int IDchack,int CurrntQuntity)
+        {
+            int resl = 0;
+            cmd = new SqlCommand("UPDATE CheckQuntity   SET CurrntQuntity=@CurrntQuntity WHERE IDCheck=@IDCheck", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@IDCheck", IDchack);
+            cmd.Parameters.AddWithValue("@CurrntQuntity", CurrntQuntity);
+            con.Open();
+            resl = cmd.ExecuteNonQuery();
+            con.Close();
+            return resl;
+        }
 
-
-
-
-
+        //////
+        /// add new account
+        /// 
+        public int AddNewAccount(int IDCategory,int IDType,int Quntity,int Price)
+        {
+            int reslt = 0;
+            cmd = new SqlCommand("insert into Account (IDCategory,IDType,Quntity,Price) values(@IDCategory,@IDType,@Quntity,@Price)", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@IDCategory",IDCategory);
+            cmd.Parameters.AddWithValue("@IDType",IDType);
+            cmd.Parameters.AddWithValue("@Quntity",Quntity);
+            cmd.Parameters.AddWithValue("@Price",Price);
+            con.Open();
+            reslt = cmd.ExecuteNonQuery();
+            con.Close();
+            return reslt;
+        }
+        
+        //////
+        /// add new CheckQuntity
+        ///
+        public int AddNewCheckQuntity(int IDCategory,int IDType,int LessQuntity,int Quntity)
+        {
+            int resl = 0;
+            cmd = new SqlCommand("insert into CheckQuntity (IDCategory,IDType,LessQuntity,CurrntQuntity) values (@IDCategory,@IDType,@LessQuntity,@CurrntQuntity)", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@IDCategory", IDCategory);
+            cmd.Parameters.AddWithValue("@IDType", IDType);
+            cmd.Parameters.AddWithValue("@LessQuntity", LessQuntity);
+            cmd.Parameters.AddWithValue("@CurrntQuntity", Quntity);
+            con.Open();
+            resl = cmd.ExecuteNonQuery();
+            con.Close();
+            return resl;
+        }
 
 
 
@@ -251,7 +356,7 @@ namespace StoreManagement
                 cmd.Parameters.AddWithValue("@name", name);
 
             }
-           else(flag==3)//delete
+           else if(flag==3)//delete
             {
                 cmd.Parameters.AddWithValue("@id", id); 
 
