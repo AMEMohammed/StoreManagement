@@ -9,3 +9,4 @@ E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.pdb
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Form1.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmCategory.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmTypeQuntity.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmPlaceSend.resources

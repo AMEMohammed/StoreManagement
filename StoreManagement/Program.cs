@@ -17,7 +17,7 @@ namespace StoreManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmTypeQuntity());
+            Application.Run(new frmPlaceSend());
         }
     }
 }

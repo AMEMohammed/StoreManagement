@@ -59,6 +59,12 @@
     <Compile Include="frmCategory.Designer.cs">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPlaceSend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlaceSend.Designer.cs">
+      <DependentUpon>frmPlaceSend.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTypeQuntity.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPlaceSend.resx">
+      <DependentUpon>frmPlaceSend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTypeQuntity.resx">
       <DependentUpon>frmTypeQuntity.cs</DependentUpon>

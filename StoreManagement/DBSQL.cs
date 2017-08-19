@@ -150,9 +150,9 @@ namespace StoreManagement
 
 
         // add new PlaceSend
-        public int AddPlaceSend(string name)
+        public int AddNewPlaceSend(string name)
         {
-            string qury = "INSERT INTO [StoreManagement].[dbo].[PlaceSend] ([NamePlace]) VALUES  (@id)";
+            string qury = "INSERT INTO [StoreManagement].[dbo].[PlaceSend] ([NamePlace]) VALUES  (@name)";
             return ExecuteQury(qury, 0, name, 1);
 
         }
@@ -160,7 +160,7 @@ namespace StoreManagement
 
         //
         // update Place send
-        public int UpdtePlaceSend(int id, string name)
+        public int UpdatePlaceSend(int id, string name)
         {
             string qury = "UPDATE [StoreManagement].[dbo].[PlaceSend] SET [NamePlace] =@name  WHERE IDPlace =@id";
             return ExecuteQury(qury, id, name, 2);
@@ -170,7 +170,7 @@ namespace StoreManagement
         // delete PalceSend
         public int DeletePlaceSend(int id)
         {
-            string qury = "";
+            string qury = "delete from PlaceSend where IDPlace=@id";
             return ExecuteQury(qury, id,null, 3);
 
         }
