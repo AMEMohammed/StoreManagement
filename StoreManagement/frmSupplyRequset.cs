@@ -95,7 +95,7 @@ namespace StoreManagement
             { if ((MessageBox.Show("هل تريد ترحيل طلب التوريد واعتماده ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                 {
                     int idcate = (int)comboBox1.SelectedValue;
-                    MessageBox.Show(idcate.ToString());
+                 
                     int idtype = (int)comboBox2.SelectedValue;
                     int qunt = Convert.ToInt32(textBox1.Text);
                     int price = Convert.ToInt32(textBox2.Text);
@@ -103,7 +103,7 @@ namespace StoreManagement
                     string name = textBox4.Text;
                     string dec = textBox5.Text;
                     int idAcount = dbsql.CheckAccountIsHere(idcate, idtype, price);
-                    MessageBox.Show(idAcount.ToString());
+                  
                     int idCheck = dbsql.CheckQuntityISHereInCheckQuntity(idcate, idtype);
                     if (idAcount > 0) // في حالة الحساب موجود من قبل
                     {   //  تعديل الحساب بالكمية الجديدة
@@ -130,6 +130,22 @@ namespace StoreManagement
                     }
                     /////////////////////////////////////////////////////////
                     dbsql.AddNewRequsetSupply(idcate, idtype, qunt, price, name, dec, DateTime.Now);//اضافة طلب جديد
+                    if ((MessageBox.Show("هل تريد طباعة سند توريد؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+                    {
+                        try
+                        {
+                            int IDRequstSupply = dbsql.GetMaxSupplyid();
+                            frmREPORT frmr = new frmREPORT();
+                            frmr.Tag = IDRequstSupply;
+                            frmr.ShowDialog();
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+
+                        }
+                    }
+
                     Refrsh1();
                 }
                 

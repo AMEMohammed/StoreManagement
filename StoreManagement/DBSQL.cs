@@ -40,6 +40,17 @@ namespace StoreManagement
 
         }
 
+        public int GetMaxSupplyid()
+        {
+            int r = 0;
+            con.Open();
+            cmd = new SqlCommand("select max(IDSupply) from RequstSupply ", con);
+            r = (int)cmd.ExecuteScalar();
+            con.Close();
+            return r;
+
+        }
+
         ///
         ////  Search Category
         public DataTable SearchCategory(string nameCatagory)
@@ -361,6 +372,18 @@ namespace StoreManagement
             return resl;
         }
       
+        public DataTable RPTRqustSupply(int IDSupply)
+        {
+            DataTable dt = new DataTable();
+       
+            cmd = new SqlCommand("SELECT  Category.NameCategory as'اسم الصنف' ,TypeQuntity.NameType as 'نوع الصنف',RequstSupply.DateSupply as 'تاريخ التوريد', RequstSupply.DescSupply as 'وصف التوريد',RequstSupply.NameSupply as 'اسم المورد', RequstSupply.Price as 'السعر', RequstSupply.Quntity as 'الكمية الموردة' from Category, TypeQuntity, RequstSupply where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDSupply = @idSupply", con);
+            cmd.Parameters.AddWithValue("@idSupply", IDSupply);
+            cmd.CommandType = CommandType.Text;
+            //  DataSet1 ds = new DataSet1();
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
 
 
 
