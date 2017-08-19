@@ -19,9 +19,28 @@ namespace StoreManagement
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DBSQL dbsql = new DBSQL();
-            dataGridView1.DataSource = dbsql.GetAllCategory();
+            
                  
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new frmCategory().ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new frmPlaceSend().ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new frmTypeQuntity().ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new frmSupplyRequset().ShowDialog();
         }
     }
 }

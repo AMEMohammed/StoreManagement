@@ -10,3 +10,4 @@ E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.For
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmCategory.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmTypeQuntity.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmPlaceSend.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmSupplyRequset.resources

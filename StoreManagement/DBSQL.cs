@@ -183,6 +183,7 @@ namespace StoreManagement
           public int CheckAccountIsHere(int IDCategory,int IDType,int price)
         {
             int reslt = 0;
+            con.Open();
             try
             {
                 cmd = new SqlCommand("select IDAccount from Account where IDCategory=@IDCategory and IDType=@IDType and Price=@Price ", con);
@@ -190,14 +191,18 @@ namespace StoreManagement
                 cmd.Parameters.AddWithValue("@IDCategory", IDCategory);
                 cmd.Parameters.AddWithValue("@IDType", IDType);
                 cmd.Parameters.AddWithValue("@Price", price);
-                con.Open();
+              
                 reslt = (int)cmd.ExecuteScalar();
                 con.Close();
 
             }
             catch
             { reslt = 0; }
-
+            finally
+            {
+                con.Close();
+               
+            }
             return reslt;
         }
         //////
@@ -206,23 +211,31 @@ namespace StoreManagement
         public int CheckQuntityISHereInCheckQuntity(int IDCategory,int IDType)
         {
             int reslt = 0;
+            con.Open();
             try
             {
                 cmd = new SqlCommand("select IDCheck from CheckQuntity where IDCategory=@IDCategory and IDType=@IDType", con);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@IDCategory", IDCategory);
                 cmd.Parameters.AddWithValue("@IDType", IDType);
-               
-                con.Open();
+
+
                 reslt = (int)cmd.ExecuteScalar();
-                con.Close();
+
 
             }
             catch
-            { reslt = 0; }
+            {
+                reslt = 0;
 
+            }
+            finally
+            {
+               
+                con.Close();
+                
+            }
             return reslt;
-
         }
         
         ///
@@ -327,7 +340,27 @@ namespace StoreManagement
             return resl;
         }
 
-
+        //////////////////////////////////
+        /// add new Requst Supply
+        /// 
+        public int AddNewRequsetSupply(int IDCategory,int IDType,int Quntity,int Price,string NameSupply,string DescSupply,DateTime DateSupply)
+        {
+            int resl = 0;
+            cmd = new SqlCommand("insert into RequstSupply(IDCategory,IDType,Quntity,Price,NameSupply,DescSupply,DateSupply) values(@IDCategory,@IDType,@Quntity,@Price,@NameSupply,@DescSupply,@DateSupply)", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@IDCategory", IDCategory);
+            cmd.Parameters.AddWithValue("@IDType", IDType);
+            cmd.Parameters.AddWithValue("@Quntity", Quntity);
+            cmd.Parameters.AddWithValue("@Price", Price);
+            cmd.Parameters.AddWithValue("@NameSupply", NameSupply);
+            cmd.Parameters.AddWithValue("@DescSupply", DescSupply);
+            cmd.Parameters.AddWithValue("@DateSupply", DateSupply);
+            con.Open();
+            resl = cmd.ExecuteNonQuery();
+            con.Close();
+            return resl;
+        }
+      
 
 
 

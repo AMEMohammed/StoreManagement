@@ -102,7 +102,7 @@ namespace StoreManagement
 
         }
         public void changeLanguage()
-        {
+        { 
             foreach (InputLanguage lng in InputLanguage.InstalledInputLanguages)
             {
                 if (lng.LayoutName == "العربية (101)")

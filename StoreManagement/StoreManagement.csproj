@@ -65,6 +65,12 @@
     <Compile Include="frmPlaceSend.Designer.cs">
       <DependentUpon>frmPlaceSend.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSupplyRequset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSupplyRequset.Designer.cs">
+      <DependentUpon>frmSupplyRequset.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTypeQuntity.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPlaceSend.resx">
       <DependentUpon>frmPlaceSend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSupplyRequset.resx">
+      <DependentUpon>frmSupplyRequset.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTypeQuntity.resx">
       <DependentUpon>frmTypeQuntity.cs</DependentUpon>
