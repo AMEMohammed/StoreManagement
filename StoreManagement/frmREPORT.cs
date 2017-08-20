@@ -22,12 +22,17 @@ namespace StoreManagement
             try
             {
                 int id = (int)this.Tag;
-                RPT.RPTrequstSupply rt = new RPT.RPTrequstSupply();
-                dbsql.RPTRqustSupply(id);
-
-                rt.SetDataSource(dbsql.RPTRqustSupply(id));
+                // RPT.RPTrequstSupply rt = new RPT.RPTrequstSupply();
+                //dbsql.RPTRqustSupply(id);
+                RPT.RequstOut rt = new RPT.RequstOut();
+                rt.SetDataSource(dbsql.PrintRequstOut(id));
                 crystalReportViewer1.ReportSource = rt;
                 crystalReportViewer1.Refresh();
+              
+
+               // rt.SetDataSource(dbsql.RPTRqustSupply(id));
+              //  crystalReportViewer1.ReportSource = rt;
+               // crystalReportViewer1.Refresh();
             }
             catch(Exception ex)
             {

@@ -40,7 +40,16 @@ namespace StoreManagement
 
         private void button4_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             new frmSupplyRequset().ShowDialog();
+            this.Cursor = Cursors.Default;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+          
+            new frmRequstOut().ShowDialog();
+           
         }
     }
 }

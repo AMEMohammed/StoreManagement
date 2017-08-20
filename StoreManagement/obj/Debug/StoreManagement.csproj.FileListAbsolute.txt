@@ -31,3 +31,5 @@ E:\StoreManagement\StoreManagement\StoreManagement\bin\Debug\ShockwaveFlashObjec
 E:\StoreManagement\StoreManagement\StoreManagement\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 E:\StoreManagement\StoreManagement\StoreManagement\bin\Debug\stdole.dll
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmREPORT.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmsttingImage.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmRequstOut.resources

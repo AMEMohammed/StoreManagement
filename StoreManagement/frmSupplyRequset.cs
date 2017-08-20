@@ -19,49 +19,41 @@ namespace StoreManagement
         }
     
         private void frmSupplyRequset_Load(object sender, EventArgs e)
-        {
+        {   try
+            {
+                comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
+                comboBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                comboBox2.AutoCompleteSource = AutoCompleteSource.ListItems;
+                getDate1();
 
-            getDate1("");
-            GetDate2();
-            changeLanguage();
-            MessageBoxManager.Yes = "نعم";
-            MessageBoxManager.No = "الغاء";
-           
-            MessageBoxManager.Register();
+                changeLanguage();
+                MessageBoxManager.Yes = "نعم";
+                MessageBoxManager.No = "الغاء";
 
-           // AuotComp("");
+                MessageBoxManager.Register();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        
         }
 
 
-        void getDate1( string s)
+        void getDate1( )
         {
             comboBox1.DisplayMember = "اسم الصنف";
             comboBox1.ValueMember = "رقم الصنف";
-            comboBox1.DataSource = dbsql.SearchCategory(s);
-
-        } 
-        void AuotComp( string s)
-        {
-            AutoCompleteStringCollection aut = new AutoCompleteStringCollection();
-            DataTable dt = new DataTable();
-            dt = dbsql.SearchCategory(s);
-            for(int i=0;i<dt.Rows.Count;i++)
-            {
-                aut.Add(dt.Rows[i][1].ToString());
-            }
-            comboBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
-            comboBox1.AutoCompleteSource  =AutoCompleteSource.CustomSource;
-            comboBox1.AutoCompleteCustomSource = aut;
-        }
-        void GetDate2()
-        {
-            DataTable dt = new DataTable();
-            dt = dbsql.GetAllTypeQuntity();
+            comboBox1.DataSource = dbsql.GetAllCategoryAR() ;
             comboBox2.DisplayMember = "اسم النوع";
             comboBox2.ValueMember = "رقم النوع";
-            comboBox2.DataSource = dt;
+            comboBox2.DataSource = dbsql.GetAllTypeQuntity();
 
-        }
+        } 
+       
+        
 
       
         public void changeLanguage()
@@ -91,7 +83,7 @@ namespace StoreManagement
 
         private void button2_Click(object sender, EventArgs e)
         {  
-            if(textBox1.Text.Length>0&&textBox2.Text.Length>0&&textBox3.Text.Length>0 &&comboBox1.Text.Length>0)
+            if(textBox1.Text.Length>0&&textBox2.Text.Length>0 &&comboBox1.Text.Length>0)
             { if ((MessageBox.Show("هل تريد ترحيل طلب التوريد واعتماده ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                 {
                     int idcate = (int)comboBox1.SelectedValue;
@@ -99,7 +91,7 @@ namespace StoreManagement
                     int idtype = (int)comboBox2.SelectedValue;
                     int qunt = Convert.ToInt32(textBox1.Text);
                     int price = Convert.ToInt32(textBox2.Text);
-                    int lessQu = Convert.ToInt32(textBox3.Text);
+                 
                     string name = textBox4.Text;
                     string dec = textBox5.Text;
                     int idAcount = dbsql.CheckAccountIsHere(idcate, idtype, price);
@@ -118,16 +110,7 @@ namespace StoreManagement
                         dbsql.AddNewAccount(idcate,idtype,qunt,price);// اضافة حساب جديد
                     }
                     /////////////////////////////////
-                    if (idCheck > 0)//التاكد من جدول التاكد من الكميات
-                    {
-                        int oldchqu = dbsql.GetQuntityInChackQuntity(idCheck);
-                        int newckqu = oldchqu + qunt;
-                        dbsql.UpadateQintityInchekQuntity(idCheck, newckqu);
-                    }
-                    else
-                    {
-                        dbsql.AddNewCheckQuntity(idcate, idtype, lessQu, qunt);
-                    }
+                
                     /////////////////////////////////////////////////////////
                     dbsql.AddNewRequsetSupply(idcate, idtype, qunt, price, name, dec, DateTime.Now);//اضافة طلب جديد
                     if ((MessageBox.Show("هل تريد طباعة سند توريد؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
@@ -168,11 +151,11 @@ namespace StoreManagement
        
         void Refrsh1()
         {
-            getDate1("");
-            GetDate2();
+            getDate1();
+     
             textBox1.Text = "";
             textBox2.Text = "";
-            textBox3.Text = "";
+         
             textBox4.Text = "";
             textBox5.Text = "";
         }

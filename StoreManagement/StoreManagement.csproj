@@ -53,6 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DBSQL.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -78,6 +83,12 @@
     <Compile Include="frmREPORT.Designer.cs">
       <DependentUpon>frmREPORT.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRequstOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRequstOut.Designer.cs">
+      <DependentUpon>frmRequstOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmsttingImage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,10 +110,10 @@
     <Compile Include="MessageBoxManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RPT\RPTrequstSupply.cs">
+    <Compile Include="RPT\RequstOut.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RPTrequstSupply.rpt</DependentUpon>
+      <DependentUpon>RequstOut.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
@@ -116,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmREPORT.resx">
       <DependentUpon>frmREPORT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRequstOut.resx">
+      <DependentUpon>frmRequstOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmsttingImage.resx">
       <DependentUpon>frmsttingImage.cs</DependentUpon>
@@ -136,10 +150,21 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RPT\RPTrequstSupply.rpt">
+    <EmbeddedResource Include="RPT\RequstOut.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RPTrequstSupply.cs</LastGenOutput>
+      <LastGenOutput>RequstOut.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -177,9 +202,26 @@
   <ItemGroup>
     <None Include="Resources\logout.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\open-file-button.png" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh-button %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

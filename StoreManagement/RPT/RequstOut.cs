@@ -16,14 +16,14 @@ namespace StoreManagement.RPT {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class RPTrequstSupply : ReportClass {
+    public class RequstOut : ReportClass {
         
-        public RPTrequstSupply() {
+        public RequstOut() {
         }
         
         public override string ResourceName {
             get {
-                return "RPTrequstSupply.rpt";
+                return "RequstOut.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace StoreManagement.RPT {
         
         public override string FullResourceName {
             get {
-                return "StoreManagement.RPT.RPTrequstSupply.rpt";
+                return "StoreManagement.RPT.RequstOut.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace StoreManagement.RPT {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedRPTrequstSupply : Component, ICachedReport {
+    public class CachedRequstOut : Component, ICachedReport {
         
-        public CachedRPTrequstSupply() {
+        public CachedRequstOut() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace StoreManagement.RPT {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            RPTrequstSupply rpt = new RPTrequstSupply();
+            RequstOut rpt = new RequstOut();
             rpt.Site = this.Site;
             return rpt;
         }
