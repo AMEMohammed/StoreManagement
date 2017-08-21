@@ -35,8 +35,8 @@ namespace StoreManagement
         {
             try
               {
-
-            dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now);
+                changeLanguage();
+            dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now); 
 
              }
              catch(Exception ex)
@@ -94,10 +94,14 @@ namespace StoreManagement
         private void تعديلToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(dataGridView1.SelectedRows.Count>0)
-            {
+            {      
                 int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                 frmUpateSupply2 frmu = new frmUpateSupply2();
                 frmu.Tag = id;
+                this.Cursor = Cursors.WaitCursor;
+
+                frmu.ShowDialog();
+                this.Cursor = Cursors.Default ;
             }
         }
 
@@ -105,7 +109,6 @@ namespace StoreManagement
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-               
                 int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                 this.Cursor = Cursors.WaitCursor;
                 frmREPORT frm = new frmREPORT(id, 1);
@@ -141,5 +144,28 @@ namespace StoreManagement
             this.Close();
         }
         ///////////////
+        /// <summary>
+        /// // change language
+        /// </summary>
+        public void changeLanguage()
+        {
+            try
+            {
+                foreach (InputLanguage lng in InputLanguage.InstalledInputLanguages)
+                {
+                    if (lng.LayoutName == "العربية (101)")
+                        InputLanguage.CurrentInputLanguage = lng;
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }

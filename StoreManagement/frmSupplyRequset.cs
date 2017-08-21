@@ -20,18 +20,19 @@ namespace StoreManagement
     
         private void frmSupplyRequset_Load(object sender, EventArgs e)
         {   try
-            {
+            {/////////
                 comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
                 comboBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 comboBox2.AutoCompleteSource = AutoCompleteSource.ListItems;
                 getDate1();
-
+                 ////////////
                 changeLanguage();
                 MessageBoxManager.Yes = "نعم";
                 MessageBoxManager.No = "الغاء";
-
                 MessageBoxManager.Register();
+                ///////
+               
             }
             catch(Exception ex)
             {
@@ -50,7 +51,7 @@ namespace StoreManagement
             comboBox2.DisplayMember = "اسم النوع";
             comboBox2.ValueMember = "رقم النوع";
             comboBox2.DataSource = dbsql.GetAllTypeQuntity();
-
+            dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.Date, DateTime.Now);
         } 
        
         
@@ -83,7 +84,7 @@ namespace StoreManagement
 
         private void button2_Click(object sender, EventArgs e)
         {  
-            if(textBox1.Text.Length>0&&textBox2.Text.Length>0 &&comboBox1.Text.Length>0)
+            if(textBox1.Text.Length>0&&textBox2.Text.Length>0  && (int)comboBox1.SelectedValue>0&& (int)comboBox2.SelectedValue > 0 )
             { if ((MessageBox.Show("هل تريد ترحيل طلب التوريد واعتماده ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                 {
                     int idcate = (int)comboBox1.SelectedValue;
@@ -96,7 +97,7 @@ namespace StoreManagement
                     string dec = textBox5.Text;
                     int idAcount = dbsql.CheckAccountIsHere(idcate, idtype, price);
                   
-                    int idCheck = dbsql.CheckQuntityISHereInCheckQuntity(idcate, idtype);
+                
                     if (idAcount > 0) // في حالة الحساب موجود من قبل
                     {   //  تعديل الحساب بالكمية الجديدة
                         int oldQunt = dbsql.GetQuntityInAccount(idAcount);
@@ -169,6 +170,25 @@ namespace StoreManagement
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        //
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+
+                int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                this.Cursor = Cursors.WaitCursor;
+                frmREPORT frm = new frmREPORT(id, 1);
+                frm.ShowDialog();
+                this.Cursor = Cursors.Default;
+            }
         }
         /////////
 

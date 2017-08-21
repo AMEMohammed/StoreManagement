@@ -77,7 +77,7 @@
             this.groupBox3.Location = new System.Drawing.Point(0, 25);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(502, 80);
-            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "تاريخ البحث";
             // 
@@ -88,7 +88,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(6, 33);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePicker2.TabIndex = 1;
+            this.dateTimePicker2.TabIndex = 4;
             // 
             // dateTimePicker1
             // 
@@ -97,7 +97,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(212, 33);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dateTimePicker1.TabIndex = 3;
             // 
             // checkBox1
             // 
@@ -106,7 +106,7 @@
             this.checkBox1.Location = new System.Drawing.Point(418, 36);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(61, 26);
-            this.checkBox1.TabIndex = 3;
+            this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "تفعيل";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -117,7 +117,7 @@
             this.groupBox2.Location = new System.Drawing.Point(508, 25);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(441, 80);
-            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "نص البحث ";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
@@ -128,7 +128,7 @@
             this.textBox1.Location = new System.Drawing.Point(6, 36);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(429, 29);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button4
@@ -137,7 +137,7 @@
             this.button4.Location = new System.Drawing.Point(6, 133);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(81, 45);
-            this.button4.TabIndex = 7;
+            this.button4.TabIndex = 8;
             this.toolTip1.SetToolTip(this.button4, "خروج");
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -148,7 +148,7 @@
             this.button3.Location = new System.Drawing.Point(93, 133);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(81, 45);
-            this.button3.TabIndex = 6;
+            this.button3.TabIndex = 7;
             this.toolTip1.SetToolTip(this.button3, "طباعة الكل");
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -159,7 +159,7 @@
             this.button2.Location = new System.Drawing.Point(180, 133);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 45);
-            this.button2.TabIndex = 5;
+            this.button2.TabIndex = 6;
             this.toolTip1.SetToolTip(this.button2, "طباعة سند توريد");
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -170,7 +170,7 @@
             this.button1.Location = new System.Drawing.Point(267, 133);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 45);
-            this.button1.TabIndex = 4;
+            this.button1.TabIndex = 5;
             this.toolTip1.SetToolTip(this.button1, "بحث");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -181,7 +181,7 @@
             this.groupBox10.Location = new System.Drawing.Point(12, 214);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(955, 515);
-            this.groupBox10.TabIndex = 1;
+            this.groupBox10.TabIndex = 9;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "طلبات التوريد";
             // 
@@ -206,19 +206,22 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(943, 549);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabIndex = 9;
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.تعديلToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(104, 26);
+            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 52);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // تعديلToolStripMenuItem
             // 
             this.تعديلToolStripMenuItem.Name = "تعديلToolStripMenuItem";
-            this.تعديلToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.تعديلToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.تعديلToolStripMenuItem.Text = "تعديل";
             this.تعديلToolStripMenuItem.Click += new System.EventHandler(this.تعديلToolStripMenuItem_Click);
             // 

@@ -15,7 +15,7 @@ namespace StoreManagement
         private string ConnectionSreing = @"Data Source=.\S2008;Initial Catalog=StoreManagement;Integrated Security=True";
         public SqlConnection con;
         public SqlCommand cmd;
-        public SqlDataReader reader;
+      
         public SqlDataAdapter adapter;
         public DBSQL()
         {
@@ -654,7 +654,7 @@ namespace StoreManagement
         { //
             DataTable dt = new DataTable();
                 txt = "%" + txt + "%";
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,  Category.NameCategory as ' اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي', RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDType = TypeQuntity.IDType and  Category.NameCategory + TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply  like @txt ", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,  Category.NameCategory as ' اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي', RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,IDSupply)+convert(varchar,Quntity)+convert(varchar,Quntity)+convert(varchar,Price)+Category.NameCategory + TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply  like @txt ", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@txt", txt);
              adapter = new SqlDataAdapter(cmd);
@@ -715,7 +715,70 @@ namespace StoreManagement
             return dt;
 
         }
+        ////////////////////////////////////////////
+        /////// GetRequstSupply
+        public DataTable GetRequstSupply(int IDreqSup)
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("select IDSupply,IDCategory,IDType,Quntity,Price,DateSupply,NameSupply,DescSupply  from  RequstSupply where IDSupply=@id ", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@id", IDreqSup);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
 
+        }
+        ////////////////////////////////////////////////////////////
+        //////////// update Requst Supply
+        //////////////////////////////////
+ 
+        /// 
+        public int UPateRequstSupply(int IDSup, int IDCategory, int IDType, int Quntity, int Price, string NameSupply, string DescSupply)
+        {
+            int resl = 0;
+            cmd = new SqlCommand("Update RequstSupply set IDCategory=@IDCategory,IDType=@IDType,Quntity=@Quntity,Price=@Price,NameSupply=@NameSupply,DescSupply=@DescSupply where IDSupply=@IDSupply", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@IDSupply", IDSup);
+            cmd.Parameters.AddWithValue("@IDCategory", IDCategory);
+            cmd.Parameters.AddWithValue("@IDType", IDType);
+            cmd.Parameters.AddWithValue("@Quntity", Quntity);
+            cmd.Parameters.AddWithValue("@Price", Price);
+            cmd.Parameters.AddWithValue("@NameSupply", NameSupply);
+            cmd.Parameters.AddWithValue("@DescSupply", DescSupply);
+           
+            con.Open();
+            resl = cmd.ExecuteNonQuery();
+            con.Close();
+            return resl;
+        }
+
+        ////////////////////////////////////////////////////////////
+        //////////// Add New in UPD supply
+        //////////////////////////////////
+
+        /// 
+        public int ADDNewUPDSupply(int IDSup, int IDCategory, int IDType, int Quntity, int Price, string NameSupply, string DescSupply, DateTime dateAdd, DateTime dateUpd, string decNew)
+        {
+            int resl = 0;
+            cmd = new SqlCommand("INSERT INTO [StoreManagement].[dbo].[UpdSupply]([IDSupply] ,[IDCategory],[IDType],[Quntity],[Price],[NameSupply],[DescSupply],[DateSupply],[DescUpd] ,[dateUpd]) VALUES (@IDSupply,@IDCategory,@IDType,@Quntity,@Price,@NameSupply,@DescSupply,@deteAdd,@descup,@dateup)", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@IDSupply", IDSup);
+            cmd.Parameters.AddWithValue("@IDCategory", IDCategory);
+            cmd.Parameters.AddWithValue("@IDType", IDType);
+            cmd.Parameters.AddWithValue("@Quntity", Quntity);
+            cmd.Parameters.AddWithValue("@Price", Price);
+            cmd.Parameters.AddWithValue("@NameSupply", NameSupply);
+            cmd.Parameters.AddWithValue("@DescSupply", DescSupply);
+            cmd.Parameters.AddWithValue("@deteAdd", dateAdd);
+            cmd.Parameters.AddWithValue("@descup", decNew);
+            cmd.Parameters.AddWithValue("@dateup", dateUpd);
+           
+
+            con.Open();
+            resl = cmd.ExecuteNonQuery();
+            con.Close();
+            return resl;
+        }
 
 
     }
