@@ -632,7 +632,7 @@ namespace StoreManagement
         {
             DataTable dt = new DataTable();
 
-            cmd = new SqlCommand("select Category.NameCategory ,TypeQuntity.NameType,PlaceSend.NamePlace,RequstOut.DateOut,RequstOut.DesOut,RequstOut.NameOut,RequstOut.NameSend ,RequstOut.Price,RequstOut.Quntity from RequstOut,Category,TypeQuntity,PlaceSend where RequstOut.IDCategory = Category.IDCategory and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack =@check", con);
+            cmd = new SqlCommand("select  Category.NameCategory ,TypeQuntity.NameType,PlaceSend.NamePlace,RequstOut.DateOut,RequstOut.DesOut,RequstOut.NameOut,RequstOut.NameSend ,RequstOut.Price,RequstOut.Quntity from RequstOut,Category,TypeQuntity,PlaceSend where RequstOut.IDCategory = Category.IDCategory and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack =@check", con);
             cmd.Parameters.AddWithValue("@check", Check);
             cmd.CommandType = CommandType.Text;
             adapter = new SqlDataAdapter(cmd);
@@ -640,6 +640,81 @@ namespace StoreManagement
             return dt;
         }
 
+
+
+
+
+
+
+
+
+        //////////////////////////////
+        //////////////// search in RequsetSupply
+        public DataTable SearchINRequsetSupply(string txt)
+        { //
+            DataTable dt = new DataTable();
+                txt = "%" + txt + "%";
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,  Category.NameCategory as ' اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي', RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDType = TypeQuntity.IDType and  Category.NameCategory + TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply  like @txt ", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@txt", txt);
+             adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+
+        //////////////////////////////
+        //////////////// search in RequsetSupply ageo Week
+        public DataTable SearchINRequsetSupplyDate( DateTime d1,DateTime d2)
+        { 
+            DataTable dt = new DataTable();
+            
+
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,  Category.NameCategory as ' اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية' ,RequstSupply.Quntity as 'الكمية',RequstSupply.Price as 'سعر الوحدة',RequstSupply.Quntity *RequstSupply.Price  as 'الاجمالي', RequstSupply.DateSupply as'تاريخ التوريد',RequstSupply.NameSupply as 'اسم المورد',RequstSupply.DescSupply  as 'ملاحظات' from Category, TypeQuntity, RequstSupply where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDType = TypeQuntity.IDType and DateSupply between @d1 and @d2 ", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@d1", d1);
+            cmd.Parameters.AddWithValue("@d2", d2);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        //////////////////////////////
+        //////////////// search in RequsetSupplythwTXT and Date
+        public DataTable SearchINRequsetSupplyTxtAndDate(string txt ,DateTime d1,DateTime d2)
+        { //
+            DataTable dt = new DataTable();
+            txt = "%" + txt + "%";
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as ' اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي', RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDType = TypeQuntity.IDType and  Category.NameCategory + TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply  like @txt and DateSupply between @d1 and @d2 ", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@txt", txt);
+            cmd.Parameters.AddWithValue("@d1", d1);
+            cmd.Parameters.AddWithValue("@d2", d2);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+
+
+
+
+
+
+
+
+
+        /////////////////////
+        ////////////////////////////////////////////
+        /////// GetRequstSupply
+        public DataTable PrintRequstSupply(int IDreqSup)
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("select IDSupply ,  Category.NameCategory , TypeQuntity.NameType , RequstSupply.Quntity , RequstSupply.Price  , RequstSupply.Quntity * RequstSupply.Price  , RequstSupply.DateSupply , RequstSupply.NameSupply , RequstSupply.DescSupply  from Category, TypeQuntity, RequstSupply where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDType = TypeQuntity.IDType  and RequstSupply.IDSupply =@id", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@id",IDreqSup);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+
+        }
 
 
 

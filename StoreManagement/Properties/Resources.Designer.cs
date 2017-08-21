@@ -133,6 +133,16 @@ namespace StoreManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap magnifying_glass {
+            get {
+                object obj = ResourceManager.GetObject("magnifying-glass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap open_file_button {
             get {
                 object obj = ResourceManager.GetObject("open-file-button", resourceCulture);
@@ -166,6 +176,26 @@ namespace StoreManagement.Properties {
         internal static System.Drawing.Bitmap plus__2_ {
             get {
                 object obj = ResourceManager.GetObject("plus (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap print {
+            get {
+                object obj = ResourceManager.GetObject("print", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap printer_ {
+            get {
+                object obj = ResourceManager.GetObject("printer-", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

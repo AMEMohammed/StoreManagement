@@ -33,3 +33,5 @@ E:\StoreManagement\StoreManagement\StoreManagement\bin\Debug\stdole.dll
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmREPORT.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmsttingImage.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmRequstOut.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmUpateSupply.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmUpateSupply2.resources

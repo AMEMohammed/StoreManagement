@@ -51,5 +51,10 @@ namespace StoreManagement
             new frmRequstOut().ShowDialog();
            
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            new frmUpateSupply().ShowDialog();
+        }
     }
 }

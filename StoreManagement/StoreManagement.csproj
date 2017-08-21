@@ -53,6 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,6 +110,18 @@
     <Compile Include="frmTypeQuntity.Designer.cs">
       <DependentUpon>frmTypeQuntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUpateSupply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpateSupply.Designer.cs">
+      <DependentUpon>frmUpateSupply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpateSupply2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpateSupply2.Designer.cs">
+      <DependentUpon>frmUpateSupply2.cs</DependentUpon>
+    </Compile>
     <Compile Include="MessageBoxManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,6 +129,24 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RequstOut.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptRequstSupplyAll.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptRequstSupplyAll.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\RptRequstSupplyAll.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptRequstSupplyAll.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\RptRqustSupply.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptRqustSupply.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
@@ -140,6 +173,12 @@
     <EmbeddedResource Include="frmTypeQuntity.resx">
       <DependentUpon>frmTypeQuntity.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmUpateSupply.resx">
+      <DependentUpon>frmUpateSupply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpateSupply2.resx">
+      <DependentUpon>frmUpateSupply2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -153,6 +192,18 @@
     <EmbeddedResource Include="RPT\RequstOut.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RequstOut.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptRequstSupplyAll.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptRequstSupplyAll.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\RptRequstSupplyAll.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptRequstSupplyAll.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\RptRqustSupply.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptRqustSupply.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -222,6 +273,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logout %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifying-glass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer-.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
