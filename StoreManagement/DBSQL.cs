@@ -940,16 +940,28 @@ namespace StoreManagement
         ////////////
         // get user
         public bool CheckUser(string User,string Pass)
-        {   bool check = false;
-            DataTable dt = new DataTable();
-            cmd = new SqlCommand("select @ from Setting", con);
-            cmd.CommandType = CommandType.Text;
-            adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(dt);
-            if (dt.Rows.Count > 0)
-                check = true;
-            else
+        {
+            bool check = false;
+            try
+            {
+               
+                DataTable dt = new DataTable();
+                cmd = new SqlCommand("select * from Setting where UserName=@UserName and PassWord=@PassWord", con);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@UserName", User);
+                cmd.Parameters.AddWithValue("@PassWord", Pass);
+                adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                    check = true;
+                else
+                    check = false;
+            }
+            catch(Exception ex)
+            {
                 check = false;
+                MessageBox.Show(ex.Message);
+            }
             return check;
         }
 

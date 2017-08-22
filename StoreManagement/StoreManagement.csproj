@@ -367,6 +367,39 @@
   <ItemGroup>
     <None Include="Resources\logout %282%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documents.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documents1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings-for-categories.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\give-money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dollar-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\town-tower-building.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings-gears.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newspaper.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
