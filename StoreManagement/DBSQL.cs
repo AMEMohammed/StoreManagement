@@ -964,7 +964,28 @@ namespace StoreManagement
             }
             return check;
         }
+        //////////////
+        //////////
+        public void SaveImg(byte [] bimg)
+        {
+            cmd = new SqlCommand("Update Setting set img=@img where IDSetting=1", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@img" , bimg);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
 
+        public DataTable GetImg()
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("select img from Setting where IDSetting =1", con);
+
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+
+        }
 
     }
 

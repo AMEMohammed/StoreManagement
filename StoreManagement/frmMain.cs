@@ -132,5 +132,10 @@ namespace StoreManagement
             new frmPlaceSend().ShowDialog();
             this.Cursor = Cursors.Default;
         }
+
+        private void شعلرالتقاريرToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmsttingImage().ShowDialog();
+        }
     }
 }

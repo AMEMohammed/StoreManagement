@@ -367,6 +367,8 @@ namespace StoreManagement {
             
             private global::System.Data.DataColumn columnPrice;
             
+            private global::System.Data.DataColumn columnimg;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -474,6 +476,14 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn imgColumn {
+                get {
+                    return this.columnimg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -509,7 +519,7 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string NameCategory, string NameTyp, string NamePlace, string DateOut, string DesOut, string NameOut, string NameSend, string Quntity, string Price) {
+            public DataTable1Row AddDataTable1Row(string NameCategory, string NameTyp, string NamePlace, string DateOut, string DesOut, string NameOut, string NameSend, string Quntity, string Price, string img) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NameCategory,
@@ -520,7 +530,8 @@ namespace StoreManagement {
                         NameOut,
                         NameSend,
                         Quntity,
-                        Price};
+                        Price,
+                        img};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -552,6 +563,7 @@ namespace StoreManagement {
                 this.columnNameSend = base.Columns["NameSend"];
                 this.columnQuntity = base.Columns["Quntity"];
                 this.columnPrice = base.Columns["Price"];
+                this.columnimg = base.Columns["img"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -575,6 +587,8 @@ namespace StoreManagement {
                 base.Columns.Add(this.columnQuntity);
                 this.columnPrice = new global::System.Data.DataColumn("Price", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrice);
+                this.columnimg = new global::System.Data.DataColumn("img", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnimg);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1588,6 +1602,22 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string img {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.imgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'img\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.imgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNameCategoryNull() {
                 return this.IsNull(this.tableDataTable1.NameCategoryColumn);
             }
@@ -1692,6 +1722,18 @@ namespace StoreManagement {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPriceNull() {
                 this[this.tableDataTable1.PriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsimgNull() {
+                return this.IsNull(this.tableDataTable1.imgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetimgNull() {
+                this[this.tableDataTable1.imgColumn] = global::System.Convert.DBNull;
             }
         }
         
