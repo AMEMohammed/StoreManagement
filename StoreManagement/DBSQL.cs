@@ -452,7 +452,7 @@ namespace StoreManagement
         public DataTable GetCatagoryInAccount()
         {
             DataTable dt = new DataTable();
-            cmd = new SqlCommand("select DISTINCT Category.IDCategory  as 'رقم الصنف',Category.NameCategory as 'اسم الصنف' from Category,Account where Account.IDCategory =Category.IDCategory", con);
+            cmd = new SqlCommand("select DISTINCT Category.IDCategory  as 'رقم الصنف',Category.NameCategory as 'اسم الصنف' from Category,Account where Account.IDCategory =Category.IDCategory and Account.Quntity>0", con);
             cmd.CommandType = CommandType.Text;
             adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dt);
@@ -463,7 +463,7 @@ namespace StoreManagement
         public DataTable GetTypeInAccount(int IdCate)
         {
             DataTable dt = new DataTable();
-            cmd = new SqlCommand("select DISTINCT TypeQuntity.IDType as 'رقم النوع' ,TypeQuntity.NameType as 'اسم النوع' from TypeQuntity,Account where Account.IDType = TypeQuntity.IDType and Account.IDCategory =@IDCategory", con);
+            cmd = new SqlCommand("select DISTINCT TypeQuntity.IDType as 'رقم النوع' ,TypeQuntity.NameType as 'اسم النوع' from TypeQuntity,Account where Account.IDType = TypeQuntity.IDType and Account.IDCategory =@IDCategory and Account.Quntity>0", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@IDCategory", IdCate);
             adapter = new SqlDataAdapter(cmd);
@@ -501,16 +501,17 @@ namespace StoreManagement
 
         ///////////////////////////
         /////////GetAccountIDs
-        public DataTable GetAccountIDs(int IdCAte, int IdTpe)
+        public DataTable GetAccountIDs(int IdCAte, int IdTpe,int idcurrnt)
         {
             DataTable dt = new DataTable();
             try
             {
 
-                cmd = new SqlCommand("select Account.IDAccount from Account where Account.IDCategory = @IDCategory and Account.IDType = @IDType and Quntity>0", con);
+                cmd = new SqlCommand("select Account.IDAccount from Account where Account.IDCategory = @IDCategory and Account.IDType = @IDType and Account.IDCurrency=@IDCurrency and Account.Quntity>0", con);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@IDCategory", IdCAte);
                 cmd.Parameters.AddWithValue("@IDType", IdTpe);
+                cmd.Parameters.AddWithValue("@IDCurrency", idcurrnt);
                 adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);
 
@@ -529,7 +530,7 @@ namespace StoreManagement
         ////////////////////////////////////////////////////////////
         //////////////////
         /////////////////  التكد من ان الحساب يغطي الطلب وارجاع صفر في حالة تم الطلب او ارجاع الكمية المتبقة المطلوبه
-        public int GetAndCheckQuntityAccountAndAddRqustNew(int IDAccount, int QuntityMust, int IDCategory, int IDType, int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend)
+        public int GetAndCheckQuntityAccountAndAddRqustNew(int IDAccount, int QuntityMust, int IDCategory, int IDType, int idcurrn,int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend)
         {
             int r = -1;
             int QuntityOld = GetQuntityInAccount(IDAccount);
@@ -540,7 +541,7 @@ namespace StoreManagement
                 int newQuntity = QuntityOld - QuntityMust;
                 UpdateQuntityAccount(IDAccount, newQuntity);/// تعديل الحساب بالكمية الجديدة
 
-                AddNewRequstOut(QuntityMust, IDCategory, IDType, IDPlace, NameOut, DesOut, DateOut, Chack, NameSend,Price);// اضافة طلب جديد
+                AddNewRequstOut(QuntityMust, IDCategory, IDType, idcurrn,IDPlace, NameOut, DesOut, DateOut, Chack, NameSend,Price);// اضافة طلب جديد
               
                 r = 0;
             }
@@ -551,7 +552,7 @@ namespace StoreManagement
 
                 int newQun = QuntityMust - QuntityOld;
                 UpdateQuntityAccount(IDAccount, 0);
-                AddNewRequstOut(QuntityOld, IDCategory, IDType, IDPlace, NameOut, DesOut, DateOut, Chack, NameSend,Price);// اضافة طلب جديد
+                AddNewRequstOut(QuntityOld, IDCategory, IDType,idcurrn, IDPlace, NameOut, DesOut, DateOut, Chack, NameSend,Price);// اضافة طلب جديد
             
                 r = QuntityOld;
                 
@@ -578,13 +579,13 @@ namespace StoreManagement
 
         //////////////
         /////// Add New requstOut
-        public int AddNewRequstOut(int Quntity, int IDCategory, int IDType, int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend,int price)
+        public int AddNewRequstOut(int Quntity, int IDCategory, int IDType, int idcurrnt,int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend,int price)
         {
             int res = 0;
             con.Open();
             try
             {
-                cmd = new SqlCommand("insert into RequstOut (Chack,DateOut,DesOut,IDCategory,IDPlace,IDType,NameOut,NameSend,Quntity,Price) values(@Chack,@DateOut,@DesOut,@IDCategory,@IDPlace,@IDType,@NameOut,@NameSend,@Quntity,@Price)", con);
+                cmd = new SqlCommand("insert into RequstOut (Chack,DateOut,DesOut,IDCategory,IDPlace,IDType,NameOut,NameSend,Quntity,Price,IDCurrency) values(@Chack,@DateOut,@DesOut,@IDCategory,@IDPlace,@IDType,@NameOut,@NameSend,@Quntity,@Price,@IDCurrency)", con);
                 cmd.Parameters.AddWithValue("@Chack", Chack);
                 cmd.Parameters.AddWithValue("@DateOut", DateOut);
                 cmd.Parameters.AddWithValue("@DesOut", DesOut);
@@ -595,6 +596,7 @@ namespace StoreManagement
                 cmd.Parameters.AddWithValue("@NameSend", NameSend);
                 cmd.Parameters.AddWithValue("@Quntity", Quntity);
                 cmd.Parameters.AddWithValue("@Price", price);
+                cmd.Parameters.AddWithValue("@IDCurrency", idcurrnt);
                 res = cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -792,7 +794,7 @@ namespace StoreManagement
             DataTable dt = new DataTable();
 
 
-            cmd = new SqlCommand("select RequstOut.IDOut as 'رقم الطلب',Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,RequstOut.DesOut as 'ملاحظات',RequstOut.Chack from Category,TypeQuntity,PlaceSend,RequstOut where RequstOut.IDCategory=Category.IDCategory and RequstOut.IDType=TypeQuntity.IDType and RequstOut.IDPlace =PlaceSend.IDPlace  and DateOut between @d1 and @d2 ", con);
+            cmd = new SqlCommand("select RequstOut.IDOut as 'رقم الطلب',Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,RequstOut.DesOut as 'ملاحظات',RequstOut.Chack from Category,TypeQuntity,PlaceSend,RequstOut,Currency where RequstOut.IDCategory=Category.IDCategory and RequstOut.IDType=TypeQuntity.IDType and RequstOut.IDPlace =PlaceSend.IDPlace and RequstOut.IDCurrency =Currency.IDCurrency  and DateOut between @d1 and @d2 ", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@d1", d1);
             cmd.Parameters.AddWithValue("@d2", d2);
@@ -841,6 +843,22 @@ namespace StoreManagement
             adapter.Fill(dt);
             return dt;
 
+        }
+        /// <summary>
+        /// ////////////////////
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetCurrencyINAccount(int idcat,int idtyp)
+        {
+
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("select DISTINCT Currency.IDCurrency as 'رقم العملة', Currency.NameCurrency as 'اسم العملة' from Currency,Account where Account.IDCurrency=Currency.IDCurrency and Account.IDCategory=@IDCategory and Account.IDType=@IDType and Account.Quntity>0", con);
+            cmd.Parameters.AddWithValue("@IDCategory", idcat);
+            cmd.Parameters.AddWithValue("@IDType", idtyp);
+            cmd.CommandType = CommandType.Text;
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
         }
 
         /////////////////////////////////////////////////

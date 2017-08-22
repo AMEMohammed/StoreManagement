@@ -29,6 +29,8 @@ namespace StoreManagement
                 comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
                 comboBox3.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 comboBox3.AutoCompleteSource = AutoCompleteSource.ListItems;
+                comboBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                comboBox4.AutoCompleteSource = AutoCompleteSource.ListItems;
                 GetData1();
                 changeLanguage();
                 MessageBoxManager.Yes = "نعم";
@@ -104,6 +106,10 @@ namespace StoreManagement
             try
             {
                 textBox1.Text = dbsql.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue).ToString();
+                comboBox4.ValueMember = "رقم العملة";
+                comboBox4.DisplayMember = "اسم العملة";
+                comboBox4.DataSource = dbsql.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue);
+
             }
             catch(Exception ex)
             {
@@ -139,6 +145,8 @@ namespace StoreManagement
 
                 }
             }
+            else
+            { textBox2.Focus(); }
         }
         /// <summary>
         /// //////////
@@ -147,13 +155,14 @@ namespace StoreManagement
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if(comboBox1.Text.Length>0&&comboBox2.Text.Length>0&&comboBox3.Text.Length>0&&textBox2.Text.Length>0&&textBox3.Text.Length>0&&textBox4.Text.Length>0)
+          if((int)comboBox1.SelectedValue>0 & (int)comboBox2.SelectedValue > 0 & (int)comboBox3.SelectedValue > 0 & (int)comboBox4.SelectedValue > 0 & textBox2.Text.Length>0 & textBox3.Text.Length>0 &textBox4.Text.Length>0)
             {
                 if ((MessageBox.Show("هل تريد ترحيل طلب الصرف ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                 {
                     int Idcat = ((int)comboBox1.SelectedValue);
                     int idtyp = ((int)comboBox2.SelectedValue);
                     int idplace = ((int)comboBox3.SelectedValue);
+                    int idcurrnt = ((int)comboBox4.SelectedValue);
                     int QunntyMust = Convert.ToInt32(textBox2.Text);
                     string nameAmmer = textBox3.Text;
                     string nameMostlaem = textBox4.Text;
@@ -162,7 +171,7 @@ namespace StoreManagement
 
 
                     DataTable dtAccountIDs = new DataTable();
-                    dtAccountIDs = dbsql.GetAccountIDs(Idcat, idtyp); // [جلب الحسابات التي تحتوي على نفس النوع والصنف
+                    dtAccountIDs = dbsql.GetAccountIDs(Idcat, idtyp,idcurrnt); // [جلب الحسابات التي تحتوي على نفس النوع والصنف
                     int MaxCheckRequstOut = dbsql.GetMaxCheckInRequsetOut();
                     MaxCheckRequstOut += 1;
               
@@ -171,7 +180,7 @@ namespace StoreManagement
                    for (int i = 0; i < dtAccountIDs.Rows.Count; i++)
                     {
                          int IDAccount = Convert.ToInt32(dtAccountIDs.Rows[i][0].ToString());
-                         int result = dbsql.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idplace, nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem);
+                         int result = dbsql.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idplace, idcurrnt,nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem);
                         if (result == 0)
                         {
                             break;
@@ -239,6 +248,11 @@ namespace StoreManagement
                 
                 frm.ShowDialog();
             }
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
