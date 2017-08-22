@@ -68,6 +68,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,18 @@
     </Compile>
     <Compile Include="frmCurrency.Designer.cs">
       <DependentUpon>frmCurrency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmlogin.Designer.cs">
+      <DependentUpon>frmlogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPlaceSend.cs">
       <SubType>Form</SubType>
@@ -115,6 +133,12 @@
     </Compile>
     <Compile Include="frmTypeQuntity.Designer.cs">
       <DependentUpon>frmTypeQuntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpateOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpateOut.Designer.cs">
+      <DependentUpon>frmUpateOut.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUpateSupply.cs">
       <SubType>Form</SubType>
@@ -158,11 +182,20 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCurrency.resx">
       <DependentUpon>frmCurrency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmlogin.resx">
+      <DependentUpon>frmlogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPlaceSend.resx">
       <DependentUpon>frmPlaceSend.cs</DependentUpon>
@@ -181,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTypeQuntity.resx">
       <DependentUpon>frmTypeQuntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpateOut.resx">
+      <DependentUpon>frmUpateOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpateSupply.resx">
       <DependentUpon>frmUpateSupply.cs</DependentUpon>
@@ -306,6 +342,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\save %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keyhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

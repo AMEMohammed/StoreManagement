@@ -1,6 +1,6 @@
 ﻿namespace StoreManagement
 {
-    partial class frmUpateSupply
+    partial class frmUpateOut
     {
         /// <summary>
         /// Required designer variable.
@@ -43,15 +43,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.تعديلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -74,9 +71,9 @@
             this.groupBox3.Controls.Add(this.dateTimePicker2);
             this.groupBox3.Controls.Add(this.dateTimePicker1);
             this.groupBox3.Controls.Add(this.checkBox1);
-            this.groupBox3.Location = new System.Drawing.Point(6, 25);
+            this.groupBox3.Location = new System.Drawing.Point(0, 25);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(496, 80);
+            this.groupBox3.Size = new System.Drawing.Size(502, 80);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "تاريخ البحث";
@@ -88,7 +85,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(6, 33);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePicker2.TabIndex = 3;
+            this.dateTimePicker2.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
@@ -136,10 +133,9 @@
             this.button4.Location = new System.Drawing.Point(6, 133);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(81, 45);
-            this.button4.TabIndex = 7;
+            this.button4.TabIndex = 6;
             this.toolTip1.SetToolTip(this.button4, "خروج");
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -147,10 +143,9 @@
             this.button3.Location = new System.Drawing.Point(93, 133);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(81, 45);
-            this.button3.TabIndex = 6;
+            this.button3.TabIndex = 5;
             this.toolTip1.SetToolTip(this.button3, "طباعة الكل");
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -158,10 +153,9 @@
             this.button2.Location = new System.Drawing.Point(180, 133);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 45);
-            this.button2.TabIndex = 5;
+            this.button2.TabIndex = 4;
             this.toolTip1.SetToolTip(this.button2, "طباعة سند توريد");
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -169,7 +163,7 @@
             this.button1.Location = new System.Drawing.Point(267, 133);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 45);
-            this.button1.TabIndex = 4;
+            this.button1.TabIndex = 3;
             this.toolTip1.SetToolTip(this.button1, "بحث");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -180,16 +174,15 @@
             this.groupBox10.Location = new System.Drawing.Point(12, 214);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(955, 515);
-            this.groupBox10.TabIndex = 8;
+            this.groupBox10.TabIndex = 7;
             this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "طلبات التوريد";
+            this.groupBox10.Text = "طلبات الصرف";
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(6, 25);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -205,41 +198,25 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(943, 484);
-            this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.TabIndex = 7;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.تعديلToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(119, 30);
-            // 
-            // تعديلToolStripMenuItem
-            // 
-            this.تعديلToolStripMenuItem.Name = "تعديلToolStripMenuItem";
-            this.تعديلToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
-            this.تعديلToolStripMenuItem.Text = "تعديل";
-            this.تعديلToolStripMenuItem.Click += new System.EventHandler(this.تعديلToolStripMenuItem_Click);
-            // 
-            // frmUpateSupply
+            // frmUpateOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 741);
-            this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox10);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmUpateSupply";
+            this.Name = "frmUpateOut";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "طلبات التوريد";
-            this.Load += new System.EventHandler(this.frmUpateSupply_Load);
+            this.Text = "طلبات الصرف";
+            this.Load += new System.EventHandler(this.frmUpateOut_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -247,7 +224,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -255,20 +231,18 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem تعديلToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

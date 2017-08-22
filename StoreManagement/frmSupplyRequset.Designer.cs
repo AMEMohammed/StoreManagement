@@ -151,7 +151,7 @@
             this.groupBox7.Location = new System.Drawing.Point(6, 137);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(589, 94);
-            this.groupBox7.TabIndex = 5;
+            this.groupBox7.TabIndex = 6;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "ملاحظات";
             // 
@@ -162,7 +162,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox5.Size = new System.Drawing.Size(577, 29);
-            this.textBox5.TabIndex = 5;
+            this.textBox5.TabIndex = 6;
             // 
             // groupBox8
             // 
@@ -173,7 +173,7 @@
             this.groupBox8.Location = new System.Drawing.Point(6, 237);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(360, 97);
-            this.groupBox8.TabIndex = 6;
+            this.groupBox8.TabIndex = 7;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "العمليات";
             // 
@@ -183,7 +183,7 @@
             this.button1.Location = new System.Drawing.Point(93, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 54);
-            this.button1.TabIndex = 8;
+            this.button1.TabIndex = 9;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -193,7 +193,7 @@
             this.button5.Location = new System.Drawing.Point(6, 25);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(81, 54);
-            this.button5.TabIndex = 9;
+            this.button5.TabIndex = 10;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -203,7 +203,7 @@
             this.button4.Location = new System.Drawing.Point(180, 25);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(81, 54);
-            this.button4.TabIndex = 7;
+            this.button4.TabIndex = 8;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -213,7 +213,7 @@
             this.button2.Location = new System.Drawing.Point(267, 25);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 54);
-            this.button2.TabIndex = 6;
+            this.button2.TabIndex = 7;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -224,7 +224,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox4.Size = new System.Drawing.Size(335, 29);
-            this.textBox4.TabIndex = 4;
+            this.textBox4.TabIndex = 5;
             // 
             // groupBox6
             // 
@@ -232,7 +232,7 @@
             this.groupBox6.Location = new System.Drawing.Point(600, 137);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(349, 94);
-            this.groupBox6.TabIndex = 4;
+            this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "اسم المورد";
             // 
@@ -258,7 +258,7 @@
             this.groupBox9.Location = new System.Drawing.Point(12, 376);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(955, 341);
-            this.groupBox9.TabIndex = 10;
+            this.groupBox9.TabIndex = 11;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "طلبات التوريد لليوم الحالي";
             // 
@@ -282,7 +282,7 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(943, 310);
-            this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.TabIndex = 11;
             // 
             // groupBox10
             // 
@@ -290,7 +290,7 @@
             this.groupBox10.Location = new System.Drawing.Point(864, 37);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(96, 94);
-            this.groupBox10.TabIndex = 7;
+            this.groupBox10.TabIndex = 4;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "العملة";
             // 
@@ -300,7 +300,7 @@
             this.comboBox3.Location = new System.Drawing.Point(10, 38);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(76, 27);
-            this.comboBox3.TabIndex = 0;
+            this.comboBox3.TabIndex = 4;
             // 
             // frmSupplyRequset
             // 

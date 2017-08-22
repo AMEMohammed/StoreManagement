@@ -62,7 +62,7 @@ namespace StoreManagement
              
                 dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.Date, DateTime.Now); // جلب طلبات الصرف لليوم الحالي
                 dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[11].Visible = false;
+                dataGridView1.Columns[12].Visible = false;
 
             }
             catch(Exception ex)
@@ -105,7 +105,7 @@ namespace StoreManagement
         {
             try
             {
-                textBox1.Text = dbsql.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue).ToString();
+             
                 comboBox4.ValueMember = "رقم العملة";
                 comboBox4.DisplayMember = "اسم العملة";
                 comboBox4.DataSource = dbsql.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue);
@@ -131,7 +131,7 @@ namespace StoreManagement
             {
                 try
                 {
-                    int qunntNow = dbsql.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue);
+                    int qunntNow = dbsql.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue,(int)comboBox4.SelectedValue);
                     int qunnMus = Convert.ToInt32(textBox2.Text);
                     if (qunnMus > qunntNow)
                     {
@@ -250,9 +250,9 @@ namespace StoreManagement
             }
         }
 
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox4_Leave(object sender, EventArgs e)
         {
-
+            textBox1.Text = dbsql.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue,(int)comboBox4.SelectedValue).ToString();
         }
     }
 }

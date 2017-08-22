@@ -473,16 +473,17 @@ namespace StoreManagement
         }
         /////////////////////////////////////
         ////////// get quntity in Account
-        public int GetQunitiyinAccount2(int Idcae, int IdType)
+        public int GetQunitiyinAccount2(int Idcae, int IdType ,int idcurrnt)
         {
             int res = 0;
             con.Open();
             try
             {
-                cmd = new SqlCommand("select SUM(Account.Quntity) from Account  where Account.IDCategory = @IDCategory and Account.IDType = @IDType", con);
+                cmd = new SqlCommand("select SUM(Account.Quntity) from Account  where Account.IDCategory = @IDCategory and Account.IDType = @IDType and Account.IDCurrency=@IDCurrency", con);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@IDCategory", Idcae);
                 cmd.Parameters.AddWithValue("@IDType", IdType);
+                cmd.Parameters.AddWithValue("@IDCurrency", idcurrnt);
                 res = (int)cmd.ExecuteScalar();
             }
             catch (Exception ex)
@@ -688,7 +689,7 @@ namespace StoreManagement
         { //
             DataTable dt = new DataTable();
             txt = "%" + txt + "%";
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as ' اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة', RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and  Category.NameCategory + TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply+Currency.NameCurrency  like @txt and DateSupply between @d1 and @d2 ", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as ' اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة', RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,IDSupply)+convert(varchar,Quntity)+convert(varchar,Quntity)+convert(varchar,Price)+ Category.NameCategory + TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply+Currency.NameCurrency  like @txt and DateSupply between @d1 and @d2 ", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@txt", txt);
             cmd.Parameters.AddWithValue("@d1", d1);
@@ -890,9 +891,68 @@ namespace StoreManagement
             return res;
 
         }
-        ///////////////////////////
-        ////// get Currency
+    
+        ///////////////////////////////////
+        ////////
+        public DataTable SearchINRequsetOuttxt(string s)
+      {
+            s = "%" + s + "%";
+         DataTable dt = new DataTable();
+
+
+        cmd = new SqlCommand("select RequstOut.IDOut as 'رقم الطلب',Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,RequstOut.DesOut as 'ملاحظات',RequstOut.Chack from Category,TypeQuntity,PlaceSend,RequstOut,Currency where RequstOut.IDCategory=Category.IDCategory and RequstOut.IDType=TypeQuntity.IDType and RequstOut.IDPlace =PlaceSend.IDPlace and RequstOut.IDCurrency =Currency.IDCurrency  and Category.NameCategory + TypeQuntity.NameType + PlaceSend.NamePlace +RequstOut.DesOut+RequstOut.NameOut+ RequstOut.NameSend+CONVERT(varchar,RequstOut.IDOut)+CONVERT(varchar,RequstOut.Price)+CONVERT(varchar,RequstOut.Quntity) like @txt ", con);
+        cmd.CommandType = CommandType.Text;
+           
+            cmd.Parameters.AddWithValue("@txt", s);
+            adapter = new SqlDataAdapter(cmd);
+          adapter.Fill(dt);
+            return dt;
        
+        }
+        ///////////////////////////////////
+        ////////// 
+    public DataTable SearchINRequsetOutTxtAndDate(string s,DateTime d1,DateTime d2)
+        {
+            s = "%" + s + "%";
+            DataTable dt = new DataTable();
+
+
+            cmd = new SqlCommand("select RequstOut.IDOut as 'رقم الطلب',Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,RequstOut.DesOut as 'ملاحظات',RequstOut.Chack from Category,TypeQuntity,PlaceSend,RequstOut,Currency where RequstOut.IDCategory=Category.IDCategory and RequstOut.IDType=TypeQuntity.IDType and RequstOut.IDPlace =PlaceSend.IDPlace and RequstOut.IDCurrency =Currency.IDCurrency  and Category.NameCategory + TypeQuntity.NameType + PlaceSend.NamePlace +RequstOut.DesOut+RequstOut.NameOut+ RequstOut.NameSend+CONVERT(varchar,RequstOut.IDOut)+CONVERT(varchar,RequstOut.Price)+CONVERT(varchar,RequstOut.Quntity) like @txt and DateOut between d1 and d2 ", con);
+            cmd.CommandType = CommandType.Text;
+
+            cmd.Parameters.AddWithValue("@txt", s);
+            cmd.Parameters.AddWithValue("@d1", d1);
+            cmd.Parameters.AddWithValue("@d2", d2);
+
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+
+
+        }
+
+
+
+
+
+
+        ////////////////////////////////
+        ////////////
+        // get user
+        public bool CheckUser(string User,string Pass)
+        {   bool check = false;
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("select @ from Setting", con);
+            cmd.CommandType = CommandType.Text;
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            if (dt.Rows.Count > 0)
+                check = true;
+            else
+                check = false;
+            return check;
+        }
+
 
     }
 

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace StoreManagement
 {
     public partial class Form1 : Form
-    {
+    { public static int  iiii=0;
         public Form1()
         {
             InitializeComponent();
@@ -60,6 +60,12 @@ namespace StoreManagement
         private void button7_Click(object sender, EventArgs e)
         {
             new frmCurrency().ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            new Form2().ShowDialog();
+            MessageBox.Show(iiii.ToString());
         }
     }
 }

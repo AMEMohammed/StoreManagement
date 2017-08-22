@@ -40,7 +40,7 @@ namespace StoreManagement
 
              }
              catch(Exception ex)
-      { MessageBox.Show(ex.Message); }
+          { MessageBox.Show(ex.Message); }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -86,10 +86,7 @@ namespace StoreManagement
 
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void تعديلToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -171,9 +168,6 @@ namespace StoreManagement
             }
         }
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
+       
     }
 }
