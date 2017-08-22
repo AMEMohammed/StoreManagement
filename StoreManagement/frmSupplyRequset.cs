@@ -25,6 +25,8 @@ namespace StoreManagement
                 comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
                 comboBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 comboBox2.AutoCompleteSource = AutoCompleteSource.ListItems;
+                comboBox3.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                comboBox3.AutoCompleteSource = AutoCompleteSource.ListItems;
                 getDate1();
                  ////////////
                 changeLanguage();
@@ -51,6 +53,9 @@ namespace StoreManagement
             comboBox2.DisplayMember = "اسم النوع";
             comboBox2.ValueMember = "رقم النوع";
             comboBox2.DataSource = dbsql.GetAllTypeQuntity();
+            comboBox3.DisplayMember = "اسم العملة";
+            comboBox3.ValueMember = "رقم العملة";
+            comboBox3.DataSource = dbsql.GetAllCurrency();
             dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.Date, DateTime.Now);
         } 
        
@@ -90,12 +95,13 @@ namespace StoreManagement
                     int idcate = (int)comboBox1.SelectedValue;
                  
                     int idtype = (int)comboBox2.SelectedValue;
+                    int idCurrnt = (int)comboBox3.SelectedValue;
                     int qunt = Convert.ToInt32(textBox1.Text);
                     int price = Convert.ToInt32(textBox2.Text);
                  
                     string name = textBox4.Text;
                     string dec = textBox5.Text;
-                    int idAcount = dbsql.CheckAccountIsHere(idcate, idtype, price);
+                    int idAcount = dbsql.CheckAccountIsHere(idcate, idtype, price,idCurrnt);
                   
                 
                     if (idAcount > 0) // في حالة الحساب موجود من قبل
@@ -108,12 +114,12 @@ namespace StoreManagement
                     }
                     else //  في حالة الحساب جديد
                     {
-                        dbsql.AddNewAccount(idcate,idtype,qunt,price);// اضافة حساب جديد
+                        dbsql.AddNewAccount(idcate,idtype,qunt,price,idCurrnt);// اضافة حساب جديد
                     }
                     /////////////////////////////////
                 
                     /////////////////////////////////////////////////////////
-                    dbsql.AddNewRequsetSupply(idcate, idtype, qunt, price, name, dec, DateTime.Now);//اضافة طلب جديد
+                    dbsql.AddNewRequsetSupply(idcate, idtype, qunt, price,idCurrnt, name, dec, DateTime.Now);//اضافة طلب جديد
                     if ((MessageBox.Show("هل تريد طباعة سند توريد؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                     {
                         try

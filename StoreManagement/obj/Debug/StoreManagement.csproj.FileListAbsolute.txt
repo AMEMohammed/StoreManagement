@@ -35,3 +35,4 @@ E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frm
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmRequstOut.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmUpateSupply.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmUpateSupply2.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmCurrency.resources

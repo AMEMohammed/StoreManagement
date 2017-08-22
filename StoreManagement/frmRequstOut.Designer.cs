@@ -46,11 +46,11 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
@@ -232,6 +232,16 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "العمليات";
             // 
+            // button4
+            // 
+            this.button4.Image = global::StoreManagement.Properties.Resources.printer_;
+            this.button4.Location = new System.Drawing.Point(179, 27);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(81, 54);
+            this.button4.TabIndex = 11;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // button3
             // 
             this.button3.Image = global::StoreManagement.Properties.Resources.logout__1_;
@@ -279,15 +289,6 @@
             this.groupBox10.TabIndex = 0;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "اضافة طلب طرف";
-            // 
-            // button4
-            // 
-            this.button4.Image = global::StoreManagement.Properties.Resources.printer_;
-            this.button4.Location = new System.Drawing.Point(179, 27);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(81, 54);
-            this.button4.TabIndex = 11;
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // groupBox11
             // 

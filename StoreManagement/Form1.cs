@@ -56,5 +56,10 @@ namespace StoreManagement
         {
             new frmUpateSupply().ShowDialog();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            new frmCurrency().ShowDialog();
+        }
     }
 }

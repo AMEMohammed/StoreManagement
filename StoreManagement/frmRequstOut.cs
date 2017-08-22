@@ -57,6 +57,10 @@ namespace StoreManagement
                 comboBox3.ValueMember = "رقم الجهة";
                 comboBox3.DisplayMember = "اسم الجهة";
                 comboBox3.DataSource = dbsql.GetAllPlace();
+             
+                dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.Date, DateTime.Now); // جلب طلبات الصرف لليوم الحالي
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[11].Visible = false;
 
             }
             catch(Exception ex)
@@ -184,8 +188,8 @@ namespace StoreManagement
                     }
                     if ((MessageBox.Show("هل تريد طباعة سند صرف؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                     {
-                        frmREPORT frm = new frmREPORT();
-                        frm.Tag = MaxCheckRequstOut;
+                        frmREPORT frm = new frmREPORT(MaxCheckRequstOut, 2);
+
                         frm.ShowDialog();
 
                     }
@@ -223,6 +227,18 @@ namespace StoreManagement
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.SelectedRows.Count>0)
+
+            {
+                int IDcheck=Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[11].Value.ToString());
+                frmREPORT frm = new frmREPORT(IDcheck,2);
+                
+                frm.ShowDialog();
+            }
         }
     }
 }

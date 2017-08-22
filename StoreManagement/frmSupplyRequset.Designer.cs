@@ -49,6 +49,8 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -59,14 +61,15 @@
             this.groupBox5.SuspendLayout();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Location = new System.Drawing.Point(679, 25);
+            this.groupBox1.Location = new System.Drawing.Point(730, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(270, 94);
+            this.groupBox1.Size = new System.Drawing.Size(219, 94);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "اسم الصنف ";
@@ -77,15 +80,15 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(6, 36);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(258, 30);
+            this.comboBox1.Size = new System.Drawing.Size(206, 30);
             this.comboBox1.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Location = new System.Drawing.Point(401, 25);
+            this.groupBox2.Location = new System.Drawing.Point(499, 25);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(272, 94);
+            this.groupBox2.Size = new System.Drawing.Size(225, 94);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "نوع الكمية";
@@ -94,15 +97,15 @@
             // 
             this.comboBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(6, 36);
+            this.comboBox2.Location = new System.Drawing.Point(6, 35);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(258, 30);
+            this.comboBox2.Size = new System.Drawing.Size(212, 30);
             this.comboBox2.TabIndex = 1;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Location = new System.Drawing.Point(215, 25);
+            this.groupBox3.Location = new System.Drawing.Point(313, 25);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(180, 94);
             this.groupBox3.TabIndex = 2;
@@ -124,7 +127,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.textBox2);
-            this.groupBox4.Location = new System.Drawing.Point(6, 25);
+            this.groupBox4.Location = new System.Drawing.Point(104, 25);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(203, 94);
             this.groupBox4.TabIndex = 3;
@@ -281,11 +284,30 @@
             this.dataGridView1.Size = new System.Drawing.Size(943, 310);
             this.dataGridView1.TabIndex = 10;
             // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.comboBox3);
+            this.groupBox10.Location = new System.Drawing.Point(864, 37);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(96, 94);
+            this.groupBox10.TabIndex = 7;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "العملة";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(10, 38);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(76, 27);
+            this.comboBox3.TabIndex = 0;
+            // 
             // frmSupplyRequset
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 741);
+            this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.groupBox5);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -312,6 +334,7 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -338,5 +361,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }

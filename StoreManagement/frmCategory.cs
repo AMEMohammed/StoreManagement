@@ -109,5 +109,10 @@ namespace StoreManagement
                     InputLanguage.CurrentInputLanguage = lng;
             }
         }
+
+        private void dataGridView1_Enter(object sender, EventArgs e)
+        {
+          
+        }
     }
 }
