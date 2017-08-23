@@ -139,7 +139,7 @@
             this.button4.TabIndex = 7;
             this.toolTip1.SetToolTip(this.button4, "خروج");
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // button3
             // 
@@ -148,7 +148,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(81, 45);
             this.button3.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.button3, "طباعة الكل");
+            this.toolTip1.SetToolTip(this.button3, "طباعة المحدد");
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -191,7 +191,6 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(6, 25);
-            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -221,6 +220,7 @@
             this.تعديلToolStripMenuItem.Name = "تعديلToolStripMenuItem";
             this.تعديلToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
             this.تعديلToolStripMenuItem.Text = "تعديل";
+            this.تعديلToolStripMenuItem.Visible = false;
             this.تعديلToolStripMenuItem.Click += new System.EventHandler(this.تعديلToolStripMenuItem_Click);
             // 
             // frmUpateSupply

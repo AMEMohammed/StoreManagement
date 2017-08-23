@@ -133,9 +133,20 @@ namespace StoreManagement
             this.Cursor = Cursors.Default;
         }
 
+       
+
+        private void تقاريرالتعديلاتToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            new frmRPTSupply().ShowDialog();
+            this.Cursor = Cursors.Default;
+        }
+
         private void شعلرالتقاريرToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             new frmsttingImage().ShowDialog();
+            this.Cursor = Cursors.Default;
         }
     }
 }

@@ -40,3 +40,4 @@ E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frm
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmMain.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Form2.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmlogin.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmRPTSupply.resources

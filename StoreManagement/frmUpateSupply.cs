@@ -19,7 +19,7 @@ namespace StoreManagement
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox1.Checked==true)
+            if (checkBox1.Checked == true)
             {
                 dateTimePicker1.Enabled = true;
                 dateTimePicker2.Enabled = true;
@@ -34,13 +34,13 @@ namespace StoreManagement
         private void frmUpateSupply_Load(object sender, EventArgs e)
         {
             try
-              {
+            {
                 changeLanguage();
-            dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now); 
+                dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-3), DateTime.Now);
 
-             }
-             catch(Exception ex)
-          { MessageBox.Show(ex.Message); }
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace StoreManagement
             }
             else if (textBox1.Text == "" && checkBox1.Checked == false)
             {
-                dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now);
+                dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-3), DateTime.Now);
             }
             else if (textBox1.Text.Length > 0 && checkBox1.Checked == true)
             {
@@ -69,16 +69,16 @@ namespace StoreManagement
 
 
         }
-
+      
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-           if(textBox1.Text.Length>0 && checkBox1.Checked==false)
+            if (textBox1.Text.Length > 0 && checkBox1.Checked == false)
                 dataGridView1.DataSource = dbsql.SearchINRequsetSupply(textBox1.Text);
-          else if (textBox1.Text == "" && checkBox1.Checked == false)
+            else if (textBox1.Text == "" && checkBox1.Checked == false)
             {
                 dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now);
             }
-          else if(textBox1.Text.Length>0 && checkBox1.Checked==true)
+            else if (textBox1.Text.Length > 0 && checkBox1.Checked == true)
             {
                 dataGridView1.DataSource = dbsql.SearchINRequsetSupplyTxtAndDate(textBox1.Text, dateTimePicker1.Value.Date, dateTimePicker2.Value);
 
@@ -86,11 +86,11 @@ namespace StoreManagement
 
         }
 
-       
+
 
         private void تعديلToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.SelectedRows.Count>0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 try
                 {
@@ -103,7 +103,7 @@ namespace StoreManagement
                     this.Cursor = Cursors.Default;
                     dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -122,32 +122,52 @@ namespace StoreManagement
             }
 
         }
-         /// <summary>
-         ///  print all
-         /// </summary>
-         /// <param name="sender"></param>
-         /// <param name="e"></param>
+        /// <summary>
+        ///  print all
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                DataSet1 ds = new DataSet1();
                 DataTable dt = new DataTable();
-                dt= (DataTable)dataGridView1.DataSource;                            
+
+
+                ////////// اضافة الاعمدة 
+                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                {
+                    dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
+
+
+                }
+                ///////////////////  أاضافة سطور 
+                foreach (DataGridViewRow dgr in dataGridView1.SelectedRows)
+                {
+
+                    DataRow dr = ((DataRowView)dgr.DataBoundItem).Row;
+                    int idS = Convert.ToInt32(dr[0].ToString());
+                    string nmCa = dr[1].ToString();
+                    string nmty = dr[2].ToString();
+                    int Qun = Convert.ToInt32(dr[3].ToString());
+                    int prs = Convert.ToInt32(dr[4].ToString());
+                    int totl = Convert.ToInt32(dr[5].ToString());
+                    string currn = dr[6].ToString();
+                    DateTime dd = DateTime.Parse(dr[7].ToString());
+                    string namee = dr[8].ToString();
+                    string dec = dr[9].ToString();
+                    dt.Rows.Add(idS, nmCa, nmty, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, dd.Date.ToShortDateString(), namee, dec);
+                }
+
                 this.Cursor = Cursors.WaitCursor;
                 frmREPORT frm = new frmREPORT(3, dt);
                 frm.ShowDialog();
                 this.Cursor = Cursors.Default;
-
-
             }
-
         }
+    
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+     
         ///////////////
         /// <summary>
         /// // change language
@@ -168,6 +188,10 @@ namespace StoreManagement
             }
         }
 
-       
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }

@@ -176,6 +176,7 @@
             this.تقاريرالتعديلاتToolStripMenuItem.Name = "تقاريرالتعديلاتToolStripMenuItem";
             this.تقاريرالتعديلاتToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.تقاريرالتعديلاتToolStripMenuItem.Text = "تقارير التوريد";
+            this.تقاريرالتعديلاتToolStripMenuItem.Click += new System.EventHandler(this.تقاريرالتعديلاتToolStripMenuItem_Click);
             // 
             // تقاريرالصرفToolStripMenuItem
             // 

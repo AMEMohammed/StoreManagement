@@ -238,6 +238,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.groupBox10);
             this.groupBox5.Controls.Add(this.groupBox1);
             this.groupBox5.Controls.Add(this.groupBox8);
             this.groupBox5.Controls.Add(this.groupBox2);
@@ -287,7 +288,7 @@
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.comboBox3);
-            this.groupBox10.Location = new System.Drawing.Point(864, 37);
+            this.groupBox10.Location = new System.Drawing.Point(6, 25);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(96, 94);
             this.groupBox10.TabIndex = 4;
@@ -297,7 +298,7 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(10, 38);
+            this.comboBox3.Location = new System.Drawing.Point(14, 38);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(76, 27);
             this.comboBox3.TabIndex = 4;
@@ -307,7 +308,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 741);
-            this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.groupBox5);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

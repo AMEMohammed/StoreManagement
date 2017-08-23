@@ -37,7 +37,7 @@ namespace StoreManagement
             try
             {
                 changeLanguage();
-                dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.AddDays(-7), DateTime.Now);
+                dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.AddDays(-3), DateTime.Now);
 
             }
             catch (Exception ex)
@@ -80,7 +80,7 @@ namespace StoreManagement
             }
             else if (textBox1.Text == "" && checkBox1.Checked == false)
             {
-                dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.AddDays(-7), DateTime.Now);
+                dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.AddDays(-3), DateTime.Now);
             }
             else if (textBox1.Text.Length > 0 && checkBox1.Checked == true)
             {
