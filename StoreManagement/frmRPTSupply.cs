@@ -157,7 +157,7 @@ namespace StoreManagement
             {
                 Name = textBox4.Text;
             }
-
+            this.Cursor = Cursors.WaitCursor;
             if (checkBox4.Checked ==false)
             {
                 dataGridView1.DataSource = dbsql.PrintRequstRPT(IDCat, IDTyp, IDCurrn, Name);
@@ -166,6 +166,7 @@ namespace StoreManagement
             {
                 dataGridView1.DataSource = dbsql.PrintRequstRPT(dateTimePicker1.Value.Date,dateTimePicker2.Value,IDCat, IDTyp, IDCurrn, Name);
             }
+            this.Cursor = Cursors.Default;
            
 
         }

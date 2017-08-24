@@ -1050,7 +1050,52 @@ namespace StoreManagement
         //////////////////////////////////
         ////////////////////
 
+        public DataTable PrintOutAllwithDate(string idca,string idtyp,string idpalce,string idcurrnt,string name,DateTime d1,DateTime d2)
+        {
+            DataTable dt = new DataTable();
+            idca = "%" + idca;
+            idtyp = "%" + idtyp;
+            idpalce = "%" + idpalce;
+            idcurrnt = "%" + idcurrnt;
+            name = "%" + name + "%";
+            cmd = new SqlCommand("select RequstOut.IDOut as'رقم الطلب' ,Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace AS 'الجهة المستفيدة' ,RequstOut.Quntity as 'الكمية',RequstOut.Price AS 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as 'الاجمالي' ,Currency.NameCurrency AS 'العملة',RequstOut.NameOut AS 'يصرف بامر',RequstOut.NameSend as 'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,RequstOut.DesOut as 'الملاحظات' from RequstOut,Category,TypeQuntity,Currency,PlaceSend where RequstOut.IDCategory=Category.IDCategory and RequstOut.IDType=TypeQuntity.IDType and RequstOut.IDPlace=PlaceSend.IDPlace and RequstOut.IDCurrency=Currency.IDCurrency and convert(varchar,RequstOut.IDCategory) like @idca and convert(varchar,RequstOut.IDType) like @idty and convert(varchar,RequstOut.IDCurrency) like @idcurr and convert(varchar,RequstOut.IDPlace) like @idplac and RequstOut.NameSend like @nmsend and RequstOut.DateOut between @d1 and @d2", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@idca",idca);
+            cmd.Parameters.AddWithValue("@idty",idtyp);
+            cmd.Parameters.AddWithValue("@idcurr",idcurrnt);
+            cmd.Parameters.AddWithValue("@idplac",idpalce);
+            cmd.Parameters.AddWithValue("@nmsend",name);
+            cmd.Parameters.AddWithValue("@d1",d1);
+            cmd.Parameters.AddWithValue("@d2",d2);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
 
+
+        //////////////////////////////////
+        ////////////////////
+
+        public DataTable PrintOutAll(string idca, string idtyp, string idpalce, string idcurrnt, string name)
+        {
+            DataTable dt = new DataTable();
+            idca = "%" + idca;
+            idtyp = "%" + idtyp;
+            idpalce = "%" + idpalce;
+            idcurrnt = "%" + idcurrnt;
+            name = "%" + name + "%";
+            cmd = new SqlCommand("select RequstOut.IDOut as'رقم الطلب' ,Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace AS 'الجهة المستفيدة' ,RequstOut.Quntity as 'الكمية',RequstOut.Price AS 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as 'الاجمالي' ,Currency.NameCurrency AS 'العملة',RequstOut.NameOut AS 'يصرف بامر',RequstOut.NameSend as 'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,RequstOut.DesOut as 'الملاحظات' from RequstOut,Category,TypeQuntity,Currency,PlaceSend where RequstOut.IDCategory=Category.IDCategory and RequstOut.IDType=TypeQuntity.IDType and RequstOut.IDPlace=PlaceSend.IDPlace and RequstOut.IDCurrency=Currency.IDCurrency and convert(varchar,RequstOut.IDCategory) like @idca and convert(varchar,RequstOut.IDType) like @idty and convert(varchar,RequstOut.IDCurrency) like @idcurr and convert(varchar,RequstOut.IDPlace) like @idplac and RequstOut.NameSend like @nmsend", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@idca", idca);
+            cmd.Parameters.AddWithValue("@idty", idtyp);
+            cmd.Parameters.AddWithValue("@idcurr", idcurrnt);
+            cmd.Parameters.AddWithValue("@idplac", idpalce);
+            cmd.Parameters.AddWithValue("@nmsend", name);
+           
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
 
     }
 

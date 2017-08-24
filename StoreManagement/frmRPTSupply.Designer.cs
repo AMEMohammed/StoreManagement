@@ -75,7 +75,7 @@
             this.groupBox5.Size = new System.Drawing.Size(955, 232);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "اضافة طلب توريد";
+            this.groupBox5.Text = "تحديد البحث ";
             // 
             // groupBox4
             // 
@@ -149,10 +149,11 @@
             // comboBox3
             // 
             this.comboBox3.Enabled = false;
+            this.comboBox3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(12, 37);
+            this.comboBox3.Location = new System.Drawing.Point(12, 33);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(76, 27);
+            this.comboBox3.Size = new System.Drawing.Size(76, 30);
             this.comboBox3.TabIndex = 5;
             // 
             // groupBox1
@@ -186,7 +187,7 @@
             this.comboBox1.Enabled = false;
             this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 36);
+            this.comboBox1.Location = new System.Drawing.Point(6, 33);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(187, 30);
             this.comboBox1.TabIndex = 1;
@@ -264,7 +265,7 @@
             this.comboBox2.Enabled = false;
             this.comboBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(6, 35);
+            this.comboBox2.Location = new System.Drawing.Point(6, 33);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(187, 30);
             this.comboBox2.TabIndex = 3;
@@ -282,7 +283,7 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(6, 37);
+            this.textBox4.Location = new System.Drawing.Point(8, 33);
             this.textBox4.Name = "textBox4";
             this.textBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox4.Size = new System.Drawing.Size(241, 29);

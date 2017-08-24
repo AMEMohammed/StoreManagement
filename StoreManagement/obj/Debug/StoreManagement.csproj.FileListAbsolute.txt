@@ -46,3 +46,4 @@ C:\Users\Mohammed Alhazmee\Downloads\Compressed\StoreManagement-master\StoreMana
 C:\Users\Mohammed Alhazmee\Downloads\Compressed\StoreManagement-master\StoreManagement\obj\Debug\StoreManagement.pdb
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmBuckUpDatabase.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmRPTAccount.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmRPTOut.resources

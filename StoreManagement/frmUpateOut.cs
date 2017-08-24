@@ -66,13 +66,15 @@ namespace StoreManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             if (checkBox1.Checked == true && textBox1.Text == "")
             {
 
                 dataGridView1.DataSource = dbsql.SearchINRequstOutDate(dateTimePicker1.Value.Date, dateTimePicker2.Value);
 
             }
-
+           
+         
             else if (textBox1.Text.Length > 0 && checkBox1.Checked == false)
             {
                 dataGridView1.DataSource = dbsql.SearchINRequsetOuttxt(textBox1.Text);
@@ -86,12 +88,13 @@ namespace StoreManagement
             {
                 dataGridView1.DataSource = dbsql.SearchINRequsetOutTxtAndDate(textBox1.Text, dateTimePicker1.Value.Date, dateTimePicker2.Value);
             }
+            this.Cursor = Cursors.Default;
 
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            this.Cursor = Cursors.WaitCursor;
             if (textBox1.Text.Length > 0 && checkBox1.Checked == false)
                 dataGridView1.DataSource = dbsql.SearchINRequsetOuttxt(textBox1.Text);
             else if (textBox1.Text == "" && checkBox1.Checked == false)
@@ -103,6 +106,7 @@ namespace StoreManagement
                 dataGridView1.DataSource = dbsql.SearchINRequsetOutTxtAndDate(textBox1.Text, dateTimePicker1.Value.Date, dateTimePicker2.Value);
 
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -123,7 +127,7 @@ namespace StoreManagement
                 ///////////////////  أاضافة سطور 
                 foreach (DataGridViewRow dgr in dataGridView1.SelectedRows)
                 {
-
+                    this.Cursor = Cursors.WaitCursor;
                     DataRow dr = ((DataRowView)dgr.DataBoundItem).Row;
                     int ido = Convert.ToInt32(dr[0].ToString());
                     string nmCa = dr[1].ToString();
@@ -139,6 +143,7 @@ namespace StoreManagement
 
                     string dec = dr[11].ToString();
                     dt.Rows.Add(ido, nmCa, nmty, palce, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, amer, astalm, dd.Date.ToShortDateString(), dec);
+                    this.Cursor = Cursors.Default;
                 }
 
                 this.Cursor = Cursors.WaitCursor;
