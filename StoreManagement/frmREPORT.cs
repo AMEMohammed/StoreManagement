@@ -59,7 +59,11 @@ namespace StoreManagement
                             PrintSupplyAll(dt1);
                             break;
                         }
-
+                    case 4:
+                        {
+                            printOutALL(dt1);
+                            break;
+                        }
 
 
 
@@ -105,6 +109,13 @@ namespace StoreManagement
             RPT.RptRequstSupplyAll rt = new RPT.RptRequstSupplyAll();
             rt.SetDataSource(dtt);
             crystalReportViewer1.ReportSource = rt;
+            crystalReportViewer1.Refresh();
+        }
+        public void printOutALL(DataTable dttt)
+        {
+            RPT.OutAll outall = new RPT.OutAll();
+            outall.SetDataSource(dttt);
+            crystalReportViewer1.ReportSource = outall;
             crystalReportViewer1.Refresh();
         }
     }

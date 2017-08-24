@@ -104,5 +104,53 @@ namespace StoreManagement
 
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataTable dt = new DataTable();
+
+
+                ////////// اضافة الاعمدة 
+                for (int i = 0; i < dataGridView1.Columns.Count-1; i++)
+                {
+                    dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
+
+
+                }
+                ///////////////////  أاضافة سطور 
+                foreach (DataGridViewRow dgr in dataGridView1.SelectedRows)
+                {
+
+                    DataRow dr = ((DataRowView)dgr.DataBoundItem).Row;
+                    int ido = Convert.ToInt32(dr[0].ToString());
+                    string nmCa = dr[1].ToString();
+                    string nmty = dr[2].ToString();
+                    string palce = dr[3].ToString();
+                    int Qun = Convert.ToInt32(dr[4].ToString());
+                    int prs = Convert.ToInt32(dr[5].ToString());
+                    int totl = Convert.ToInt32(dr[6].ToString());
+                    string currn = dr[7].ToString();
+                    string amer = dr[8].ToString();
+                    string astalm = dr[9].ToString(); ;
+                    DateTime dd = DateTime.Parse(dr[10].ToString());
+
+                    string dec = dr[11].ToString();
+                    dt.Rows.Add(ido, nmCa, nmty, palce, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, amer, astalm, dd.Date.ToShortDateString(), dec);
+                }
+
+                this.Cursor = Cursors.WaitCursor;
+                frmREPORT frm = new frmREPORT(4, dt);
+                frm.ShowDialog();
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

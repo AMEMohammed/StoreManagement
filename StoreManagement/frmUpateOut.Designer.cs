@@ -144,8 +144,9 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(81, 45);
             this.button3.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.button3, "طباعة الكل");
+            this.toolTip1.SetToolTip(this.button3, "طباعة المحدد");
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -156,6 +157,7 @@
             this.button2.TabIndex = 4;
             this.toolTip1.SetToolTip(this.button2, "طباعة سند توريد");
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -184,7 +186,6 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 25);
-            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

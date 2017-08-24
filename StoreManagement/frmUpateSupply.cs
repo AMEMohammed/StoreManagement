@@ -144,7 +144,6 @@ namespace StoreManagement
                 ///////////////////  أاضافة سطور 
                 foreach (DataGridViewRow dgr in dataGridView1.SelectedRows)
                 {
-
                     DataRow dr = ((DataRowView)dgr.DataBoundItem).Row;
                     int idS = Convert.ToInt32(dr[0].ToString());
                     string nmCa = dr[1].ToString();
@@ -157,6 +156,8 @@ namespace StoreManagement
                     string namee = dr[8].ToString();
                     string dec = dr[9].ToString();
                     dt.Rows.Add(idS, nmCa, nmty, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, dd.Date.ToShortDateString(), namee, dec);
+
+                    
                 }
 
                 this.Cursor = Cursors.WaitCursor;
