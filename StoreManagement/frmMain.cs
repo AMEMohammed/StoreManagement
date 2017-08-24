@@ -148,5 +148,18 @@ namespace StoreManagement
             new frmsttingImage().ShowDialog();
             this.Cursor = Cursors.Default;
         }
+
+        private void تقاريرالمخزونToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            new frmRPTAccount().ShowDialog();
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private void تقاريرالصرفToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

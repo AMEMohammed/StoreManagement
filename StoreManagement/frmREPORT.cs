@@ -64,6 +64,11 @@ namespace StoreManagement
                             printOutALL(dt1);
                             break;
                         }
+                    case 5:
+                        {
+                            PrintAccountQuntity(dt1);
+                            break;
+                        }
 
 
 
@@ -115,6 +120,14 @@ namespace StoreManagement
         {
             RPT.OutAll outall = new RPT.OutAll();
             outall.SetDataSource(dttt);
+            crystalReportViewer1.ReportSource = outall;
+            crystalReportViewer1.Refresh();
+        }
+
+        public void PrintAccountQuntity(DataTable ddd)
+        {
+            RPT.AccountQintity outall = new RPT.AccountQintity();
+            outall.SetDataSource(ddd);
             crystalReportViewer1.ReportSource = outall;
             crystalReportViewer1.Refresh();
         }

@@ -12,7 +12,7 @@
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NameCategory" msprop:Generator_ColumnVarNameInTable="columnNameCategory" msprop:Generator_ColumnPropNameInRow="NameCategory" msprop:Generator_ColumnPropNameInTable="NameCategoryColumn" msprop:Generator_UserColumnName="NameCategory" type="xs:string" minOccurs="0" />
@@ -28,7 +28,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="RequsetSupply" msprop:Generator_TableClassName="RequsetSupplyDataTable" msprop:Generator_TableVarName="tableRequsetSupply" msprop:Generator_RowChangedName="RequsetSupplyRowChanged" msprop:Generator_TablePropName="RequsetSupply" msprop:Generator_RowDeletingName="RequsetSupplyRowDeleting" msprop:Generator_RowChangingName="RequsetSupplyRowChanging" msprop:Generator_RowEvHandlerName="RequsetSupplyRowChangeEventHandler" msprop:Generator_RowDeletedName="RequsetSupplyRowDeleted" msprop:Generator_RowClassName="RequsetSupplyRow" msprop:Generator_UserTableName="RequsetSupply" msprop:Generator_RowEvArgName="RequsetSupplyRowChangeEvent">
+        <xs:element name="RequsetSupply" msprop:Generator_TableClassName="RequsetSupplyDataTable" msprop:Generator_TableVarName="tableRequsetSupply" msprop:Generator_TablePropName="RequsetSupply" msprop:Generator_RowDeletingName="RequsetSupplyRowDeleting" msprop:Generator_RowChangingName="RequsetSupplyRowChanging" msprop:Generator_RowEvHandlerName="RequsetSupplyRowChangeEventHandler" msprop:Generator_RowDeletedName="RequsetSupplyRowDeleted" msprop:Generator_UserTableName="RequsetSupply" msprop:Generator_RowChangedName="RequsetSupplyRowChanged" msprop:Generator_RowEvArgName="RequsetSupplyRowChangeEvent" msprop:Generator_RowClassName="RequsetSupplyRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDSupply" msprop:Generator_ColumnVarNameInTable="columnIDSupply" msprop:Generator_ColumnPropNameInRow="IDSupply" msprop:Generator_ColumnPropNameInTable="IDSupplyColumn" msprop:Generator_UserColumnName="IDSupply" type="xs:string" minOccurs="0" />
@@ -43,7 +43,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="RequsetSupplyall" msprop:Generator_TableClassName="RequsetSupplyallDataTable" msprop:Generator_TableVarName="tableRequsetSupplyall" msprop:Generator_RowChangedName="RequsetSupplyallRowChanged" msprop:Generator_TablePropName="RequsetSupplyall" msprop:Generator_RowDeletingName="RequsetSupplyallRowDeleting" msprop:Generator_RowChangingName="RequsetSupplyallRowChanging" msprop:Generator_RowEvHandlerName="RequsetSupplyallRowChangeEventHandler" msprop:Generator_RowDeletedName="RequsetSupplyallRowDeleted" msprop:Generator_RowClassName="RequsetSupplyallRow" msprop:Generator_UserTableName="RequsetSupplyall" msprop:Generator_RowEvArgName="RequsetSupplyallRowChangeEvent">
+        <xs:element name="RequsetSupplyall" msprop:Generator_TableClassName="RequsetSupplyallDataTable" msprop:Generator_TableVarName="tableRequsetSupplyall" msprop:Generator_TablePropName="RequsetSupplyall" msprop:Generator_RowDeletingName="RequsetSupplyallRowDeleting" msprop:Generator_RowChangingName="RequsetSupplyallRowChanging" msprop:Generator_RowEvHandlerName="RequsetSupplyallRowChangeEventHandler" msprop:Generator_RowDeletedName="RequsetSupplyallRowDeleted" msprop:Generator_UserTableName="RequsetSupplyall" msprop:Generator_RowChangedName="RequsetSupplyallRowChanged" msprop:Generator_RowEvArgName="RequsetSupplyallRowChangeEvent" msprop:Generator_RowClassName="RequsetSupplyallRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="رقم_x0020_الطلب" msdata:Caption="IDSupply" msprop:Generator_ColumnVarNameInTable="columnرقم_الطلب" msprop:Generator_ColumnPropNameInRow="رقم_الطلب" msprop:Generator_ColumnPropNameInTable="رقم_الطلبColumn" msprop:Generator_UserColumnName="رقم الطلب" type="xs:string" minOccurs="0" />
@@ -59,7 +59,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="RequstOutAll" msprop:Generator_TableClassName="RequstOutAllDataTable" msprop:Generator_TableVarName="tableRequstOutAll" msprop:Generator_TablePropName="RequstOutAll" msprop:Generator_RowDeletingName="RequstOutAllRowDeleting" msprop:Generator_RowChangingName="RequstOutAllRowChanging" msprop:Generator_RowEvHandlerName="RequstOutAllRowChangeEventHandler" msprop:Generator_RowDeletedName="RequstOutAllRowDeleted" msprop:Generator_UserTableName="RequstOutAll" msprop:Generator_RowChangedName="RequstOutAllRowChanged" msprop:Generator_RowEvArgName="RequstOutAllRowChangeEvent" msprop:Generator_RowClassName="RequstOutAllRow">
+        <xs:element name="RequstOutAll" msprop:Generator_TableClassName="RequstOutAllDataTable" msprop:Generator_TableVarName="tableRequstOutAll" msprop:Generator_RowChangedName="RequstOutAllRowChanged" msprop:Generator_TablePropName="RequstOutAll" msprop:Generator_RowDeletingName="RequstOutAllRowDeleting" msprop:Generator_RowChangingName="RequstOutAllRowChanging" msprop:Generator_RowEvHandlerName="RequstOutAllRowChangeEventHandler" msprop:Generator_RowDeletedName="RequstOutAllRowDeleted" msprop:Generator_RowClassName="RequstOutAllRow" msprop:Generator_UserTableName="RequstOutAll" msprop:Generator_RowEvArgName="RequstOutAllRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="رقم_x0020_الطلب" msprop:Generator_ColumnVarNameInTable="columnرقم_الطلب" msprop:Generator_ColumnPropNameInRow="رقم_الطلب" msprop:Generator_ColumnPropNameInTable="رقم_الطلبColumn" msprop:Generator_UserColumnName="رقم الطلب" type="xs:string" minOccurs="0" />
@@ -74,6 +74,17 @@
               <xs:element name="باستلام" msprop:Generator_ColumnVarNameInTable="columnباستلام" msprop:Generator_ColumnPropNameInRow="باستلام" msprop:Generator_ColumnPropNameInTable="باستلامColumn" msprop:Generator_UserColumnName="باستلام" type="xs:string" minOccurs="0" />
               <xs:element name="تاريخ_x0020_الصرف" msprop:Generator_ColumnVarNameInTable="columnتاريخ_الصرف" msprop:Generator_ColumnPropNameInRow="تاريخ_الصرف" msprop:Generator_ColumnPropNameInTable="تاريخ_الصرفColumn" msprop:Generator_UserColumnName="تاريخ الصرف" type="xs:string" minOccurs="0" />
               <xs:element name="ملاحظات" msprop:Generator_ColumnVarNameInTable="columnملاحظات" msprop:Generator_ColumnPropNameInRow="ملاحظات" msprop:Generator_ColumnPropNameInTable="ملاحظاتColumn" msprop:Generator_UserColumnName="ملاحظات" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="accountQuntity" msprop:Generator_TableClassName="accountQuntityDataTable" msprop:Generator_TableVarName="tableaccountQuntity" msprop:Generator_TablePropName="accountQuntity" msprop:Generator_RowDeletingName="accountQuntityRowDeleting" msprop:Generator_RowChangingName="accountQuntityRowChanging" msprop:Generator_RowEvHandlerName="accountQuntityRowChangeEventHandler" msprop:Generator_RowDeletedName="accountQuntityRowDeleted" msprop:Generator_UserTableName="accountQuntity" msprop:Generator_RowChangedName="accountQuntityRowChanged" msprop:Generator_RowEvArgName="accountQuntityRowChangeEvent" msprop:Generator_RowClassName="accountQuntityRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="اسم_x0020_الصنف" msprop:Generator_ColumnVarNameInTable="columnاسم_الصنف" msprop:Generator_ColumnPropNameInRow="اسم_الصنف" msprop:Generator_ColumnPropNameInTable="اسم_الصنفColumn" msprop:Generator_UserColumnName="اسم الصنف" type="xs:string" minOccurs="0" />
+              <xs:element name="نوع_x0020_الكمية" msprop:Generator_ColumnVarNameInTable="columnنوع_الكمية" msprop:Generator_ColumnPropNameInRow="نوع_الكمية" msprop:Generator_ColumnPropNameInTable="نوع_الكميةColumn" msprop:Generator_UserColumnName="نوع الكمية" type="xs:string" minOccurs="0" />
+              <xs:element name="الكمية_x0020_الحالية" msprop:Generator_ColumnVarNameInTable="columnالكمية_الحالية" msprop:Generator_ColumnPropNameInRow="الكمية_الحالية" msprop:Generator_ColumnPropNameInTable="الكمية_الحاليةColumn" msprop:Generator_UserColumnName="الكمية الحالية" type="xs:string" minOccurs="0" />
+              <xs:element name="السعر" msprop:Generator_ColumnVarNameInTable="columnالسعر" msprop:Generator_ColumnPropNameInRow="السعر" msprop:Generator_ColumnPropNameInTable="السعرColumn" msprop:Generator_UserColumnName="السعر" type="xs:string" minOccurs="0" />
+              <xs:element name="العملة" msprop:Generator_ColumnVarNameInTable="columnالعملة" msprop:Generator_ColumnPropNameInRow="العملة" msprop:Generator_ColumnPropNameInTable="العملةColumn" msprop:Generator_UserColumnName="العملة" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

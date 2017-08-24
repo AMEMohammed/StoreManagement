@@ -51,7 +51,6 @@
             this.الجهاتالمستفيدةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اعدادتالنظامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الاتصالبالسيرفيرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.شعلرالتقاريرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -184,6 +183,7 @@
             this.تقاريرالصرفToolStripMenuItem.Name = "تقاريرالصرفToolStripMenuItem";
             this.تقاريرالصرفToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.تقاريرالصرفToolStripMenuItem.Text = "تقارير الصرف";
+            this.تقاريرالصرفToolStripMenuItem.Click += new System.EventHandler(this.تقاريرالصرفToolStripMenuItem_Click);
             // 
             // تقاريرالمخزونToolStripMenuItem
             // 
@@ -191,6 +191,7 @@
             this.تقاريرالمخزونToolStripMenuItem.Name = "تقاريرالمخزونToolStripMenuItem";
             this.تقاريرالمخزونToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.تقاريرالمخزونToolStripMenuItem.Text = "تقارير المخزون";
+            this.تقاريرالمخزونToolStripMenuItem.Click += new System.EventHandler(this.تقاريرالمخزونToolStripMenuItem_Click);
             // 
             // تقاريرالتعديلاتToolStripMenuItem1
             // 
@@ -246,8 +247,7 @@
             // اعدادتالنظامToolStripMenuItem
             // 
             this.اعدادتالنظامToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.الاتصالبالسيرفيرToolStripMenuItem,
-            this.شعلرالتقاريرToolStripMenuItem});
+            this.الاتصالبالسيرفيرToolStripMenuItem});
             this.اعدادتالنظامToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.settings_gears;
             this.اعدادتالنظامToolStripMenuItem.Name = "اعدادتالنظامToolStripMenuItem";
             this.اعدادتالنظامToolStripMenuItem.Size = new System.Drawing.Size(130, 25);
@@ -259,13 +259,6 @@
             this.الاتصالبالسيرفيرToolStripMenuItem.Name = "الاتصالبالسيرفيرToolStripMenuItem";
             this.الاتصالبالسيرفيرToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.الاتصالبالسيرفيرToolStripMenuItem.Text = "الاتصال بالسيرفير";
-            // 
-            // شعلرالتقاريرToolStripMenuItem
-            // 
-            this.شعلرالتقاريرToolStripMenuItem.Name = "شعلرالتقاريرToolStripMenuItem";
-            this.شعلرالتقاريرToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
-            this.شعلرالتقاريرToolStripMenuItem.Text = "شعار التقارير";
-            this.شعلرالتقاريرToolStripMenuItem.Click += new System.EventHandler(this.شعلرالتقاريرToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -317,6 +310,5 @@
         private System.Windows.Forms.ToolStripMenuItem العملاتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem الجهاتالمستفيدةToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem الاتصالبالسيرفيرToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem شعلرالتقاريرToolStripMenuItem;
     }
 }

@@ -44,3 +44,5 @@ E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frm
 C:\Users\Mohammed Alhazmee\Downloads\Compressed\StoreManagement-master\StoreManagement\bin\Debug\StoreManagement.exe.config
 C:\Users\Mohammed Alhazmee\Downloads\Compressed\StoreManagement-master\StoreManagement\obj\Debug\StoreManagement.exe
 C:\Users\Mohammed Alhazmee\Downloads\Compressed\StoreManagement-master\StoreManagement\obj\Debug\StoreManagement.pdb
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmBuckUpDatabase.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmRPTAccount.resources

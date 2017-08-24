@@ -1029,6 +1029,26 @@ namespace StoreManagement
             adapter.Fill(dt);
             return dt;
         }
+        //////////////////////////////////
+        /////////// print Account Quntity
+        public DataTable PrintAccountQuntity(string idcat,string idtyp,string idcu)
+        {
+            idcat = "%" + idcat;
+            idtyp = "%" + idtyp;
+            idcu = "%" + idcu;
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("select Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية' ,Account.Quntity as 'الكمية الحالية',Account.Price as 'السعر' ,Currency.NameCurrency as 'العملة' from Account,Category,TypeQuntity,Currency where Account.IDCategory=Category.IDCategory and Account.IDType =TypeQuntity.IDType and Account.IDCurrency=Currency.IDCurrency and Account.Quntity>0 and    convert(varchar,Account.IDCategory) like @idcat and convert(varchar,Account.IDType) like @idtyp and convert(varchar,Account.IDCurrency) like @idcur  order by Account.IDCategory , Account.IDCurrency,Account.IDType", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@idcat", idcat);
+            cmd.Parameters.AddWithValue("@idtyp", idtyp);
+            cmd.Parameters.AddWithValue("@idcur", idcu);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+
+        }
+        //////////////////////////////////
+        ////////////////////
 
 
 
