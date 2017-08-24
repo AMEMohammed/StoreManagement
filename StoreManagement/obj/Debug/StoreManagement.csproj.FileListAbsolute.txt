@@ -41,3 +41,6 @@ E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frm
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Form2.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmlogin.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmRPTSupply.resources
+C:\Users\Mohammed Alhazmee\Downloads\Compressed\StoreManagement-master\StoreManagement\bin\Debug\StoreManagement.exe.config
+C:\Users\Mohammed Alhazmee\Downloads\Compressed\StoreManagement-master\StoreManagement\obj\Debug\StoreManagement.exe
+C:\Users\Mohammed Alhazmee\Downloads\Compressed\StoreManagement-master\StoreManagement\obj\Debug\StoreManagement.pdb
