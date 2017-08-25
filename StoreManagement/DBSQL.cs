@@ -643,7 +643,7 @@ namespace StoreManagement
             cmd.CommandType = CommandType.Text;
             adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dt);
-            MessageBox.Show("nnnnnnnnnnn");
+           
             return dt;
         }
 
