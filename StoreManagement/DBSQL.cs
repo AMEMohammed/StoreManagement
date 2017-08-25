@@ -713,7 +713,7 @@ namespace StoreManagement
         public DataTable PrintRequstSupply(int IDreqSup)
         {
             DataTable dt = new DataTable();
-            cmd = new SqlCommand("select IDSupply ,  Category.NameCategory , TypeQuntity.NameType , RequstSupply.Quntity , RequstSupply.Price  , RequstSupply.Quntity * RequstSupply.Price,Category.NameCategory  , RequstSupply.DateSupply , RequstSupply.NameSupply , RequstSupply.DescSupply  from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency  and RequstSupply.IDSupply =@id", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,  Category.NameCategory  as 'الصنف', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية', RequstSupply.Price as 'السعر'  , RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي' ,Currency.NameCurrency as 'العملة', RequstSupply.DateSupply as 'تاريخ' , RequstSupply.NameSupply  as'اسم المورد', RequstSupply.DescSupply AS 'ملاحظات'  from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency  and RequstSupply.IDSupply =@id", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@id",IDreqSup);
             adapter = new SqlDataAdapter(cmd);

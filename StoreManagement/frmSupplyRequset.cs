@@ -127,8 +127,8 @@ namespace StoreManagement
                             try
                             {
                                 int IDRequstSupply = dbsql.GetMaxSupplyid();
-                                frmREPORT frmr = new frmREPORT();
-                                frmr.Tag = IDRequstSupply;
+                                frmREPORT frmr = new frmREPORT(IDRequstSupply,1);
+                              
                                 frmr.ShowDialog();
                             }
                             catch (Exception ex)
