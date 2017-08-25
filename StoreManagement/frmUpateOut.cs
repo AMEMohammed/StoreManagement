@@ -155,7 +155,16 @@ namespace StoreManagement
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 0)
 
+            {
+
+                int IDcheck = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
+                frmREPORT frm = new frmREPORT(IDcheck, 2);
+                this.Cursor = Cursors.WaitCursor;
+                frm.ShowDialog();
+                this.Cursor = Cursors.Default;
+            }
         }
     }
 }

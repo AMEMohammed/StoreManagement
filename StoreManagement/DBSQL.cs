@@ -638,11 +638,12 @@ namespace StoreManagement
         {
             DataTable dt = new DataTable();
 
-            cmd = new SqlCommand("select  Category.NameCategory ,TypeQuntity.NameType,PlaceSend.NamePlace,RequstOut.DateOut,RequstOut.DesOut,RequstOut.NameOut,RequstOut.NameSend ,RequstOut.Price,RequstOut.Quntity from RequstOut,Category,TypeQuntity,PlaceSend where RequstOut.IDCategory = Category.IDCategory and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack =@check", con);
+            cmd = new SqlCommand("select RequstOut.IDOut as 'رقم الطلب',Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,RequstOut.DesOut as 'ملاحظات' from RequstOut,Category,TypeQuntity,PlaceSend,Currency where RequstOut.IDCategory = Category.IDCategory and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack =@check", con);
             cmd.Parameters.AddWithValue("@check", Check);
             cmd.CommandType = CommandType.Text;
             adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dt);
+            MessageBox.Show("nnnnnnnnnnn");
             return dt;
         }
 

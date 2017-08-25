@@ -90,10 +90,8 @@ namespace StoreManagement
 
 
             RPT.RequstOut rt = new RPT.RequstOut();
-            DataTable dt = new DataTable();
-            dt = (dbsql.PrintRequstOut(id)).Copy();
-            dt.Merge(dbsql.GetImg());
-            rt.SetDataSource(dt);
+         
+            rt.SetDataSource(dbsql.PrintRequstOut(id));
             crystalReportViewer1.ReportSource = rt;
             crystalReportViewer1.Refresh();
 
