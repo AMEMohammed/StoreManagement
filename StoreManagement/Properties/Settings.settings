@@ -1,7 +1,15 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="StoreManagement.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="nmserver" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\S2008</Value>
+    </Setting>
+    <Setting Name="nmdatabase" Type="System.String" Scope="User">
+      <Value Profile="(Default)">StoreManagement</Value>
+    </Setting>
+    <Setting Name="colorBackGround" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">DarkGray</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

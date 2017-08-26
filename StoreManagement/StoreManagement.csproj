@@ -68,12 +68,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmBuckUpDatabase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +116,12 @@
     <Compile Include="frmRequstOut.Designer.cs">
       <DependentUpon>frmRequstOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRestorDatebase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRestorDatebase.Designer.cs">
+      <DependentUpon>frmRestorDatebase.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRPTAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +139,12 @@
     </Compile>
     <Compile Include="frmRPTSupply.Designer.cs">
       <DependentUpon>frmRPTSupply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSettingUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSettingUser.Designer.cs">
+      <DependentUpon>frmSettingUser.cs</DependentUpon>
     </Compile>
     <Compile Include="frmsttingImage.cs">
       <SubType>Form</SubType>
@@ -212,9 +218,6 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmBuckUpDatabase.resx">
       <DependentUpon>frmBuckUpDatabase.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +242,9 @@
     <EmbeddedResource Include="frmRequstOut.resx">
       <DependentUpon>frmRequstOut.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRestorDatebase.resx">
+      <DependentUpon>frmRestorDatebase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRPTAccount.resx">
       <DependentUpon>frmRPTAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRPTSupply.resx">
       <DependentUpon>frmRPTSupply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSettingUser.resx">
+      <DependentUpon>frmSettingUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmsttingImage.resx">
       <DependentUpon>frmsttingImage.cs</DependentUpon>
@@ -445,6 +454,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\newspaper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cloud-backup-up-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1477373_585837281487657_228511293_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rr.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\face.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

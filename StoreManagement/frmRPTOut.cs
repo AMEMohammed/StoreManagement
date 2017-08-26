@@ -20,6 +20,7 @@ namespace StoreManagement
 
         private void frmRPTOut_Load(object sender, EventArgs e)
         {
+            this.BackColor = Properties.Settings.Default.colorBackGround;
             try
             {/////////
                 comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -44,11 +45,16 @@ namespace StoreManagement
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// /////
+        /// </summary>
         void getDate1()
         {
-           
-        
+            try
+            {
+
+
+
                 comboBox1.DisplayMember = "اسم الصنف";
                 comboBox1.ValueMember = "رقم الصنف";
                 comboBox1.DataSource = dbsql.GetAllCategoryAR();
@@ -60,9 +66,14 @@ namespace StoreManagement
 
                 comboBox3.DataSource = dbsql.GetAllCurrency();
 
-            comboBox4.ValueMember = "رقم الجهة";
-            comboBox4.DisplayMember = "اسم الجهة";
-            comboBox4.DataSource = dbsql.GetAllPlace();
+                comboBox4.ValueMember = "رقم الجهة";
+                comboBox4.DisplayMember = "اسم الجهة";
+                comboBox4.DataSource = dbsql.GetAllPlace();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
         //////////////////////////////////
@@ -203,15 +214,22 @@ namespace StoreManagement
                 
                 
                     DataTable dt = new DataTable();
-                
-                    ////////// اضافة الاعمدة 
-                    for (int i = 0; i < dataGridView1.Columns.Count ; i++)
+
+                ////////// اضافة الاعمدة 
+                try
+                {
+                    for (int i = 0; i < dataGridView1.Columns.Count; i++)
                     {
                         dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
 
 
                     }
-                    ///////////////////  أاضافة سطور 
+                }
+                catch(Exception ex)
+                { MessageBox.Show(ex.Message); }
+                ///////////////////  أاضافة سطور 
+                try
+                {
                     foreach (DataGridViewRow dgr in dataGridView1.Rows)
                     {
                         this.Cursor = Cursors.WaitCursor;
@@ -232,11 +250,22 @@ namespace StoreManagement
                         dt.Rows.Add(ido, nmCa, nmty, palce, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, amer, astalm, dd.Date.ToShortDateString(), dec);
                         this.Cursor = Cursors.Default;
                     }
-
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                try
+                {
                     this.Cursor = Cursors.WaitCursor;
                     frmREPORT frm = new frmREPORT(4, dt);
                     frm.ShowDialog();
                     this.Cursor = Cursors.Default;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 }
 
 

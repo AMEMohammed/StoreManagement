@@ -20,20 +20,39 @@ namespace StoreManagement
 
         private void frmPlaceSend_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = dbsql.GetAllPlace();
-            MessageBoxManager.Yes = "نعم";
-            MessageBoxManager.No = "الغاء";
-            MessageBoxManager.Register();
-            changeLanguage();
+            this.BackColor = Properties.Settings.Default.colorBackGround;
+            try
+            {
+                dataGridView1.DataSource = dbsql.GetAllPlace();
+                MessageBoxManager.Yes = "نعم";
+                MessageBoxManager.No = "الغاء";
+                MessageBoxManager.Register();
+                changeLanguage();
+            }
+            catch(Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
         int id = 0;
         string name = "";
+        /// <summary>
+        /// //
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length > 0)
             {
-                dbsql.AddNewPlaceSend(textBox1.Text);
-                Refersh1();
+                try
+                {
+                    dbsql.AddNewPlaceSend(textBox1.Text);
+                    Refersh1();
+                    textBox1.Focus();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -41,9 +60,14 @@ namespace StoreManagement
         {
             if (textBox2.Text.Length > 0)
             {
-                name = textBox2.Text;
-                dbsql.UpdatePlaceSend(id, name);
-                Refersh1();
+                try
+                {
+                    name = textBox2.Text;
+                    dbsql.UpdatePlaceSend(id, name);
+                    Refersh1();
+                }
+                catch ( Exception ex)
+                { MessageBox.Show(ex.Message); }
             }
         }
 
@@ -51,8 +75,13 @@ namespace StoreManagement
         {
             if (MessageBox.Show("عند حذف (" + name + ")  سيتم حذف جميع المحفوظات المتربطه به هل تريد الاستمرار", "حذف جهة", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes)
             {
-                dbsql.DeletePlaceSend(id);
-                Refersh1();
+                try
+                {
+                    dbsql.DeletePlaceSend(id);
+                    Refersh1();
+                }
+                catch(Exception ex)
+                { MessageBox.Show(ex.Message); }
             }
         }
 
@@ -73,9 +102,16 @@ namespace StoreManagement
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                name = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                textBox2.Text = name;
+                try
+                {
+                    id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    name = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                    textBox2.Text = name;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
             }
         }
@@ -94,9 +130,15 @@ namespace StoreManagement
         /// 
         public void Refersh1()
         {
-            dataGridView1.DataSource = dbsql.GetAllPlace();
-            textBox1.Text = "";
-            textBox2.Text = "";
+            try
+            {
+                dataGridView1.DataSource = dbsql.GetAllPlace();
+                textBox1.Text = "";
+                textBox2.Text = "";
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
         public void changeLanguage()

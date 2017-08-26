@@ -17,25 +17,50 @@ namespace StoreManagement
         {
             InitializeComponent();
         }
-
+        ////////////////////////////////////////////////////////
         private void frmCategory_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = dbsql.GetAllCategoryAR();
-            MessageBoxManager.Yes = "نعم";
-            MessageBoxManager.No = "الغاء";
-            MessageBoxManager.Register();
-            changeLanguage();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if(textBox1.Text.Length>0)
+            try
             {
-                dbsql.AddNewCategory(textBox1.Text);
-                Refersh1();
+                dataGridView1.DataSource = dbsql.GetAllCategoryAR();
+                MessageBoxManager.Yes = "نعم";
+                MessageBoxManager.No = "الغاء";
+                MessageBoxManager.Register();
+                changeLanguage();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// //////////////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+                if (textBox1.Text.Length > 0)
+                {
+                try
+                {
+                    dbsql.AddNewCategory(textBox1.Text);
+                    Refersh1();
+                    textBox1.Focus();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                }
+                
+        }
+        /// <summary>
+        /// //////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (textBox1.Text.Length > 0)
@@ -47,24 +72,45 @@ namespace StoreManagement
 
         int id = 0;
         string name = "";
+        /// <summary>
+        /// ///////////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             if(dataGridView1.SelectedRows.Count>0)
             {
-                id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                name = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                textBox2.Text = name;
+                try
+                {
+                    id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    name = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                    textBox2.Text = name;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                         
             }
         }
-
+        /// <summary>
+        /// //////////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             if (textBox2.Text.Length > 0)
             {
-                name = textBox2.Text;
-                dbsql.UpdateCategory(id, name);
-                Refersh1();
+                try
+                {
+                    name = textBox2.Text;
+                    dbsql.UpdateCategory(id, name);
+                    Refersh1();
+                }
+                catch(Exception ex)
+                { MessageBox.Show(ex.Message); }
             }
         }
 
@@ -73,8 +119,13 @@ namespace StoreManagement
 
             if (MessageBox.Show("عند حذف (" + name + ")  سيتم حذف جميع المحفوظات المتربطه به هل تريد الاستمرار", "حذف صنف", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes)
             {
-                dbsql.DeleteCategory(id);
-                Refersh1();
+                try
+                {
+                    dbsql.DeleteCategory(id);
+                    Refersh1();
+                }
+                catch(Exception ex)
+                { MessageBox.Show(ex.Message); }
             }
         }
 

@@ -18,39 +18,49 @@ namespace StoreManagement
         }
 
         private void button1_Click(object sender, EventArgs e)
-        { try
-            {
-                openFileDialog1.Filter = "JPEG|*.jpg|Bitmaps|*.bmp|GIFS|*.gif";
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pictureBox1.BorderStyle = BorderStyle.Fixed3D;
-                    pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
-                    MessageBox.Show(openFileDialog1.SafeFileName);
-                }
-            }
-            catch
-            {
-
-            }
+        { 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DBSQL dbsql = new DBSQL();
-            if (pictureBox1.Image!=null)
+            
+        }
+
+        private void frmsttingImage_Load(object sender, EventArgs e)
+        {
+            this.BackColor = Properties.Settings.Default.colorBackGround;
+            textBox1.Text = Properties.Settings.Default.nmserver;
+            textBox3.Text = Properties.Settings.Default.nmdatabase;
+            MessageBoxManager.Yes = "نعم";
+            MessageBoxManager.No = "الغاء";
+            MessageBoxManager.Register();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox3.Text = "";
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length > 0 && textBox3.Text.Length > 0)
             {
-                MemoryStream ms = new MemoryStream();
-                pictureBox1.Image.Save(ms, pictureBox1.Image.RawFormat);
-                byte[] bimg = ms.GetBuffer();
-              
-                dbsql.SaveImg(bimg);
-                this.Close();
+                if (MessageBox.Show("هل تريد اكمال العملة", "", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes)
+                {
+                    Properties.Settings.Default.nmserver = textBox1.Text;
+                    Properties.Settings.Default.nmdatabase = textBox3.Text;
+                    Properties.Settings.Default.Save();
+                    this.Close();
+                }
+
             }
-            DataTable dt = new DataTable();
-            dt = dbsql.GetImg();
-            byte[] b = ((byte[])dt.Rows[0][0]);
-            pictureBox1.Image = Image.FromStream(new MemoryStream(b));
         }
     }
 }

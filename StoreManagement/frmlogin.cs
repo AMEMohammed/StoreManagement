@@ -46,5 +46,10 @@ namespace StoreManagement
         {
             this.Close();
         }
+
+        private void frmlogin_Load(object sender, EventArgs e)
+        {
+            this.BackColor = Properties.Settings.Default.colorBackGround;
+        }
     }
 }

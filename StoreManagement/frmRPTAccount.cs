@@ -17,7 +17,11 @@ namespace StoreManagement
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// /////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             string idcat = "";
@@ -52,7 +56,11 @@ namespace StoreManagement
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
         }
-
+        /// <summary>
+        /// ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked == false)
@@ -64,7 +72,11 @@ namespace StoreManagement
                 comboBox1.Enabled = false;
             }
         }
-
+        /// <summary>
+        /// //////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox2.Checked == false)
@@ -76,7 +88,11 @@ namespace StoreManagement
                 comboBox2.Enabled = false;
             }
         }
-
+        /// <summary>
+        /// //////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox3.Checked == false)
@@ -88,9 +104,14 @@ namespace StoreManagement
                 comboBox3.Enabled = false;
             }
         }
-
+        /// <summary>
+        /// //////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmRPTAccount_Load(object sender, EventArgs e)
         {
+            this.BackColor = Properties.Settings.Default.colorBackGround;
             try
             {
                 comboBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -111,7 +132,9 @@ namespace StoreManagement
             }
         }
 
-
+        /// <summary>
+        /// //
+        /// </summary>
         void GetData1()
         {
             try
@@ -131,7 +154,11 @@ namespace StoreManagement
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
        
 
         private void button1_Click(object sender, EventArgs e)
@@ -140,32 +167,46 @@ namespace StoreManagement
             {
 
                 DataTable dt = new DataTable();
-
-
-                ////////// اضافة الاعمدة 
-                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                try
                 {
-                    dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
+
+                    ////////// اضافة الاعمدة 
+                    for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                    {
+                        dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
 
 
+                    }
                 }
+                catch(Exception ex)
+                { MessageBox.Show(ex.Message); }
+
                 ///////////////////  أاضافة سطور 
-                foreach (DataGridViewRow dgr in dataGridView1.Rows)
+                try
                 {
+                    foreach (DataGridViewRow dgr in dataGridView1.Rows)
+                    {
 
-                    DataRow dr = ((DataRowView)dgr.DataBoundItem).Row;
-                    string nmca = dr[0].ToString();
-                    string nmty = dr[1].ToString();
-                    int qunt = Convert.ToInt32(dr[2].ToString());
-                    int pres = Convert.ToInt32(dr[3].ToString());
-                    string currnt = dr[4].ToString();
-                    dt.Rows.Add(nmca, nmty, string.Format("{0:##,##}", qunt), string.Format("{0:##,##}", pres),  currnt);
+                        DataRow dr = ((DataRowView)dgr.DataBoundItem).Row;
+                        string nmca = dr[0].ToString();
+                        string nmty = dr[1].ToString();
+                        int qunt = Convert.ToInt32(dr[2].ToString());
+                        int pres = Convert.ToInt32(dr[3].ToString());
+                        string currnt = dr[4].ToString();
+                        dt.Rows.Add(nmca, nmty, string.Format("{0:##,##}", qunt), string.Format("{0:##,##}", pres), currnt);
+                    }
+                }catch(Exception ex) { MessageBox.Show(ex.Message); }
+                try
+                {
+                    this.Cursor = Cursors.WaitCursor;
+                    frmREPORT frm = new frmREPORT(5, dt);
+                    frm.ShowDialog();
+                    this.Cursor = Cursors.Default;
                 }
-
-                this.Cursor = Cursors.WaitCursor;
-                frmREPORT frm = new frmREPORT(5, dt);
-                frm.ShowDialog();
-                this.Cursor = Cursors.Default;
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
 
 

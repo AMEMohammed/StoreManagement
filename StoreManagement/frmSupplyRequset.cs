@@ -19,7 +19,9 @@ namespace StoreManagement
         }
     
         private void frmSupplyRequset_Load(object sender, EventArgs e)
-        {   try
+        {
+            this.BackColor = Properties.Settings.Default.colorBackGround;
+            try
             {/////////
                 comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
@@ -46,17 +48,20 @@ namespace StoreManagement
 
 
         void getDate1( )
-        {
-            comboBox1.DisplayMember = "اسم الصنف";
-            comboBox1.ValueMember = "رقم الصنف";
-            comboBox1.DataSource = dbsql.GetAllCategoryAR() ;
-            comboBox2.DisplayMember = "اسم النوع";
-            comboBox2.ValueMember = "رقم النوع";
-            comboBox2.DataSource = dbsql.GetAllTypeQuntity();
-            comboBox3.DisplayMember = "اسم العملة";
-            comboBox3.ValueMember = "رقم العملة";
-            comboBox3.DataSource = dbsql.GetAllCurrency();
-            dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.Date, DateTime.Now);
+        {  try
+            {
+                comboBox1.DisplayMember = "اسم الصنف";
+                comboBox1.ValueMember = "رقم الصنف";
+                comboBox1.DataSource = dbsql.GetAllCategoryAR();
+                comboBox2.DisplayMember = "اسم النوع";
+                comboBox2.ValueMember = "رقم النوع";
+                comboBox2.DataSource = dbsql.GetAllTypeQuntity();
+                comboBox3.DisplayMember = "اسم العملة";
+                comboBox3.ValueMember = "رقم العملة";
+                comboBox3.DataSource = dbsql.GetAllCurrency();
+                dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.Date, DateTime.Now);
+            }
+            catch(Exception ex) { MessageBox.Show(ex.Message); }
         } 
        
         
@@ -194,12 +199,15 @@ namespace StoreManagement
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-
-                int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                this.Cursor = Cursors.WaitCursor;
-                frmREPORT frm = new frmREPORT(id, 1);
-                frm.ShowDialog();
-                this.Cursor = Cursors.Default;
+                try
+                {
+                    int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    this.Cursor = Cursors.WaitCursor;
+                    frmREPORT frm = new frmREPORT(id, 1);
+                    frm.ShowDialog();
+                    this.Cursor = Cursors.Default;
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
         }
         /////////

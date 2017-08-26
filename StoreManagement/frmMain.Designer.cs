@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.دخولالنظامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.دخولالنظامToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.خروجمنالنظامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,11 @@
             this.الجهاتالمستفيدةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اعدادتالنظامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الاتصالبالسيرفيرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.انشاءنسخةاحتياطيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.استعادةالنسخةالاحتياطيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.تعديلالمستخدمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -70,6 +75,17 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::StoreManagement.Properties.Resources.face;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1074, 450);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // دخولالنظامToolStripMenuItem
             // 
             this.دخولالنظامToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -78,8 +94,8 @@
             this.الخروجمنالنظامToolStripMenuItem});
             this.دخولالنظامToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.keyhole;
             this.دخولالنظامToolStripMenuItem.Name = "دخولالنظامToolStripMenuItem";
-            this.دخولالنظامToolStripMenuItem.Size = new System.Drawing.Size(118, 25);
-            this.دخولالنظامToolStripMenuItem.Text = "دخول النظام";
+            this.دخولالنظامToolStripMenuItem.Size = new System.Drawing.Size(68, 25);
+            this.دخولالنظامToolStripMenuItem.Text = "ملف";
             // 
             // دخولالنظامToolStripMenuItem1
             // 
@@ -199,6 +215,7 @@
             this.تقاريرالتعديلاتToolStripMenuItem1.Name = "تقاريرالتعديلاتToolStripMenuItem1";
             this.تقاريرالتعديلاتToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
             this.تقاريرالتعديلاتToolStripMenuItem1.Text = "تقارير التعديلات";
+            this.تقاريرالتعديلاتToolStripMenuItem1.Visible = false;
             // 
             // تهيئةالنظامToolStripMenuItem
             // 
@@ -247,7 +264,10 @@
             // اعدادتالنظامToolStripMenuItem
             // 
             this.اعدادتالنظامToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.الاتصالبالسيرفيرToolStripMenuItem});
+            this.الاتصالبالسيرفيرToolStripMenuItem,
+            this.انشاءنسخةاحتياطيةToolStripMenuItem,
+            this.استعادةالنسخةالاحتياطيةToolStripMenuItem,
+            this.تعديلالمستخدمToolStripMenuItem});
             this.اعدادتالنظامToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.settings_gears;
             this.اعدادتالنظامToolStripMenuItem.Name = "اعدادتالنظامToolStripMenuItem";
             this.اعدادتالنظامToolStripMenuItem.Size = new System.Drawing.Size(130, 25);
@@ -257,16 +277,42 @@
             // 
             this.الاتصالبالسيرفيرToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.database;
             this.الاتصالبالسيرفيرToolStripMenuItem.Name = "الاتصالبالسيرفيرToolStripMenuItem";
-            this.الاتصالبالسيرفيرToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
+            this.الاتصالبالسيرفيرToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.الاتصالبالسيرفيرToolStripMenuItem.Text = "الاتصال بالسيرفير";
+            this.الاتصالبالسيرفيرToolStripMenuItem.Click += new System.EventHandler(this.الاتصالبالسيرفيرToolStripMenuItem_Click);
+            // 
+            // انشاءنسخةاحتياطيةToolStripMenuItem
+            // 
+            this.انشاءنسخةاحتياطيةToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.cloud_backup_up_arrow;
+            this.انشاءنسخةاحتياطيةToolStripMenuItem.Name = "انشاءنسخةاحتياطيةToolStripMenuItem";
+            this.انشاءنسخةاحتياطيةToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
+            this.انشاءنسخةاحتياطيةToolStripMenuItem.Text = "انشاء نسخة احتياطية";
+            this.انشاءنسخةاحتياطيةToolStripMenuItem.Click += new System.EventHandler(this.انشاءنسخةاحتياطيةToolStripMenuItem_Click);
+            // 
+            // استعادةالنسخةالاحتياطيةToolStripMenuItem
+            // 
+            this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.database1;
+            this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Name = "استعادةالنسخةالاحتياطيةToolStripMenuItem";
+            this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
+            this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Text = "استعادة النسخة الاحتياطية";
+            this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Click += new System.EventHandler(this.استعادةالنسخةالاحتياطيةToolStripMenuItem_Click);
+            // 
+            // تعديلالمستخدمToolStripMenuItem
+            // 
+            this.تعديلالمستخدمToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.user;
+            this.تعديلالمستخدمToolStripMenuItem.Name = "تعديلالمستخدمToolStripMenuItem";
+            this.تعديلالمستخدمToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
+            this.تعديلالمستخدمToolStripMenuItem.Text = "تعديل المستخدم";
+            this.تعديلالمستخدمToolStripMenuItem.Click += new System.EventHandler(this.تعديلالمستخدمToolStripMenuItem_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1074, 479);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
@@ -280,6 +326,7 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,5 +357,9 @@
         private System.Windows.Forms.ToolStripMenuItem العملاتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem الجهاتالمستفيدةToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem الاتصالبالسيرفيرToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem انشاءنسخةاحتياطيةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem استعادةالنسخةالاحتياطيةToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem تعديلالمستخدمToolStripMenuItem;
     }
 }

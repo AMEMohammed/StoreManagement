@@ -6,7 +6,6 @@ E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Pro
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.csproj.GenerateResource.Cache
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.exe
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.pdb
-E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Form1.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmCategory.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmTypeQuntity.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmPlaceSend.resources
@@ -38,7 +37,6 @@ E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frm
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmCurrency.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmUpateOut.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmMain.resources
-E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Form2.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmlogin.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmRPTSupply.resources
 C:\Users\Mohammed Alhazmee\Downloads\Compressed\StoreManagement-master\StoreManagement\bin\Debug\StoreManagement.exe.config
@@ -47,3 +45,6 @@ C:\Users\Mohammed Alhazmee\Downloads\Compressed\StoreManagement-master\StoreMana
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmBuckUpDatabase.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmRPTAccount.resources
 E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmRPTOut.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmRestorDatebase.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmSettingUser.resources
+E:\StoreManagement\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Form1.resources

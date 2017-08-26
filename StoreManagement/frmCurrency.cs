@@ -16,61 +16,114 @@ namespace StoreManagement
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// //////////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if(textBox1.Text.Length>0)
             {
-                dbsql.AddNewCurrency(textBox1.Text);
-            dataGridView1.DataSource=    dbsql.GetAllCurrency();
-                textBox1.Text = "";
+                try
+                {
+                    dbsql.AddNewCurrency(textBox1.Text);
+                    dataGridView1.DataSource = dbsql.GetAllCurrency();
+                    textBox1.Text = "";
+                    textBox1.Focus();               }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
             }
         }
         int id = 0;
+        /// <summary>
+        /// ///////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_Enter(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                textBox2.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                try
+                {  /// عند الدخول الى القائمة
+                    id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    textBox2.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
 
             }
         }
-
+        /// <summary>
+        /// //////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             if(textBox2.Text.Length>0)
             {
-                dbsql.UpdateCurrency(id, textBox2.Text);
-                dataGridView1.DataSource = dbsql.GetAllCurrency();
-                
-                textBox1.Text = "";
-                textBox2.Text = "";
-                id = 0;
+                try
+                {
+                    dbsql.UpdateCurrency(id, textBox2.Text);
+                    dataGridView1.DataSource = dbsql.GetAllCurrency();
+
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    id = 0;
+                }
+                catch(Exception ex)
+                { MessageBox.Show(ex.Message); }
             }
         }
-
+        /// <summary>
+        /// /////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             if ((MessageBox.Show("هل تريد حذف العملة المحددة مع جميع الارتباطات ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
             {
-                dbsql.DeleteCurrency(id);
-                dataGridView1.DataSource = dbsql.GetAllCurrency();
-                textBox1.Text = "";
-                textBox2.Text = "";
-                id = 0;
+                try
+                {
+                    dbsql.DeleteCurrency(id);
+                    dataGridView1.DataSource = dbsql.GetAllCurrency();
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    id = 0;
+                }
+                catch(Exception ex)
+                { MessageBox.Show(ex.Message); }
             }
          }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmCurrency_Load(object sender, EventArgs e)
         {
-            changeLanguage();
-            MessageBoxManager.Yes = "نعم";
-            MessageBoxManager.No = "الغاء";
-            MessageBoxManager.Register();
-            dataGridView1.DataSource = dbsql.GetAllCurrency();
+            try
+            {
+                this.BackColor = Properties.Settings.Default.colorBackGround;
+                changeLanguage();
+                MessageBoxManager.Yes = "نعم";
+                MessageBoxManager.No = "الغاء";
+                MessageBoxManager.Register();
+                dataGridView1.DataSource = dbsql.GetAllCurrency();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public void changeLanguage()
         {
@@ -98,10 +151,17 @@ namespace StoreManagement
 
         private void button4_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = dbsql.GetAllCurrency();
-            textBox1.Text = "";
-            textBox2.Text = "";
-            id = 0;
+            try
+            {
+                dataGridView1.DataSource = dbsql.GetAllCurrency();
+                textBox1.Text = "";
+                textBox2.Text = "";
+                id = 0;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
@@ -113,9 +173,15 @@ namespace StoreManagement
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
-            {
-                id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                textBox2.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            {  try
+                {
+                    id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    textBox2.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
 
             }

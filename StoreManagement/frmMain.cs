@@ -16,6 +16,8 @@ namespace StoreManagement
 
         public frmMain()
         {
+            new Form1().ShowDialog();
+            
             InitializeComponent();
         }
 
@@ -30,12 +32,14 @@ namespace StoreManagement
        void checkIcon(bool check)
         {
            
-            this.اعدادتالنظامToolStripMenuItem.Enabled = check;
+        //    this.اعدادتالنظامToolStripMenuItem.Enabled = check;
             this.التقاريرToolStripMenuItem.Enabled = check;
             this.تهيئةالنظامToolStripMenuItem.Enabled = check;
             this.طلباتالتوريدToolStripMenuItem.Enabled = check;
             this.طلباتالصرفToolStripMenuItem.Enabled = check;
-
+            this.انشاءنسخةاحتياطيةToolStripMenuItem.Enabled = check;
+            this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Enabled = check;
+            this.تعديلالمستخدمToolStripMenuItem.Enabled = check;
         }
 
         private void دخولالنظامToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -59,12 +63,14 @@ namespace StoreManagement
         /// <param name="e"></param>
         private void frmMain_Load(object sender, EventArgs e)
         {
+            this.BackColor = Properties.Settings.Default.colorBackGround;
 
                 MessageBoxManager.Yes = "نعم";
             MessageBoxManager.No = "الغاء";
 
             MessageBoxManager.Register();
             checkIcon(false);
+
         }
 
         private void خروجمنالنظامToolStripMenuItem_Click(object sender, EventArgs e)
@@ -162,6 +168,35 @@ namespace StoreManagement
             this.Cursor = Cursors.WaitCursor;
             new frmRPTOut().ShowDialog();
             this.Cursor = Cursors.Default;
+        }
+
+        private void انشاءنسخةاحتياطيةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            new frmBuckUpDatabase().ShowDialog();
+            this.Cursor = Cursors.Default;
+        }
+
+        private void استعادةالنسخةالاحتياطيةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            new frmRestorDatebase().ShowDialog();
+            this.Cursor = Cursors.Default;
+        }
+
+        private void الاتصالبالسيرفيرToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            new frmsttingImage().ShowDialog();
+            this.Cursor = Cursors.Default;
+        }
+
+        private void تعديلالمستخدمToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            new frmSettingUser().ShowDialog();
+            this.Cursor = Cursors.Default;
+
         }
     }
 }

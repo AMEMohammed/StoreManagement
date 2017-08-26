@@ -34,6 +34,8 @@ namespace StoreManagement
 
         private void frmUpateOut_Load(object sender, EventArgs e)
         {
+            this.BackColor = Properties.Settings.Default.colorBackGround;
+            label1.BackColor = Properties.Settings.Default.colorBackGround;
             try
             {
                 changeLanguage();
@@ -69,24 +71,31 @@ namespace StoreManagement
             this.Cursor = Cursors.WaitCursor;
             if (checkBox1.Checked == true && textBox1.Text == "")
             {
-
-                dataGridView1.DataSource = dbsql.SearchINRequstOutDate(dateTimePicker1.Value.Date, dateTimePicker2.Value);
+                try
+                {
+                    dataGridView1.DataSource = dbsql.SearchINRequstOutDate(dateTimePicker1.Value.Date, dateTimePicker2.Value);
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
 
             }
            
          
             else if (textBox1.Text.Length > 0 && checkBox1.Checked == false)
             {
-                dataGridView1.DataSource = dbsql.SearchINRequsetOuttxt(textBox1.Text);
+                try { dataGridView1.DataSource = dbsql.SearchINRequsetOuttxt(textBox1.Text); }
+                catch(Exception ex) { MessageBox.Show(ex.Message); }
 
             }
             else if (textBox1.Text == "" && checkBox1.Checked == false)
             {
-                dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.AddDays(-3), DateTime.Now);
+                try { dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.AddDays(-3), DateTime.Now); }
+                catch(Exception ex) { MessageBox.Show(ex.Message); }
+                
             }
             else if (textBox1.Text.Length > 0 && checkBox1.Checked == true)
             {
-                dataGridView1.DataSource = dbsql.SearchINRequsetOutTxtAndDate(textBox1.Text, dateTimePicker1.Value.Date, dateTimePicker2.Value);
+                try { dataGridView1.DataSource = dbsql.SearchINRequsetOutTxtAndDate(textBox1.Text, dateTimePicker1.Value.Date, dateTimePicker2.Value); }
+                catch(Exception ex) { MessageBox.Show(ex.Message); }
             }
             this.Cursor = Cursors.Default;
 
@@ -95,16 +104,23 @@ namespace StoreManagement
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            if (textBox1.Text.Length > 0 && checkBox1.Checked == false)
-                dataGridView1.DataSource = dbsql.SearchINRequsetOuttxt(textBox1.Text);
-            else if (textBox1.Text == "" && checkBox1.Checked == false)
+            try
             {
-                dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.AddDays(-7), DateTime.Now);
-            }
-            else if (textBox1.Text.Length > 0 && checkBox1.Checked == true)
-            {
-                dataGridView1.DataSource = dbsql.SearchINRequsetOutTxtAndDate(textBox1.Text, dateTimePicker1.Value.Date, dateTimePicker2.Value);
+                if (textBox1.Text.Length > 0 && checkBox1.Checked == false)
+                    dataGridView1.DataSource = dbsql.SearchINRequsetOuttxt(textBox1.Text);
+                else if (textBox1.Text == "" && checkBox1.Checked == false)
+                {
+                    dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.AddDays(-7), DateTime.Now);
+                }
+                else if (textBox1.Text.Length > 0 && checkBox1.Checked == true)
+                {
+                    dataGridView1.DataSource = dbsql.SearchINRequsetOutTxtAndDate(textBox1.Text, dateTimePicker1.Value.Date, dateTimePicker2.Value);
 
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             this.Cursor = Cursors.Default;
         }
@@ -118,37 +134,54 @@ namespace StoreManagement
 
 
                 ////////// اضافة الاعمدة 
-                for (int i = 0; i < dataGridView1.Columns.Count-1; i++)
+                try
                 {
-                    dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
+                    for (int i = 0; i < dataGridView1.Columns.Count - 1; i++)
+                    {
+                        dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
 
 
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
                 ///////////////////  أاضافة سطور 
-                foreach (DataGridViewRow dgr in dataGridView1.SelectedRows)
+                try
                 {
-                    this.Cursor = Cursors.WaitCursor;
-                    DataRow dr = ((DataRowView)dgr.DataBoundItem).Row;
-                    int ido = Convert.ToInt32(dr[0].ToString());
-                    string nmCa = dr[1].ToString();
-                    string nmty = dr[2].ToString();
-                    string palce = dr[3].ToString();
-                    int Qun = Convert.ToInt32(dr[4].ToString());
-                    int prs = Convert.ToInt32(dr[5].ToString());
-                    int totl = Convert.ToInt32(dr[6].ToString());
-                    string currn = dr[7].ToString();
-                    string amer = dr[8].ToString();
-                    string astalm = dr[9].ToString(); ;
-                    DateTime dd = DateTime.Parse(dr[10].ToString());
+                    foreach (DataGridViewRow dgr in dataGridView1.SelectedRows)
+                    {
+                        this.Cursor = Cursors.WaitCursor;
+                        DataRow dr = ((DataRowView)dgr.DataBoundItem).Row;
+                        int ido = Convert.ToInt32(dr[0].ToString());
+                        string nmCa = dr[1].ToString();
+                        string nmty = dr[2].ToString();
+                        string palce = dr[3].ToString();
+                        int Qun = Convert.ToInt32(dr[4].ToString());
+                        int prs = Convert.ToInt32(dr[5].ToString());
+                        int totl = Convert.ToInt32(dr[6].ToString());
+                        string currn = dr[7].ToString();
+                        string amer = dr[8].ToString();
+                        string astalm = dr[9].ToString(); ;
+                        DateTime dd = DateTime.Parse(dr[10].ToString());
 
-                    string dec = dr[11].ToString();
-                    dt.Rows.Add(ido, nmCa, nmty, palce, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, amer, astalm, dd.Date.ToShortDateString(), dec);
-                    this.Cursor = Cursors.Default;
+                        string dec = dr[11].ToString();
+                        dt.Rows.Add(ido, nmCa, nmty, palce, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, amer, astalm, dd.Date.ToShortDateString(), dec);
+                        this.Cursor = Cursors.Default;
+                    }
                 }
-
+                catch(Exception ex) { MessageBox.Show(ex.Message); }
                 this.Cursor = Cursors.WaitCursor;
-                frmREPORT frm = new frmREPORT(4, dt);
-                frm.ShowDialog();
+                try
+                {
+                    frmREPORT frm = new frmREPORT(4, dt);
+                    frm.ShowDialog();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 this.Cursor = Cursors.Default;
             }
         }
@@ -158,12 +191,19 @@ namespace StoreManagement
             if (dataGridView1.SelectedRows.Count > 0)
 
             {
+                try
+                {
+                    int IDcheck = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
+                    frmREPORT frm = new frmREPORT(IDcheck, 2);
+                    this.Cursor = Cursors.WaitCursor;
+                    frm.ShowDialog();
+                    this.Cursor = Cursors.Default;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
 
-                int IDcheck = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
-                frmREPORT frm = new frmREPORT(IDcheck, 2);
-                this.Cursor = Cursors.WaitCursor;
-                frm.ShowDialog();
-                this.Cursor = Cursors.Default;
+                }
             }
         }
     }

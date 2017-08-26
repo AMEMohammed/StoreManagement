@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -45,6 +46,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -60,9 +63,9 @@
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(950, 244);
+            this.groupBox1.Size = new System.Drawing.Size(950, 228);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "تحديد";
@@ -72,7 +75,7 @@
             this.groupBox8.Controls.Add(this.button1);
             this.groupBox8.Controls.Add(this.button5);
             this.groupBox8.Controls.Add(this.button4);
-            this.groupBox8.Location = new System.Drawing.Point(6, 141);
+            this.groupBox8.Location = new System.Drawing.Point(6, 125);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(265, 97);
             this.groupBox8.TabIndex = 10;
@@ -86,6 +89,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 54);
             this.button1.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.button1, "طباعة التقرير المطلوب");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -96,6 +100,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(81, 54);
             this.button5.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.button5, "خروج");
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button4
@@ -105,6 +110,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(79, 54);
             this.button4.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.button4, "بحث");
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -117,7 +123,8 @@
             this.groupBox3.Size = new System.Drawing.Size(266, 94);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "نوع الطلب";
+            this.groupBox3.Text = "نوع الكمية";
+            this.toolTip1.SetToolTip(this.groupBox3, "اختار نوع الكمية");
             // 
             // checkBox2
             // 
@@ -129,6 +136,7 @@
             this.checkBox2.Size = new System.Drawing.Size(49, 23);
             this.checkBox2.TabIndex = 1;
             this.checkBox2.Text = "الكل";
+            this.toolTip1.SetToolTip(this.checkBox2, "اختيار كل الانواع");
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
@@ -141,7 +149,6 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(199, 30);
             this.comboBox2.TabIndex = 0;
-//            this.comboBox2.Leave += new System.EventHandler(this.comboBox2_Leave);
             // 
             // groupBox4
             // 
@@ -153,6 +160,7 @@
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "العملة";
+            this.toolTip1.SetToolTip(this.groupBox4, "اختار العملة المطلوبه");
             // 
             // checkBox3
             // 
@@ -164,6 +172,7 @@
             this.checkBox3.Size = new System.Drawing.Size(49, 23);
             this.checkBox3.TabIndex = 1;
             this.checkBox3.Text = "الكل";
+            this.toolTip1.SetToolTip(this.checkBox3, "اختيار كل العملات");
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
@@ -187,6 +196,7 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "الصنف";
+            this.toolTip1.SetToolTip(this.groupBox2, "اختار اسم الصنف");
             // 
             // checkBox1
             // 
@@ -198,6 +208,7 @@
             this.checkBox1.Size = new System.Drawing.Size(49, 23);
             this.checkBox1.TabIndex = 1;
             this.checkBox1.Text = "الكل";
+            this.toolTip1.SetToolTip(this.checkBox1, "تحديد كل الاصناف");
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -210,7 +221,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(199, 30);
             this.comboBox1.TabIndex = 0;
-//            this.comboBox1.Leave += new System.EventHandler(this.comboBox1_Leave);
             // 
             // groupBox5
             // 
@@ -244,11 +254,22 @@
             this.dataGridView1.Size = new System.Drawing.Size(938, 436);
             this.dataGridView1.TabIndex = 13;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(409, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 22);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "تقارير الكميات المخزنة";
+            // 
             // frmRPTAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 741);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -272,6 +293,7 @@
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -293,5 +315,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label1;
     }
 }

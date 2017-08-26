@@ -21,6 +21,7 @@ namespace StoreManagement
 
         private void frmRequstOut_Load(object sender, EventArgs e)
         {
+            this.BackColor = Properties.Settings.Default.colorBackGround;
             try
             {
                 comboBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -155,62 +156,69 @@ namespace StoreManagement
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-          if((int)comboBox1.SelectedValue>0 & (int)comboBox2.SelectedValue > 0 & (int)comboBox3.SelectedValue > 0 & (int)comboBox4.SelectedValue > 0 & textBox2.Text.Length>0 & textBox3.Text.Length>0 &textBox4.Text.Length>0)
+            try
             {
-                if ((MessageBox.Show("هل تريد ترحيل طلب الصرف ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+                if ((int)comboBox1.SelectedValue > 0 & (int)comboBox2.SelectedValue > 0 & (int)comboBox3.SelectedValue > 0 & (int)comboBox4.SelectedValue > 0 & textBox2.Text.Length > 0 & textBox3.Text.Length > 0 & textBox4.Text.Length > 0)
                 {
-                    int Idcat = ((int)comboBox1.SelectedValue);
-                    int idtyp = ((int)comboBox2.SelectedValue);
-                    int idplace = ((int)comboBox3.SelectedValue);
-                    int idcurrnt = ((int)comboBox4.SelectedValue);
-                    int QunntyMust = Convert.ToInt32(textBox2.Text);
-                    string nameAmmer = textBox3.Text;
-                    string nameMostlaem = textBox4.Text;
-                    string Decrip = textBox5.Text;
-
-
-
-                    DataTable dtAccountIDs = new DataTable();
-                    dtAccountIDs = dbsql.GetAccountIDs(Idcat, idtyp,idcurrnt); // [جلب الحسابات التي تحتوي على نفس النوع والصنف
-                    int MaxCheckRequstOut = dbsql.GetMaxCheckInRequsetOut();
-                    MaxCheckRequstOut += 1;
-              
-                    int Quntity2 = QunntyMust;
-                  
-                   for (int i = 0; i < dtAccountIDs.Rows.Count; i++)
+                    if ((MessageBox.Show("هل تريد ترحيل طلب الصرف ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                     {
-                         int IDAccount = Convert.ToInt32(dtAccountIDs.Rows[i][0].ToString());
-                         int result = dbsql.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idplace, idcurrnt,nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem);
-                        if (result == 0)
+                        int Idcat = ((int)comboBox1.SelectedValue);
+                        int idtyp = ((int)comboBox2.SelectedValue);
+                        int idplace = ((int)comboBox3.SelectedValue);
+                        int idcurrnt = ((int)comboBox4.SelectedValue);
+                        int QunntyMust = Convert.ToInt32(textBox2.Text);
+                        string nameAmmer = textBox3.Text;
+                        string nameMostlaem = textBox4.Text;
+                        string Decrip = textBox5.Text;
+
+
+
+                        DataTable dtAccountIDs = new DataTable();
+                        dtAccountIDs = dbsql.GetAccountIDs(Idcat, idtyp, idcurrnt); // [جلب الحسابات التي تحتوي على نفس النوع والصنف
+                        int MaxCheckRequstOut = dbsql.GetMaxCheckInRequsetOut();
+                        MaxCheckRequstOut += 1;
+
+                        int Quntity2 = QunntyMust;
+
+                        for (int i = 0; i < dtAccountIDs.Rows.Count; i++)
                         {
-                            break;
+                            int IDAccount = Convert.ToInt32(dtAccountIDs.Rows[i][0].ToString());
+                            int result = dbsql.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idplace, idcurrnt, nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem);
+                            if (result == 0)
+                            {
+                                break;
+
+                            }
+                            else
+                            {
+
+                                Quntity2 -= result;
+
+                            }
+
 
                         }
-                        else
+                        if ((MessageBox.Show("هل تريد طباعة سند صرف؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                         {
+                            frmREPORT frm = new frmREPORT(MaxCheckRequstOut, 2);
 
-                            Quntity2 -= result;
-                         
+                            frm.ShowDialog();
+
                         }
-                        
-
-                    }
-                    if ((MessageBox.Show("هل تريد طباعة سند صرف؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
-                    {
-                        frmREPORT frm = new frmREPORT(MaxCheckRequstOut, 2);
-
-                        frm.ShowDialog();
-
-                    }
 
                         refrsh1();
 
 
 
+                    }
+
+
+
                 }
-
-
-
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         ///
@@ -243,18 +251,31 @@ namespace StoreManagement
             if(dataGridView1.SelectedRows.Count>0)
 
             {
-              
-                int IDcheck=Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
-                frmREPORT frm = new frmREPORT(IDcheck,2);
-                this.Cursor = Cursors.WaitCursor;
-                frm.ShowDialog();
-                this.Cursor = Cursors.Default;
+                try
+                {
+
+                    int IDcheck = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
+                    frmREPORT frm = new frmREPORT(IDcheck, 2);
+                    this.Cursor = Cursors.WaitCursor;
+                    frm.ShowDialog();
+                    this.Cursor = Cursors.Default;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
         private void comboBox4_Leave(object sender, EventArgs e)
         {
-            textBox1.Text = dbsql.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue,(int)comboBox4.SelectedValue).ToString();
-        }
+            try {
+                textBox1.Text = dbsql.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue, (int)comboBox4.SelectedValue).ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            }
     }
 }

@@ -25,6 +25,7 @@ namespace StoreManagement
 
         private void frmRPTSupply_Load(object sender, EventArgs e)
         {
+            this.BackColor = Properties.Settings.Default.colorBackGround;
             try
             {/////////
                 comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -48,23 +49,33 @@ namespace StoreManagement
             }
         }
 
-
+        /// <summary>
+        /// //////
+        /// </summary>
         void getDate1()
         {
-            comboBox1.DisplayMember = "اسم الصنف";
-            comboBox1.ValueMember = "رقم الصنف";
-            comboBox1.DataSource = dbsql.GetAllCategoryAR();
-            comboBox2.DisplayMember = "اسم النوع";
-            comboBox2.ValueMember = "رقم النوع";
-            comboBox2.DataSource = dbsql.GetAllTypeQuntity();
-            comboBox3.DisplayMember = "اسم العملة";
-            comboBox3.ValueMember = "رقم العملة";
-            comboBox3.DataSource = dbsql.GetAllCurrency();
-          
+            try
+            {
+                comboBox1.DisplayMember = "اسم الصنف";
+                comboBox1.ValueMember = "رقم الصنف";
+                comboBox1.DataSource = dbsql.GetAllCategoryAR();
+                comboBox2.DisplayMember = "اسم النوع";
+                comboBox2.ValueMember = "رقم النوع";
+                comboBox2.DataSource = dbsql.GetAllTypeQuntity();
+                comboBox3.DisplayMember = "اسم العملة";
+                comboBox3.ValueMember = "رقم العملة";
+                comboBox3.DataSource = dbsql.GetAllCurrency();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
-
+        /// <summary>
+        /// /////////
+        /// </summary>
 
         public void changeLanguage()
         {
@@ -81,7 +92,11 @@ namespace StoreManagement
 
             }
         }
-
+        /// <summary>
+        /// ///////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if(checkBox1.Checked==true)
@@ -92,7 +107,11 @@ namespace StoreManagement
             {
                 comboBox1.Enabled = true;
             }
-        }
+        }/// <summary>
+        /// ////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
@@ -105,7 +124,11 @@ namespace StoreManagement
                 comboBox2.Enabled = true;
             }
         }
-
+        /// <summary>
+        /// ////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox3.Checked == true)
@@ -117,7 +140,11 @@ namespace StoreManagement
                 comboBox3.Enabled = true;
             }
         }
-
+        /// <summary>
+        /// ////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
             if(checkBox4.Checked==true)
@@ -133,7 +160,11 @@ namespace StoreManagement
             }
 
         }
-
+        /// <summary>
+        /// ////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             string IDCat ="";
@@ -142,16 +173,28 @@ namespace StoreManagement
             string Name ="";
             if(checkBox1.Checked==false)
             {
-                IDCat = comboBox1.SelectedValue.ToString();
+                try
+                {
+                    IDCat = comboBox1.SelectedValue.ToString();
+                }
+                catch(Exception ex) { MessageBox.Show(ex.Message); }
 
             }
             if(checkBox2.Checked==false)
             {
-                IDTyp = comboBox2.SelectedValue.ToString();
+                try
+                {
+                    IDTyp = comboBox2.SelectedValue.ToString();
+                }
+                catch(Exception ex) { MessageBox.Show(ex.Message); }
             }
             if(checkBox3.Checked==false)
             {
-                IDCurrn = comboBox3.SelectedValue.ToString();
+                try
+                {
+                    IDCurrn = comboBox3.SelectedValue.ToString();
+                }
+                catch(Exception ex) { MessageBox.Show(ex.Message); }
             }
             if(textBox4.Text.Length>0)
             {
@@ -160,11 +203,20 @@ namespace StoreManagement
             this.Cursor = Cursors.WaitCursor;
             if (checkBox4.Checked ==false)
             {
-                dataGridView1.DataSource = dbsql.PrintRequstRPT(IDCat, IDTyp, IDCurrn, Name);
+                try
+                {
+                    dataGridView1.DataSource = dbsql.PrintRequstRPT(IDCat, IDTyp, IDCurrn, Name);
+                }
+                catch(Exception ex) { MessageBox.Show(ex.Message); }
+
             }
             else
             {
-                dataGridView1.DataSource = dbsql.PrintRequstRPT(dateTimePicker1.Value.Date,dateTimePicker2.Value,IDCat, IDTyp, IDCurrn, Name);
+                try
+                {
+                    dataGridView1.DataSource = dbsql.PrintRequstRPT(dateTimePicker1.Value.Date, dateTimePicker2.Value, IDCat, IDTyp, IDCurrn, Name);
+                }
+              catch(Exception ex) { MessageBox.Show(ex.Message);  }
             }
             this.Cursor = Cursors.Default;
            
@@ -175,43 +227,62 @@ namespace StoreManagement
         {
             this.Close();
         }
-
+        /// <summary>
+        /// ////////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count > 0)
             {
                 DataTable dt = new DataTable();
 
-
-                ////////// اضافة الاعمدة 
-                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                try
                 {
-                    dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
+                    ////////// اضافة الاعمدة 
+                    for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                    {
+                        dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
 
 
+                    }
                 }
+                catch(Exception ex) { MessageBox.Show(ex.Message); }
                 ///////////////////  أاضافة سطور 
-                foreach (DataGridViewRow dgr in dataGridView1.Rows)
+                try
+                {
+                    foreach (DataGridViewRow dgr in dataGridView1.Rows)
+                    {
+
+                        DataRow dr = ((DataRowView)dgr.DataBoundItem).Row;
+                        int idS = Convert.ToInt32(dr[0].ToString());
+                        string nmCa = dr[1].ToString();
+                        string nmty = dr[2].ToString();
+                        int Qun = Convert.ToInt32(dr[3].ToString());
+                        int prs = Convert.ToInt32(dr[4].ToString());
+                        int totl = Convert.ToInt32(dr[5].ToString());
+                        string currn = dr[6].ToString();
+                        DateTime dd = DateTime.Parse(dr[7].ToString());
+                        string namee = dr[8].ToString();
+                        string dec = dr[9].ToString();
+                        dt.Rows.Add(idS, nmCa, nmty, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, dd.Date.ToShortDateString(), namee, dec);
+                    }
+                }
+                catch(Exception ex)
+                { MessageBox.Show(ex.Message); }
+
+
+                try
                 {
 
-                    DataRow dr = ((DataRowView)dgr.DataBoundItem).Row;
-                    int idS = Convert.ToInt32(dr[0].ToString());
-                    string nmCa = dr[1].ToString();
-                    string nmty = dr[2].ToString();
-                    int Qun = Convert.ToInt32(dr[3].ToString());
-                    int prs = Convert.ToInt32(dr[4].ToString());
-                    int totl = Convert.ToInt32(dr[5].ToString());
-                    string currn = dr[6].ToString();
-                    DateTime dd = DateTime.Parse(dr[7].ToString());
-                    string namee = dr[8].ToString();
-                    string dec = dr[9].ToString();
-                    dt.Rows.Add(idS, nmCa, nmty, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, dd.Date.ToShortDateString(), namee, dec);
+                    this.Cursor = Cursors.WaitCursor;
+                    frmREPORT frm = new frmREPORT(3, dt);
+                    frm.ShowDialog();
+                    this.Cursor = Cursors.Default;
                 }
-
-                this.Cursor = Cursors.WaitCursor;
-                frmREPORT frm = new frmREPORT(3, dt);
-                frm.ShowDialog();
-                this.Cursor = Cursors.Default;
+                catch(Exception ex)
+                { MessageBox.Show(ex.Message); }
             }
         }
     }
