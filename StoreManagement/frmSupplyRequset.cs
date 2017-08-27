@@ -93,64 +93,69 @@ namespace StoreManagement
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {  
-            if(textBox1.Text.Length>0&&textBox2.Text.Length>0  && (int)comboBox1.SelectedValue>0&& (int)comboBox2.SelectedValue > 0 )
-            { if ((MessageBox.Show("هل تريد ترحيل طلب التوريد واعتماده ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+        {
+            try
+            {
+                if (textBox1.Text.Length > 0 && textBox2.Text.Length > 0 && (int)comboBox1.SelectedValue > 0 && (int)comboBox2.SelectedValue > 0)
                 {
-                    try
+                    if ((MessageBox.Show("هل تريد ترحيل طلب التوريد واعتماده ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                     {
-                        int idcate = (int)comboBox1.SelectedValue;
-
-                        int idtype = (int)comboBox2.SelectedValue;
-                        int idCurrnt = (int)comboBox3.SelectedValue;
-                        int qunt = Convert.ToInt32(textBox1.Text);
-                        int price = Convert.ToInt32(textBox2.Text);
-
-                        string name = textBox4.Text;
-                        string dec = textBox5.Text;
-                        int idAcount = dbsql.CheckAccountIsHere(idcate, idtype, price, idCurrnt);
-
-
-                        if (idAcount > 0) // في حالة الحساب موجود من قبل
-                        {   //  تعديل الحساب بالكمية الجديدة
-                            int oldQunt = dbsql.GetQuntityInAccount(idAcount);
-                            int newQunt = oldQunt + qunt;
-                            dbsql.UpdateQuntityAccount(idAcount, newQunt);
-
-
-                        }
-                        else //  في حالة الحساب جديد
+                        try
                         {
-                            dbsql.AddNewAccount(idcate, idtype, qunt, price, idCurrnt);// اضافة حساب جديد
-                        }
-                        /////////////////////////////////
+                            int idcate = (int)comboBox1.SelectedValue;
 
-                        /////////////////////////////////////////////////////////
-                        dbsql.AddNewRequsetSupply(idcate, idtype, qunt, price, idCurrnt, name, dec, DateTime.Now);//اضافة طلب جديد
-                        if ((MessageBox.Show("هل تريد طباعة سند توريد؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
-                        {
-                            try
-                            {
-                                int IDRequstSupply = dbsql.GetMaxSupplyid();
-                                frmREPORT frmr = new frmREPORT(IDRequstSupply,1);
-                              
-                                frmr.ShowDialog();
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.Message);
+                            int idtype = (int)comboBox2.SelectedValue;
+                            int idCurrnt = (int)comboBox3.SelectedValue;
+                            int qunt = Convert.ToInt32(textBox1.Text);
+                            int price = Convert.ToInt32(textBox2.Text);
+
+                            string name = textBox4.Text;
+                            string dec = textBox5.Text;
+                            int idAcount = dbsql.CheckAccountIsHere(idcate, idtype, price, idCurrnt);
+
+
+                            if (idAcount > 0) // في حالة الحساب موجود من قبل
+                            {   //  تعديل الحساب بالكمية الجديدة
+                                int oldQunt = dbsql.GetQuntityInAccount(idAcount);
+                                int newQunt = oldQunt + qunt;
+                                dbsql.UpdateQuntityAccount(idAcount, newQunt);
+
 
                             }
+                            else //  في حالة الحساب جديد
+                            {
+                                dbsql.AddNewAccount(idcate, idtype, qunt, price, idCurrnt);// اضافة حساب جديد
+                            }
+                            /////////////////////////////////
+
+                            /////////////////////////////////////////////////////////
+                            dbsql.AddNewRequsetSupply(idcate, idtype, qunt, price, idCurrnt, name, dec, DateTime.Now);//اضافة طلب جديد
+                            if ((MessageBox.Show("هل تريد طباعة سند توريد؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+                            {
+                                try
+                                {
+                                    int IDRequstSupply = dbsql.GetMaxSupplyid();
+                                    frmREPORT frmr = new frmREPORT(IDRequstSupply, 1);
+
+                                    frmr.ShowDialog();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message);
+
+                                }
+                            }
                         }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                        Refrsh1();
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                    Refrsh1();
+
                 }
-                
-            }
+            }catch(Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         /// <summary>

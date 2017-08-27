@@ -651,9 +651,9 @@ namespace StoreManagement
                 cmd = new SqlCommand("select max(Chack) from RequstOut", con);
                 r = (int)cmd.ExecuteScalar();
             }
-            catch (Exception ex)
+            catch 
             {
-                MessageBox.Show(ex.Message);
+               
                 r = 0;
             }
             finally
@@ -669,7 +669,7 @@ namespace StoreManagement
         {
             DataTable dt = new DataTable();
 
-            cmd = new SqlCommand("select RequstOut.IDOut as 'رقم الطلب',Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,RequstOut.DesOut as 'ملاحظات' from RequstOut,Category,TypeQuntity,PlaceSend,Currency where RequstOut.IDCategory = Category.IDCategory and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack =@check", con);
+            cmd = new SqlCommand("select RequstOut.IDOut as 'رقم الطلب',Category.NameCategory as 'اسم الصنف',TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,RequstOut.DesOut as 'ملاحظات'  from RequstOut,Category,TypeQuntity,PlaceSend,Currency where RequstOut.IDCategory = Category.IDCategory and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack=@check", con);
             cmd.Parameters.AddWithValue("@check", Check);
             cmd.CommandType = CommandType.Text;
             adapter = new SqlDataAdapter(cmd);
@@ -677,9 +677,23 @@ namespace StoreManagement
            
             return dt;
         }
-
-
-
+        /// <summary>
+        /// / جلب الاجمالي حق الطلبات المحددة
+        /// </summary>
+        /// <param name="check"></param>
+        /// <returns></returns>
+       public int GetPraceInRequstOut(int check)
+        {
+            int r = 0;
+            cmd = new SqlCommand("select  SUM((RequstOut.Price*RequstOut.Quntity)) as 'الاجماليا'  from RequstOut where RequstOut.Chack=@check", con);
+            cmd.Parameters.AddWithValue("@check", check);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+            r = (int)cmd.ExecuteScalar();
+            con.Close();
+            return r = 0;
+        }
+       
 
 
 

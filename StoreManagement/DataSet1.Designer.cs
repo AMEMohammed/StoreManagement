@@ -36,7 +36,9 @@ namespace StoreManagement {
         
         private SupplyoneDataTable tableSupplyone;
         
-        private OutoneDataTable tableOutone;
+        private RequstOutAll1DataTable tableRequstOutAll1;
+        
+        private OutRequstDataTable tableOutRequst;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -84,8 +86,11 @@ namespace StoreManagement {
                 if ((ds.Tables["Supplyone"] != null)) {
                     base.Tables.Add(new SupplyoneDataTable(ds.Tables["Supplyone"]));
                 }
-                if ((ds.Tables["Outone"] != null)) {
-                    base.Tables.Add(new OutoneDataTable(ds.Tables["Outone"]));
+                if ((ds.Tables["RequstOutAll1"] != null)) {
+                    base.Tables.Add(new RequstOutAll1DataTable(ds.Tables["RequstOutAll1"]));
+                }
+                if ((ds.Tables["OutRequst"] != null)) {
+                    base.Tables.Add(new OutRequstDataTable(ds.Tables["OutRequst"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -169,9 +174,19 @@ namespace StoreManagement {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public OutoneDataTable Outone {
+        public RequstOutAll1DataTable RequstOutAll1 {
             get {
-                return this.tableOutone;
+                return this.tableRequstOutAll1;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public OutRequstDataTable OutRequst {
+            get {
+                return this.tableOutRequst;
             }
         }
         
@@ -260,8 +275,11 @@ namespace StoreManagement {
                 if ((ds.Tables["Supplyone"] != null)) {
                     base.Tables.Add(new SupplyoneDataTable(ds.Tables["Supplyone"]));
                 }
-                if ((ds.Tables["Outone"] != null)) {
-                    base.Tables.Add(new OutoneDataTable(ds.Tables["Outone"]));
+                if ((ds.Tables["RequstOutAll1"] != null)) {
+                    base.Tables.Add(new RequstOutAll1DataTable(ds.Tables["RequstOutAll1"]));
+                }
+                if ((ds.Tables["OutRequst"] != null)) {
+                    base.Tables.Add(new OutRequstDataTable(ds.Tables["OutRequst"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -332,10 +350,16 @@ namespace StoreManagement {
                     this.tableSupplyone.InitVars();
                 }
             }
-            this.tableOutone = ((OutoneDataTable)(base.Tables["Outone"]));
+            this.tableRequstOutAll1 = ((RequstOutAll1DataTable)(base.Tables["RequstOutAll1"]));
             if ((initTable == true)) {
-                if ((this.tableOutone != null)) {
-                    this.tableOutone.InitVars();
+                if ((this.tableRequstOutAll1 != null)) {
+                    this.tableRequstOutAll1.InitVars();
+                }
+            }
+            this.tableOutRequst = ((OutRequstDataTable)(base.Tables["OutRequst"]));
+            if ((initTable == true)) {
+                if ((this.tableOutRequst != null)) {
+                    this.tableOutRequst.InitVars();
                 }
             }
         }
@@ -360,8 +384,10 @@ namespace StoreManagement {
             base.Tables.Add(this.tableaccountQuntity);
             this.tableSupplyone = new SupplyoneDataTable();
             base.Tables.Add(this.tableSupplyone);
-            this.tableOutone = new OutoneDataTable();
-            base.Tables.Add(this.tableOutone);
+            this.tableRequstOutAll1 = new RequstOutAll1DataTable();
+            base.Tables.Add(this.tableRequstOutAll1);
+            this.tableOutRequst = new OutRequstDataTable();
+            base.Tables.Add(this.tableOutRequst);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -402,7 +428,13 @@ namespace StoreManagement {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeOutone() {
+        private bool ShouldSerializeRequstOutAll1() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeOutRequst() {
             return false;
         }
         
@@ -480,7 +512,10 @@ namespace StoreManagement {
         public delegate void SupplyoneRowChangeEventHandler(object sender, SupplyoneRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void OutoneRowChangeEventHandler(object sender, OutoneRowChangeEvent e);
+        public delegate void RequstOutAll1RowChangeEventHandler(object sender, RequstOutAll1RowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void OutRequstRowChangeEventHandler(object sender, OutRequstRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2678,34 +2713,36 @@ namespace StoreManagement {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class OutoneDataTable : global::System.Data.TypedTableBase<OutoneRow> {
+        public partial class RequstOutAll1DataTable : global::System.Data.TypedTableBase<RequstOutAll1Row> {
             
-            private global::System.Data.DataColumn columnالصنف;
+            private global::System.Data.DataColumn columnرقم_الطلب;
             
-            private global::System.Data.DataColumn columnالنوع;
+            private global::System.Data.DataColumn columnاسم_الصنف;
             
-            private global::System.Data.DataColumn columnالجهة_المستفيدة_;
+            private global::System.Data.DataColumn columnنوع_الكمية;
             
-            private global::System.Data.DataColumn columnالتاريخ;
-            
-            private global::System.Data.DataColumn columnملاحظات;
-            
-            private global::System.Data.DataColumn columnيصرف_بامر;
-            
-            private global::System.Data.DataColumn columnالمستلم;
-            
-            private global::System.Data.DataColumn columnالسعر;
+            private global::System.Data.DataColumn columnالجهة_المستفيدة;
             
             private global::System.Data.DataColumn columnالكمية;
+            
+            private global::System.Data.DataColumn columnسعر_الوحدة;
             
             private global::System.Data.DataColumn columnالاجمالي;
             
             private global::System.Data.DataColumn columnالعملة;
             
+            private global::System.Data.DataColumn columnيصرف_بامر;
+            
+            private global::System.Data.DataColumn columnباستلام;
+            
+            private global::System.Data.DataColumn columnتاريخ_الصرف;
+            
+            private global::System.Data.DataColumn columnملاحظات;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OutoneDataTable() {
-                this.TableName = "Outone";
+            public RequstOutAll1DataTable() {
+                this.TableName = "RequstOutAll1";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -2713,7 +2750,7 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal OutoneDataTable(global::System.Data.DataTable table) {
+            internal RequstOutAll1DataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2730,72 +2767,40 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected OutoneDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected RequstOutAll1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn الصنفColumn {
+            public global::System.Data.DataColumn رقم_الطلبColumn {
                 get {
-                    return this.columnالصنف;
+                    return this.columnرقم_الطلب;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn النوعColumn {
+            public global::System.Data.DataColumn اسم_الصنفColumn {
                 get {
-                    return this.columnالنوع;
+                    return this.columnاسم_الصنف;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn الجهة_المستفيدة_Column {
+            public global::System.Data.DataColumn نوع_الكميةColumn {
                 get {
-                    return this.columnالجهة_المستفيدة_;
+                    return this.columnنوع_الكمية;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn التاريخColumn {
+            public global::System.Data.DataColumn الجهة_المستفيدةColumn {
                 get {
-                    return this.columnالتاريخ;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ملاحظاتColumn {
-                get {
-                    return this.columnملاحظات;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn يصرف_بامرColumn {
-                get {
-                    return this.columnيصرف_بامر;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn المستلمColumn {
-                get {
-                    return this.columnالمستلم;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn السعرColumn {
-                get {
-                    return this.columnالسعر;
+                    return this.columnالجهة_المستفيدة;
                 }
             }
             
@@ -2804,6 +2809,14 @@ namespace StoreManagement {
             public global::System.Data.DataColumn الكميةColumn {
                 get {
                     return this.columnالكمية;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn سعر_الوحدةColumn {
+                get {
+                    return this.columnسعر_الوحدة;
                 }
             }
             
@@ -2825,6 +2838,38 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn يصرف_بامرColumn {
+                get {
+                    return this.columnيصرف_بامر;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn باستلامColumn {
+                get {
+                    return this.columnباستلام;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn تاريخ_الصرفColumn {
+                get {
+                    return this.columnتاريخ_الصرف;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ملاحظاتColumn {
+                get {
+                    return this.columnملاحظات;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2834,55 +2879,56 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OutoneRow this[int index] {
+            public RequstOutAll1Row this[int index] {
                 get {
-                    return ((OutoneRow)(this.Rows[index]));
+                    return ((RequstOutAll1Row)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event OutoneRowChangeEventHandler OutoneRowChanging;
+            public event RequstOutAll1RowChangeEventHandler RequstOutAll1RowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event OutoneRowChangeEventHandler OutoneRowChanged;
+            public event RequstOutAll1RowChangeEventHandler RequstOutAll1RowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event OutoneRowChangeEventHandler OutoneRowDeleting;
+            public event RequstOutAll1RowChangeEventHandler RequstOutAll1RowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event OutoneRowChangeEventHandler OutoneRowDeleted;
+            public event RequstOutAll1RowChangeEventHandler RequstOutAll1RowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddOutoneRow(OutoneRow row) {
+            public void AddRequstOutAll1Row(RequstOutAll1Row row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OutoneRow AddOutoneRow(string الصنف, string النوع, string الجهة_المستفيدة_, string التاريخ, string ملاحظات, string يصرف_بامر, string المستلم, string السعر, string الكمية, string الاجمالي, string العملة) {
-                OutoneRow rowOutoneRow = ((OutoneRow)(this.NewRow()));
+            public RequstOutAll1Row AddRequstOutAll1Row(string رقم_الطلب, string اسم_الصنف, string نوع_الكمية, string الجهة_المستفيدة, string الكمية, string سعر_الوحدة, string الاجمالي, string العملة, string يصرف_بامر, string باستلام, string تاريخ_الصرف, string ملاحظات) {
+                RequstOutAll1Row rowRequstOutAll1Row = ((RequstOutAll1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        الصنف,
-                        النوع,
-                        الجهة_المستفيدة_,
-                        التاريخ,
-                        ملاحظات,
-                        يصرف_بامر,
-                        المستلم,
-                        السعر,
+                        رقم_الطلب,
+                        اسم_الصنف,
+                        نوع_الكمية,
+                        الجهة_المستفيدة,
                         الكمية,
+                        سعر_الوحدة,
                         الاجمالي,
-                        العملة};
-                rowOutoneRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowOutoneRow);
-                return rowOutoneRow;
+                        العملة,
+                        يصرف_بامر,
+                        باستلام,
+                        تاريخ_الصرف,
+                        ملاحظات};
+                rowRequstOutAll1Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowRequstOutAll1Row);
+                return rowRequstOutAll1Row;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                OutoneDataTable cln = ((OutoneDataTable)(base.Clone()));
+                RequstOutAll1DataTable cln = ((RequstOutAll1DataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -2890,76 +2936,79 @@ namespace StoreManagement {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new OutoneDataTable();
+                return new RequstOutAll1DataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnالصنف = base.Columns["الصنف"];
-                this.columnالنوع = base.Columns["النوع"];
-                this.columnالجهة_المستفيدة_ = base.Columns["الجهة المستفيدة "];
-                this.columnالتاريخ = base.Columns["التاريخ"];
-                this.columnملاحظات = base.Columns["ملاحظات"];
-                this.columnيصرف_بامر = base.Columns["يصرف بامر"];
-                this.columnالمستلم = base.Columns["المستلم"];
-                this.columnالسعر = base.Columns["السعر"];
+                this.columnرقم_الطلب = base.Columns["رقم الطلب"];
+                this.columnاسم_الصنف = base.Columns["اسم الصنف"];
+                this.columnنوع_الكمية = base.Columns["نوع الكمية"];
+                this.columnالجهة_المستفيدة = base.Columns["الجهة المستفيدة"];
                 this.columnالكمية = base.Columns["الكمية"];
+                this.columnسعر_الوحدة = base.Columns["سعر الوحدة"];
                 this.columnالاجمالي = base.Columns["الاجمالي"];
                 this.columnالعملة = base.Columns["العملة"];
+                this.columnيصرف_بامر = base.Columns["يصرف بامر"];
+                this.columnباستلام = base.Columns["باستلام"];
+                this.columnتاريخ_الصرف = base.Columns["تاريخ الصرف"];
+                this.columnملاحظات = base.Columns["ملاحظات"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnالصنف = new global::System.Data.DataColumn("الصنف", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnالصنف);
-                this.columnالنوع = new global::System.Data.DataColumn("النوع", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnالنوع);
-                this.columnالجهة_المستفيدة_ = new global::System.Data.DataColumn("الجهة المستفيدة ", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnالجهة_المستفيدة_);
-                this.columnالتاريخ = new global::System.Data.DataColumn("التاريخ", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnالتاريخ);
-                this.columnملاحظات = new global::System.Data.DataColumn("ملاحظات", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnملاحظات);
-                this.columnيصرف_بامر = new global::System.Data.DataColumn("يصرف بامر", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnيصرف_بامر);
-                this.columnالمستلم = new global::System.Data.DataColumn("المستلم", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnالمستلم);
-                this.columnالسعر = new global::System.Data.DataColumn("السعر", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnالسعر);
+                this.columnرقم_الطلب = new global::System.Data.DataColumn("رقم الطلب", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnرقم_الطلب);
+                this.columnاسم_الصنف = new global::System.Data.DataColumn("اسم الصنف", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_الصنف);
+                this.columnنوع_الكمية = new global::System.Data.DataColumn("نوع الكمية", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnنوع_الكمية);
+                this.columnالجهة_المستفيدة = new global::System.Data.DataColumn("الجهة المستفيدة", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnالجهة_المستفيدة);
                 this.columnالكمية = new global::System.Data.DataColumn("الكمية", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnالكمية);
+                this.columnسعر_الوحدة = new global::System.Data.DataColumn("سعر الوحدة", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnسعر_الوحدة);
                 this.columnالاجمالي = new global::System.Data.DataColumn("الاجمالي", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnالاجمالي);
                 this.columnالعملة = new global::System.Data.DataColumn("العملة", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnالعملة);
+                this.columnيصرف_بامر = new global::System.Data.DataColumn("يصرف بامر", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnيصرف_بامر);
+                this.columnباستلام = new global::System.Data.DataColumn("باستلام", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnباستلام);
+                this.columnتاريخ_الصرف = new global::System.Data.DataColumn("تاريخ الصرف", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnتاريخ_الصرف);
+                this.columnملاحظات = new global::System.Data.DataColumn("ملاحظات", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnملاحظات);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OutoneRow NewOutoneRow() {
-                return ((OutoneRow)(this.NewRow()));
+            public RequstOutAll1Row NewRequstOutAll1Row() {
+                return ((RequstOutAll1Row)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new OutoneRow(builder);
+                return new RequstOutAll1Row(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(OutoneRow);
+                return typeof(RequstOutAll1Row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.OutoneRowChanged != null)) {
-                    this.OutoneRowChanged(this, new OutoneRowChangeEvent(((OutoneRow)(e.Row)), e.Action));
+                if ((this.RequstOutAll1RowChanged != null)) {
+                    this.RequstOutAll1RowChanged(this, new RequstOutAll1RowChangeEvent(((RequstOutAll1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -2967,8 +3016,8 @@ namespace StoreManagement {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.OutoneRowChanging != null)) {
-                    this.OutoneRowChanging(this, new OutoneRowChangeEvent(((OutoneRow)(e.Row)), e.Action));
+                if ((this.RequstOutAll1RowChanging != null)) {
+                    this.RequstOutAll1RowChanging(this, new RequstOutAll1RowChangeEvent(((RequstOutAll1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -2976,8 +3025,8 @@ namespace StoreManagement {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.OutoneRowDeleted != null)) {
-                    this.OutoneRowDeleted(this, new OutoneRowChangeEvent(((OutoneRow)(e.Row)), e.Action));
+                if ((this.RequstOutAll1RowDeleted != null)) {
+                    this.RequstOutAll1RowDeleted(this, new RequstOutAll1RowChangeEvent(((RequstOutAll1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -2985,14 +3034,14 @@ namespace StoreManagement {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.OutoneRowDeleting != null)) {
-                    this.OutoneRowDeleting(this, new OutoneRowChangeEvent(((OutoneRow)(e.Row)), e.Action));
+                if ((this.RequstOutAll1RowDeleting != null)) {
+                    this.RequstOutAll1RowDeleting(this, new RequstOutAll1RowChangeEvent(((RequstOutAll1Row)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveOutoneRow(OutoneRow row) {
+            public void RemoveRequstOutAll1Row(RequstOutAll1Row row) {
                 this.Rows.Remove(row);
             }
             
@@ -3019,7 +3068,408 @@ namespace StoreManagement {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "OutoneDataTable";
+                attribute2.FixedValue = "RequstOutAll1DataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class OutRequstDataTable : global::System.Data.TypedTableBase<OutRequstRow> {
+            
+            private global::System.Data.DataColumn columnرقم_الطلب;
+            
+            private global::System.Data.DataColumn columnاسم_الصنف;
+            
+            private global::System.Data.DataColumn columnنوع_الكمية;
+            
+            private global::System.Data.DataColumn columnالجهة_المستفيدة;
+            
+            private global::System.Data.DataColumn columnالكمية;
+            
+            private global::System.Data.DataColumn columnسعر_الوحدة;
+            
+            private global::System.Data.DataColumn columnالاجمالي;
+            
+            private global::System.Data.DataColumn columnالعملة;
+            
+            private global::System.Data.DataColumn columnيصرف_بامر;
+            
+            private global::System.Data.DataColumn columnباستلام;
+            
+            private global::System.Data.DataColumn columnتاريخ_الصرف;
+            
+            private global::System.Data.DataColumn columnملاحظات;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OutRequstDataTable() {
+                this.TableName = "OutRequst";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal OutRequstDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected OutRequstDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn رقم_الطلبColumn {
+                get {
+                    return this.columnرقم_الطلب;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn اسم_الصنفColumn {
+                get {
+                    return this.columnاسم_الصنف;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn نوع_الكميةColumn {
+                get {
+                    return this.columnنوع_الكمية;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn الجهة_المستفيدةColumn {
+                get {
+                    return this.columnالجهة_المستفيدة;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn الكميةColumn {
+                get {
+                    return this.columnالكمية;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn سعر_الوحدةColumn {
+                get {
+                    return this.columnسعر_الوحدة;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn الاجماليColumn {
+                get {
+                    return this.columnالاجمالي;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn العملةColumn {
+                get {
+                    return this.columnالعملة;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn يصرف_بامرColumn {
+                get {
+                    return this.columnيصرف_بامر;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn باستلامColumn {
+                get {
+                    return this.columnباستلام;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn تاريخ_الصرفColumn {
+                get {
+                    return this.columnتاريخ_الصرف;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ملاحظاتColumn {
+                get {
+                    return this.columnملاحظات;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OutRequstRow this[int index] {
+                get {
+                    return ((OutRequstRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event OutRequstRowChangeEventHandler OutRequstRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event OutRequstRowChangeEventHandler OutRequstRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event OutRequstRowChangeEventHandler OutRequstRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event OutRequstRowChangeEventHandler OutRequstRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddOutRequstRow(OutRequstRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OutRequstRow AddOutRequstRow(string رقم_الطلب, string اسم_الصنف, string نوع_الكمية, string الجهة_المستفيدة, int الكمية, int سعر_الوحدة, int الاجمالي, string العملة, string يصرف_بامر, string باستلام, string تاريخ_الصرف, string ملاحظات) {
+                OutRequstRow rowOutRequstRow = ((OutRequstRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        رقم_الطلب,
+                        اسم_الصنف,
+                        نوع_الكمية,
+                        الجهة_المستفيدة,
+                        الكمية,
+                        سعر_الوحدة,
+                        الاجمالي,
+                        العملة,
+                        يصرف_بامر,
+                        باستلام,
+                        تاريخ_الصرف,
+                        ملاحظات};
+                rowOutRequstRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowOutRequstRow);
+                return rowOutRequstRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                OutRequstDataTable cln = ((OutRequstDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new OutRequstDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnرقم_الطلب = base.Columns["رقم الطلب"];
+                this.columnاسم_الصنف = base.Columns["اسم الصنف"];
+                this.columnنوع_الكمية = base.Columns["نوع الكمية"];
+                this.columnالجهة_المستفيدة = base.Columns["الجهة المستفيدة"];
+                this.columnالكمية = base.Columns["الكمية"];
+                this.columnسعر_الوحدة = base.Columns["سعر الوحدة"];
+                this.columnالاجمالي = base.Columns["الاجمالي"];
+                this.columnالعملة = base.Columns["العملة"];
+                this.columnيصرف_بامر = base.Columns["يصرف بامر"];
+                this.columnباستلام = base.Columns["باستلام"];
+                this.columnتاريخ_الصرف = base.Columns["تاريخ الصرف"];
+                this.columnملاحظات = base.Columns["ملاحظات"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnرقم_الطلب = new global::System.Data.DataColumn("رقم الطلب", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnرقم_الطلب);
+                this.columnاسم_الصنف = new global::System.Data.DataColumn("اسم الصنف", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_الصنف);
+                this.columnنوع_الكمية = new global::System.Data.DataColumn("نوع الكمية", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnنوع_الكمية);
+                this.columnالجهة_المستفيدة = new global::System.Data.DataColumn("الجهة المستفيدة", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnالجهة_المستفيدة);
+                this.columnالكمية = new global::System.Data.DataColumn("الكمية", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnالكمية);
+                this.columnسعر_الوحدة = new global::System.Data.DataColumn("سعر الوحدة", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnسعر_الوحدة);
+                this.columnالاجمالي = new global::System.Data.DataColumn("الاجمالي", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnالاجمالي);
+                this.columnالعملة = new global::System.Data.DataColumn("العملة", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnالعملة);
+                this.columnيصرف_بامر = new global::System.Data.DataColumn("يصرف بامر", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnيصرف_بامر);
+                this.columnباستلام = new global::System.Data.DataColumn("باستلام", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnباستلام);
+                this.columnتاريخ_الصرف = new global::System.Data.DataColumn("تاريخ الصرف", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnتاريخ_الصرف);
+                this.columnملاحظات = new global::System.Data.DataColumn("ملاحظات", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnملاحظات);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OutRequstRow NewOutRequstRow() {
+                return ((OutRequstRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new OutRequstRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(OutRequstRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.OutRequstRowChanged != null)) {
+                    this.OutRequstRowChanged(this, new OutRequstRowChangeEvent(((OutRequstRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.OutRequstRowChanging != null)) {
+                    this.OutRequstRowChanging(this, new OutRequstRowChangeEvent(((OutRequstRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.OutRequstRowDeleted != null)) {
+                    this.OutRequstRowDeleted(this, new OutRequstRowChangeEvent(((OutRequstRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.OutRequstRowDeleting != null)) {
+                    this.OutRequstRowDeleting(this, new OutRequstRowChangeEvent(((OutRequstRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveOutRequstRow(OutRequstRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSet1 ds = new DataSet1();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "OutRequstDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4721,142 +5171,78 @@ namespace StoreManagement {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class OutoneRow : global::System.Data.DataRow {
+        public partial class RequstOutAll1Row : global::System.Data.DataRow {
             
-            private OutoneDataTable tableOutone;
+            private RequstOutAll1DataTable tableRequstOutAll1;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal OutoneRow(global::System.Data.DataRowBuilder rb) : 
+            internal RequstOutAll1Row(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableOutone = ((OutoneDataTable)(this.Table));
+                this.tableRequstOutAll1 = ((RequstOutAll1DataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string الصنف {
+            public string رقم_الطلب {
                 get {
                     try {
-                        return ((string)(this[this.tableOutone.الصنفColumn]));
+                        return ((string)(this[this.tableRequstOutAll1.رقم_الطلبColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'الصنف\' in table \'Outone\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'رقم الطلب\' in table \'RequstOutAll1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableOutone.الصنفColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string النوع {
-                get {
-                    try {
-                        return ((string)(this[this.tableOutone.النوعColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'النوع\' in table \'Outone\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableOutone.النوعColumn] = value;
+                    this[this.tableRequstOutAll1.رقم_الطلبColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string الجهة_المستفيدة_ {
+            public string اسم_الصنف {
                 get {
                     try {
-                        return ((string)(this[this.tableOutone.الجهة_المستفيدة_Column]));
+                        return ((string)(this[this.tableRequstOutAll1.اسم_الصنفColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'الجهة المستفيدة \' in table \'Outone\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'اسم الصنف\' in table \'RequstOutAll1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableOutone.الجهة_المستفيدة_Column] = value;
+                    this[this.tableRequstOutAll1.اسم_الصنفColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string التاريخ {
+            public string نوع_الكمية {
                 get {
                     try {
-                        return ((string)(this[this.tableOutone.التاريخColumn]));
+                        return ((string)(this[this.tableRequstOutAll1.نوع_الكميةColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'التاريخ\' in table \'Outone\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'نوع الكمية\' in table \'RequstOutAll1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableOutone.التاريخColumn] = value;
+                    this[this.tableRequstOutAll1.نوع_الكميةColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ملاحظات {
+            public string الجهة_المستفيدة {
                 get {
                     try {
-                        return ((string)(this[this.tableOutone.ملاحظاتColumn]));
+                        return ((string)(this[this.tableRequstOutAll1.الجهة_المستفيدةColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ملاحظات\' in table \'Outone\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'الجهة المستفيدة\' in table \'RequstOutAll1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableOutone.ملاحظاتColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string يصرف_بامر {
-                get {
-                    try {
-                        return ((string)(this[this.tableOutone.يصرف_بامرColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'يصرف بامر\' in table \'Outone\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableOutone.يصرف_بامرColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string المستلم {
-                get {
-                    try {
-                        return ((string)(this[this.tableOutone.المستلمColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'المستلم\' in table \'Outone\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableOutone.المستلمColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string السعر {
-                get {
-                    try {
-                        return ((string)(this[this.tableOutone.السعرColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'السعر\' in table \'Outone\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableOutone.السعرColumn] = value;
+                    this[this.tableRequstOutAll1.الجهة_المستفيدةColumn] = value;
                 }
             }
             
@@ -4865,14 +5251,30 @@ namespace StoreManagement {
             public string الكمية {
                 get {
                     try {
-                        return ((string)(this[this.tableOutone.الكميةColumn]));
+                        return ((string)(this[this.tableRequstOutAll1.الكميةColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'الكمية\' in table \'Outone\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'الكمية\' in table \'RequstOutAll1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableOutone.الكميةColumn] = value;
+                    this[this.tableRequstOutAll1.الكميةColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string سعر_الوحدة {
+                get {
+                    try {
+                        return ((string)(this[this.tableRequstOutAll1.سعر_الوحدةColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'سعر الوحدة\' in table \'RequstOutAll1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRequstOutAll1.سعر_الوحدةColumn] = value;
                 }
             }
             
@@ -4881,14 +5283,14 @@ namespace StoreManagement {
             public string الاجمالي {
                 get {
                     try {
-                        return ((string)(this[this.tableOutone.الاجماليColumn]));
+                        return ((string)(this[this.tableRequstOutAll1.الاجماليColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'الاجمالي\' in table \'Outone\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'الاجمالي\' in table \'RequstOutAll1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableOutone.الاجماليColumn] = value;
+                    this[this.tableRequstOutAll1.الاجماليColumn] = value;
                 }
             }
             
@@ -4897,147 +5299,574 @@ namespace StoreManagement {
             public string العملة {
                 get {
                     try {
-                        return ((string)(this[this.tableOutone.العملةColumn]));
+                        return ((string)(this[this.tableRequstOutAll1.العملةColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'العملة\' in table \'Outone\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'العملة\' in table \'RequstOutAll1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableOutone.العملةColumn] = value;
+                    this[this.tableRequstOutAll1.العملةColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsالصنفNull() {
-                return this.IsNull(this.tableOutone.الصنفColumn);
+            public string يصرف_بامر {
+                get {
+                    try {
+                        return ((string)(this[this.tableRequstOutAll1.يصرف_بامرColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'يصرف بامر\' in table \'RequstOutAll1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRequstOutAll1.يصرف_بامرColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetالصنفNull() {
-                this[this.tableOutone.الصنفColumn] = global::System.Convert.DBNull;
+            public string باستلام {
+                get {
+                    try {
+                        return ((string)(this[this.tableRequstOutAll1.باستلامColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'باستلام\' in table \'RequstOutAll1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRequstOutAll1.باستلامColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsالنوعNull() {
-                return this.IsNull(this.tableOutone.النوعColumn);
+            public string تاريخ_الصرف {
+                get {
+                    try {
+                        return ((string)(this[this.tableRequstOutAll1.تاريخ_الصرفColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'تاريخ الصرف\' in table \'RequstOutAll1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRequstOutAll1.تاريخ_الصرفColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetالنوعNull() {
-                this[this.tableOutone.النوعColumn] = global::System.Convert.DBNull;
+            public string ملاحظات {
+                get {
+                    try {
+                        return ((string)(this[this.tableRequstOutAll1.ملاحظاتColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ملاحظات\' in table \'RequstOutAll1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRequstOutAll1.ملاحظاتColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isالجهة_المستفيدة_Null() {
-                return this.IsNull(this.tableOutone.الجهة_المستفيدة_Column);
+            public bool Isرقم_الطلبNull() {
+                return this.IsNull(this.tableRequstOutAll1.رقم_الطلبColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setالجهة_المستفيدة_Null() {
-                this[this.tableOutone.الجهة_المستفيدة_Column] = global::System.Convert.DBNull;
+            public void Setرقم_الطلبNull() {
+                this[this.tableRequstOutAll1.رقم_الطلبColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsالتاريخNull() {
-                return this.IsNull(this.tableOutone.التاريخColumn);
+            public bool Isاسم_الصنفNull() {
+                return this.IsNull(this.tableRequstOutAll1.اسم_الصنفColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetالتاريخNull() {
-                this[this.tableOutone.التاريخColumn] = global::System.Convert.DBNull;
+            public void Setاسم_الصنفNull() {
+                this[this.tableRequstOutAll1.اسم_الصنفColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsملاحظاتNull() {
-                return this.IsNull(this.tableOutone.ملاحظاتColumn);
+            public bool Isنوع_الكميةNull() {
+                return this.IsNull(this.tableRequstOutAll1.نوع_الكميةColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetملاحظاتNull() {
-                this[this.tableOutone.ملاحظاتColumn] = global::System.Convert.DBNull;
+            public void Setنوع_الكميةNull() {
+                this[this.tableRequstOutAll1.نوع_الكميةColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isيصرف_بامرNull() {
-                return this.IsNull(this.tableOutone.يصرف_بامرColumn);
+            public bool Isالجهة_المستفيدةNull() {
+                return this.IsNull(this.tableRequstOutAll1.الجهة_المستفيدةColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setيصرف_بامرNull() {
-                this[this.tableOutone.يصرف_بامرColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsالمستلمNull() {
-                return this.IsNull(this.tableOutone.المستلمColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetالمستلمNull() {
-                this[this.tableOutone.المستلمColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsالسعرNull() {
-                return this.IsNull(this.tableOutone.السعرColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetالسعرNull() {
-                this[this.tableOutone.السعرColumn] = global::System.Convert.DBNull;
+            public void Setالجهة_المستفيدةNull() {
+                this[this.tableRequstOutAll1.الجهة_المستفيدةColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsالكميةNull() {
-                return this.IsNull(this.tableOutone.الكميةColumn);
+                return this.IsNull(this.tableRequstOutAll1.الكميةColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetالكميةNull() {
-                this[this.tableOutone.الكميةColumn] = global::System.Convert.DBNull;
+                this[this.tableRequstOutAll1.الكميةColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isسعر_الوحدةNull() {
+                return this.IsNull(this.tableRequstOutAll1.سعر_الوحدةColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setسعر_الوحدةNull() {
+                this[this.tableRequstOutAll1.سعر_الوحدةColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsالاجماليNull() {
-                return this.IsNull(this.tableOutone.الاجماليColumn);
+                return this.IsNull(this.tableRequstOutAll1.الاجماليColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetالاجماليNull() {
-                this[this.tableOutone.الاجماليColumn] = global::System.Convert.DBNull;
+                this[this.tableRequstOutAll1.الاجماليColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsالعملةNull() {
-                return this.IsNull(this.tableOutone.العملةColumn);
+                return this.IsNull(this.tableRequstOutAll1.العملةColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetالعملةNull() {
-                this[this.tableOutone.العملةColumn] = global::System.Convert.DBNull;
+                this[this.tableRequstOutAll1.العملةColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isيصرف_بامرNull() {
+                return this.IsNull(this.tableRequstOutAll1.يصرف_بامرColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setيصرف_بامرNull() {
+                this[this.tableRequstOutAll1.يصرف_بامرColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsباستلامNull() {
+                return this.IsNull(this.tableRequstOutAll1.باستلامColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetباستلامNull() {
+                this[this.tableRequstOutAll1.باستلامColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isتاريخ_الصرفNull() {
+                return this.IsNull(this.tableRequstOutAll1.تاريخ_الصرفColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setتاريخ_الصرفNull() {
+                this[this.tableRequstOutAll1.تاريخ_الصرفColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsملاحظاتNull() {
+                return this.IsNull(this.tableRequstOutAll1.ملاحظاتColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetملاحظاتNull() {
+                this[this.tableRequstOutAll1.ملاحظاتColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class OutRequstRow : global::System.Data.DataRow {
+            
+            private OutRequstDataTable tableOutRequst;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal OutRequstRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableOutRequst = ((OutRequstDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string رقم_الطلب {
+                get {
+                    try {
+                        return ((string)(this[this.tableOutRequst.رقم_الطلبColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'رقم الطلب\' in table \'OutRequst\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOutRequst.رقم_الطلبColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string اسم_الصنف {
+                get {
+                    try {
+                        return ((string)(this[this.tableOutRequst.اسم_الصنفColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'اسم الصنف\' in table \'OutRequst\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOutRequst.اسم_الصنفColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string نوع_الكمية {
+                get {
+                    try {
+                        return ((string)(this[this.tableOutRequst.نوع_الكميةColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'نوع الكمية\' in table \'OutRequst\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOutRequst.نوع_الكميةColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string الجهة_المستفيدة {
+                get {
+                    try {
+                        return ((string)(this[this.tableOutRequst.الجهة_المستفيدةColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'الجهة المستفيدة\' in table \'OutRequst\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOutRequst.الجهة_المستفيدةColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int الكمية {
+                get {
+                    try {
+                        return ((int)(this[this.tableOutRequst.الكميةColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'الكمية\' in table \'OutRequst\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOutRequst.الكميةColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int سعر_الوحدة {
+                get {
+                    try {
+                        return ((int)(this[this.tableOutRequst.سعر_الوحدةColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'سعر الوحدة\' in table \'OutRequst\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOutRequst.سعر_الوحدةColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int الاجمالي {
+                get {
+                    try {
+                        return ((int)(this[this.tableOutRequst.الاجماليColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'الاجمالي\' in table \'OutRequst\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOutRequst.الاجماليColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string العملة {
+                get {
+                    try {
+                        return ((string)(this[this.tableOutRequst.العملةColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'العملة\' in table \'OutRequst\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOutRequst.العملةColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string يصرف_بامر {
+                get {
+                    try {
+                        return ((string)(this[this.tableOutRequst.يصرف_بامرColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'يصرف بامر\' in table \'OutRequst\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOutRequst.يصرف_بامرColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string باستلام {
+                get {
+                    try {
+                        return ((string)(this[this.tableOutRequst.باستلامColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'باستلام\' in table \'OutRequst\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOutRequst.باستلامColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string تاريخ_الصرف {
+                get {
+                    try {
+                        return ((string)(this[this.tableOutRequst.تاريخ_الصرفColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'تاريخ الصرف\' in table \'OutRequst\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOutRequst.تاريخ_الصرفColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ملاحظات {
+                get {
+                    try {
+                        return ((string)(this[this.tableOutRequst.ملاحظاتColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ملاحظات\' in table \'OutRequst\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOutRequst.ملاحظاتColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isرقم_الطلبNull() {
+                return this.IsNull(this.tableOutRequst.رقم_الطلبColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setرقم_الطلبNull() {
+                this[this.tableOutRequst.رقم_الطلبColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isاسم_الصنفNull() {
+                return this.IsNull(this.tableOutRequst.اسم_الصنفColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setاسم_الصنفNull() {
+                this[this.tableOutRequst.اسم_الصنفColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isنوع_الكميةNull() {
+                return this.IsNull(this.tableOutRequst.نوع_الكميةColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setنوع_الكميةNull() {
+                this[this.tableOutRequst.نوع_الكميةColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isالجهة_المستفيدةNull() {
+                return this.IsNull(this.tableOutRequst.الجهة_المستفيدةColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setالجهة_المستفيدةNull() {
+                this[this.tableOutRequst.الجهة_المستفيدةColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsالكميةNull() {
+                return this.IsNull(this.tableOutRequst.الكميةColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetالكميةNull() {
+                this[this.tableOutRequst.الكميةColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isسعر_الوحدةNull() {
+                return this.IsNull(this.tableOutRequst.سعر_الوحدةColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setسعر_الوحدةNull() {
+                this[this.tableOutRequst.سعر_الوحدةColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsالاجماليNull() {
+                return this.IsNull(this.tableOutRequst.الاجماليColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetالاجماليNull() {
+                this[this.tableOutRequst.الاجماليColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsالعملةNull() {
+                return this.IsNull(this.tableOutRequst.العملةColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetالعملةNull() {
+                this[this.tableOutRequst.العملةColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isيصرف_بامرNull() {
+                return this.IsNull(this.tableOutRequst.يصرف_بامرColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setيصرف_بامرNull() {
+                this[this.tableOutRequst.يصرف_بامرColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsباستلامNull() {
+                return this.IsNull(this.tableOutRequst.باستلامColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetباستلامNull() {
+                this[this.tableOutRequst.باستلامColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isتاريخ_الصرفNull() {
+                return this.IsNull(this.tableOutRequst.تاريخ_الصرفColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setتاريخ_الصرفNull() {
+                this[this.tableOutRequst.تاريخ_الصرفColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsملاحظاتNull() {
+                return this.IsNull(this.tableOutRequst.ملاحظاتColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetملاحظاتNull() {
+                this[this.tableOutRequst.ملاحظاتColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5249,22 +6078,56 @@ namespace StoreManagement {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class OutoneRowChangeEvent : global::System.EventArgs {
+        public class RequstOutAll1RowChangeEvent : global::System.EventArgs {
             
-            private OutoneRow eventRow;
+            private RequstOutAll1Row eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OutoneRowChangeEvent(OutoneRow row, global::System.Data.DataRowAction action) {
+            public RequstOutAll1RowChangeEvent(RequstOutAll1Row row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OutoneRow Row {
+            public RequstOutAll1Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class OutRequstRowChangeEvent : global::System.EventArgs {
+            
+            private OutRequstRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OutRequstRowChangeEvent(OutRequstRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OutRequstRow Row {
                 get {
                     return this.eventRow;
                 }
