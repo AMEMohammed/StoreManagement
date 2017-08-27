@@ -136,7 +136,7 @@
               <xs:element name="يصرف_x0020_بامر" msprop:Generator_ColumnVarNameInTable="columnيصرف_بامر" msprop:Generator_ColumnPropNameInRow="يصرف_بامر" msprop:Generator_ColumnPropNameInTable="يصرف_بامرColumn" msprop:Generator_UserColumnName="يصرف بامر" type="xs:string" minOccurs="0" />
               <xs:element name="باستلام" msprop:Generator_ColumnVarNameInTable="columnباستلام" msprop:Generator_ColumnPropNameInRow="باستلام" msprop:Generator_ColumnPropNameInTable="باستلامColumn" msprop:Generator_UserColumnName="باستلام" type="xs:string" minOccurs="0" />
               <xs:element name="تاريخ_x0020_الصرف" msprop:Generator_ColumnVarNameInTable="columnتاريخ_الصرف" msprop:Generator_ColumnPropNameInRow="تاريخ_الصرف" msprop:Generator_ColumnPropNameInTable="تاريخ_الصرفColumn" msprop:Generator_UserColumnName="تاريخ الصرف" type="xs:string" minOccurs="0" />
-              <xs:element name="ملاحظات" msprop:Generator_ColumnVarNameInTable="columnملاحظات" msprop:Generator_ColumnPropNameInRow="ملاحظات" msprop:Generator_ColumnPropNameInTable="ملاحظاتColumn" msprop:Generator_UserColumnName="ملاحظات" type="xs:string" minOccurs="0" />
+              <xs:element name="totle" msprop:Generator_ColumnVarNameInTable="columntotle" msprop:Generator_ColumnPropNameInRow="totle" msprop:Generator_ColumnPropNameInTable="totleColumn" msprop:Generator_UserColumnName="totle" type="xs:long" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

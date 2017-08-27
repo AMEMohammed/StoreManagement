@@ -3138,7 +3138,7 @@ namespace StoreManagement {
             
             private global::System.Data.DataColumn columnتاريخ_الصرف;
             
-            private global::System.Data.DataColumn columnملاحظات;
+            private global::System.Data.DataColumn columntotle;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3263,9 +3263,9 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ملاحظاتColumn {
+            public global::System.Data.DataColumn totleColumn {
                 get {
-                    return this.columnملاحظات;
+                    return this.columntotle;
                 }
             }
             
@@ -3306,7 +3306,7 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OutRequstRow AddOutRequstRow(string رقم_الطلب, string اسم_الصنف, string نوع_الكمية, string الجهة_المستفيدة, int الكمية, int سعر_الوحدة, int الاجمالي, string العملة, string يصرف_بامر, string باستلام, string تاريخ_الصرف, string ملاحظات) {
+            public OutRequstRow AddOutRequstRow(string رقم_الطلب, string اسم_الصنف, string نوع_الكمية, string الجهة_المستفيدة, int الكمية, int سعر_الوحدة, int الاجمالي, string العملة, string يصرف_بامر, string باستلام, string تاريخ_الصرف, long totle) {
                 OutRequstRow rowOutRequstRow = ((OutRequstRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         رقم_الطلب,
@@ -3320,7 +3320,7 @@ namespace StoreManagement {
                         يصرف_بامر,
                         باستلام,
                         تاريخ_الصرف,
-                        ملاحظات};
+                        totle};
                 rowOutRequstRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOutRequstRow);
                 return rowOutRequstRow;
@@ -3354,7 +3354,7 @@ namespace StoreManagement {
                 this.columnيصرف_بامر = base.Columns["يصرف بامر"];
                 this.columnباستلام = base.Columns["باستلام"];
                 this.columnتاريخ_الصرف = base.Columns["تاريخ الصرف"];
-                this.columnملاحظات = base.Columns["ملاحظات"];
+                this.columntotle = base.Columns["totle"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3382,8 +3382,8 @@ namespace StoreManagement {
                 base.Columns.Add(this.columnباستلام);
                 this.columnتاريخ_الصرف = new global::System.Data.DataColumn("تاريخ الصرف", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnتاريخ_الصرف);
-                this.columnملاحظات = new global::System.Data.DataColumn("ملاحظات", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnملاحظات);
+                this.columntotle = new global::System.Data.DataColumn("totle", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotle);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5711,17 +5711,17 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ملاحظات {
+            public long totle {
                 get {
                     try {
-                        return ((string)(this[this.tableOutRequst.ملاحظاتColumn]));
+                        return ((long)(this[this.tableOutRequst.totleColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ملاحظات\' in table \'OutRequst\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'totle\' in table \'OutRequst\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableOutRequst.ملاحظاتColumn] = value;
+                    this[this.tableOutRequst.totleColumn] = value;
                 }
             }
             
@@ -5859,14 +5859,14 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsملاحظاتNull() {
-                return this.IsNull(this.tableOutRequst.ملاحظاتColumn);
+            public bool IstotleNull() {
+                return this.IsNull(this.tableOutRequst.totleColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetملاحظاتNull() {
-                this[this.tableOutRequst.ملاحظاتColumn] = global::System.Convert.DBNull;
+            public void SettotleNull() {
+                this[this.tableOutRequst.totleColumn] = global::System.Convert.DBNull;
             }
         }
         

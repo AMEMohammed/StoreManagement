@@ -183,7 +183,9 @@ namespace StoreManagement
                         for (int i = 0; i < dtAccountIDs.Rows.Count; i++)
                         {
                             int IDAccount = Convert.ToInt32(dtAccountIDs.Rows[i][0].ToString());
-                            int result = dbsql.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idplace, idcurrnt, nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem);
+                            int result = dbsql.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idcurrnt, idplace, nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem);
+                          
+
                             if (result == 0)
                             {
                                 break;
@@ -221,12 +223,16 @@ namespace StoreManagement
                 MessageBox.Show(ex.Message);
             }
         }
-        ///
+        /// <summary>
+        /// 
+        /// 
+        /// </summary>
         //////// refersh
         void refrsh1()
         {
             GetData1();
             GetDate2();
+            GetDate3();
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
@@ -234,6 +240,21 @@ namespace StoreManagement
             textBox5.Text = "";
             button3.Focus();
             
+        }
+        public void GetDate3()
+        {
+            try
+            {
+
+                comboBox4.ValueMember = "رقم العملة";
+                comboBox4.DisplayMember = "اسم العملة";
+                comboBox4.DataSource = dbsql.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

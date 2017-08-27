@@ -88,10 +88,20 @@ namespace StoreManagement
         public void PrintReOut(int id)
         {
 
-
+            
             RPT.RequstOut rt = new RPT.RequstOut();
-         
-            rt.SetDataSource(dbsql.PrintRequstOut(id));
+            DataTable dtttt = new DataTable();
+            dtttt = dbsql.PrintRequstOut(id);
+            dtttt.Columns.Add("totle");
+          
+            int totlee = dbsql.GetPraceInRequstOut(id);
+           for (int i = 0; i < dtttt.Rows.Count; i++)
+            {
+                dtttt.Rows[i][12] = string.Format("{0:##,##}", totlee);
+            }
+          
+            rt.SetDataSource(dtttt);
+
             crystalReportViewer1.ReportSource = rt;
             crystalReportViewer1.Refresh();
 

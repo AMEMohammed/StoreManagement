@@ -572,8 +572,7 @@ namespace StoreManagement
             {
                 int newQuntity = QuntityOld - QuntityMust;
                 UpdateQuntityAccount(IDAccount, newQuntity);/// تعديل الحساب بالكمية الجديدة
-
-                AddNewRequstOut(QuntityMust, IDCategory, IDType, idcurrn,IDPlace, NameOut, DesOut, DateOut, Chack, NameSend,Price);// اضافة طلب جديد
+                  AddNewRequstOut(QuntityMust, IDCategory, IDType, idcurrn,IDPlace, NameOut, DesOut, DateOut, Chack, NameSend,Price);// اضافة طلب جديد
               
                 r = 0;
             }
@@ -685,13 +684,14 @@ namespace StoreManagement
        public int GetPraceInRequstOut(int check)
         {
             int r = 0;
-            cmd = new SqlCommand("select  SUM((RequstOut.Price*RequstOut.Quntity)) as 'الاجماليا'  from RequstOut where RequstOut.Chack=@check", con);
+            cmd = new SqlCommand("select  SUM((RequstOut.Price*RequstOut.Quntity)) as totle  from RequstOut where RequstOut.Chack=@check", con);
             cmd.Parameters.AddWithValue("@check", check);
             cmd.CommandType = CommandType.Text;
             con.Open();
             r = (int)cmd.ExecuteScalar();
+           
             con.Close();
-            return r = 0;
+            return r ;
         }
        
 
