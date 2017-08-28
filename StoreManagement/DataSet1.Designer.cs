@@ -3306,7 +3306,7 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OutRequstRow AddOutRequstRow(string رقم_الطلب, string اسم_الصنف, string نوع_الكمية, string الجهة_المستفيدة, int الكمية, int سعر_الوحدة, int الاجمالي, string العملة, string يصرف_بامر, string باستلام, string تاريخ_الصرف, long totle) {
+            public OutRequstRow AddOutRequstRow(string رقم_الطلب, string اسم_الصنف, string نوع_الكمية, string الجهة_المستفيدة, int الكمية, int سعر_الوحدة, int الاجمالي, string العملة, string يصرف_بامر, string باستلام, string تاريخ_الصرف, string totle) {
                 OutRequstRow rowOutRequstRow = ((OutRequstRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         رقم_الطلب,
@@ -3382,7 +3382,7 @@ namespace StoreManagement {
                 base.Columns.Add(this.columnباستلام);
                 this.columnتاريخ_الصرف = new global::System.Data.DataColumn("تاريخ الصرف", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnتاريخ_الصرف);
-                this.columntotle = new global::System.Data.DataColumn("totle", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columntotle = new global::System.Data.DataColumn("totle", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotle);
             }
             
@@ -5711,10 +5711,10 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long totle {
+            public string totle {
                 get {
                     try {
-                        return ((long)(this[this.tableOutRequst.totleColumn]));
+                        return ((string)(this[this.tableOutRequst.totleColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'totle\' in table \'OutRequst\' is DBNull.", e);
