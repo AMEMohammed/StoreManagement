@@ -93,12 +93,16 @@ namespace StoreManagement
             DataTable dtttt = new DataTable();
             dtttt = dbsql.PrintRequstOut(id);
             dtttt.Columns.Add("totle");
-          
+      
             int totlee = dbsql.GetPraceInRequstOut(id);
+            
            for (int i = 0; i < dtttt.Rows.Count; i++)
             {
                 dtttt.Rows[i][12] = string.Format("{0:##,##}", totlee);
+               
             }
+         dtttt.Rows[0][10] = dtttt.Rows[0][10].ToString();
+        
           
             rt.SetDataSource(dtttt);
 
