@@ -101,7 +101,7 @@ namespace StoreManagement
                 dtttt.Rows[i][12] = string.Format("{0:##,##}", totlee);
                
             }
-         dtttt.Rows[0][10] = dtttt.Rows[0][10].ToString();
+         
         
           
             rt.SetDataSource(dtttt);
