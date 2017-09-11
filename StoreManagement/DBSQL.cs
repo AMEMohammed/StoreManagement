@@ -41,13 +41,21 @@ namespace StoreManagement
         //// buck up database
         public int BuckUpdatabase(string path)
         {
+
             int res = 0;
-            cmd = new SqlCommand("BACKUP DATABASE StoreManagement TO DISK=@d", con);
-            cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@d", path);
-            con.Open();
-            res = cmd.ExecuteNonQuery();
-            con.Close();
+               
+                cmd = new SqlCommand("BACKUP DATABASE StoreManagement TO DISK=@d", con);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@d", path);
+                con.Open();
+                res = cmd.ExecuteNonQuery();
+          
+          
+          
+          
+                con.Close();
+           
+          
             return res;
 
         }
