@@ -33,13 +33,15 @@ namespace StoreManagement
         {
            
         //    this.اعدادتالنظامToolStripMenuItem.Enabled = check;
+
             this.التقاريرToolStripMenuItem.Enabled = check;
             this.تهيئةالنظامToolStripMenuItem.Enabled = check;
             this.طلباتالتوريدToolStripMenuItem.Enabled = check;
             this.طلباتالصرفToolStripMenuItem.Enabled = check;
+           // this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Enabled = check;
             this.انشاءنسخةاحتياطيةToolStripMenuItem.Enabled = check;
-            this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Enabled = check;
             this.تعديلالمستخدمToolStripMenuItem.Enabled = check;
+         
         }
 
         private void دخولالنظامToolStripMenuItem1_Click(object sender, EventArgs e)

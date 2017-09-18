@@ -280,6 +280,7 @@
             // 
             // استعادةالنسخةالاحتياطيةToolStripMenuItem
             // 
+            this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Enabled = false;
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.database1;
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Name = "استعادةالنسخةالاحتياطيةToolStripMenuItem";
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Size = new System.Drawing.Size(245, 26);

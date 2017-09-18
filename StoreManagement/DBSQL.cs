@@ -13,7 +13,7 @@ namespace StoreManagement
     class DBSQL
     {
         private string ConnectionSreing = @"Data Source="+Properties.Settings.Default.nmserver+";Initial Catalog="+Properties.Settings.Default.nmdatabase+";Integrated Security=True";
-        private string ConnectionStriingMaster = @"Data Source=.\S2008;Initial Catalog=master;Integrated Security=True";
+        private string ConnectionStriingMaster = @"Data Source=" + Properties.Settings.Default.nmserver + ";Initial Catalog=master;Integrated Security=True";
         public SqlConnection con;
         public SqlCommand cmd;
       
