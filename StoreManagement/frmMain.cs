@@ -38,7 +38,7 @@ namespace StoreManagement
             this.تهيئةالنظامToolStripMenuItem.Enabled = check;
             this.طلباتالتوريدToolStripMenuItem.Enabled = check;
             this.طلباتالصرفToolStripMenuItem.Enabled = check;
-           // this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Enabled = check;
+           this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Enabled = false;
             this.انشاءنسخةاحتياطيةToolStripMenuItem.Enabled = check;
             this.تعديلالمستخدمToolStripMenuItem.Enabled = check;
          
