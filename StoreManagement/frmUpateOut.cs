@@ -206,5 +206,13 @@ namespace StoreManagement
                 }
             }
         }
+
+        private void استردادالطلبToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.SelectedRows.Count>0)
+            {
+
+            }
+        }
     }
 }

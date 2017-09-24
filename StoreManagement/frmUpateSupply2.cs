@@ -116,45 +116,53 @@ namespace StoreManagement
                     try
                     {
                         int oldQuntity = Convert.ToInt32(dt.Rows[0]["Quntity"].ToString());
-                        int idAcount2 = dbsql.CheckAccountIsHere(Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()),Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()));
+                        int idAcount2 = dbsql.CheckAccountIsHere(Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()));
                         int QuntityHere = dbsql.GetQuntityInAccount(idAcount2);
-                        int qu = QuntityHere - oldQuntity;
-                        dbsql.UpdateQuntityAccount(idAcount2, qu);
-                        //////////////////////////////////////
-                        //// عملية ادخل القيمة الجديدة في الحساب
-                        int newQuntity = Convert.ToInt32(textBox1.Text);
-                        int NewPrice = Convert.ToInt32(textBox2.Text);
-                        int IDCAT = (int)comboBox1.SelectedValue;
-                        int IDTYPE = (int)comboBox2.SelectedValue;
-                        int idcurrn = (int)comboBox3.SelectedValue;
-                        string nameNEW = textBox4.Text;
-                        string decNew = textBox5.Text;
-                        int idAcount = dbsql.CheckAccountIsHere(IDCAT, IDTYPE, NewPrice,idcurrn);
-                      
-                        if (idAcount > 0) // في حالة الحساب موجود من قبل
-                        {   //  تعديل الحساب بالكمية الجديدة
-                            int oldQunt = dbsql.GetQuntityInAccount(idAcount);
-                        
-                            int newQunt = oldQunt + newQuntity;
-                       
-                            dbsql.UpdateQuntityAccount(idAcount, newQunt);
-
-
-                        }
-                        else //  في حالة الحساب جديد
+                        if (QuntityHere >= oldQuntity)
                         {
-                            dbsql.AddNewAccount(IDCAT, IDTYPE, newQuntity, NewPrice,idcurrn);// اضافة حساب جديد
+                            int qu = QuntityHere - oldQuntity;
+                            dbsql.UpdateQuntityAccount(idAcount2, qu);
+                            //////////////////////////////////////
+                            //// عملية ادخل القيمة الجديدة في الحساب
+                            int newQuntity = Convert.ToInt32(textBox1.Text);
+                            int NewPrice = Convert.ToInt32(textBox2.Text);
+                            int IDCAT = (int)comboBox1.SelectedValue;
+                            int IDTYPE = (int)comboBox2.SelectedValue;
+                            int idcurrn = (int)comboBox3.SelectedValue;
+                            string nameNEW = textBox4.Text;
+                            string decNew = textBox5.Text;
+                            int idAcount = dbsql.CheckAccountIsHere(IDCAT, IDTYPE, NewPrice, idcurrn);
+
+                            if (idAcount > 0) // في حالة الحساب موجود من قبل
+                            {   //  تعديل الحساب بالكمية الجديدة
+                                int oldQunt = dbsql.GetQuntityInAccount(idAcount);
+
+                                int newQunt = oldQunt + newQuntity;
+
+                                dbsql.UpdateQuntityAccount(idAcount, newQunt);
+
+
+                            }
+                            else //  في حالة الحساب جديد
+                            {
+                                dbsql.AddNewAccount(IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn);// اضافة حساب جديد
+                            }
+                            /////////////////////////////////
+                            ///////////////////////////////////////////////////////////////
+                            // عملية التعديل في جدول التوريد
+                            dbsql.UPateRequstSupply(IDSupply, IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn, nameNEW, decNew);
+                            //////////////////
+                            ////////////
+                            // عملية الحفظ في جدول التعديلات
+                            dbsql.ADDNewUPDSupply(IDSupply, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), dt.Rows[0]["NameSupply"].ToString(), dt.Rows[0]["DescSupply"].ToString(), DateTime.Parse(dt.Rows[0]["DateSupply"].ToString()), DateTime.Now, decNew);
                         }
-                        /////////////////////////////////
-                        ///////////////////////////////////////////////////////////////
-                        // عملية التعديل في جدول التوريد
-                        dbsql.UPateRequstSupply(IDSupply, IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn,nameNEW, decNew);
-                        //////////////////
-                        ////////////
-                        // عملية الحفظ في جدول التعديلات
-                        dbsql.ADDNewUPDSupply(IDSupply, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), dt.Rows[0]["NameSupply"].ToString(), dt.Rows[0]["DescSupply"].ToString(), DateTime.Parse(dt.Rows[0]["DateSupply"].ToString()), DateTime.Now, decNew);
+                        else
+                        {
+                            MessageBox.Show("تاكد من الكمية المخزنة");
+                        }
                     }
-                    catch(Exception ex)
+                  
+                    catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }

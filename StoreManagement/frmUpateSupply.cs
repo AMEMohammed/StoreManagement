@@ -222,5 +222,40 @@ namespace StoreManagement
             this.Close();
 
         }
+
+        private void حذفToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            { try
+                {
+                    if ((MessageBox.Show("هل تريد ترحيل طلب  حذف التوريد واعتماده ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+
+                    {/// جلب رقم الطلب 
+                        int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                        DataTable dt = new DataTable();
+                        /// جلب بيانات الطلب
+                        dt = dbsql.GetRequstSupply(id);
+                        int oldQuntity = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
+                        int idAcount2 = dbsql.CheckAccountIsHere(Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()));
+                        // حذف الطلب
+                        int QuntityHere = dbsql.GetQuntityInAccount(idAcount2);
+                        if (QuntityHere >= oldQuntity)
+                        {
+                            int qu = QuntityHere - oldQuntity;
+                            dbsql.UpdateQuntityAccount(idAcount2, qu); // تعديل الكمية في جدول المخزون
+                            dbsql.DeleteRequstSupply(id); //حذف الطلب من جدول الطلبات
+                            dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now);
+
+                        }
+                        else
+                        { MessageBox.Show("تاكد من الكيمة المخزونة"); }
+                    }
+                }
+              catch (Exception ex)
+                {
+                  MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }

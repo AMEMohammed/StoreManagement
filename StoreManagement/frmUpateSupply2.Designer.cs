@@ -113,8 +113,8 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.button5);
             this.groupBox8.Controls.Add(this.button2);
+            this.groupBox8.Controls.Add(this.button5);
             this.groupBox8.Location = new System.Drawing.Point(6, 237);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(185, 97);

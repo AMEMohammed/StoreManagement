@@ -202,9 +202,8 @@
             // 
             this.تقاريرالتعديلاتToolStripMenuItem1.Image = global::StoreManagement.Properties.Resources.print;
             this.تقاريرالتعديلاتToolStripMenuItem1.Name = "تقاريرالتعديلاتToolStripMenuItem1";
-            this.تقاريرالتعديلاتToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
-            this.تقاريرالتعديلاتToolStripMenuItem1.Text = "تقارير التعديلات";
-            this.تقاريرالتعديلاتToolStripMenuItem1.Visible = false;
+            this.تقاريرالتعديلاتToolStripMenuItem1.Size = new System.Drawing.Size(219, 26);
+            this.تقاريرالتعديلاتToolStripMenuItem1.Text = "تقارير تعديلات التوريد";
             // 
             // تهيئةالنظامToolStripMenuItem
             // 

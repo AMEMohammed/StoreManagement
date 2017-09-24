@@ -216,6 +216,12 @@
       <DependentUpon>RptRqustSupply.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UpdateOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateOut.Designer.cs">
+      <DependentUpon>UpdateOut.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -305,6 +311,9 @@
     <EmbeddedResource Include="RPT\RptRqustSupply.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptRqustSupply.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateOut.resx">
+      <DependentUpon>UpdateOut.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>

@@ -95,3 +95,4 @@ E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmUpateSup
 E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmUpateSupply2.resources
 E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Properties.Resources.resources
 E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.csproj.GenerateResource.Cache
+E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.UpdateOut.resources

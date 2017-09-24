@@ -859,6 +859,37 @@ namespace StoreManagement
 
 
         }
+        /////////////////////
+        ////// 
+        // Delete RequstSupply
+        public int DeleteRequstSupply (int Id)
+        {
+            int res = 0;
+            cmd = new SqlCommand("delete from RequstSupply where IDSupply=@id", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@id", Id);
+            try
+            { con.Open();
+                res = cmd.ExecuteNonQuery();
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            { con.Close(); }
+
+            return res;
+
+
+
+
+
+
+        }
+
 
 
 
