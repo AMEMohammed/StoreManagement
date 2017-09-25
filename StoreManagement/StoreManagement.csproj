@@ -111,6 +111,12 @@
     <Compile Include="frmREPORT.Designer.cs">
       <DependentUpon>frmREPORT.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmREprUpdSupp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmREprUpdSupp.Designer.cs">
+      <DependentUpon>frmREprUpdSupp.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRequstOut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,12 @@
       <DependentUpon>RptRqustSupply.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RPT\UpdSupply.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdSupply.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UpdateOut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmREPORT.resx">
       <DependentUpon>frmREPORT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmREprUpdSupp.resx">
+      <DependentUpon>frmREprUpdSupp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRequstOut.resx">
       <DependentUpon>frmRequstOut.cs</DependentUpon>
@@ -311,6 +326,10 @@
     <EmbeddedResource Include="RPT\RptRqustSupply.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptRqustSupply.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\UpdSupply.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>UpdSupply.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateOut.resx">
       <DependentUpon>UpdateOut.cs</DependentUpon>

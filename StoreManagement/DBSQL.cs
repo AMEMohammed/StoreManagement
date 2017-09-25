@@ -1230,6 +1230,37 @@ namespace StoreManagement
             return dt;
         }
 
+
+
+
+
+        /////////////////////////////// 
+        ///////////Get form Update supply
+        //// get by id supply
+        public DataTable GetUpdateSupplyByIDSupply(int Id)
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("SELECT  dbo.UpdSupply.IDUpt as 'الرقم ', dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد', dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'سبب التعديل' FROM dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency where dbo.UpdSupply.IDSupply=@id ", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@id", Id);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+               
+      }
+        // get by Date
+        public DataTable GetUpdateSupplyByDate(DateTime d1,DateTime d2)
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("SELECT  dbo.UpdSupply.IDUpt as 'الرقم ', dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد', dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'سبب التعديل' FROM dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency where dbo.UpdSupply.dateUpd between @d1 and @d2  ", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@d1", d1);
+            cmd.Parameters.AddWithValue("@d2", d2);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+
     }
 
 }
