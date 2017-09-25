@@ -204,6 +204,9 @@ namespace StoreManagement
         private void تقاريرالتعديلاتToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
+            this.Cursor = Cursors.WaitCursor;
+            new frmREprUpdSupp().ShowDialog();
+            this.Cursor = Cursors.Default;
         }
     }
 }

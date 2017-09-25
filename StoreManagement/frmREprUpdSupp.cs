@@ -11,6 +11,7 @@ namespace StoreManagement
 {
     public partial class frmREprUpdSupp : Form
     {
+        DBSQL dbsql = new DBSQL();
         public frmREprUpdSupp()
         {
             InitializeComponent();
@@ -42,6 +43,32 @@ namespace StoreManagement
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
+            }
+        }
+        /// <summary>
+        ///  search 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (textBox1.Text.Length > 0)
+                {
+                    dataGridView1.DataSource = dbsql.GetUpdateSupplyByIDSupply(Convert.ToInt32(textBox1.Text));
+                }
+                else if (checkBox1.Checked == true)
+                {
+                    dataGridView1.DataSource = dbsql.GetUpdateSupplyByDate(dateTimePicker1.Value, dateTimePicker2.Value);
+                }
+                else
+                {
+                    dataGridView1.DataSource = dbsql.GetUpdateSupplyByDate(DateTime.Now.AddDays(-7), DateTime.Now);
+                }
+            }
+            catch(Exception ex)
+            { MessageBox.Show(ex.Message);
             }
         }
     }
