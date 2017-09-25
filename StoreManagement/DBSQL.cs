@@ -817,10 +817,10 @@ namespace StoreManagement
         //////////////////////////////////
 
         /// 
-        public int ADDNewUPDSupply(int IDSup, int IDCategory, int IDType, int Quntity, int Price,int idcunnt, string NameSupply, string DescSupply, DateTime dateAdd, DateTime dateUpd, string decNew)
+        public int ADDNewUPDSupply(int IDSup, int IDCategory, int IDType, int Quntity, int Price,int idcunnt, string NameSupply,  DateTime dateAdd, DateTime dateUpd, string decNew)
         {
             int resl = 0;
-            cmd = new SqlCommand("INSERT INTO [StoreManagement].[dbo].[UpdSupply]([IDSupply] ,[IDCategory],[IDType],[Quntity],[Price],[IDCurrency],[NameSupply],[DescSupply],[DateSupply],[DescUpd] ,[dateUpd]) VALUES (@IDSupply,@IDCategory,@IDType,@Quntity,@Price,@IDCurrency,@NameSupply,@DescSupply,@deteAdd,@descup,@dateup)", con);
+            cmd = new SqlCommand("INSERT INTO [StoreManagement].[dbo].[UpdSupply]([IDSupply] ,[IDCategory],[IDType],[Quntity],[Price],[IDCurrency],[NameSupply],[DateSupply],[DescUpd] ,[dateUpd]) VALUES (@IDSupply,@IDCategory,@IDType,@Quntity,@Price,@IDCurrency,@NameSupply,@deteAdd,@descup,@dateup)", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@IDSupply", IDSup);
             cmd.Parameters.AddWithValue("@IDCategory", IDCategory);
@@ -828,7 +828,7 @@ namespace StoreManagement
             cmd.Parameters.AddWithValue("@Quntity", Quntity);
             cmd.Parameters.AddWithValue("@Price", Price);
             cmd.Parameters.AddWithValue("@NameSupply", NameSupply);
-            cmd.Parameters.AddWithValue("@DescSupply", DescSupply);
+         
             cmd.Parameters.AddWithValue("@deteAdd", dateAdd);
             cmd.Parameters.AddWithValue("@descup", decNew);
             cmd.Parameters.AddWithValue("@dateup", dateUpd);

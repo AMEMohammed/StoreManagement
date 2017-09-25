@@ -34,8 +34,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -122,16 +122,6 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "العمليات";
             // 
-            // button5
-            // 
-            this.button5.Image = global::StoreManagement.Properties.Resources.logout__1_;
-            this.button5.Location = new System.Drawing.Point(6, 25);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(81, 54);
-            this.button5.TabIndex = 8;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // button2
             // 
             this.button2.Image = global::StoreManagement.Properties.Resources.save;
@@ -141,6 +131,16 @@
             this.button2.TabIndex = 7;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button5
+            // 
+            this.button5.Image = global::StoreManagement.Properties.Resources.logout__1_;
+            this.button5.Location = new System.Drawing.Point(6, 25);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(81, 54);
+            this.button5.TabIndex = 8;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // groupBox2
             // 
@@ -169,7 +169,7 @@
             this.groupBox7.Size = new System.Drawing.Size(589, 94);
             this.groupBox7.TabIndex = 6;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "ملاحظات";
+            this.groupBox7.Text = "سبب التعديل";
             // 
             // textBox5
             // 

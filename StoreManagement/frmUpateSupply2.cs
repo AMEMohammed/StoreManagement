@@ -95,7 +95,7 @@ namespace StoreManagement
             textBox1.Text = dt.Rows[0]["Quntity"].ToString();
             textBox2.Text = dt.Rows[0]["Price"].ToString();
             textBox4.Text = dt.Rows[0]["NameSupply"].ToString();
-            textBox5.Text = dt.Rows[0]["DescSupply"].ToString();
+          //  textBox5.Text = dt.Rows[0]["DescSupply"].ToString();
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -108,7 +108,7 @@ namespace StoreManagement
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length > 0 && textBox2.Text.Length > 0 && (int)comboBox1.SelectedValue > 0 && (int)comboBox2.SelectedValue > 0 &&(int)comboBox3.SelectedValue>0)
+            if (textBox1.Text.Length > 0 && textBox2.Text.Length > 0 && (int)comboBox1.SelectedValue > 0 && (int)comboBox2.SelectedValue > 0 &&(int)comboBox3.SelectedValue>0 && textBox5.Text.Length>0)
             {
                 if ((MessageBox.Show("هل تريد ترحيل طلب  تعديل التوريد واعتماده ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                 {   ////////////////////////////////////
@@ -150,11 +150,11 @@ namespace StoreManagement
                             /////////////////////////////////
                             ///////////////////////////////////////////////////////////////
                             // عملية التعديل في جدول التوريد
-                            dbsql.UPateRequstSupply(IDSupply, IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn, nameNEW, decNew);
+                            dbsql.UPateRequstSupply(IDSupply, IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn, nameNEW, dt.Rows[0]["DescSupply"].ToString());
                             //////////////////
                             ////////////
                             // عملية الحفظ في جدول التعديلات
-                            dbsql.ADDNewUPDSupply(IDSupply, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), dt.Rows[0]["NameSupply"].ToString(), dt.Rows[0]["DescSupply"].ToString(), DateTime.Parse(dt.Rows[0]["DateSupply"].ToString()), DateTime.Now, decNew);
+                            dbsql.ADDNewUPDSupply(IDSupply, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), dt.Rows[0]["NameSupply"].ToString(), DateTime.Parse(dt.Rows[0]["DateSupply"].ToString()), DateTime.Now, decNew);
                         }
                         else
                         {
