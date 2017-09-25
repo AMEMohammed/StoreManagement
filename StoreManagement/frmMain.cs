@@ -200,5 +200,10 @@ namespace StoreManagement
             this.Cursor = Cursors.Default;
 
         }
+
+        private void تقاريرالتعديلاتToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

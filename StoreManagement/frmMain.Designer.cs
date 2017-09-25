@@ -178,7 +178,7 @@
             // 
             this.تقاريرالتعديلاتToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.print;
             this.تقاريرالتعديلاتToolStripMenuItem.Name = "تقاريرالتعديلاتToolStripMenuItem";
-            this.تقاريرالتعديلاتToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.تقاريرالتعديلاتToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.تقاريرالتعديلاتToolStripMenuItem.Text = "تقارير التوريد";
             this.تقاريرالتعديلاتToolStripMenuItem.Click += new System.EventHandler(this.تقاريرالتعديلاتToolStripMenuItem_Click);
             // 
@@ -186,7 +186,7 @@
             // 
             this.تقاريرالصرفToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.print;
             this.تقاريرالصرفToolStripMenuItem.Name = "تقاريرالصرفToolStripMenuItem";
-            this.تقاريرالصرفToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.تقاريرالصرفToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.تقاريرالصرفToolStripMenuItem.Text = "تقارير الصرف";
             this.تقاريرالصرفToolStripMenuItem.Click += new System.EventHandler(this.تقاريرالصرفToolStripMenuItem_Click);
             // 
@@ -194,7 +194,7 @@
             // 
             this.تقاريرالمخزونToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.print;
             this.تقاريرالمخزونToolStripMenuItem.Name = "تقاريرالمخزونToolStripMenuItem";
-            this.تقاريرالمخزونToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.تقاريرالمخزونToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.تقاريرالمخزونToolStripMenuItem.Text = "تقارير المخزون";
             this.تقاريرالمخزونToolStripMenuItem.Click += new System.EventHandler(this.تقاريرالمخزونToolStripMenuItem_Click);
             // 
@@ -204,6 +204,7 @@
             this.تقاريرالتعديلاتToolStripMenuItem1.Name = "تقاريرالتعديلاتToolStripMenuItem1";
             this.تقاريرالتعديلاتToolStripMenuItem1.Size = new System.Drawing.Size(219, 26);
             this.تقاريرالتعديلاتToolStripMenuItem1.Text = "تقارير تعديلات التوريد";
+            this.تقاريرالتعديلاتToolStripMenuItem1.Click += new System.EventHandler(this.تقاريرالتعديلاتToolStripMenuItem1_Click);
             // 
             // تهيئةالنظامToolStripMenuItem
             // 
