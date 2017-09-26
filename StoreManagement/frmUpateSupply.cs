@@ -245,8 +245,12 @@ namespace StoreManagement
                         int QuntityHere = dbsql.GetQuntityInAccount(idAcount2);
                         if (QuntityHere >= oldQuntity)
                         {
+                            
                             int qu = QuntityHere - oldQuntity;
                             dbsql.UpdateQuntityAccount(idAcount2, qu); // تعديل الكمية في جدول المخزون
+                            //اضافة الطلب في جدول التعديلات
+                            dbsql.ADDNewUPDSupply(id, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), dt.Rows[0]["NameSupply"].ToString(), DateTime.Parse(dt.Rows[0]["DateSupply"].ToString()), DateTime.Now, "تم حذف الطلب");
+
                             dbsql.DeleteRequstSupply(id); //حذف الطلب من جدول الطلبات
                             dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now);
 

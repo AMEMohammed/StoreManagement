@@ -111,7 +111,7 @@ namespace StoreManagement
                         string namee = dr[7].ToString();
                         DateTime dd = DateTime.Parse(dr[8].ToString());
                         string dec = dr[9].ToString();
-                        MessageBox.Show(dec);
+                      
                         dt.Rows.Add(id,idSu, NCat,TypeCA, string.Format("{0:##,##}", Qunit), string.Format("{0:##,##}", Price),  currn, namee, dd.Date.ToShortDateString(), dec);
 
 
