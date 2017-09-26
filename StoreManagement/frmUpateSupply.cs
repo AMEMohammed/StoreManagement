@@ -182,7 +182,9 @@ namespace StoreManagement
                     }
                 }
                 catch(Exception ex)
-                { MessageBox.Show(ex.Message); }
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 try
                 {
                     this.Cursor = Cursors.WaitCursor;
@@ -191,7 +193,9 @@ namespace StoreManagement
                     this.Cursor = Cursors.Default;
                 }
                 catch(Exception ex)
-                { MessageBox.Show(ex.Message); }
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     

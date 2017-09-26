@@ -69,6 +69,11 @@ namespace StoreManagement
                             PrintAccountQuntity(dt1);
                             break;
                         }
+                    case 6:
+                        {
+                            PrintUpdteSupply(dt1);
+                            break;
+                        }
 
 
 
@@ -145,6 +150,13 @@ namespace StoreManagement
             RPT.AccountQintity outall = new RPT.AccountQintity();
             outall.SetDataSource(ddd);
             crystalReportViewer1.ReportSource = outall;
+            crystalReportViewer1.Refresh();
+        }
+        public void PrintUpdteSupply(DataTable dt11)
+        {
+            RPT.UpdSupply updSupp = new RPT.UpdSupply();
+            updSupp.SetDataSource(dt11);
+            crystalReportViewer1.ReportSource = updSupp;
             crystalReportViewer1.Refresh();
         }
     }

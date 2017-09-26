@@ -3560,8 +3560,6 @@ namespace StoreManagement {
             
             private global::System.Data.DataColumn columnنوع_الكمية;
             
-            private global::System.Data.DataColumn columnالجهة_المستفيدة;
-            
             private global::System.Data.DataColumn columnالكمية;
             
             private global::System.Data.DataColumn columnسعر_الوحدة;
@@ -3572,7 +3570,7 @@ namespace StoreManagement {
             
             private global::System.Data.DataColumn columnتاريخ_التعديل;
             
-            private global::System.Data.DataColumn column_سبب_التعديل;
+            private global::System.Data.DataColumn columnالتعديل;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3641,14 +3639,6 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn الجهة_المستفيدةColumn {
-                get {
-                    return this.columnالجهة_المستفيدة;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn الكميةColumn {
                 get {
                     return this.columnالكمية;
@@ -3689,9 +3679,9 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn _سبب_التعديلColumn {
+            public global::System.Data.DataColumn التعديلColumn {
                 get {
-                    return this.column_سبب_التعديل;
+                    return this.columnالتعديل;
                 }
             }
             
@@ -3732,20 +3722,19 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UpdSupplyRow AddUpdSupplyRow(string رقم, string رقم_الطلب, string اسم_الصنف, string نوع_الكمية, string الجهة_المستفيدة, string الكمية, string سعر_الوحدة, string العملة, string اسم_المورد, string تاريخ_التعديل, string _سبب_التعديل) {
+            public UpdSupplyRow AddUpdSupplyRow(string رقم, string رقم_الطلب, string اسم_الصنف, string نوع_الكمية, string الكمية, string سعر_الوحدة, string العملة, string اسم_المورد, string تاريخ_التعديل, string التعديل) {
                 UpdSupplyRow rowUpdSupplyRow = ((UpdSupplyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         رقم,
                         رقم_الطلب,
                         اسم_الصنف,
                         نوع_الكمية,
-                        الجهة_المستفيدة,
                         الكمية,
                         سعر_الوحدة,
                         العملة,
                         اسم_المورد,
                         تاريخ_التعديل,
-                        _سبب_التعديل};
+                        التعديل};
                 rowUpdSupplyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUpdSupplyRow);
                 return rowUpdSupplyRow;
@@ -3772,13 +3761,12 @@ namespace StoreManagement {
                 this.columnرقم_الطلب = base.Columns["رقم الطلب"];
                 this.columnاسم_الصنف = base.Columns["اسم الصنف"];
                 this.columnنوع_الكمية = base.Columns["نوع الكمية"];
-                this.columnالجهة_المستفيدة = base.Columns["الجهة المستفيدة"];
                 this.columnالكمية = base.Columns["الكمية"];
                 this.columnسعر_الوحدة = base.Columns["سعر الوحدة"];
                 this.columnالعملة = base.Columns["العملة"];
                 this.columnاسم_المورد = base.Columns["اسم المورد"];
                 this.columnتاريخ_التعديل = base.Columns["تاريخ التعديل"];
-                this.column_سبب_التعديل = base.Columns[" سبب التعديل"];
+                this.columnالتعديل = base.Columns["التعديل"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3792,8 +3780,6 @@ namespace StoreManagement {
                 base.Columns.Add(this.columnاسم_الصنف);
                 this.columnنوع_الكمية = new global::System.Data.DataColumn("نوع الكمية", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnنوع_الكمية);
-                this.columnالجهة_المستفيدة = new global::System.Data.DataColumn("الجهة المستفيدة", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnالجهة_المستفيدة);
                 this.columnالكمية = new global::System.Data.DataColumn("الكمية", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnالكمية);
                 this.columnسعر_الوحدة = new global::System.Data.DataColumn("سعر الوحدة", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3804,8 +3790,8 @@ namespace StoreManagement {
                 base.Columns.Add(this.columnاسم_المورد);
                 this.columnتاريخ_التعديل = new global::System.Data.DataColumn("تاريخ التعديل", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnتاريخ_التعديل);
-                this.column_سبب_التعديل = new global::System.Data.DataColumn(" سبب التعديل", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column_سبب_التعديل);
+                this.columnالتعديل = new global::System.Data.DataColumn("التعديل", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnالتعديل);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6372,22 +6358,6 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string الجهة_المستفيدة {
-                get {
-                    try {
-                        return ((string)(this[this.tableUpdSupply.الجهة_المستفيدةColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'الجهة المستفيدة\' in table \'UpdSupply\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableUpdSupply.الجهة_المستفيدةColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string الكمية {
                 get {
                     try {
@@ -6468,17 +6438,17 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string _سبب_التعديل {
+            public string التعديل {
                 get {
                     try {
-                        return ((string)(this[this.tableUpdSupply._سبب_التعديلColumn]));
+                        return ((string)(this[this.tableUpdSupply.التعديلColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \' سبب التعديل\' in table \'UpdSupply\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'التعديل\' in table \'UpdSupply\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUpdSupply._سبب_التعديلColumn] = value;
+                    this[this.tableUpdSupply.التعديلColumn] = value;
                 }
             }
             
@@ -6528,18 +6498,6 @@ namespace StoreManagement {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setنوع_الكميةNull() {
                 this[this.tableUpdSupply.نوع_الكميةColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isالجهة_المستفيدةNull() {
-                return this.IsNull(this.tableUpdSupply.الجهة_المستفيدةColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setالجهة_المستفيدةNull() {
-                this[this.tableUpdSupply.الجهة_المستفيدةColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6604,14 +6562,14 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Is_سبب_التعديلNull() {
-                return this.IsNull(this.tableUpdSupply._سبب_التعديلColumn);
+            public bool IsالتعديلNull() {
+                return this.IsNull(this.tableUpdSupply.التعديلColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Set_سبب_التعديلNull() {
-                this[this.tableUpdSupply._سبب_التعديلColumn] = global::System.Convert.DBNull;
+            public void SetالتعديلNull() {
+                this[this.tableUpdSupply.التعديلColumn] = global::System.Convert.DBNull;
             }
         }
         
