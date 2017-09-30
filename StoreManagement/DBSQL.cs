@@ -1321,6 +1321,12 @@ namespace StoreManagement
 
             AddNewUpdOut(IdRequstOut, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["IDPlace"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), dt.Rows[0]["NameOut"].ToString(), dt.Rows[0]["NameSend"].ToString(), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), "تم حذف الطلب", DateTime.Now);
 
+            // التعديل في جدول الحسابات
+          // ارجاع الكمية الى المخزون
+            int IdAccount = CheckAccountIsHere(Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()));
+            int QuntOld = GetQuntityInAccount(IdAccount);
+            int QuntNew = QuntOld + Convert.ToInt32(dt.Rows[0]["Quntity"].ToString());
+            UpdateQuntityAccount(IdAccount, QuntNew);
             // حذف الطلب من جدول طلبات الصرف
             cmd = new SqlCommand("delete from RequstOut where IDOut =@id", con);
             cmd.Parameters.AddWithValue("@id", IdRequstOut);
@@ -1330,6 +1336,7 @@ namespace StoreManagement
             return res;
 
         }
+        /////////
 
     }
 
