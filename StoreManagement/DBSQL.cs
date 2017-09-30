@@ -1279,9 +1279,9 @@ namespace StoreManagement
         public int AddNewUpdOut(int IDOut, int IdCate, int IdType, int IdPlace, int Quntity, string NameOUt, string NameSend, int Price, int IdCurrent, string TxtReson, DateTime DateUpdate)
         {
             int res = 0;
-            try
+           try
             {
-                cmd = new SqlCommand("insert into UpdateOut (IDOut,IdCate,IdType,IdPlace,Quntity,NameOUt,NameSend,Price,IdCurrent,TxtReson,DateUpdate) values(@IDOut,@IdCate,@IdType,@IdPlace,@Quntity,@NameOUt,@NameSend,@Price,@IdCurrent,@TxtReson,@DateUpdate", con);
+                cmd = new SqlCommand("insert into UpdateOut(IDOut,IdCate,IdType,IdPlace,Quntity,NameOUt,DateUpdate,NameSend,Price,IdCurrent,TxtReson) values(@IDOut,@IdCate,@IdType,@IdPlace,@Quntity,@NameOUt,@Date,@NameSend,@Price,@IdCurrent,@TxtReson)", con);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@IDOut", IDOut);
                 cmd.Parameters.AddWithValue("@IdCate", IdCate);
@@ -1293,16 +1293,16 @@ namespace StoreManagement
                 cmd.Parameters.AddWithValue("@Price", Price);
                 cmd.Parameters.AddWithValue("@IdCurrent", IdCurrent);
                 cmd.Parameters.AddWithValue("@TxtReson", TxtReson);
-                cmd.Parameters.AddWithValue("@DateUpdate", DateUpdate);
+                cmd.Parameters.AddWithValue("@Date", DateUpdate);
                 con.Open();
                 res = cmd.ExecuteNonQuery();
 
             }
-            catch(Exception ex)
+           catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+               MessageBox.Show(ex.Message);
             }
-            finally
+           finally
             {
                 con.Close();
             }

@@ -43,10 +43,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.استردادالطلبToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.حذفالطلبToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -208,6 +208,14 @@
             this.dataGridView1.Size = new System.Drawing.Size(943, 447);
             this.dataGridView1.TabIndex = 7;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.حذفالطلبToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -218,20 +226,12 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "البحث في طلبات الصرف";
             // 
-            // contextMenuStrip1
+            // حذفالطلبToolStripMenuItem
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.استردادالطلبToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
-            // 
-            // استردادالطلبToolStripMenuItem
-            // 
-            this.استردادالطلبToolStripMenuItem.Name = "استردادالطلبToolStripMenuItem";
-            this.استردادالطلبToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.استردادالطلبToolStripMenuItem.Text = "استرداد الطلب";
-            this.استردادالطلبToolStripMenuItem.Click += new System.EventHandler(this.استردادالطلبToolStripMenuItem_Click);
+            this.حذفالطلبToolStripMenuItem.Name = "حذفالطلبToolStripMenuItem";
+            this.حذفالطلبToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.حذفالطلبToolStripMenuItem.Text = "استرداد الطلب";
+            this.حذفالطلبToolStripMenuItem.Click += new System.EventHandler(this.حذفالطلبToolStripMenuItem_Click);
             // 
             // frmUpateOut
             // 
@@ -282,6 +282,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem استردادالطلبToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem حذفالطلبToolStripMenuItem;
     }
 }

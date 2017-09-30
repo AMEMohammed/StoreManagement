@@ -35,6 +35,9 @@ namespace StoreManagement
         private void frmUpateOut_Load(object sender, EventArgs e)
         {
             this.BackColor = Properties.Settings.Default.colorBackGround;
+            MessageBoxManager.Yes = "نعم";
+            MessageBoxManager.No = "الغاء";
+            MessageBoxManager.Register();
             label1.BackColor = Properties.Settings.Default.colorBackGround;
             try
             {
@@ -212,6 +215,26 @@ namespace StoreManagement
             if(dataGridView1.SelectedRows.Count>0)
             {
 
+            }
+        }
+
+        private void حذفالطلبToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.SelectedRows.Count>0)
+            {
+                try
+                {
+                    int IdOut = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    if (MessageBox.Show("هل تريد استرداد الكمية المصروفة رقم الطلب "+IdOut+"", "استرداد طلب صرف", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes)
+                    {
+                        dbsql.DeleteRqustOut(IdOut);
+                        dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.AddDays(-3), DateTime.Now);
+                    }
+                }
+                catch(Exception ex)
+                { MessageBox.Show(ex.Message);
+                }
+                    
             }
         }
     }
