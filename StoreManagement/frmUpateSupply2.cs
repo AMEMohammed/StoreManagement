@@ -32,6 +32,7 @@ namespace StoreManagement
 
         private void frmUpateSupply2_Load(object sender, EventArgs e)
         {
+            this.BackColor = Properties.Settings.Default.colorBackGround;
             IDSupply = (int)this.Tag;
 
             comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
