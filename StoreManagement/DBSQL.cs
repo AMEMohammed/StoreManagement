@@ -1336,7 +1336,34 @@ namespace StoreManagement
             return res;
 
         }
-        /////////
+        /////////////
+        ////////
+        /// upadte Rqust oU
+        /// 
+        int UpdateRequstOut(int IDOut,int IdPlace,string NameOut,string NameSend,string Reson,DateTime d1)
+        {
+            int res = 0;
+            /// اضافة التعديل الى جدول التعديلات
+            /// 
+            DataTable dt = new DataTable();
+            // جلب معلومات عن الطلب المراد حذفه
+            dt = GetRequstOutSngle(IDOut);
+            // اضافة البيانات الى جدول التعديلات 
+
+            AddNewUpdOut(IDOut, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["IDPlace"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), dt.Rows[0]["NameOut"].ToString(), dt.Rows[0]["NameSend"].ToString(), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), Reson, DateTime.Now);
+            //////////////////////////////////
+            //التعديل في جدول التعديلات
+            cmd = new SqlCommand("Update RequstOut set IDPlace=@idplace , NameOut=@nameout ,NameSend=@namesend where IDOut=@idOut", con);
+            cmd.Parameters.AddWithValue("@idplace", IdPlace);
+            cmd.Parameters.AddWithValue("@nameout", NameOut);
+            cmd.Parameters.AddWithValue("@namesend", NameSend);
+            con.Open();
+       res=     cmd.ExecuteNonQuery();
+            con.Close();
+            return res;
+           
+        }
+
 
     }
 
