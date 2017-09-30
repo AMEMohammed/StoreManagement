@@ -298,5 +298,23 @@ namespace StoreManagement
                 MessageBox.Show(ex.Message);
             }
             }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                textBox1.Text = dbsql.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue, (int)comboBox4.SelectedValue).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }
