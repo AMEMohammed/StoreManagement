@@ -97,3 +97,5 @@ E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Properties.
 E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.csproj.GenerateResource.Cache
 E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.UpdateOut.resources
 E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmREprUpdSupp.resources
+E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmUpdtOut2.resources
+E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmRepUpdOut.resources

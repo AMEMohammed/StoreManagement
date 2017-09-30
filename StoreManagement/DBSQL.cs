@@ -1340,13 +1340,13 @@ namespace StoreManagement
         ////////
         /// upadte Rqust oU
         /// 
-        int UpdateRequstOut(int IDOut,int IdPlace,string NameOut,string NameSend,string Reson,DateTime d1)
+      public  int UpdateRequstOut(int IDOut,int IdPlace,string NameOut,string NameSend,string Reson,DateTime d1)
         {
             int res = 0;
             /// اضافة التعديل الى جدول التعديلات
             /// 
             DataTable dt = new DataTable();
-            // جلب معلومات عن الطلب المراد حذفه
+            // جلب معلومات عن الطلب المراد تعديله
             dt = GetRequstOutSngle(IDOut);
             // اضافة البيانات الى جدول التعديلات 
 
@@ -1357,13 +1357,34 @@ namespace StoreManagement
             cmd.Parameters.AddWithValue("@idplace", IdPlace);
             cmd.Parameters.AddWithValue("@nameout", NameOut);
             cmd.Parameters.AddWithValue("@namesend", NameSend);
+            cmd.Parameters.AddWithValue("@idOut", IDOut);
             con.Open();
-       res=     cmd.ExecuteNonQuery();
+            res=     cmd.ExecuteNonQuery();
             con.Close();
             return res;
            
         }
-
+        //////////////
+         /// get of UpdtOut Uing IdOut
+       public DataTable GetUpdtOutByIDOut(int idOUt)
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("SELECT     dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' FROM   dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.IdType = TypeQuntity.IDType and UpdateOut.IDOut=@id", con);
+            cmd.Parameters.AddWithValue("@id", idOUt);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        public DataTable GetUpdOutByDate(DateTime d1,DateTime d2)
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("SELECT     dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' FROM   dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.IdType = TypeQuntity.IDType and UpdateOut.DateUpdate between @d1 and @d2", con);
+            cmd.Parameters.AddWithValue("@d1",d1);
+            cmd.Parameters.AddWithValue("@d2", d2);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
 
     }
 

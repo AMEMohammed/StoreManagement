@@ -208,5 +208,10 @@ namespace StoreManagement
             new frmREprUpdSupp().ShowDialog();
             this.Cursor = Cursors.Default;
         }
+
+        private void تقاريرتعديلاتالصرفToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

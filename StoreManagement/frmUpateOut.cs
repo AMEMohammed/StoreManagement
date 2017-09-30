@@ -237,5 +237,27 @@ namespace StoreManagement
                     
             }
         }
+
+        private void تعديلالطلبToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    frmUpdtOut2 frmu = new frmUpdtOut2();
+                    frmu.Tag = id;
+                    this.Cursor = Cursors.WaitCursor;
+
+                    frmu.ShowDialog();
+                    this.Cursor = Cursors.Default;
+                    dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.AddDays(-3), DateTime.Now);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }
