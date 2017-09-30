@@ -1263,7 +1263,73 @@ namespace StoreManagement
         ////////////////////////////////////////////////////////
         /////////////////////////
         /////
-         /
+        //
+        public DataTable GetRequstOutSngle(int IDOutRequst)
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("select * from RequstOut where IDOut=@id", con);
+            cmd.Parameters.AddWithValue("@id", IDOutRequst);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+
+        }
+        /// upd Out
+        /// Add in Upd Out
+        public int AddNewUpdOut(int IDOut, int IdCate, int IdType, int IdPlace, int Quntity, string NameOUt, string NameSend, int Price, int IdCurrent, string TxtReson, DateTime DateUpdate)
+        {
+            int res = 0;
+            try
+            {
+                cmd = new SqlCommand("insert into UpdateOut (IDOut,IdCate,IdType,IdPlace,Quntity,NameOUt,NameSend,Price,IdCurrent,TxtReson,DateUpdate) values(@IDOut,@IdCate,@IdType,@IdPlace,@Quntity,@NameOUt,@NameSend,@Price,@IdCurrent,@TxtReson,@DateUpdate", con);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@IDOut", IDOut);
+                cmd.Parameters.AddWithValue("@IdCate", IdCate);
+                cmd.Parameters.AddWithValue("@IdType", IdType);
+                cmd.Parameters.AddWithValue("@IdPlace", IdPlace);
+                cmd.Parameters.AddWithValue("@Quntity", Quntity);
+                cmd.Parameters.AddWithValue("@NameOUt", NameOUt);
+                cmd.Parameters.AddWithValue("@NameSend", NameSend);
+                cmd.Parameters.AddWithValue("@Price", Price);
+                cmd.Parameters.AddWithValue("@IdCurrent", IdCurrent);
+                cmd.Parameters.AddWithValue("@TxtReson", TxtReson);
+                cmd.Parameters.AddWithValue("@DateUpdate", DateUpdate);
+                con.Open();
+                res = cmd.ExecuteNonQuery();
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return res;
+        }
+        ///////////////////////////////////////////////////
+        ////////////////
+        ///// delete from requst out
+        public int DeleteRqustOut(int IdRequstOut)
+        {
+            int res = 0;
+            DataTable dt = new DataTable();
+            // جلب معلومات عن الطلب المراد حذفه
+            dt = GetRequstOutSngle(IdRequstOut);
+            // اضافة البيانات الى جدول التعديلات 
+
+            AddNewUpdOut(IdRequstOut, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["IDPlace"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), dt.Rows[0]["NameOut"].ToString(), dt.Rows[0]["NameSend"].ToString(), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), "تم حذف الطلب", DateTime.Now);
+
+            // حذف الطلب من جدول طلبات الصرف
+            cmd = new SqlCommand("delete from RequstOut where IDOut =@id", con);
+            cmd.Parameters.AddWithValue("@id", IdRequstOut);
+            con.Open();
+            res = cmd.ExecuteNonQuery();
+            con.Close();
+            return res;
+
+        }
 
     }
 
