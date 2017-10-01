@@ -41,6 +41,7 @@ namespace StoreManagement
            this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Enabled = false;
             this.انشاءنسخةاحتياطيةToolStripMenuItem.Enabled = check;
             this.تعديلالمستخدمToolStripMenuItem.Enabled = check;
+            Contrl.UserId = 0;
          
         }
 
@@ -79,6 +80,7 @@ namespace StoreManagement
         {
             checkIcon(false);
             checkUser = false;
+
 
         }
 

@@ -27,10 +27,10 @@ namespace StoreManagement
 
                 MessageBoxManager.Register();
                 DataTable dt = new DataTable();
-                dt = dbsql.GetUser();
-                textBox1.Text = dt.Rows[0][0].ToString();
-                textBox2.Text = dt.Rows[0][1].ToString();
-
+                dt = dbsql.GetUser(Contrl.UserId);
+                textBox3.Text = dt.Rows[0][0].ToString();
+                textBox1.Text = dt.Rows[0][1].ToString();
+                textBox2.Text = dt.Rows[0][2].ToString();
 
             }
             catch(Exception ex) { MessageBox.Show(ex.Message); }
@@ -38,11 +38,12 @@ namespace StoreManagement
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length > 0 && textBox2.Text.Length > 0)
-            {  if ((MessageBox.Show("هل تريد اكمال عملية تعديل البيانات", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+          if (textBox1.Text.Length > 0 && textBox2.Text.Length > 0)
+            {
+                if ((MessageBox.Show("هل تريد اكمال عملية تعديل البيانات", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                 {
                     try {
-                        dbsql.UpdateUser(textBox1.Text, textBox2.Text);
+                        dbsql.UpdateUserPassword(Contrl.UserId,textBox2.Text);
                         this.Close();
 
                     }
@@ -50,6 +51,11 @@ namespace StoreManagement
 
                 }
         }
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
     }

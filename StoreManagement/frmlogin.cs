@@ -24,14 +24,16 @@ namespace StoreManagement
                 frmMain.checkUser = dbsql.CheckUser(textBox1.Text, textBox2.Text);
                if(frmMain.checkUser==true)
                 {
+                    Contrl.UserId = dbsql.CheckUser2(textBox1.Text, textBox2.Text);
                     this.Close();
                 }
                else
                 {
                    
            
-                        frmMain.checkUser = false;
-                        MessageBox.Show("دخول خاطى");
+                    frmMain.checkUser = false;
+                    Contrl.UserId = 0;
+                    MessageBox.Show("دخول خاطى");
                     textBox1.Text = "";
                     textBox2.Text = "";
                     

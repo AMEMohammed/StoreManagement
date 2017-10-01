@@ -2397,6 +2397,8 @@ namespace StoreManagement {
             
             private global::System.Data.DataColumn columnملاحظات;
             
+            private global::System.Data.DataColumn columnاسم_الموظف;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SupplyoneDataTable() {
@@ -2512,6 +2514,14 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn اسم_الموظفColumn {
+                get {
+                    return this.columnاسم_الموظف;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2547,7 +2557,7 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SupplyoneRow AddSupplyoneRow(string رقم_الطلب, string الصنف, string النوع, string الكمية, string السعر, string الاجمالي, string العملة, string تاريخ, string اسم_المورد, string ملاحظات) {
+            public SupplyoneRow AddSupplyoneRow(string رقم_الطلب, string الصنف, string النوع, string الكمية, string السعر, string الاجمالي, string العملة, string تاريخ, string اسم_المورد, string ملاحظات, string اسم_الموظف) {
                 SupplyoneRow rowSupplyoneRow = ((SupplyoneRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         رقم_الطلب,
@@ -2559,7 +2569,8 @@ namespace StoreManagement {
                         العملة,
                         تاريخ,
                         اسم_المورد,
-                        ملاحظات};
+                        ملاحظات,
+                        اسم_الموظف};
                 rowSupplyoneRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSupplyoneRow);
                 return rowSupplyoneRow;
@@ -2592,6 +2603,7 @@ namespace StoreManagement {
                 this.columnتاريخ = base.Columns["تاريخ"];
                 this.columnاسم_المورد = base.Columns["اسم المورد"];
                 this.columnملاحظات = base.Columns["ملاحظات"];
+                this.columnاسم_الموظف = base.Columns["اسم الموظف"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2617,6 +2629,8 @@ namespace StoreManagement {
                 base.Columns.Add(this.columnاسم_المورد);
                 this.columnملاحظات = new global::System.Data.DataColumn("ملاحظات", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnملاحظات);
+                this.columnاسم_الموظف = new global::System.Data.DataColumn("اسم الموظف", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_الموظف);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5457,6 +5471,22 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string اسم_الموظف {
+                get {
+                    try {
+                        return ((string)(this[this.tableSupplyone.اسم_الموظفColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'اسم الموظف\' in table \'Supplyone\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSupplyone.اسم_الموظفColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isرقم_الطلبNull() {
                 return this.IsNull(this.tableSupplyone.رقم_الطلبColumn);
             }
@@ -5573,6 +5603,18 @@ namespace StoreManagement {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetملاحظاتNull() {
                 this[this.tableSupplyone.ملاحظاتColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isاسم_الموظفNull() {
+                return this.IsNull(this.tableSupplyone.اسم_الموظفColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setاسم_الموظفNull() {
+                this[this.tableSupplyone.اسم_الموظفColumn] = global::System.Convert.DBNull;
             }
         }
         

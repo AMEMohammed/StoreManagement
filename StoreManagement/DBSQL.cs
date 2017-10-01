@@ -11,7 +11,7 @@ using System.Data;
 namespace StoreManagement
 {
     class DBSQL
-    {
+    {    
         private string ConnectionSreing = @"Data Source="+Properties.Settings.Default.nmserver+";Initial Catalog="+Properties.Settings.Default.nmdatabase+";Integrated Security=True";
         private string ConnectionStriingMaster = @"Data Source=" + Properties.Settings.Default.nmserver + ";Initial Catalog=master;Integrated Security=True";
         public SqlConnection con;
@@ -395,10 +395,10 @@ namespace StoreManagement
         //////////////////////////////////
         /// add new Requst Supply
         /// 
-        public int AddNewRequsetSupply(int IDCategory, int IDType, int Quntity, int Price,int idcurrnt, string NameSupply, string DescSupply, DateTime DateSupply)
+        public int AddNewRequsetSupply(int IDCategory, int IDType, int Quntity, int Price,int idcurrnt, string NameSupply, string DescSupply, DateTime DateSupply,int IDuser)
         {
             int resl = 0;
-            cmd = new SqlCommand("insert into RequstSupply(IDCategory,IDType,Quntity,Price,NameSupply,DescSupply,DateSupply,IDCurrency) values(@IDCategory,@IDType,@Quntity,@Price,@NameSupply,@DescSupply,@DateSupply,@IDCurrency)", con);
+            cmd = new SqlCommand("insert into RequstSupply(IDCategory,IDType,Quntity,Price,NameSupply,DescSupply,DateSupply,IDCurrency,UserId) values(@IDCategory,@IDType,@Quntity,@Price,@NameSupply,@DescSupply,@DateSupply,@IDCurrency,@userId)", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@IDCategory", IDCategory);
             cmd.Parameters.AddWithValue("@IDType", IDType);
@@ -408,6 +408,7 @@ namespace StoreManagement
             cmd.Parameters.AddWithValue("@DescSupply", DescSupply);
             cmd.Parameters.AddWithValue("@DateSupply", DateSupply);
             cmd.Parameters.AddWithValue("@IDCurrency", idcurrnt);
+            cmd.Parameters.AddWithValue("@userId", IDuser);
             con.Open();
             resl = cmd.ExecuteNonQuery();
             con.Close();
@@ -767,7 +768,7 @@ namespace StoreManagement
         public DataTable PrintRequstSupply(int IDreqSup)
         {
             DataTable dt = new DataTable();
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,  Category.NameCategory  as 'الصنف', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية', RequstSupply.Price as 'السعر'  , RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي' ,Currency.NameCurrency as 'العملة', RequstSupply.DateSupply as 'تاريخ' , RequstSupply.NameSupply  as'اسم المورد', RequstSupply.DescSupply AS 'ملاحظات'  from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency  and RequstSupply.IDSupply =@id", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,  Category.NameCategory  as 'الصنف', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية', RequstSupply.Price as 'السعر'  , RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي' ,Currency.NameCurrency as 'العملة', RequstSupply.DateSupply as 'تاريخ' , RequstSupply.NameSupply  as'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply AS 'ملاحظات'  from Category,Users,TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.UserId=Users.UserID  and RequstSupply.IDSupply =@id", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@id",IDreqSup);
             adapter = new SqlDataAdapter(cmd);
@@ -1022,40 +1023,14 @@ namespace StoreManagement
 
 
         ////////////////////////////////
-        ////////////
-        // get user
-        public bool CheckUser(string User,string Pass)
-        {
-            bool check = false;
-            try
-            {
-               
-                DataTable dt = new DataTable();
-                cmd = new SqlCommand("select * from Setting where UserName=@UserName and PassWord=@PassWord", con);
-                cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@UserName", User);
-                cmd.Parameters.AddWithValue("@PassWord", Pass);
-                adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dt);
-                if (dt.Rows.Count > 0)
-                    check = true;
-                else
-                    check = false;
-            }
-            catch(Exception ex)
-            {
-                check = false;
-                MessageBox.Show(ex.Message);
-            }
-            return check;
-        }
+      
         //////////////
         //////////
         /// <summary>
         ///  get user in setting
         /// </summary>
         /// <returns></returns>
-            public DataTable GetUser()
+            public DataTable GetUser(int id)
         {
 
 
@@ -1063,9 +1038,10 @@ namespace StoreManagement
             try
             {
 
-                cmd = new SqlCommand("select UserName,PassWord from Setting where IDSetting=1", con);
+                cmd = new SqlCommand("select Name,UserName,PassWord from Users where UserID=@id", con);
                 cmd.CommandType = CommandType.Text;
-               
+                cmd.Parameters.AddWithValue("@id", id);
+
                 adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);
               
@@ -1083,18 +1059,7 @@ namespace StoreManagement
         ///
         /// 
         /// 
-        public int UpdateUser(string user,string pass)
-        {
-            int re = 0;
-            cmd = new SqlCommand("update Setting set UserName=@user ,PassWord=@pass where IDSetting=1 ", con);
-            cmd.Parameters.AddWithValue("@user", user);
-            cmd.Parameters.AddWithValue("@pass", pass);
-            cmd.CommandType = CommandType.Text;
-            con.Open();
-            re = cmd.ExecuteNonQuery();
-            con.Close();
-            return re;
-        }
+      
         /// <summary>
         /// /////
         /// </summary>
@@ -1375,6 +1340,12 @@ namespace StoreManagement
             adapter.Fill(dt);
             return dt;
         }
+        /// <summary>
+        /// // update from updout
+        /// </summary>
+        /// <param name="d1"></param>
+        /// <param name="d2"></param>
+        /// <returns></returns>
         public DataTable GetUpdOutByDate(DateTime d1,DateTime d2)
         {
             DataTable dt = new DataTable();
@@ -1384,6 +1355,199 @@ namespace StoreManagement
             adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dt);
             return dt;
+        }
+       ////////////////////////////////////////
+       /////////////////
+       ////// users
+       // add new Users
+       public int AddNewUser( string name,string user,string pass,bool supply,bool outt,bool upd,bool printr,bool userAdd,bool Active)
+        {
+            int res = 0;
+
+            cmd = new SqlCommand("INSERT INTO [Users]([Name],[UserName],[Password],[Supply],[Out],[UpdteDe],[PrintRE],[UserAdd],[Active]) VALUES(@Name,@UserName,@Password,@Supply,@Out,@UpdteDe,@PrintRE,@UserAdd,@Active)", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@Name", name);
+            cmd.Parameters.AddWithValue("@UserName", user);
+            cmd.Parameters.AddWithValue("@Password", pass);
+            cmd.Parameters.AddWithValue("@Supply", supply);
+            cmd.Parameters.AddWithValue("@Out", outt);
+            cmd.Parameters.AddWithValue("@UpdteDe", upd);
+            cmd.Parameters.AddWithValue("@PrintRE", printr);
+            cmd.Parameters.AddWithValue("@UserAdd", user);
+            cmd.Parameters.AddWithValue("@Active", Active);
+
+            try
+            {
+                con.Open();
+                res = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return res;
+        }
+
+ 
+
+
+    /////
+    ////////Updte Users
+  public  int UpdUsers(int IdUser, string name, string user, string pass, bool supply, bool outt, bool upd, bool printr, bool userAdd, bool Active)
+    {
+        
+        int res = 0;
+
+        cmd = new SqlCommand("Update Users set Name=@Name,UserName=@UserName,Password=@Password,Supply=@Supply,Out=@Out,UpdteDe=@UpdteDe,PrintRE=@PrintRE,UserAdd=@UserAdd,Active=@Active where UserID=@id", con);
+        cmd.CommandType = CommandType.Text;
+        cmd.Parameters.AddWithValue("@Name", name);
+        cmd.Parameters.AddWithValue("@UserName", user);
+        cmd.Parameters.AddWithValue("@Password", pass);
+        cmd.Parameters.AddWithValue("@Supply", supply);
+        cmd.Parameters.AddWithValue("@Out", outt);
+        cmd.Parameters.AddWithValue("@UpdteDe", upd);
+        cmd.Parameters.AddWithValue("@PrintRE", printr);
+        cmd.Parameters.AddWithValue("@UserAdd", user);
+        cmd.Parameters.AddWithValue("@Active", Active);
+        cmd.Parameters.AddWithValue("@id", IdUser);
+
+        try
+        {
+            con.Open();
+            res = cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
+        finally
+        {
+            con.Close();
+        }
+        return res;
+    }
+
+        ///////////////////////////
+        ///////// Delete User
+       public int DeleteUser(int Iduser)
+        {
+            int res = 0;
+            cmd = new SqlCommand("delete from Users where UserID= @id", con);
+
+                cmd.Parameters.AddWithValue("@id", Iduser);
+            try
+            {
+                con.Open();
+              res=  cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return res;
+
+        }
+
+        /////////////
+        //// Get All Users
+       public  DataTable  GetAllUser()
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("select Users.UserID as 'رقم' ,Users.Name as 'اسم الموظف',Users.UserName as 'اسم المستخدم',Users.Password as 'كلمة المرور',Users.Supply as 'امر توريد',Users.Out as 'امر صرف',Users.PrintRE as 'طباعة تقارير',Users.UpdteDe as'تعديل / حذف' ,Users.Active as 'تفعيل',Users.UserAdd as'اضافة مستخدمين' from Users ", con);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        //////////////////
+        ///////
+        ///////////
+        // get user
+        public bool CheckUser(string User, string Pass)
+        {
+            bool check = false;
+            try
+            {
+
+                DataTable dt = new DataTable();
+                cmd = new SqlCommand("select Name,Active from Users where UserName=@UserName and Password=@PassWord", con);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@UserName", User);
+                cmd.Parameters.AddWithValue("@PassWord", Pass);
+                adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+                bool ch =Convert.ToBoolean(dt.Rows[0]["Active"].ToString());
+                if (dt.Rows.Count > 0 && ch==true)
+                    check = true;
+                else
+                    check = false;
+            }
+            catch (Exception ex)
+            {
+                check = false;
+                MessageBox.Show(ex.Message);
+            }
+            return check;
+        }
+        ////////
+        /////
+        ///////////
+        // get user
+        public int CheckUser2(string User, string Pass)
+        {
+            int check = 0;
+            try
+            {
+
+                DataTable dt = new DataTable();
+                cmd = new SqlCommand("select UserID from Users where UserName=@UserName and Password=@PassWord", con);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@UserName", User);
+                cmd.Parameters.AddWithValue("@PassWord", Pass);
+                con.Open();
+                check =(int) cmd.ExecuteScalar();
+             
+            }
+            catch (Exception ex)
+            {
+                check = 0;
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+                
+            }  
+            return check;
+
+        }
+        ////////////////
+        //////// updat password
+    public    int UpdateUserPassword(int IdUser,string pass)
+        {
+            int res = 0;
+            cmd = new SqlCommand("update Users set Password=@pass where UserId=@id", con);
+            cmd.Parameters.AddWithValue("@pass", pass);
+            cmd.Parameters.AddWithValue("@id", IdUser);
+            try
+            {
+                con.Open();
+                res = cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+
+            { MessageBox.Show(ex.Message); }
+            finally { con.Close();
+            }
+            return res;
         }
 
     }
