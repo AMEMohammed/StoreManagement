@@ -1571,6 +1571,29 @@ namespace StoreManagement
             adapter.Fill(dt);
             return dt;
         }
+        /// GetUserNameById
+        /// 
+        public string GetUserNameBYIdUser(int IdUser)
+        {
+            string s = "";
+            cmd = new SqlCommand("select Name from Users where UserID=@userid", con);
+            cmd.Parameters.AddWithValue("@userid", IdUser);
+            try
+            {
+                con.Open();
+                s =(string) cmd.ExecuteScalar();
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return s;
+        }
 
     }
 

@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:DataTable1" ZOrder="2" X="208" Y="49" Height="219" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="215" />
     <Shape ID="DesignTable:RequsetSupply" ZOrder="6" X="12" Y="265" Height="182" Width="152" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
-    <Shape ID="DesignTable:RequsetSupplyall" ZOrder="9" X="643" Y="304" Height="219" Width="166" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="215" />
+    <Shape ID="DesignTable:RequsetSupplyall" ZOrder="9" X="643" Y="304" Height="238" Width="166" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="234" />
     <Shape ID="DesignTable:RequstOutAll" ZOrder="3" X="856" Y="68" Height="257" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="253" />
     <Shape ID="DesignTable:accountQuntity" ZOrder="8" X="463" Y="159" Height="124" Width="155" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="120" />
     <Shape ID="DesignTable:Supplyone" ZOrder="7" X="671" Y="31" Height="239" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="235" />
