@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace StoreManagement
 {
     public partial class frmMain : Form
-    {
+    { DBSQL dbsql = new DBSQL();
         public static bool checkUser = false;
 
         public frmMain()
@@ -31,30 +31,72 @@ namespace StoreManagement
 
        void checkIcon(bool check)
         {
-           
-        //    this.اعدادتالنظامToolStripMenuItem.Enabled = check;
 
-            this.التقاريرToolStripMenuItem.Enabled = check;
-            this.تهيئةالنظامToolStripMenuItem.Enabled = check;
-            this.طلباتالتوريدToolStripMenuItem.Enabled = check;
-            this.طلباتالصرفToolStripMenuItem.Enabled = check;
-           this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Enabled = false;
-            this.انشاءنسخةاحتياطيةToolStripMenuItem.Enabled = check;
-            this.تعديلالمستخدمToolStripMenuItem.Enabled = check;
-            this.صلاحياتالمستخدمينToolStripMenuItem.Enabled = check;
-            if (check == false)
+            //    this.اعدادتالنظامToolStripMenuItem.Enabled = check;
+            try
             {
-                Contrl.UserId = 0;
+                DataTable dt2 = new DataTable();
+                dt2 = dbsql.GetGrendUsers(Contrl.UserId);
+
+                this.التقاريرToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][7].ToString()); 
+                this.تهيئةالنظامToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][4].ToString());
+                this.طلباتالتوريدToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][4].ToString());
+                this.طلباتالصرفToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][5].ToString());
+                this.اضافةطلبToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][4].ToString());
+                this.اضافةطلبToolStripMenuItem1.Enabled = Convert.ToBoolean(dt2.Rows[0][5].ToString());
+                this.البحثToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][6].ToString());
+                this.بحثToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][6].ToString());
+                this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Enabled = false;
+                this.انشاءنسخةاحتياطيةToolStripMenuItem.Enabled = this.اضافةطلبToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][4].ToString());
+                this.تعديلالمستخدمToolStripMenuItem.Enabled = check;
+                this.اعدادتالنظامToolStripMenuItem.Enabled = check;
+                this.صلاحياتالمستخدمينToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][8].ToString()); ;
+                if (check == false)
+                {
+                    Contrl.UserId = 0;
+                }
             }
+            catch
+            { }
          
         }
+        /////
+        void checkIcon2(bool check)
+        {
 
+            //    this.اعدادتالنظامToolStripMenuItem.Enabled = check;
+            try
+            {
+               ;
+
+                this.التقاريرToolStripMenuItem.Enabled = check;
+                this.تهيئةالنظامToolStripMenuItem.Enabled = check;
+                this.طلباتالتوريدToolStripMenuItem.Enabled = check;
+                this.طلباتالصرفToolStripMenuItem.Enabled = check;
+                this.اضافةطلبToolStripMenuItem.Enabled = check;
+                this.اضافةطلبToolStripMenuItem1.Enabled = check;
+                this.البحثToolStripMenuItem.Enabled = check;
+                this.بحثToolStripMenuItem.Enabled = check;
+                this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Enabled = false;
+                this.انشاءنسخةاحتياطيةToolStripMenuItem.Enabled = check;
+                this.تعديلالمستخدمToolStripMenuItem.Enabled = check;
+                this.اعدادتالنظامToolStripMenuItem.Enabled = check;
+                this.صلاحياتالمستخدمينToolStripMenuItem.Enabled = check;
+                if (check == false)
+                {
+                    Contrl.UserId = 0;
+                }
+            }
+            catch
+            { }
+
+        }
         private void دخولالنظامToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new frmlogin().ShowDialog();
 
             if (checkUser==true)
-            {  
+            {   
 
                 checkIcon(true);
             }
@@ -76,13 +118,13 @@ namespace StoreManagement
             MessageBoxManager.No = "الغاء";
 
             MessageBoxManager.Register();
-            checkIcon(false);
+         
 
         }
 
         private void خروجمنالنظامToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            checkIcon(false);
+            checkIcon2(false);
             checkUser = false;
 
 

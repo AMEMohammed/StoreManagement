@@ -344,6 +344,7 @@
             this.Name = "frmUser";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "المستخدمين";
             this.Load += new System.EventHandler(this.frmUser_Load);
             this.groupBox1.ResumeLayout(false);

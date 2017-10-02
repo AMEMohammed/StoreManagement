@@ -275,15 +275,15 @@ namespace StoreManagement
                 try
                 {
 
-                    int IDcheck = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
+                    int IDcheck = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[13].Value.ToString());
                     frmREPORT frm = new frmREPORT(IDcheck, 2);
                     this.Cursor = Cursors.WaitCursor;
                     frm.ShowDialog();
                     this.Cursor = Cursors.Default;
                 }
-                catch(Exception ex)
+               catch(Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                   MessageBox.Show(ex.Message);
                 }
             }
         }

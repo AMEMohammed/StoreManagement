@@ -3189,6 +3189,8 @@ namespace StoreManagement {
             
             private global::System.Data.DataColumn columntotle;
             
+            private global::System.Data.DataColumn columnاسم_الموظف;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public OutRequstDataTable() {
@@ -3320,6 +3322,14 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn اسم_الموظفColumn {
+                get {
+                    return this.columnاسم_الموظف;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3355,7 +3365,7 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OutRequstRow AddOutRequstRow(string رقم_الطلب, string اسم_الصنف, string نوع_الكمية, string الجهة_المستفيدة, int الكمية, int سعر_الوحدة, int الاجمالي, string العملة, string يصرف_بامر, string باستلام, string تاريخ_الصرف, string totle) {
+            public OutRequstRow AddOutRequstRow(string رقم_الطلب, string اسم_الصنف, string نوع_الكمية, string الجهة_المستفيدة, int الكمية, int سعر_الوحدة, int الاجمالي, string العملة, string يصرف_بامر, string باستلام, string تاريخ_الصرف, string totle, string اسم_الموظف) {
                 OutRequstRow rowOutRequstRow = ((OutRequstRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         رقم_الطلب,
@@ -3369,7 +3379,8 @@ namespace StoreManagement {
                         يصرف_بامر,
                         باستلام,
                         تاريخ_الصرف,
-                        totle};
+                        totle,
+                        اسم_الموظف};
                 rowOutRequstRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOutRequstRow);
                 return rowOutRequstRow;
@@ -3404,6 +3415,7 @@ namespace StoreManagement {
                 this.columnباستلام = base.Columns["باستلام"];
                 this.columnتاريخ_الصرف = base.Columns["تاريخ الصرف"];
                 this.columntotle = base.Columns["totle"];
+                this.columnاسم_الموظف = base.Columns["اسم الموظف"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3433,6 +3445,8 @@ namespace StoreManagement {
                 base.Columns.Add(this.columnتاريخ_الصرف);
                 this.columntotle = new global::System.Data.DataColumn("totle", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotle);
+                this.columnاسم_الموظف = new global::System.Data.DataColumn("اسم الموظف", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_الموظف);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6177,6 +6191,22 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string اسم_الموظف {
+                get {
+                    try {
+                        return ((string)(this[this.tableOutRequst.اسم_الموظفColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'اسم الموظف\' in table \'OutRequst\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOutRequst.اسم_الموظفColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isرقم_الطلبNull() {
                 return this.IsNull(this.tableOutRequst.رقم_الطلبColumn);
             }
@@ -6317,6 +6347,18 @@ namespace StoreManagement {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SettotleNull() {
                 this[this.tableOutRequst.totleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isاسم_الموظفNull() {
+                return this.IsNull(this.tableOutRequst.اسم_الموظفColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setاسم_الموظفNull() {
+                this[this.tableOutRequst.اسم_الموظفColumn] = global::System.Convert.DBNull;
             }
         }
         

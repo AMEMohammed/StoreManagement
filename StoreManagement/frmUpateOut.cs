@@ -196,7 +196,7 @@ namespace StoreManagement
             {
                 try
                 {
-                    int IDcheck = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
+                    int IDcheck = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[13].Value.ToString());
                     frmREPORT frm = new frmREPORT(IDcheck, 2);
                     this.Cursor = Cursors.WaitCursor;
                     frm.ShowDialog();

@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -37,8 +39,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "تعديل المستخدم";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // button5
+            // 
+            this.button5.Image = global::StoreManagement.Properties.Resources.user;
+            this.button5.Location = new System.Drawing.Point(327, 25);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(46, 32);
+            this.button5.TabIndex = 67;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(149, 25);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(172, 32);
+            this.textBox3.TabIndex = 66;
+            this.toolTip1.SetToolTip(this.textBox3, "اسم المستخدم");
             // 
             // button4
             // 
@@ -94,7 +113,6 @@
             this.textBox2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(149, 106);
             this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(172, 32);
             this.textBox2.TabIndex = 1;
             this.toolTip1.SetToolTip(this.textBox2, "كلمة المرور");
@@ -117,25 +135,6 @@
             this.textBox1.Size = new System.Drawing.Size(172, 32);
             this.textBox1.TabIndex = 0;
             this.toolTip1.SetToolTip(this.textBox1, "اسم المستخدم");
-            // 
-            // button5
-            // 
-            this.button5.Image = global::StoreManagement.Properties.Resources.user;
-            this.button5.Location = new System.Drawing.Point(327, 25);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(46, 32);
-            this.button5.TabIndex = 67;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(149, 25);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(172, 32);
-            this.textBox3.TabIndex = 66;
-            this.toolTip1.SetToolTip(this.textBox3, "اسم المستخدم");
             // 
             // frmSettingUser
             // 

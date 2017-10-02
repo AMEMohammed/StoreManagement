@@ -96,7 +96,7 @@ namespace StoreManagement
             
             RPT.RequstOut rt = new RPT.RequstOut();
             DataTable dtttt = new DataTable();
-            dtttt = dbsql.PrintRequstOut(id);
+            dtttt = dbsql.PrintRequstOut(id,Contrl.UserId);
             dtttt.Columns.Add("totle");
       
             int totlee = dbsql.GetPraceInRequstOut(id);
@@ -124,7 +124,7 @@ namespace StoreManagement
            
            
                
-            rt.SetDataSource(dbsql.PrintRequstSupply((id)));
+            rt.SetDataSource(dbsql.PrintRequstSupply(id,Contrl.UserId));
             crystalReportViewer1.ReportSource = rt;
             crystalReportViewer1.Refresh();
         }
