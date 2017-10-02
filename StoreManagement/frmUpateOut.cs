@@ -145,6 +145,7 @@ namespace StoreManagement
 
 
                     }
+                    dt.Columns.Add("اسم الموظفف");
                 }
                 catch(Exception ex)
                 {
@@ -170,7 +171,8 @@ namespace StoreManagement
                         DateTime dd = DateTime.Parse(dr[10].ToString());
 
                         string dec = dr[11].ToString();
-                        dt.Rows.Add(ido, nmCa, nmty, palce, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, amer, astalm, dd.Date.ToShortDateString(), dec);
+                        string nameUser = dbsql.GetUserNameBYIdUser(Contrl.UserId);
+                        dt.Rows.Add(ido, nmCa, nmty, palce, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, amer, astalm, dd.Date.ToShortDateString(), dec," " ,nameUser);
                         this.Cursor = Cursors.Default;
                     }
                 }

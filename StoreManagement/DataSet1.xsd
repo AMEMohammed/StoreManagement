@@ -75,6 +75,7 @@
               <xs:element name="باستلام" msprop:Generator_ColumnVarNameInTable="columnباستلام" msprop:Generator_ColumnPropNameInRow="باستلام" msprop:Generator_ColumnPropNameInTable="باستلامColumn" msprop:Generator_UserColumnName="باستلام" type="xs:string" minOccurs="0" />
               <xs:element name="تاريخ_x0020_الصرف" msprop:Generator_ColumnVarNameInTable="columnتاريخ_الصرف" msprop:Generator_ColumnPropNameInRow="تاريخ_الصرف" msprop:Generator_ColumnPropNameInTable="تاريخ_الصرفColumn" msprop:Generator_UserColumnName="تاريخ الصرف" type="xs:string" minOccurs="0" />
               <xs:element name="ملاحظات" msprop:Generator_ColumnVarNameInTable="columnملاحظات" msprop:Generator_ColumnPropNameInRow="ملاحظات" msprop:Generator_ColumnPropNameInTable="ملاحظاتColumn" msprop:Generator_UserColumnName="ملاحظات" type="xs:string" minOccurs="0" />
+              <xs:element name="اسم_x0020_الموظفف" msprop:Generator_ColumnVarNameInTable="columnاسم_الموظفف" msprop:Generator_ColumnPropNameInRow="اسم_الموظفف" msprop:Generator_ColumnPropNameInTable="اسم_الموظففColumn" msprop:Generator_UserColumnName="اسم الموظفف" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -86,6 +87,7 @@
               <xs:element name="الكمية_x0020_الحالية" msprop:Generator_ColumnVarNameInTable="columnالكمية_الحالية" msprop:Generator_ColumnPropNameInRow="الكمية_الحالية" msprop:Generator_ColumnPropNameInTable="الكمية_الحاليةColumn" msprop:Generator_UserColumnName="الكمية الحالية" type="xs:string" minOccurs="0" />
               <xs:element name="السعر" msprop:Generator_ColumnVarNameInTable="columnالسعر" msprop:Generator_ColumnPropNameInRow="السعر" msprop:Generator_ColumnPropNameInTable="السعرColumn" msprop:Generator_UserColumnName="السعر" type="xs:string" minOccurs="0" />
               <xs:element name="العملة" msprop:Generator_ColumnVarNameInTable="columnالعملة" msprop:Generator_ColumnPropNameInRow="العملة" msprop:Generator_ColumnPropNameInTable="العملةColumn" msprop:Generator_UserColumnName="العملة" type="xs:string" minOccurs="0" />
+              <xs:element name="اسم_x0020_الموظفف" msprop:Generator_ColumnVarNameInTable="columnاسم_الموظفف" msprop:Generator_ColumnPropNameInRow="اسم_الموظفف" msprop:Generator_ColumnPropNameInTable="اسم_الموظففColumn" msprop:Generator_UserColumnName="اسم الموظفف" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

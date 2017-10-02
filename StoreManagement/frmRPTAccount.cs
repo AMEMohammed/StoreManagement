@@ -177,6 +177,7 @@ namespace StoreManagement
 
 
                     }
+                    dt.Columns.Add("اسم الموظفف");
                 }
                 catch(Exception ex)
                 { MessageBox.Show(ex.Message); }
@@ -193,7 +194,8 @@ namespace StoreManagement
                         int qunt = Convert.ToInt32(dr[2].ToString());
                         int pres = Convert.ToInt32(dr[3].ToString());
                         string currnt = dr[4].ToString();
-                        dt.Rows.Add(nmca, nmty, string.Format("{0:##,##}", qunt), string.Format("{0:##,##}", pres), currnt);
+                        string nameUser = dbsql.GetUserNameBYIdUser(Contrl.UserId);
+                        dt.Rows.Add(nmca, nmty, string.Format("{0:##,##}", qunt), string.Format("{0:##,##}", pres), currnt,nameUser);
                     }
                 }catch(Exception ex) { MessageBox.Show(ex.Message); }
                 try

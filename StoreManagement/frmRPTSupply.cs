@@ -247,6 +247,8 @@ namespace StoreManagement
 
 
                     }
+                    dt.Columns.Add("اسم الموظفف");
+
                 }
                 catch(Exception ex) { MessageBox.Show(ex.Message); }
                 ///////////////////  أاضافة سطور 
@@ -266,7 +268,8 @@ namespace StoreManagement
                         DateTime dd = DateTime.Parse(dr[7].ToString());
                         string namee = dr[8].ToString();
                         string dec = dr[9].ToString();
-                        dt.Rows.Add(idS, nmCa, nmty, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, dd.Date.ToShortDateString(), namee, dec);
+                        string nameUser = dbsql.GetUserNameBYIdUser(Contrl.UserId);
+                        dt.Rows.Add(idS, nmCa, nmty, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, dd.Date.ToShortDateString(), namee, dec,nameUser);
                     }
                 }
                 catch(Exception ex)
