@@ -41,7 +41,11 @@ namespace StoreManagement
            this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Enabled = false;
             this.انشاءنسخةاحتياطيةToolStripMenuItem.Enabled = check;
             this.تعديلالمستخدمToolStripMenuItem.Enabled = check;
-            Contrl.UserId = 0;
+            this.صلاحياتالمستخدمينToolStripMenuItem.Enabled = check;
+            if (check == false)
+            {
+                Contrl.UserId = 0;
+            }
          
         }
 
@@ -215,6 +219,13 @@ namespace StoreManagement
         {
             this.Cursor = Cursors.WaitCursor;
             new frmRepUpdOut().ShowDialog();
+            this.Cursor = Cursors.Default;
+        }
+
+        private void صلاحياتالمستخدمينToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            new frmUser().ShowDialog();
             this.Cursor = Cursors.Default;
         }
     }

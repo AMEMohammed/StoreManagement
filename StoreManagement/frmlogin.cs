@@ -25,6 +25,7 @@ namespace StoreManagement
                if(frmMain.checkUser==true)
                 {
                     Contrl.UserId = dbsql.CheckUser2(textBox1.Text, textBox2.Text);
+               
                     this.Close();
                 }
                else

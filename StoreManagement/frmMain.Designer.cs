@@ -44,6 +44,7 @@
             this.تقاريرالصرفToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.تقاريرالمخزونToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.تقاريرالتعديلاتToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.تقاريرتعديلاتالصرفToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.تهيئةالنظامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الاصنافToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.انواعالاصنافToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,7 @@
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.تعديلالمستخدمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.تقاريرتعديلاتالصرفToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.صلاحياتالمستخدمينToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +70,8 @@
             this.طلباتالصرفToolStripMenuItem,
             this.التقاريرToolStripMenuItem,
             this.تهيئةالنظامToolStripMenuItem,
-            this.اعدادتالنظامToolStripMenuItem});
+            this.اعدادتالنظامToolStripMenuItem,
+            this.صلاحياتالمستخدمينToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1074, 29);
@@ -208,6 +210,14 @@
             this.تقاريرالتعديلاتToolStripMenuItem1.Text = "تقارير تعديلات التوريد";
             this.تقاريرالتعديلاتToolStripMenuItem1.Click += new System.EventHandler(this.تقاريرالتعديلاتToolStripMenuItem1_Click);
             // 
+            // تقاريرتعديلاتالصرفToolStripMenuItem
+            // 
+            this.تقاريرتعديلاتالصرفToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.print;
+            this.تقاريرتعديلاتالصرفToolStripMenuItem.Name = "تقاريرتعديلاتالصرفToolStripMenuItem";
+            this.تقاريرتعديلاتالصرفToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.تقاريرتعديلاتالصرفToolStripMenuItem.Text = "تقارير تعديلات الصرف";
+            this.تقاريرتعديلاتالصرفToolStripMenuItem.Click += new System.EventHandler(this.تقاريرتعديلاتالصرفToolStripMenuItem_Click);
+            // 
             // تهيئةالنظامToolStripMenuItem
             // 
             this.تهيئةالنظامToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -308,13 +318,12 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // تقاريرتعديلاتالصرفToolStripMenuItem
+            // صلاحياتالمستخدمينToolStripMenuItem
             // 
-            this.تقاريرتعديلاتالصرفToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.print;
-            this.تقاريرتعديلاتالصرفToolStripMenuItem.Name = "تقاريرتعديلاتالصرفToolStripMenuItem";
-            this.تقاريرتعديلاتالصرفToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
-            this.تقاريرتعديلاتالصرفToolStripMenuItem.Text = "تقارير تعديلات الصرف";
-            this.تقاريرتعديلاتالصرفToolStripMenuItem.Click += new System.EventHandler(this.تقاريرتعديلاتالصرفToolStripMenuItem_Click);
+            this.صلاحياتالمستخدمينToolStripMenuItem.Name = "صلاحياتالمستخدمينToolStripMenuItem";
+            this.صلاحياتالمستخدمينToolStripMenuItem.Size = new System.Drawing.Size(162, 25);
+            this.صلاحياتالمستخدمينToolStripMenuItem.Text = "صلاحيات المستخدمين";
+            this.صلاحياتالمستخدمينToolStripMenuItem.Click += new System.EventHandler(this.صلاحياتالمستخدمينToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -373,5 +382,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem تعديلالمستخدمToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem تقاريرتعديلاتالصرفToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem صلاحياتالمستخدمينToolStripMenuItem;
     }
 }

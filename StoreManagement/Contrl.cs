@@ -8,6 +8,6 @@ namespace StoreManagement
     class Contrl
     {
 
-        static public int UserId = 0;
+        static public int UserId;
     }
 }

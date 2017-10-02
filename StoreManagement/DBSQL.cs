@@ -715,7 +715,7 @@ namespace StoreManagement
         { //
             DataTable dt = new DataTable();
                 txt = "%" + txt + "%";
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,IDSupply)+convert(varchar,Quntity)+convert(varchar,Quntity)+convert(varchar,Price)+Category.NameCategory+Currency.NameCurrency+ TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply  like @txt order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'الموظف',RequstSupply.DescSupply as 'ملاحظات' from Users, Category, TypeQuntity, RequstSupply,Currency where RequstSupply.UserId=Users.UserID and RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,IDSupply)+convert(varchar,Quntity)+convert(varchar,Quntity)+convert(varchar,Price)+Category.NameCategory+Currency.NameCurrency+ TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply  like @txt order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@txt", txt);
              adapter = new SqlDataAdapter(cmd);
@@ -730,7 +730,7 @@ namespace StoreManagement
             DataTable dt = new DataTable();
             
 
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات'  from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.IDType = TypeQuntity.IDType and DateSupply between @d1 and @d2  order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'الموظف', RequstSupply.DescSupply as 'ملاحظات'  from Category, TypeQuntity, RequstSupply,Currency, Users where RequstSupply.UserId=Users.UserID and  RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.IDType = TypeQuntity.IDType and DateSupply between @d1 and @d2  order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@d1", d1);
             cmd.Parameters.AddWithValue("@d2", d2);
@@ -744,7 +744,7 @@ namespace StoreManagement
         { //
             DataTable dt = new DataTable();
             txt = "%" + txt + "%";
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,IDSupply)+convert(varchar,Quntity)+convert(varchar,Quntity)+convert(varchar,Price)+ Category.NameCategory + TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply+Currency.NameCurrency  like @txt and DateSupply between @d1 and @d2 order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'الموظف', RequstSupply.DescSupply as 'ملاحظات' from Users, Category, TypeQuntity, RequstSupply,Currency where RequstSupply.UserId=Users.UserID and RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,IDSupply)+convert(varchar,Quntity)+convert(varchar,Quntity)+convert(varchar,Price)+ Category.NameCategory + TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply+Currency.NameCurrency  like @txt and DateSupply between @d1 and @d2 order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@txt", txt);
             cmd.Parameters.AddWithValue("@d1", d1);
@@ -1373,7 +1373,7 @@ namespace StoreManagement
             cmd.Parameters.AddWithValue("@Out", outt);
             cmd.Parameters.AddWithValue("@UpdteDe", upd);
             cmd.Parameters.AddWithValue("@PrintRE", printr);
-            cmd.Parameters.AddWithValue("@UserAdd", user);
+            cmd.Parameters.AddWithValue("@UserAdd", userAdd);
             cmd.Parameters.AddWithValue("@Active", Active);
 
             try
@@ -1411,7 +1411,7 @@ namespace StoreManagement
         cmd.Parameters.AddWithValue("@Out", outt);
         cmd.Parameters.AddWithValue("@UpdteDe", upd);
         cmd.Parameters.AddWithValue("@PrintRE", printr);
-        cmd.Parameters.AddWithValue("@UserAdd", user);
+        cmd.Parameters.AddWithValue("@UserAdd", userAdd);
         cmd.Parameters.AddWithValue("@Active", Active);
         cmd.Parameters.AddWithValue("@id", IdUser);
 
@@ -1424,7 +1424,7 @@ namespace StoreManagement
         {
             MessageBox.Show(ex.Message);
         }
-        finally
+     finally
         {
             con.Close();
         }
@@ -1474,23 +1474,29 @@ namespace StoreManagement
         public bool CheckUser(string User, string Pass)
         {
             bool check = false;
-            try
+           try
             {
 
                 DataTable dt = new DataTable();
-                cmd = new SqlCommand("select Name,Active from Users where UserName=@UserName and Password=@PassWord", con);
+                cmd = new SqlCommand("select Active from Users where UserName=@UserName and Password=@PassWord", con);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@UserName", User);
                 cmd.Parameters.AddWithValue("@PassWord", Pass);
                 adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);
-                bool ch =Convert.ToBoolean(dt.Rows[0]["Active"].ToString());
-                if (dt.Rows.Count > 0 && ch==true)
-                    check = true;
-                else
+                if (dt.Rows.Count > 0)
+                {
+                    bool ch = Convert.ToBoolean(dt.Rows[0][0].ToString());
+                    check = ch;
+                }
+               else
+                {
                     check = false;
+                }
+                    
+               
             }
-            catch (Exception ex)
+           catch (Exception ex)
             {
                 check = false;
                 MessageBox.Show(ex.Message);

@@ -129,6 +129,7 @@ namespace StoreManagement
                             /////////////////////////////////
                             // اضافة الى جدول التوريد
                             /////////////////////////////////////////////////////////
+                    
                             dbsql.AddNewRequsetSupply(idcate, idtype, qunt, price, idCurrnt, name, dec, DateTime.Now, Contrl.UserId);//اضافة طلب جديد
                             if ((MessageBox.Show("هل تريد طباعة سند توريد؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                             {
