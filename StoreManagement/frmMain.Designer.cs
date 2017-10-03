@@ -129,7 +129,7 @@
             this.اضافةطلبToolStripMenuItem.Enabled = false;
             this.اضافةطلبToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.add;
             this.اضافةطلبToolStripMenuItem.Name = "اضافةطلبToolStripMenuItem";
-            this.اضافةطلبToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.اضافةطلبToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.اضافةطلبToolStripMenuItem.Text = "اضافة طلب";
             this.اضافةطلبToolStripMenuItem.Click += new System.EventHandler(this.اضافةطلبToolStripMenuItem_Click);
             // 
@@ -138,8 +138,8 @@
             this.البحثToolStripMenuItem.Enabled = false;
             this.البحثToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.magnifying_glass;
             this.البحثToolStripMenuItem.Name = "البحثToolStripMenuItem";
-            this.البحثToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
-            this.البحثToolStripMenuItem.Text = "بحث";
+            this.البحثToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.البحثToolStripMenuItem.Text = "بحث و تعديل";
             this.البحثToolStripMenuItem.Click += new System.EventHandler(this.البحثToolStripMenuItem_Click);
             // 
             // طلباتالصرفToolStripMenuItem
@@ -158,7 +158,7 @@
             this.اضافةطلبToolStripMenuItem1.Enabled = false;
             this.اضافةطلبToolStripMenuItem1.Image = global::StoreManagement.Properties.Resources.plus__1_;
             this.اضافةطلبToolStripMenuItem1.Name = "اضافةطلبToolStripMenuItem1";
-            this.اضافةطلبToolStripMenuItem1.Size = new System.Drawing.Size(157, 26);
+            this.اضافةطلبToolStripMenuItem1.Size = new System.Drawing.Size(159, 26);
             this.اضافةطلبToolStripMenuItem1.Text = "اضافة طلب";
             this.اضافةطلبToolStripMenuItem1.Click += new System.EventHandler(this.اضافةطلبToolStripMenuItem1_Click);
             // 
@@ -167,8 +167,8 @@
             this.بحثToolStripMenuItem.Enabled = false;
             this.بحثToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.magnifying_glass;
             this.بحثToolStripMenuItem.Name = "بحثToolStripMenuItem";
-            this.بحثToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
-            this.بحثToolStripMenuItem.Text = "بحث";
+            this.بحثToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
+            this.بحثToolStripMenuItem.Text = "بحث وتعديل";
             this.بحثToolStripMenuItem.Click += new System.EventHandler(this.بحثToolStripMenuItem_Click);
             // 
             // التقاريرToolStripMenuItem

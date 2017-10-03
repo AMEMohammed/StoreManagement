@@ -108,7 +108,7 @@ namespace StoreManagement
             {
                 if ((MessageBox.Show("هل تريد ترحيل طلب  تعديل الصرف واعتماده ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                 {
-                    dbsql.UpdateRequstOut(IdOut,(int) comboBox4.SelectedValue, textBox4.Text, textBox3.Text, textBox5.Text,DateTime.Now);
+                    dbsql.UpdateRequstOut(IdOut,(int) comboBox4.SelectedValue, textBox4.Text, textBox3.Text, textBox5.Text,DateTime.Now,Contrl.UserId);
                     this.Close();
                 }
             }

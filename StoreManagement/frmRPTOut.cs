@@ -31,6 +31,8 @@ namespace StoreManagement
                 comboBox3.AutoCompleteSource = AutoCompleteSource.ListItems;
                 comboBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 comboBox4.AutoCompleteSource = AutoCompleteSource.ListItems;
+                comboBox5.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                comboBox5.AutoCompleteSource = AutoCompleteSource.ListItems;
                 getDate1();
                 ////////////
                 changeLanguage();
@@ -69,6 +71,19 @@ namespace StoreManagement
                 comboBox4.ValueMember = "رقم الجهة";
                 comboBox4.DisplayMember = "اسم الجهة";
                 comboBox4.DataSource = dbsql.GetAllPlace();
+                comboBox5.ValueMember = "رقم";
+                comboBox5.DisplayMember = "اسم الموظف";
+                comboBox5.DataSource = dbsql.GetAllUser();
+            if (checkBox5.Checked == false)
+                {
+                    comboBox4.Enabled = true;
+
+                }
+                else
+                {
+                    comboBox4.Enabled = false;
+
+                }
             }
             catch(Exception ex)
             {
@@ -93,6 +108,7 @@ namespace StoreManagement
             string currn = "";
             string place = "";
             string namee ="";
+            string Iduser = "";
             if(checkBox1.Checked==false)
             {try { idca = comboBox1.SelectedValue.ToString(); }
                 catch(Exception ex) { MessageBox.Show(ex.Message); }
@@ -116,19 +132,27 @@ namespace StoreManagement
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
 
             }
+            if(checkBox6.Checked==false)
+            {
+                try {
+                    Iduser = comboBox5.SelectedValue.ToString();
+                }
+                catch(Exception ex)
+                { MessageBox.Show(ex.Message); }
+            }
             if(textBox1.Text.Length>0)
             {
                namee = textBox1.Text;
             }
             if(checkBox4.Checked)
             {
-                try { dataGridView1.DataSource = dbsql.PrintOutAllwithDate(idca, idty, place, currn, namee, dateTimePicker1.Value.Date, dateTimePicker2.Value); }
+                try { dataGridView1.DataSource = dbsql.PrintOutAllwithDate(idca, idty, place, currn, namee, dateTimePicker1.Value.Date, dateTimePicker2.Value,Iduser); }
                 catch(Exception ex) { MessageBox.Show(ex.Message); }
 
             }
             else 
             {
-                try { dataGridView1.DataSource = dbsql.PrintOutAll(idca, idty, place, currn, namee); }
+                try { dataGridView1.DataSource = dbsql.PrintOutAll(idca, idty, place, currn, namee,Iduser); }
 
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
@@ -272,7 +296,21 @@ namespace StoreManagement
 
 
             }
-        
+
+        private void checkBox6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox6.Checked == false)
+            {
+                comboBox5.Enabled = true;
+
+            }
+            else
+            {
+                comboBox5.Enabled = false;
+
+            }
+
+        }
     }
     }
 

@@ -229,7 +229,7 @@ namespace StoreManagement
                     int IdOut = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                     if (MessageBox.Show("هل تريد استرداد الكمية المصروفة رقم الطلب "+IdOut+"", "استرداد طلب صرف", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes)
                     {
-                        dbsql.DeleteRqustOut(IdOut);
+                        dbsql.DeleteRqustOut(IdOut,Contrl.UserId);
                         dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.AddDays(-3), DateTime.Now);
                     }
                 }

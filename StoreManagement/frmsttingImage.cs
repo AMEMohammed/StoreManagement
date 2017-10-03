@@ -31,6 +31,8 @@ namespace StoreManagement
             this.BackColor = Properties.Settings.Default.colorBackGround;
             textBox1.Text = Properties.Settings.Default.nmserver;
             textBox3.Text = Properties.Settings.Default.nmdatabase;
+            textBox2.Text = Properties.Settings.Default.UserSql;
+            textBox4.Text = Properties.Settings.Default.PassSql;
             MessageBoxManager.Yes = "نعم";
             MessageBoxManager.No = "الغاء";
             MessageBoxManager.Register();
@@ -41,6 +43,8 @@ namespace StoreManagement
         {
             textBox1.Text = "";
             textBox3.Text = "";
+            textBox2.Text = "";
+            textBox4.Text = "";
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -56,11 +60,18 @@ namespace StoreManagement
                 {
                     Properties.Settings.Default.nmserver = textBox1.Text;
                     Properties.Settings.Default.nmdatabase = textBox3.Text;
+                    Properties.Settings.Default.UserSql = textBox2.Text;
+                    Properties.Settings.Default.PassSql = textBox4.Text;
                     Properties.Settings.Default.Save();
                     this.Close();
                 }
 
             }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

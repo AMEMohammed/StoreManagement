@@ -11,5 +11,11 @@
     <Setting Name="colorBackGround" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">DarkGray</Value>
     </Setting>
+    <Setting Name="UserSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ame</Value>
+    </Setting>
+    <Setting Name="PassSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ma123456</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

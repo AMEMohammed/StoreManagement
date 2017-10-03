@@ -58,5 +58,29 @@ namespace StoreManagement.Properties {
                 this["colorBackGround"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ame")]
+        public string UserSql {
+            get {
+                return ((string)(this["UserSql"]));
+            }
+            set {
+                this["UserSql"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ma123456")]
+        public string PassSql {
+            get {
+                return ((string)(this["PassSql"]));
+            }
+            set {
+                this["PassSql"] = value;
+            }
+        }
     }
 }
