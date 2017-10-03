@@ -718,7 +718,7 @@ namespace StoreManagement
         { //
             DataTable dt = new DataTable();
                 txt = "%" + txt + "%";
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'اسم الموظف',RequstSupply.DescSupply as 'ملاحظات' from Users, Category, TypeQuntity, RequstSupply,Currency where RequstSupply.UserId=Users.UserID and RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,IDSupply)+convert(varchar,Quntity)+convert(varchar,Quntity)+convert(varchar,Price)+Category.NameCategory+Currency.NameCurrency+ TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply  like @txt order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'اسم الموظف',RequstSupply.DescSupply as 'ملاحظات' from Users, Category, TypeQuntity, RequstSupply,Currency where RequstSupply.UserId=Users.UserID and RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,IDSupply)+convert(varchar,Quntity)+convert(varchar,Quntity)+convert(varchar,Price)+Category.NameCategory+Currency.NameCurrency+ TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply +Users.Name  like @txt order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@txt", txt);
              adapter = new SqlDataAdapter(cmd);
@@ -747,7 +747,7 @@ namespace StoreManagement
         { //
             DataTable dt = new DataTable();
             txt = "%" + txt + "%";
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply as 'ملاحظات' from Users, Category, TypeQuntity, RequstSupply,Currency where RequstSupply.UserId=Users.UserID and RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,IDSupply)+convert(varchar,Quntity)+convert(varchar,Quntity)+convert(varchar,Price)+ Category.NameCategory + TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply+Currency.NameCurrency  like @txt and DateSupply between @d1 and @d2 order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply as 'ملاحظات' from Users, Category, TypeQuntity, RequstSupply,Currency where RequstSupply.UserId=Users.UserID and RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,IDSupply)+convert(varchar,Quntity)+convert(varchar,Quntity)+convert(varchar,Price)+ Category.NameCategory + TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply+Currency.NameCurrency+Users.Name  like @txt and DateSupply between @d1 and @d2 order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@txt", txt);
             cmd.Parameters.AddWithValue("@d1", d1);
@@ -1092,14 +1092,15 @@ namespace StoreManagement
 
         //////////////////////////////
         //////////////// search in RequsetSupplythwTXT and Date
-        public DataTable PrintRequstRPT(DateTime d1, DateTime d2,string IDCate,string IDType,string IDCurrn ,string txt)
+        public DataTable PrintRequstRPT(DateTime d1, DateTime d2,string IDCate,string IDType,string IDCurrn ,string txt,string iduser)
         { //
             IDCate = "%" + IDCate;
             IDType = "%" + IDType;
             IDCurrn = "%" + IDCurrn;
             txt = "%" + txt + "%";
+            iduser = "%" + iduser;
             DataTable dt = new DataTable();
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,RequstSupply.IDCurrency) like @IDCu and convert(varchar,RequstSupply.IDType) like @IDTy and convert(varchar,RequstSupply.IDCategory)like @IDCa and NameSupply like @txt and DateSupply between @d1 and @d2 order by RequstSupply.IDCategory,RequstSupply.IDType,RequstSupply.DateSupply ,RequstSupply.IDCurrency", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,RequstSupply.IDCurrency) like @IDCu and convert(varchar,RequstSupply.IDType) like @IDTy and convert(varchar,RequstSupply.IDCategory)like @IDCa and convert(varchar,RequstSupply.UserId)like @iduser and  NameSupply like @txt and DateSupply between @d1 and @d2 order by RequstSupply.IDCategory,RequstSupply.IDType,RequstSupply.DateSupply ,RequstSupply.IDCurrency", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@IDCa", IDCate);
             cmd.Parameters.AddWithValue("@IDTy", IDType);
@@ -1114,18 +1115,20 @@ namespace StoreManagement
 
         //////////////////////////////
         //////////////// search in RequsetSupplythwTXT and Date
-        public DataTable PrintRequstRPT( string IDCate, string IDType, string IDCurrn, string txt)
+        public DataTable PrintRequstRPT( string IDCate, string IDType, string IDCurrn, string txt,string iduser)
         { //
             IDCate = "%" + IDCate;
             IDType = "%" + IDType;
             IDCurrn = "%" + IDCurrn;
             txt = "%" + txt + "%";
+            iduser = "%" + iduser;
             DataTable dt = new DataTable();
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,RequstSupply.IDCurrency) like @IDCu and convert(varchar,RequstSupply.IDType) like @IDTy and convert(varchar,RequstSupply.IDCategory)like @IDCa and NameSupply like @txt  order by RequstSupply.IDCategory,RequstSupply.IDType,RequstSupply.DateSupply ,RequstSupply.IDCurrency", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,RequstSupply.IDCurrency) like @IDCu and convert(varchar,RequstSupply.IDType) like @IDTy and convert(varchar,RequstSupply.IDCategory)like @IDCa and convert(varchar,RequstSupply.UserId)like @iduser and NameSupply like @txt  order by RequstSupply.IDCategory,RequstSupply.IDType,RequstSupply.DateSupply ,RequstSupply.IDCurrency", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@IDCa", IDCate);
             cmd.Parameters.AddWithValue("@IDTy", IDType);
             cmd.Parameters.AddWithValue("@IDCu", IDCurrn);
+            cmd.Parameters.AddWithValue("@iduser", iduser);
             cmd.Parameters.AddWithValue("@txt", txt);
             adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dt);
@@ -1594,6 +1597,7 @@ namespace StoreManagement
             }
             return s;
         }
+       
 
     }
 

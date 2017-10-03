@@ -34,6 +34,8 @@ namespace StoreManagement
                 comboBox2.AutoCompleteSource = AutoCompleteSource.ListItems;
                 comboBox3.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 comboBox3.AutoCompleteSource = AutoCompleteSource.ListItems;
+                comboBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                comboBox4.AutoCompleteSource = AutoCompleteSource.ListItems;
                 getDate1();
                 ////////////
                 changeLanguage();
@@ -65,6 +67,9 @@ namespace StoreManagement
                 comboBox3.DisplayMember = "اسم العملة";
                 comboBox3.ValueMember = "رقم العملة";
                 comboBox3.DataSource = dbsql.GetAllCurrency();
+                comboBox4.ValueMember = "رقم";
+                comboBox4.DisplayMember = "اسم الموظف";
+                comboBox4.DataSource = dbsql.GetAllUser();
             }
             catch(Exception ex)
             {
@@ -171,6 +176,7 @@ namespace StoreManagement
             string IDTyp ="";
             string IDCurrn ="";
             string Name ="";
+            string idUser = "";
             if(checkBox1.Checked==false)
             {
                 try
@@ -196,6 +202,12 @@ namespace StoreManagement
                 }
                 catch(Exception ex) { MessageBox.Show(ex.Message); }
             }
+            if(checkBox5.Checked==false)
+            {
+                try { idUser = comboBox4.SelectedValue.ToString(); }
+                catch(Exception ex)
+                { MessageBox.Show(ex.Message); }
+            }
             if(textBox4.Text.Length>0)
             {
                 Name = textBox4.Text;
@@ -205,7 +217,7 @@ namespace StoreManagement
             {
                 try
                 {
-                    dataGridView1.DataSource = dbsql.PrintRequstRPT(IDCat, IDTyp, IDCurrn, Name);
+                    dataGridView1.DataSource = dbsql.PrintRequstRPT(IDCat, IDTyp, IDCurrn, Name,idUser);
                 }
                 catch(Exception ex) { MessageBox.Show(ex.Message); }
 
@@ -214,7 +226,7 @@ namespace StoreManagement
             {
                 try
                 {
-                    dataGridView1.DataSource = dbsql.PrintRequstRPT(dateTimePicker1.Value.Date, dateTimePicker2.Value, IDCat, IDTyp, IDCurrn, Name);
+                    dataGridView1.DataSource = dbsql.PrintRequstRPT(dateTimePicker1.Value.Date, dateTimePicker2.Value, IDCat, IDTyp, IDCurrn, Name,idUser);
                 }
               catch(Exception ex) { MessageBox.Show(ex.Message);  }
             }
@@ -286,6 +298,18 @@ namespace StoreManagement
                 }
                 catch(Exception ex)
                 { MessageBox.Show(ex.Message); }
+            }
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox5.Checked == true)
+            {
+                comboBox4.Enabled = false;
+            }
+            else
+            {
+                comboBox4.Enabled = true;
             }
         }
     }
