@@ -127,7 +127,7 @@ namespace StoreManagement
             {
                 try
                 {
-                    int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[11].Value.ToString());
                     this.Cursor = Cursors.WaitCursor;
                     frmREPORT frm = new frmREPORT(id, 1);
                     frm.ShowDialog();
