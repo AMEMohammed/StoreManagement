@@ -395,10 +395,10 @@ namespace StoreManagement
         //////////////////////////////////
         /// add new Requst Supply
         /// 
-        public int AddNewRequsetSupply(int IDCategory, int IDType, int Quntity, int Price,int idcurrnt, string NameSupply, string DescSupply, DateTime DateSupply,int IDuser)
+        public int AddNewRequsetSupply(int IDCategory, int IDType, int Quntity, int Price,int idcurrnt, string NameSupply, string DescSupply, DateTime DateSupply,int IDuser,int chek)
         {
             int resl = 0;
-            cmd = new SqlCommand("insert into RequstSupply(IDCategory,IDType,Quntity,Price,NameSupply,DescSupply,DateSupply,IDCurrency,UserId) values(@IDCategory,@IDType,@Quntity,@Price,@NameSupply,@DescSupply,@DateSupply,@IDCurrency,@userId)", con);
+            cmd = new SqlCommand("insert into RequstSupply(IDCategory,IDType,Quntity,Price,NameSupply,DescSupply,DateSupply,IDCurrency,UserId,chek) values(@IDCategory,@IDType,@Quntity,@Price,@NameSupply,@DescSupply,@DateSupply,@IDCurrency,@userId,@chek)", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@IDCategory", IDCategory);
             cmd.Parameters.AddWithValue("@IDType", IDType);
@@ -409,6 +409,7 @@ namespace StoreManagement
             cmd.Parameters.AddWithValue("@DateSupply", DateSupply);
             cmd.Parameters.AddWithValue("@IDCurrency", idcurrnt);
             cmd.Parameters.AddWithValue("@userId", IDuser);
+            cmd.Parameters.AddWithValue("@chek", chek);
             con.Open();
             resl = cmd.ExecuteNonQuery();
             con.Close();
@@ -733,7 +734,7 @@ namespace StoreManagement
             DataTable dt = new DataTable();
             
 
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply as 'ملاحظات'  from Category, TypeQuntity, RequstSupply,Currency, Users where RequstSupply.UserId=Users.UserID and  RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.IDType = TypeQuntity.IDType and DateSupply between @d1 and @d2  order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply as 'ملاحظات',RequstSupply.chek  from Category, TypeQuntity, RequstSupply,Currency, Users where RequstSupply.UserId=Users.UserID and  RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.IDType = TypeQuntity.IDType and DateSupply between @d1 and @d2  order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@d1", d1);
             cmd.Parameters.AddWithValue("@d2", d2);
@@ -771,7 +772,7 @@ namespace StoreManagement
         public DataTable PrintRequstSupply(int IDreqSup,int UserId)
         {
             DataTable dt = new DataTable();
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,  Category.NameCategory  as 'الصنف', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية', RequstSupply.Price as 'السعر'  , RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي' ,Currency.NameCurrency as 'العملة', RequstSupply.DateSupply as 'تاريخ' , RequstSupply.NameSupply  as'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply AS 'ملاحظات'  from Category,Users,TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency and Users.UserID=@UserId  and RequstSupply.IDSupply =@id", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,  Category.NameCategory  as 'الصنف', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية', RequstSupply.Price as 'السعر'  , RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي' ,Currency.NameCurrency as 'العملة', RequstSupply.DateSupply as 'تاريخ' , RequstSupply.NameSupply  as'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply AS 'ملاحظات'  from Category,Users,TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency and Users.UserID=@UserId  and RequstSupply.chek =@id", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@id",IDreqSup);
             cmd.Parameters.AddWithValue("@UserId", UserId);
@@ -1601,6 +1602,33 @@ namespace StoreManagement
             }
             return s;
         }
+
+        ///////////////////////////
+        /////////////////
+        ////////////
+        /// Get Max ChechSupply
+        /// 
+        public int GetMaxCheckSupply()
+        {
+            int res = 0;
+            cmd = new SqlCommand("select max(chek) from RequstSupply ", con);
+            try
+            {
+                con.Open();
+                res = (int)cmd.ExecuteScalar();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+               
+            }
+            finally
+            {
+                con.Close();
+            }
+            return res;
+        }
+      
        
 
     }

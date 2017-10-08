@@ -91,7 +91,7 @@ namespace StoreManagement
             }
 
         }
-
+        bool flagAddAgian = false;
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -127,24 +127,48 @@ namespace StoreManagement
                                 dbsql.AddNewAccount(idcate, idtype, qunt, price, idCurrnt);// اضافة حساب جديد
                             }
                             /////////////////////////////////
-                            // اضافة الى جدول التوريد
+
                             /////////////////////////////////////////////////////////
-                    
-                            dbsql.AddNewRequsetSupply(idcate, idtype, qunt, price, idCurrnt, name, dec, DateTime.Now, Contrl.UserId);//اضافة طلب جديد
-                            if ((MessageBox.Show("هل تريد طباعة سند توريد؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+                            // التاكد من ان الطلب يضاف كطلب جديد او اضافة الى طلب
+                            int check = 0;
+                            if(flagAddAgian ==true)
                             {
-                                try
-                                {
-                                    int IDRequstSupply = dbsql.GetMaxSupplyid();
-                                    frmREPORT frmr = new frmREPORT(IDRequstSupply, 1);
+                                check = dbsql.GetMaxCheckSupply();
+                               
+                            }
+                            else
+                            {
+                                check = dbsql.GetMaxCheckSupply();
+                                check += 1;
+                            }
+                            // اضافة الى جدول التوريد
+                            dbsql.AddNewRequsetSupply(idcate, idtype, qunt, price, idCurrnt, name, dec, DateTime.Now, Contrl.UserId,check);//اضافة طلب جديد
+                            if ((MessageBox.Show("هل تريد اضافة طلب  اخر", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+                            {
+                                flagAddAgian = true;
+                                Refrsh1();
 
-                                    frmr.ShowDialog();
-                                }
-                                catch (Exception ex)
+                                // button2_Click(sender, e);
+                            }
+                            else
+                            {
+                                flagAddAgian = false;
+                                if ((MessageBox.Show("هل تريد طباعة سند توريد؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                                 {
-                                    MessageBox.Show(ex.Message);
+                                    try
+                                    {
+                                        int IDRequstSupply = dbsql.GetMaxCheckSupply();
+                                        frmREPORT frmr = new frmREPORT(IDRequstSupply, 1);
 
+                                        frmr.ShowDialog();
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        MessageBox.Show(ex.Message);
+
+                                    }
                                 }
+
                             }
                         }
                         catch (Exception ex)
@@ -156,7 +180,9 @@ namespace StoreManagement
 
                 }
             }catch(Exception ex)
-            { MessageBox.Show(ex.Message); }
+            {
+                MessageBox.Show(ex.Message); 
+            }
         }
 
         /// <summary>
@@ -207,7 +233,8 @@ namespace StoreManagement
             {
                 try
                 {
-                    int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[11].Value.ToString());
+                    MessageBox.Show(id.ToString());
                     this.Cursor = Cursors.WaitCursor;
                     frmREPORT frm = new frmREPORT(id, 1);
                     frm.ShowDialog();
