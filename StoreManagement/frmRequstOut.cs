@@ -72,6 +72,33 @@ namespace StoreManagement
             }
 
         }
+        //
+        void Refersh2()
+        {
+            try
+            {
+
+                comboBox1.ValueMember = "رقم الصنف";
+                comboBox1.DisplayMember = "اسم الصنف";
+                comboBox1.DataSource = dbsql.GetCatagoryInAccount();
+                comboBox2.DisplayMember = "اسم النوع";
+                comboBox2.ValueMember = "رقم النوع";
+                comboBox2.DataSource = dbsql.GetTypeInAccount((int)comboBox1.SelectedValue);
+                comboBox4.ValueMember = "رقم العملة";
+                comboBox4.DisplayMember = "اسم العملة";
+                comboBox4.DataSource = dbsql.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue);
+                textBox1.Text = "";
+                textBox2.Text = "";
+                dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.Date, DateTime.Now); // جلب طلبات الصرف لليوم الحالي
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[12].Visible = false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////   
         public void GetDate2()
@@ -149,11 +176,16 @@ namespace StoreManagement
             else
             { textBox2.Focus(); }
         }
+
+
+
         /// <summary>
         /// //////////
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+        bool flagAddAgin = false;
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -175,8 +207,18 @@ namespace StoreManagement
 
                         DataTable dtAccountIDs = new DataTable();
                         dtAccountIDs = dbsql.GetAccountIDs(Idcat, idtyp, idcurrnt); // [جلب الحسابات التي تحتوي على نفس النوع والصنف
-                        int MaxCheckRequstOut = dbsql.GetMaxCheckInRequsetOut();
-                        MaxCheckRequstOut += 1;
+                        int MaxCheckRequstOut;
+                        if (flagAddAgin == true)
+                        {
+                            
+                             MaxCheckRequstOut = dbsql.GetMaxCheckInRequsetOut();
+
+                        }
+                        else
+                        {
+                             MaxCheckRequstOut = dbsql.GetMaxCheckInRequsetOut();
+                             MaxCheckRequstOut += 1;
+                        }
 
                         int Quntity2 = QunntyMust;
 
@@ -200,15 +242,28 @@ namespace StoreManagement
 
 
                         }
-                        if ((MessageBox.Show("هل تريد طباعة سند صرف؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+                        if ((MessageBox.Show("هل تريد اضافة طلب اخر؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                         {
-                            frmREPORT frm = new frmREPORT(MaxCheckRequstOut, 2);
-
-                            frm.ShowDialog();
-
+                            comboBox3.Enabled = false;
+                            textBox3.Enabled = false;
+                            textBox4.Enabled = false;
+                            textBox5.Enabled = false;
+                            flagAddAgin = true;
+                            Refersh2();
+                        }
+                        else
+                        {
+                            flagAddAgin = false;
+                            if ((MessageBox.Show("هل تريد طباعة سند صرف؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+                            {
+                                frmREPORT frm = new frmREPORT(MaxCheckRequstOut, 2);
+                                frm.ShowDialog();
+                                refrsh1();
+                            }
+                            
                         }
 
-                        refrsh1();
+                  
 
 
 
@@ -239,7 +294,12 @@ namespace StoreManagement
             textBox4.Text = "";
             textBox5.Text = "";
             button3.Focus();
-            
+            comboBox3.Enabled = true;
+            textBox3.Enabled = true;
+            textBox4.Enabled = true;
+            textBox5.Enabled = true;
+
+
         }
         public void GetDate3()
         {
@@ -260,6 +320,7 @@ namespace StoreManagement
         private void button2_Click(object sender, EventArgs e)
         {
             refrsh1();
+            flagAddAgin = false;
         }
 
         private void button3_Click(object sender, EventArgs e)

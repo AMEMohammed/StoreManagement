@@ -213,7 +213,7 @@ namespace StoreManagement
         private void button4_Click(object sender, EventArgs e)
         {
             Refrsh1();
-
+            flagAddAgian = false;
         }
 
         private void button5_Click(object sender, EventArgs e)
