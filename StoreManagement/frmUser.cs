@@ -29,6 +29,7 @@ namespace StoreManagement
             {
 
                 dataGridView1.DataSource = dbsql.GetAllUser();
+               
             }
             catch(Exception ex)
             { MessageBox.Show(ex.Message); }

@@ -49,7 +49,7 @@ namespace StoreManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+          //  try
             {
                 this.Cursor = Cursors.WaitCursor;
                 if (textBox1.Text.Length > 0)
@@ -66,9 +66,9 @@ namespace StoreManagement
                 }
 
             }
-            catch (Exception ex)
+          //  catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+               // MessageBox.Show(ex.Message);
             }
             this.Cursor = Cursors.Default;
         }
