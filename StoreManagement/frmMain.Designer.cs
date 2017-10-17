@@ -88,6 +88,7 @@
             this.دخولالنظامToolStripMenuItem.Name = "دخولالنظامToolStripMenuItem";
             this.دخولالنظامToolStripMenuItem.Size = new System.Drawing.Size(68, 25);
             this.دخولالنظامToolStripMenuItem.Text = "ملف";
+            this.دخولالنظامToolStripMenuItem.Click += new System.EventHandler(this.دخولالنظامToolStripMenuItem_Click);
             // 
             // دخولالنظامToolStripMenuItem1
             // 
@@ -118,28 +119,28 @@
             this.طلباتالتوريدToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.اضافةطلبToolStripMenuItem,
             this.البحثToolStripMenuItem});
-            this.طلباتالتوريدToolStripMenuItem.Enabled = false;
             this.طلباتالتوريدToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.main_file;
             this.طلباتالتوريدToolStripMenuItem.Name = "طلباتالتوريدToolStripMenuItem";
             this.طلباتالتوريدToolStripMenuItem.Size = new System.Drawing.Size(127, 25);
             this.طلباتالتوريدToolStripMenuItem.Text = "طلبات التوريد";
+            this.طلباتالتوريدToolStripMenuItem.Visible = false;
             // 
             // اضافةطلبToolStripMenuItem
             // 
-            this.اضافةطلبToolStripMenuItem.Enabled = false;
             this.اضافةطلبToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.add;
             this.اضافةطلبToolStripMenuItem.Name = "اضافةطلبToolStripMenuItem";
             this.اضافةطلبToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.اضافةطلبToolStripMenuItem.Text = "اضافة طلب";
+            this.اضافةطلبToolStripMenuItem.Visible = false;
             this.اضافةطلبToolStripMenuItem.Click += new System.EventHandler(this.اضافةطلبToolStripMenuItem_Click);
             // 
             // البحثToolStripMenuItem
             // 
-            this.البحثToolStripMenuItem.Enabled = false;
             this.البحثToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.magnifying_glass;
             this.البحثToolStripMenuItem.Name = "البحثToolStripMenuItem";
             this.البحثToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.البحثToolStripMenuItem.Text = "بحث و تعديل";
+            this.البحثToolStripMenuItem.Visible = false;
             this.البحثToolStripMenuItem.Click += new System.EventHandler(this.البحثToolStripMenuItem_Click);
             // 
             // طلباتالصرفToolStripMenuItem
@@ -147,28 +148,28 @@
             this.طلباتالصرفToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.اضافةطلبToolStripMenuItem1,
             this.بحثToolStripMenuItem});
-            this.طلباتالصرفToolStripMenuItem.Enabled = false;
             this.طلباتالصرفToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.main_file;
             this.طلباتالصرفToolStripMenuItem.Name = "طلباتالصرفToolStripMenuItem";
             this.طلباتالصرفToolStripMenuItem.Size = new System.Drawing.Size(130, 25);
             this.طلباتالصرفToolStripMenuItem.Text = "طلبات الصرف";
+            this.طلباتالصرفToolStripMenuItem.Visible = false;
             // 
             // اضافةطلبToolStripMenuItem1
             // 
-            this.اضافةطلبToolStripMenuItem1.Enabled = false;
             this.اضافةطلبToolStripMenuItem1.Image = global::StoreManagement.Properties.Resources.plus__1_;
             this.اضافةطلبToolStripMenuItem1.Name = "اضافةطلبToolStripMenuItem1";
             this.اضافةطلبToolStripMenuItem1.Size = new System.Drawing.Size(159, 26);
             this.اضافةطلبToolStripMenuItem1.Text = "اضافة طلب";
+            this.اضافةطلبToolStripMenuItem1.Visible = false;
             this.اضافةطلبToolStripMenuItem1.Click += new System.EventHandler(this.اضافةطلبToolStripMenuItem1_Click);
             // 
             // بحثToolStripMenuItem
             // 
-            this.بحثToolStripMenuItem.Enabled = false;
             this.بحثToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.magnifying_glass;
             this.بحثToolStripMenuItem.Name = "بحثToolStripMenuItem";
             this.بحثToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.بحثToolStripMenuItem.Text = "بحث وتعديل";
+            this.بحثToolStripMenuItem.Visible = false;
             this.بحثToolStripMenuItem.Click += new System.EventHandler(this.بحثToolStripMenuItem_Click);
             // 
             // التقاريرToolStripMenuItem
@@ -179,11 +180,11 @@
             this.تقاريرالمخزونToolStripMenuItem,
             this.تقاريرالتعديلاتToolStripMenuItem1,
             this.تقاريرتعديلاتالصرفToolStripMenuItem});
-            this.التقاريرToolStripMenuItem.Enabled = false;
             this.التقاريرToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.newspaper;
             this.التقاريرToolStripMenuItem.Name = "التقاريرToolStripMenuItem";
             this.التقاريرToolStripMenuItem.Size = new System.Drawing.Size(84, 25);
             this.التقاريرToolStripMenuItem.Text = "التقارير";
+            this.التقاريرToolStripMenuItem.Visible = false;
             // 
             // تقاريرالتعديلاتToolStripMenuItem
             // 
@@ -232,11 +233,11 @@
             this.انواعالاصنافToolStripMenuItem,
             this.العملاتToolStripMenuItem,
             this.الجهاتالمستفيدةToolStripMenuItem});
-            this.تهيئةالنظامToolStripMenuItem.Enabled = false;
             this.تهيئةالنظامToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.refresh_button__1_;
             this.تهيئةالنظامToolStripMenuItem.Name = "تهيئةالنظامToolStripMenuItem";
             this.تهيئةالنظامToolStripMenuItem.Size = new System.Drawing.Size(113, 25);
             this.تهيئةالنظامToolStripMenuItem.Text = "تهيئة النظام";
+            this.تهيئةالنظامToolStripMenuItem.Visible = false;
             // 
             // الاصنافToolStripMenuItem
             // 
@@ -277,11 +278,11 @@
             this.انشاءنسخةاحتياطيةToolStripMenuItem,
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem,
             this.تعديلالمستخدمToolStripMenuItem});
-            this.اعدادتالنظامToolStripMenuItem.Enabled = false;
             this.اعدادتالنظامToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.settings_gears;
             this.اعدادتالنظامToolStripMenuItem.Name = "اعدادتالنظامToolStripMenuItem";
             this.اعدادتالنظامToolStripMenuItem.Size = new System.Drawing.Size(130, 25);
             this.اعدادتالنظامToolStripMenuItem.Text = "اعدادت النظام";
+            this.اعدادتالنظامToolStripMenuItem.Visible = false;
             // 
             // الاتصالبالسيرفيرToolStripMenuItem
             // 
@@ -301,7 +302,6 @@
             // 
             // استعادةالنسخةالاحتياطيةToolStripMenuItem
             // 
-            this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Enabled = false;
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.database1;
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Name = "استعادةالنسخةالاحتياطيةToolStripMenuItem";
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
@@ -318,11 +318,11 @@
             // 
             // صلاحياتالمستخدمينToolStripMenuItem
             // 
-            this.صلاحياتالمستخدمينToolStripMenuItem.Enabled = false;
             this.صلاحياتالمستخدمينToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.user;
             this.صلاحياتالمستخدمينToolStripMenuItem.Name = "صلاحياتالمستخدمينToolStripMenuItem";
             this.صلاحياتالمستخدمينToolStripMenuItem.Size = new System.Drawing.Size(178, 25);
             this.صلاحياتالمستخدمينToolStripMenuItem.Text = "صلاحيات المستخدمين";
+            this.صلاحياتالمستخدمينToolStripMenuItem.Visible = false;
             this.صلاحياتالمستخدمينToolStripMenuItem.Click += new System.EventHandler(this.صلاحياتالمستخدمينToolStripMenuItem_Click);
             // 
             // pictureBox1

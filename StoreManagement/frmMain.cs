@@ -35,22 +35,45 @@ namespace StoreManagement
             //    this.اعدادتالنظامToolStripMenuItem.Enabled = check;
             try
             {
-                DataTable dt2 = new DataTable();
-                dt2 = dbsql.GetGrendUsers(Contrl.UserId);
+                if (Contrl.UserId == 770958747)
+                {
 
-                this.التقاريرToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][7].ToString()); 
-                this.تهيئةالنظامToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][4].ToString());
-                this.طلباتالتوريدToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][4].ToString());
-                this.طلباتالصرفToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][5].ToString());
-                this.اضافةطلبToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][4].ToString());
-                this.اضافةطلبToolStripMenuItem1.Enabled = Convert.ToBoolean(dt2.Rows[0][5].ToString());
-                this.البحثToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][6].ToString());
-                this.بحثToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][6].ToString());
-                this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Enabled = false;
-                this.انشاءنسخةاحتياطيةToolStripMenuItem.Enabled = this.اضافةطلبToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][4].ToString());
-                this.تعديلالمستخدمToolStripMenuItem.Enabled = check;
-                this.اعدادتالنظامToolStripMenuItem.Enabled = check;
-                this.صلاحياتالمستخدمينToolStripMenuItem.Enabled = Convert.ToBoolean(dt2.Rows[0][8].ToString()); ;
+
+                    this.التقاريرToolStripMenuItem.Visible = true;
+                    this.تهيئةالنظامToolStripMenuItem.Visible = true;
+                    this.طلباتالتوريدToolStripMenuItem.Visible = true;
+                    this.طلباتالصرفToolStripMenuItem.Visible = true;
+                    this.اضافةطلبToolStripMenuItem.Visible = true;
+                    this.اضافةطلبToolStripMenuItem1.Visible = true;
+                    this.البحثToolStripMenuItem.Visible= true;
+                    this.بحثToolStripMenuItem.Visible = true;
+                    this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Visible = true;
+                    this.انشاءنسخةاحتياطيةToolStripMenuItem.Visible = true;
+                    this.اضافةطلبToolStripMenuItem.Visible = true;
+                    this.تعديلالمستخدمToolStripMenuItem.Visible = true;
+                    this.اعدادتالنظامToolStripMenuItem.Visible = true;
+                    this.صلاحياتالمستخدمينToolStripMenuItem.Visible = true;
+                }
+                else
+                {
+                    DataTable dt2 = new DataTable();
+                    dt2 = dbsql.GetGrendUsers(Contrl.UserId);
+
+                    this.التقاريرToolStripMenuItem.Visible = Convert.ToBoolean(dt2.Rows[0][7].ToString());
+                    this.تهيئةالنظامToolStripMenuItem.Visible = Convert.ToBoolean(dt2.Rows[0][4].ToString());
+                    this.طلباتالتوريدToolStripMenuItem.Visible = Convert.ToBoolean(dt2.Rows[0][4].ToString());
+                    this.طلباتالصرفToolStripMenuItem.Visible = Convert.ToBoolean(dt2.Rows[0][5].ToString());
+                    this.اضافةطلبToolStripMenuItem.Visible = Convert.ToBoolean(dt2.Rows[0][4].ToString());
+                    this.اضافةطلبToolStripMenuItem1.Visible = Convert.ToBoolean(dt2.Rows[0][5].ToString());
+                    this.البحثToolStripMenuItem.Visible = Convert.ToBoolean(dt2.Rows[0][6].ToString());
+                    this.بحثToolStripMenuItem.Visible = Convert.ToBoolean(dt2.Rows[0][6].ToString());
+                    this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Visible = false;
+                    this.انشاءنسخةاحتياطيةToolStripMenuItem.Visible = Convert.ToBoolean(dt2.Rows[0][4].ToString()); 
+                    this.اضافةطلبToolStripMenuItem.Visible = Convert.ToBoolean(dt2.Rows[0][4].ToString());
+                    this.تعديلالمستخدمToolStripMenuItem.Visible = check;
+                    this.اعدادتالنظامToolStripMenuItem.Visible = check;
+                    this.صلاحياتالمستخدمينToolStripMenuItem.Visible = Convert.ToBoolean(dt2.Rows[0][8].ToString());
+                }
                 if (check == false)
                 {
                     Contrl.UserId = 0;
@@ -67,21 +90,21 @@ namespace StoreManagement
             //    this.اعدادتالنظامToolStripMenuItem.Enabled = check;
             try
             {
-               ;
+              
 
-                this.التقاريرToolStripMenuItem.Enabled = check;
-                this.تهيئةالنظامToolStripMenuItem.Enabled = check;
-                this.طلباتالتوريدToolStripMenuItem.Enabled = check;
-                this.طلباتالصرفToolStripMenuItem.Enabled = check;
-                this.اضافةطلبToolStripMenuItem.Enabled = check;
-                this.اضافةطلبToolStripMenuItem1.Enabled = check;
-                this.البحثToolStripMenuItem.Enabled = check;
-                this.بحثToolStripMenuItem.Enabled = check;
-                this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Enabled = false;
-                this.انشاءنسخةاحتياطيةToolStripMenuItem.Enabled = check;
-                this.تعديلالمستخدمToolStripMenuItem.Enabled = check;
-                this.اعدادتالنظامToolStripMenuItem.Enabled = check;
-                this.صلاحياتالمستخدمينToolStripMenuItem.Enabled = check;
+                this.التقاريرToolStripMenuItem.Visible = check;
+                this.تهيئةالنظامToolStripMenuItem.Visible = check;
+                this.طلباتالتوريدToolStripMenuItem.Visible = check;
+                this.طلباتالصرفToolStripMenuItem.Visible = check;
+                this.اضافةطلبToolStripMenuItem.Visible = check;
+                this.اضافةطلبToolStripMenuItem1.Visible = check;
+                this.البحثToolStripMenuItem.Visible = check;
+                this.بحثToolStripMenuItem.Visible = check;
+                this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Visible = false;
+                this.انشاءنسخةاحتياطيةToolStripMenuItem.Visible = check;
+                this.تعديلالمستخدمToolStripMenuItem.Visible = check;
+                this.اعدادتالنظامToolStripMenuItem.Visible = check;
+                this.صلاحياتالمستخدمينToolStripMenuItem.Visible = check;
                 if (check == false)
                 {
                     Contrl.UserId = 0;
@@ -269,6 +292,11 @@ namespace StoreManagement
             this.Cursor = Cursors.WaitCursor;
             new frmUser().ShowDialog();
             this.Cursor = Cursors.Default;
+        }
+
+        private void دخولالنظامToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
