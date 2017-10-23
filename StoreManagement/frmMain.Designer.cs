@@ -282,7 +282,6 @@
             this.اعدادتالنظامToolStripMenuItem.Name = "اعدادتالنظامToolStripMenuItem";
             this.اعدادتالنظامToolStripMenuItem.Size = new System.Drawing.Size(130, 25);
             this.اعدادتالنظامToolStripMenuItem.Text = "اعدادت النظام";
-            this.اعدادتالنظامToolStripMenuItem.Visible = false;
             // 
             // الاتصالبالسيرفيرToolStripMenuItem
             // 
@@ -298,6 +297,7 @@
             this.انشاءنسخةاحتياطيةToolStripMenuItem.Name = "انشاءنسخةاحتياطيةToolStripMenuItem";
             this.انشاءنسخةاحتياطيةToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.انشاءنسخةاحتياطيةToolStripMenuItem.Text = "انشاء نسخة احتياطية";
+            this.انشاءنسخةاحتياطيةToolStripMenuItem.Visible = false;
             this.انشاءنسخةاحتياطيةToolStripMenuItem.Click += new System.EventHandler(this.انشاءنسخةاحتياطيةToolStripMenuItem_Click);
             // 
             // استعادةالنسخةالاحتياطيةToolStripMenuItem
@@ -306,6 +306,7 @@
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Name = "استعادةالنسخةالاحتياطيةToolStripMenuItem";
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Text = "استعادة النسخة الاحتياطية";
+            this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Visible = false;
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Click += new System.EventHandler(this.استعادةالنسخةالاحتياطيةToolStripMenuItem_Click);
             // 
             // تعديلالمستخدمToolStripMenuItem
@@ -314,6 +315,7 @@
             this.تعديلالمستخدمToolStripMenuItem.Name = "تعديلالمستخدمToolStripMenuItem";
             this.تعديلالمستخدمToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.تعديلالمستخدمToolStripMenuItem.Text = "تعديل المستخدم";
+            this.تعديلالمستخدمToolStripMenuItem.Visible = false;
             this.تعديلالمستخدمToolStripMenuItem.Click += new System.EventHandler(this.تعديلالمستخدمToolStripMenuItem_Click);
             // 
             // صلاحياتالمستخدمينToolStripMenuItem

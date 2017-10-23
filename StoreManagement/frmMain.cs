@@ -103,7 +103,8 @@ namespace StoreManagement
                 this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Visible = false;
                 this.انشاءنسخةاحتياطيةToolStripMenuItem.Visible = check;
                 this.تعديلالمستخدمToolStripMenuItem.Visible = check;
-                this.اعدادتالنظامToolStripMenuItem.Visible = check;
+                this.اعدادتالنظامToolStripMenuItem.Visible = true;
+                this.الاتصالبالسيرفيرToolStripMenuItem.Visible = true;
                 this.صلاحياتالمستخدمينToolStripMenuItem.Visible = check;
                 if (check == false)
                 {
