@@ -97,15 +97,10 @@ namespace StoreManagement
             RPT.RequstOut rt = new RPT.RequstOut();
             DataTable dtttt = new DataTable();
             dtttt = dbsql.PrintRequstOut(id,Contrl.UserId);
-            dtttt.Columns.Add("totle");
+          
       
-            int totlee = dbsql.GetPraceInRequstOut(id);
             
-           for (int i = 0; i < dtttt.Rows.Count; i++)
-            {
-                dtttt.Rows[i][12] = string.Format("{0:##,##}", totlee);
-               
-            }
+           
          
         
           
