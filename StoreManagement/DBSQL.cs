@@ -12,9 +12,9 @@ namespace StoreManagement
 {
     class DBSQL
     {    
-       // private string ConnectionSreing = @"Data Source="+Properties.Settings.Default.nmserver+";Initial Catalog="+Properties.Settings.Default.nmdatabase+";User ID="+Properties.Settings.Default.UserSql+ ";Password="+Properties.Settings.Default.PassSql;
-    private string ConnectionStriingMaster = @"Data Source=" + Properties.Settings.Default.nmserver + ";Initial Catalog=master;Integrated Security=true;";
-        private string ConnectionSreing = @"Data Source=" + Properties.Settings.Default.nmserver + ";Initial Catalog=" + Properties.Settings.Default.nmdatabase + ";Integrated Security=true;";
+       private string ConnectionSreing = @"Data Source="+Properties.Settings.Default.nmserver+";Initial Catalog="+Properties.Settings.Default.nmdatabase+";User ID="+Properties.Settings.Default.UserSql+ ";Password="+Properties.Settings.Default.PassSql;
+        private string ConnectionStriingMaster = @"Data Source=" + Properties.Settings.Default.nmserver + ";Initial Catalog=master;Integrated Security=true;";
+      ///  private string ConnectionSreing = @"Data Source=" + Properties.Settings.Default.nmserver + ";Initial Catalog=" + Properties.Settings.Default.nmdatabase + ";Integrated Security=true;";
 
         public SqlConnection con;
         public SqlCommand cmd;
@@ -1632,7 +1632,100 @@ namespace StoreManagement
         }
       
        
+        //////////////////////////////////////////////////////
+        //////////////////////////////////
+        ////////////
+        ////// typeAccount
+        // add new Account
+        public int AddNewTypeAccount(string nameType)
+        {
+            int reslt = 0;
+            cmd = new SqlCommand("insert into TypeAccount (NameTypeAccount) values(@name) ", con);
+            cmd.Parameters.AddWithValue("@name", nameType);
+            con.Open();
+            try
+            {
+                reslt = cmd.ExecuteNonQuery();
 
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                reslt = 0;
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return reslt;
+        }
+        ////////////
+        //// update typeAccount
+        public int UpdateTypeAccount(int idtypeAccount,string nameType)
+        {
+            int reslt = 0;
+            cmd = new SqlCommand("update  TypeAccount set NameTypeAccount = @name where IdTypeAccount=@id ", con);
+            cmd.Parameters.AddWithValue("@name", nameType);
+            cmd.Parameters.AddWithValue("@id", idtypeAccount);
+            con.Open();
+            try
+            {
+                reslt = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                reslt = 0;
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return reslt;
+        }
+        ///////////////////////////////////////////
+        /////////////////////
+        //// delete TypeAccount
+
+        public int DeleteTypeAccount(int idtypeAccount)
+        {
+            int reslt = 0;
+            cmd = new SqlCommand("delete from TypeAccount where IdTypeAccount=@id ", con);
+         
+            cmd.Parameters.AddWithValue("@id", idtypeAccount);
+            con.Open();
+            try
+            {
+                reslt = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                reslt = 0;
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return reslt;
+        }
+        //////////////////////////////////////////
+        ///////////////
+        /// GetAllTypeAccount
+        /// 
+         public    DataTable GetAllTypeAccount()
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("select IdTypeAccount as 'الرقم' ,NameTypeAccount as 'نوع الحساب' from TypeAccount ", con);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+
+        }
     }
 
 }

@@ -100,3 +100,4 @@ E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmREprUpdS
 E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmUpdtOut2.resources
 E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmRepUpdOut.resources
 E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmUser.resources
+E:\program\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmTypeAccount.resources

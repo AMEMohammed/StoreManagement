@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.دخولالنظامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.دخولالنظامToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.خروجمنالنظامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +49,7 @@
             this.تهيئةالنظامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الاصنافToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.انواعالاصنافToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.انواعالحساباتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.العملاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الجهاتالمستفيدةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اعدادتالنظامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +58,6 @@
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.تعديلالمستخدمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.صلاحياتالمستخدمينToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +78,17 @@
             this.menuStrip1.Size = new System.Drawing.Size(1074, 29);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::StoreManagement.Properties.Resources.rr;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1074, 450);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // دخولالنظامToolStripMenuItem
             // 
@@ -231,6 +243,7 @@
             this.تهيئةالنظامToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.الاصنافToolStripMenuItem,
             this.انواعالاصنافToolStripMenuItem,
+            this.انواعالحساباتToolStripMenuItem,
             this.العملاتToolStripMenuItem,
             this.الجهاتالمستفيدةToolStripMenuItem});
             this.تهيئةالنظامToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.refresh_button__1_;
@@ -254,6 +267,14 @@
             this.انواعالاصنافToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
             this.انواعالاصنافToolStripMenuItem.Text = "انواع الاصناف";
             this.انواعالاصنافToolStripMenuItem.Click += new System.EventHandler(this.انواعالاصنافToolStripMenuItem_Click);
+            // 
+            // انواعالحساباتToolStripMenuItem
+            // 
+            this.انواعالحساباتToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.accounting_book;
+            this.انواعالحساباتToolStripMenuItem.Name = "انواعالحساباتToolStripMenuItem";
+            this.انواعالحساباتToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.انواعالحساباتToolStripMenuItem.Text = "انواع الحسابات";
+            this.انواعالحساباتToolStripMenuItem.Click += new System.EventHandler(this.انواعالحساباتToolStripMenuItem_Click);
             // 
             // العملاتToolStripMenuItem
             // 
@@ -327,17 +348,6 @@
             this.صلاحياتالمستخدمينToolStripMenuItem.Visible = false;
             this.صلاحياتالمستخدمينToolStripMenuItem.Click += new System.EventHandler(this.صلاحياتالمستخدمينToolStripMenuItem_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::StoreManagement.Properties.Resources.rr;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1074, 450);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -396,5 +406,6 @@
         private System.Windows.Forms.ToolStripMenuItem تعديلالمستخدمToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem تقاريرتعديلاتالصرفToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem صلاحياتالمستخدمينToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem انواعالحساباتToolStripMenuItem;
     }
 }

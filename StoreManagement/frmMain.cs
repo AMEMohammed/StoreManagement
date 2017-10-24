@@ -299,5 +299,13 @@ namespace StoreManagement
         {
 
         }
+
+        private void انواعالحساباتToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            new frmTypeAccount().ShowDialog();
+            this.Cursor = Cursors.Default;
+
+        }
     }
 }

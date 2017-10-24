@@ -175,6 +175,12 @@
     <Compile Include="frmSupplyRequset.Designer.cs">
       <DependentUpon>frmSupplyRequset.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTypeAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTypeAccount.Designer.cs">
+      <DependentUpon>frmTypeAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTypeQuntity.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSupplyRequset.resx">
       <DependentUpon>frmSupplyRequset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTypeAccount.resx">
+      <DependentUpon>frmTypeAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTypeQuntity.resx">
       <DependentUpon>frmTypeQuntity.cs</DependentUpon>
@@ -548,6 +557,8 @@
   <ItemGroup>
     <None Include="Resources\pencil.png" />
     <None Include="Resources\delete.png" />
+    <None Include="Resources\accounting.png" />
+    <None Include="Resources\accounting-book.png" />
     <Content Include="stor.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
