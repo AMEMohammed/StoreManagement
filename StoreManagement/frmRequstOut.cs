@@ -32,6 +32,10 @@ namespace StoreManagement
                 comboBox3.AutoCompleteSource = AutoCompleteSource.ListItems;
                 comboBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 comboBox4.AutoCompleteSource = AutoCompleteSource.ListItems;
+                comboBox5.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                comboBox5.AutoCompleteSource = AutoCompleteSource.ListItems;
+                comboBox6.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                comboBox6.AutoCompleteSource = AutoCompleteSource.ListItems;
                 GetData1();
                 changeLanguage();
                 MessageBoxManager.Yes = "نعم";
@@ -60,7 +64,14 @@ namespace StoreManagement
                 comboBox3.ValueMember = "رقم الجهة";
                 comboBox3.DisplayMember = "اسم الجهة";
                 comboBox3.DataSource = dbsql.GetAllPlace();
-             
+
+                comboBox5.ValueMember = "الرقم";
+                comboBox5.DisplayMember = "نوع الحساب";
+                comboBox5.DataSource = dbsql.GetAllTypeAccount();
+
+                comboBox6.ValueMember = "الرقم";
+                comboBox6.DisplayMember = "نوع الحساب";
+                comboBox6.DataSource = dbsql.GetAllTypeAccount();
                 dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.Date, DateTime.Now); // جلب طلبات الصرف لليوم الحالي
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[12].Visible = false;
@@ -199,6 +210,7 @@ namespace StoreManagement
                         int idplace = ((int)comboBox3.SelectedValue);
                         int idcurrnt = ((int)comboBox4.SelectedValue);
                         int QunntyMust = Convert.ToInt32(textBox2.Text);
+                    
                         string nameAmmer = textBox3.Text;
                         string nameMostlaem = textBox4.Text;
                         string Decrip = textBox5.Text;
@@ -248,6 +260,8 @@ namespace StoreManagement
                             textBox3.Enabled = false;
                             textBox4.Enabled = false;
                             textBox5.Enabled = false;
+                            comboBox5.Enabled = false;
+                            comboBox6.Enabled = false;
                             flagAddAgin = true;
                             Refersh2();
                         }
@@ -298,7 +312,8 @@ namespace StoreManagement
             textBox3.Enabled = true;
             textBox4.Enabled = true;
             textBox5.Enabled = true;
-
+            comboBox5.Enabled = true;
+            comboBox6.Enabled = true;
 
         }
         public void GetDate3()

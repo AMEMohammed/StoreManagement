@@ -12,9 +12,9 @@ namespace StoreManagement
 {
     class DBSQL
     {    
-       private string ConnectionSreing = @"Data Source="+Properties.Settings.Default.nmserver+";Initial Catalog="+Properties.Settings.Default.nmdatabase+";User ID="+Properties.Settings.Default.UserSql+ ";Password="+Properties.Settings.Default.PassSql;
+       //private string ConnectionSreing = @"Data Source="+Properties.Settings.Default.nmserver+";Initial Catalog="+Properties.Settings.Default.nmdatabase+";User ID="+Properties.Settings.Default.UserSql+ ";Password="+Properties.Settings.Default.PassSql;
         private string ConnectionStriingMaster = @"Data Source=" + Properties.Settings.Default.nmserver + ";Initial Catalog=master;Integrated Security=true;";
-      ///  private string ConnectionSreing = @"Data Source=" + Properties.Settings.Default.nmserver + ";Initial Catalog=" + Properties.Settings.Default.nmdatabase + ";Integrated Security=true;";
+        private string ConnectionSreing = @"Data Source=" + Properties.Settings.Default.nmserver + ";Initial Catalog=" + Properties.Settings.Default.nmdatabase + ";Integrated Security=true;";
 
         public SqlConnection con;
         public SqlCommand cmd;

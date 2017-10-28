@@ -58,6 +58,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -71,6 +75,8 @@
             this.groupBox12.SuspendLayout();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox13.SuspendLayout();
+            this.groupBox14.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -181,7 +187,7 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.textBox3);
-            this.groupBox6.Location = new System.Drawing.Point(543, 117);
+            this.groupBox6.Location = new System.Drawing.Point(542, 117);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(406, 69);
             this.groupBox6.TabIndex = 6;
@@ -241,7 +247,7 @@
             this.groupBox9.Controls.Add(this.button3);
             this.groupBox9.Controls.Add(this.button2);
             this.groupBox9.Controls.Add(this.button1);
-            this.groupBox9.Location = new System.Drawing.Point(6, 267);
+            this.groupBox9.Location = new System.Drawing.Point(7, 336);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(353, 92);
             this.groupBox9.TabIndex = 9;
@@ -294,6 +300,8 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.groupBox14);
+            this.groupBox10.Controls.Add(this.groupBox13);
             this.groupBox10.Controls.Add(this.groupBox12);
             this.groupBox10.Controls.Add(this.groupBox9);
             this.groupBox10.Controls.Add(this.groupBox3);
@@ -306,7 +314,7 @@
             this.groupBox10.Controls.Add(this.groupBox4);
             this.groupBox10.Location = new System.Drawing.Point(12, 28);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(955, 373);
+            this.groupBox10.Size = new System.Drawing.Size(955, 434);
             this.groupBox10.TabIndex = 0;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "اضافة طلب طرف";
@@ -335,9 +343,10 @@
             // groupBox11
             // 
             this.groupBox11.Controls.Add(this.dataGridView1);
-            this.groupBox11.Location = new System.Drawing.Point(12, 407);
+            this.groupBox11.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
+            this.groupBox11.Location = new System.Drawing.Point(6, 468);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(955, 322);
+            this.groupBox11.Size = new System.Drawing.Size(961, 322);
             this.groupBox11.TabIndex = 12;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "طلبات الصرف لليوم الحالي";
@@ -353,7 +362,7 @@
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -374,11 +383,49 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "اضافة طلب صرف";
             // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.comboBox6);
+            this.groupBox13.Location = new System.Drawing.Point(12, 267);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(479, 63);
+            this.groupBox13.TabIndex = 10;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "الى حساب";
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.comboBox5);
+            this.groupBox14.Location = new System.Drawing.Point(497, 267);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(451, 63);
+            this.groupBox14.TabIndex = 11;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "من حساب";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(6, 25);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(439, 32);
+            this.comboBox5.TabIndex = 1;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(6, 25);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(467, 32);
+            this.comboBox6.TabIndex = 2;
+            // 
             // frmRequstOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 733);
+            this.ClientSize = new System.Drawing.Size(979, 802);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox11);
             this.Controls.Add(this.groupBox10);
@@ -410,6 +457,8 @@
             this.groupBox12.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -445,5 +494,9 @@
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.ComboBox comboBox6;
     }
 }
