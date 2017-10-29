@@ -210,7 +210,8 @@ namespace StoreManagement
                         int idplace = ((int)comboBox3.SelectedValue);
                         int idcurrnt = ((int)comboBox4.SelectedValue);
                         int QunntyMust = Convert.ToInt32(textBox2.Text);
-                    
+                        int creditor= ((int)comboBox6.SelectedValue);
+                        int debit= ((int)comboBox5.SelectedValue);
                         string nameAmmer = textBox3.Text;
                         string nameMostlaem = textBox4.Text;
                         string Decrip = textBox5.Text;
@@ -237,7 +238,7 @@ namespace StoreManagement
                         for (int i = 0; i < dtAccountIDs.Rows.Count; i++)
                         {
                             int IDAccount = Convert.ToInt32(dtAccountIDs.Rows[i][0].ToString());
-                            int result = dbsql.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idcurrnt, idplace, nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem);
+                            int result = dbsql.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idcurrnt, idplace, nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem,debit,creditor);
                           
 
                             if (result == 0)

@@ -12,9 +12,9 @@ namespace StoreManagement
 {
     class DBSQL
     {    
-       //private string ConnectionSreing = @"Data Source="+Properties.Settings.Default.nmserver+";Initial Catalog="+Properties.Settings.Default.nmdatabase+";User ID="+Properties.Settings.Default.UserSql+ ";Password="+Properties.Settings.Default.PassSql;
+       private string ConnectionSreing = @"Data Source="+Properties.Settings.Default.nmserver+";Initial Catalog="+Properties.Settings.Default.nmdatabase+";User ID="+Properties.Settings.Default.UserSql+ ";Password="+Properties.Settings.Default.PassSql;
         private string ConnectionStriingMaster = @"Data Source=" + Properties.Settings.Default.nmserver + ";Initial Catalog=master;Integrated Security=true;";
-        private string ConnectionSreing = @"Data Source=" + Properties.Settings.Default.nmserver + ";Initial Catalog=" + Properties.Settings.Default.nmdatabase + ";Integrated Security=true;";
+   //     private string ConnectionSreing = @"Data Source=" + Properties.Settings.Default.nmserver + ";Initial Catalog=" + Properties.Settings.Default.nmdatabase + ";Integrated Security=true;";
 
         public SqlConnection con;
         public SqlCommand cmd;
@@ -574,7 +574,7 @@ namespace StoreManagement
         ////////////////////////////////////////////////////////////
         //////////////////
         /////////////////  التكد من ان الحساب يغطي الطلب وارجاع صفر في حالة تم الطلب او ارجاع الكمية المتبقة المطلوبه
-        public int GetAndCheckQuntityAccountAndAddRqustNew(int IDAccount, int QuntityMust, int IDCategory, int IDType, int idcurrn,int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend)
+        public int GetAndCheckQuntityAccountAndAddRqustNew(int IDAccount, int QuntityMust, int IDCategory, int IDType, int idcurrn,int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend,int debit,int credi)
         {
             int r = -1;
             int QuntityOld = GetQuntityInAccount(IDAccount);
@@ -584,7 +584,7 @@ namespace StoreManagement
             {
                 int newQuntity = QuntityOld - QuntityMust;
                 UpdateQuntityAccount(IDAccount, newQuntity);/// تعديل الحساب بالكمية الجديدة
-                  AddNewRequstOut(QuntityMust, IDCategory, IDType, idcurrn,IDPlace, NameOut, DesOut, DateOut, Chack, NameSend,Price,Contrl.UserId);// اضافة طلب جديد
+                  AddNewRequstOut(QuntityMust, IDCategory, IDType, idcurrn,IDPlace, NameOut, DesOut, DateOut, Chack, NameSend,Price,Contrl.UserId ,debit,credi);// اضافة طلب جديد
               
                 r = 0;
             }
@@ -595,7 +595,7 @@ namespace StoreManagement
 
                 int newQun = QuntityMust - QuntityOld;
                 UpdateQuntityAccount(IDAccount, 0);
-                AddNewRequstOut(QuntityOld, IDCategory, IDType,idcurrn, IDPlace, NameOut, DesOut, DateOut, Chack, NameSend,Price,Contrl.UserId);// اضافة طلب جديد
+                AddNewRequstOut(QuntityOld, IDCategory, IDType, idcurrn, IDPlace, NameOut, DesOut, DateOut, Chack, NameSend, Price, Contrl.UserId, debit, credi);// اضافة طلب جديد
             
                 r = QuntityOld;
                 
@@ -622,13 +622,13 @@ namespace StoreManagement
 
         //////////////
         /////// Add New requstOut
-        public int AddNewRequstOut(int Quntity, int IDCategory, int IDType, int idcurrnt,int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend,int price ,int UserId)
+        public int AddNewRequstOut(int Quntity, int IDCategory, int IDType, int idcurrnt,int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend,int price ,int UserId,int debit,int cred)
         {
             int res = 0;
             con.Open();
             try
             {
-                cmd = new SqlCommand("insert into RequstOut (Chack,DateOut,DesOut,IDCategory,IDPlace,IDType,NameOut,NameSend,Quntity,Price,IDCurrency,UserId) values(@Chack,@DateOut,@DesOut,@IDCategory,@IDPlace,@IDType,@NameOut,@NameSend,@Quntity,@Price,@IDCurrency,@userId)", con);
+                cmd = new SqlCommand("insert into RequstOut (Chack,DateOut,DesOut,IDCategory,IDPlace,IDType,NameOut,NameSend,Quntity,Price,IDCurrency,UserId,Debit,Creditor) values(@Chack,@DateOut,@DesOut,@IDCategory,@IDPlace,@IDType,@NameOut,@NameSend,@Quntity,@Price,@IDCurrency,@userId,@dib,@cred)", con);
                 cmd.Parameters.AddWithValue("@Chack", Chack);
                 cmd.Parameters.AddWithValue("@DateOut", DateOut);
                 cmd.Parameters.AddWithValue("@DesOut", DesOut);
@@ -641,6 +641,8 @@ namespace StoreManagement
                 cmd.Parameters.AddWithValue("@Price", price);
                 cmd.Parameters.AddWithValue("@IDCurrency", idcurrnt);
                 cmd.Parameters.AddWithValue("@userId", UserId);
+                cmd.Parameters.AddWithValue("@dib", debit);
+                cmd.Parameters.AddWithValue("@cred", cred);
                 res = cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
