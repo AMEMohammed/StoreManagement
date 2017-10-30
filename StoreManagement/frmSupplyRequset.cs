@@ -29,7 +29,12 @@ namespace StoreManagement
                 comboBox2.AutoCompleteSource = AutoCompleteSource.ListItems;
                 comboBox3.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 comboBox3.AutoCompleteSource = AutoCompleteSource.ListItems;
+                comboBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                comboBox4.AutoCompleteSource = AutoCompleteSource.ListItems;
+                comboBox5.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                comboBox5.AutoCompleteSource = AutoCompleteSource.ListItems;
                 getDate1();
+                getdata22();
                  ////////////
                 changeLanguage();
                 MessageBoxManager.Yes = "نعم";
@@ -59,13 +64,30 @@ namespace StoreManagement
                 comboBox3.DisplayMember = "اسم العملة";
                 comboBox3.ValueMember = "رقم العملة";
                 comboBox3.DataSource = dbsql.GetAllCurrency();
+            
                 dataGridView1.DataSource = dbsql.SearchINRequsetSupplyDate(DateTime.Now.Date, DateTime.Now);
             }
             catch(Exception ex) { MessageBox.Show(ex.Message); }
         } 
        
         
+        void getdata22()
+        {
+            try
+            {
+                comboBox4.ValueMember = "الرقم";
+                comboBox4.DisplayMember = "نوع الحساب";
+                comboBox4.DataSource = dbsql.GetAllDebit();
 
+                comboBox5.ValueMember = "الرقم";
+                comboBox5.DisplayMember = "نوع الحساب";
+                comboBox5.DataSource = dbsql.GetAllCreditor();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
       
         public void changeLanguage()
         {
@@ -108,7 +130,8 @@ namespace StoreManagement
                             int idCurrnt = (int)comboBox3.SelectedValue;
                             int qunt = Convert.ToInt32(textBox1.Text);
                             int price = Convert.ToInt32(textBox2.Text);
-
+                            int debit= (int)comboBox4.SelectedValue;
+                            int cred= (int)comboBox5.SelectedValue;
                             string name = textBox4.Text;
                             string dec = textBox5.Text;
                             int idAcount = dbsql.CheckAccountIsHere(idcate, idtype, price, idCurrnt);
@@ -142,12 +165,13 @@ namespace StoreManagement
                                 check += 1;
                             }
                             // اضافة الى جدول التوريد
-                            dbsql.AddNewRequsetSupply(idcate, idtype, qunt, price, idCurrnt, name, dec, DateTime.Now, Contrl.UserId,check);//اضافة طلب جديد
+                            dbsql.AddNewRequsetSupply(idcate, idtype, qunt, price, idCurrnt, name, dec, DateTime.Now, Contrl.UserId,check,debit,cred);//اضافة طلب جديد
+
                             if ((MessageBox.Show("هل تريد اضافة طلب  اخر", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                             {
                                 flagAddAgian = true;
-                                Refrsh1();
-
+                                Refrsh12();
+                               
                                 // button2_Click(sender, e);
                             }
                             else
@@ -157,7 +181,9 @@ namespace StoreManagement
                                 {
                                     try
                                     {
+                                        Refrsh1();
                                         int IDRequstSupply = dbsql.GetMaxCheckSupply();
+
                                         frmREPORT frmr = new frmREPORT(IDRequstSupply, 1);
 
                                         frmr.ShowDialog();
@@ -175,7 +201,7 @@ namespace StoreManagement
                         {
                             MessageBox.Show(ex.Message);
                         }
-                        Refrsh1();
+                      
                     }
 
                 }
@@ -202,12 +228,26 @@ namespace StoreManagement
         void Refrsh1()
         {
             getDate1();
-     
+            getdata22();
             textBox1.Text = "";
             textBox2.Text = "";
          
             textBox4.Text = "";
             textBox5.Text = "";
+            comboBox4.Enabled = true;
+            comboBox5.Enabled = true;
+        }
+        void Refrsh12()
+        {
+            getDate1();
+
+            textBox1.Text = "";
+            textBox2.Text = "";
+
+            textBox4.Text = "";
+            textBox5.Text = "";
+            comboBox4.Enabled = false;
+            comboBox5.Enabled = false;
         }
 
         private void button4_Click(object sender, EventArgs e)

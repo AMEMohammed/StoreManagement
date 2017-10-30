@@ -397,10 +397,10 @@ namespace StoreManagement
         //////////////////////////////////
         /// add new Requst Supply
         /// 
-        public int AddNewRequsetSupply(int IDCategory, int IDType, int Quntity, int Price,int idcurrnt, string NameSupply, string DescSupply, DateTime DateSupply,int IDuser,int chek)
+        public int AddNewRequsetSupply(int IDCategory, int IDType, int Quntity, int Price,int idcurrnt, string NameSupply, string DescSupply, DateTime DateSupply,int IDuser,int chek,int debi,int cred)
         {
             int resl = 0;
-            cmd = new SqlCommand("insert into RequstSupply(IDCategory,IDType,Quntity,Price,NameSupply,DescSupply,DateSupply,IDCurrency,UserId,chek) values(@IDCategory,@IDType,@Quntity,@Price,@NameSupply,@DescSupply,@DateSupply,@IDCurrency,@userId,@chek)", con);
+            cmd = new SqlCommand("insert into RequstSupply(IDCategory,IDType,Quntity,Price,NameSupply,DescSupply,DateSupply,IDCurrency,UserId,chek,Debit,Creditor) values(@IDCategory,@IDType,@Quntity,@Price,@NameSupply,@DescSupply,@DateSupply,@IDCurrency,@userId,@chek,@deb,@crd)", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@IDCategory", IDCategory);
             cmd.Parameters.AddWithValue("@IDType", IDType);
@@ -412,6 +412,8 @@ namespace StoreManagement
             cmd.Parameters.AddWithValue("@IDCurrency", idcurrnt);
             cmd.Parameters.AddWithValue("@userId", IDuser);
             cmd.Parameters.AddWithValue("@chek", chek);
+            cmd.Parameters.AddWithValue("@deb", debi);
+            cmd.Parameters.AddWithValue("@crd", cred);
             con.Open();
             resl = cmd.ExecuteNonQuery();
             con.Close();
@@ -683,7 +685,7 @@ namespace StoreManagement
         {
             DataTable dt = new DataTable();
 
-            cmd = new SqlCommand("select RequstOut.IDOut as 'رقم الطلب',Category.NameCategory as 'اسم الصنف',TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف',Users.Name as 'اسم الموظف',RequstOut.DesOut as 'الملاحظات'  from Users,RequstOut,Category,TypeQuntity,PlaceSend,Currency where RequstOut.IDCategory = Category.IDCategory and Users.UserID=@idUser and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack=@check", con);
+            cmd = new SqlCommand("select RequstOut.IDOut as  'رقم الطلب',Category.NameCategory as 'اسم الصنف',TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف',Users.Name as 'اسم الموظف',RequstOut.DesOut as 'الملاحظات' ,Debit.NameTypeAccount as 'مدين' ,Creditor.NameTypeAccount as 'دائن'  from Users,RequstOut,Category,TypeQuntity,PlaceSend,Currency,Debit,Creditor where RequstOut.IDCategory = Category.IDCategory and Users.UserID=@idUser and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency and Debit.IdTypeAccount=RequstOut.Debit and Creditor.IdTypeAccount=RequstOut.Creditor  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack=@check", con);
             cmd.Parameters.AddWithValue("@check", Check);
             cmd.Parameters.AddWithValue("@idUser", UserId);
             cmd.CommandType = CommandType.Text;
@@ -1637,12 +1639,12 @@ namespace StoreManagement
         //////////////////////////////////////////////////////
         //////////////////////////////////
         ////////////
-        ////// typeAccount
-        // add new Account
-        public int AddNewTypeAccount(string nameType)
+        ////// typeDebit
+        // add new Debit
+        public int AddNewDebit(string nameType)
         {
             int reslt = 0;
-            cmd = new SqlCommand("insert into TypeAccount (NameTypeAccount) values(@name) ", con);
+            cmd = new SqlCommand("insert into Debit (NameTypeAccount) values(@name) ", con);
             cmd.Parameters.AddWithValue("@name", nameType);
             con.Open();
             try
@@ -1662,11 +1664,11 @@ namespace StoreManagement
             return reslt;
         }
         ////////////
-        //// update typeAccount
-        public int UpdateTypeAccount(int idtypeAccount,string nameType)
+        //// update Debit
+        public int UpdateDebit(int idtypeAccount,string nameType)
         {
             int reslt = 0;
-            cmd = new SqlCommand("update  TypeAccount set NameTypeAccount = @name where IdTypeAccount=@id ", con);
+            cmd = new SqlCommand("update  Debit set NameTypeAccount = @name where IdTypeAccount=@id ", con);
             cmd.Parameters.AddWithValue("@name", nameType);
             cmd.Parameters.AddWithValue("@id", idtypeAccount);
             con.Open();
@@ -1689,12 +1691,12 @@ namespace StoreManagement
         }
         ///////////////////////////////////////////
         /////////////////////
-        //// delete TypeAccount
+        //// delete Debit
 
-        public int DeleteTypeAccount(int idtypeAccount)
+        public int DeleteDebit(int idtypeAccount)
         {
             int reslt = 0;
-            cmd = new SqlCommand("delete from TypeAccount where IdTypeAccount=@id ", con);
+            cmd = new SqlCommand("delete from Debit where IdTypeAccount=@id ", con);
          
             cmd.Parameters.AddWithValue("@id", idtypeAccount);
             con.Open();
@@ -1717,12 +1719,110 @@ namespace StoreManagement
         }
         //////////////////////////////////////////
         ///////////////
-        /// GetAllTypeAccount
+        /// GetAllDebit
         /// 
-         public    DataTable GetAllTypeAccount()
+         public    DataTable GetAllDebit()
         {
             DataTable dt = new DataTable();
-            cmd = new SqlCommand("select IdTypeAccount as 'الرقم' ,NameTypeAccount as 'نوع الحساب' from TypeAccount ", con);
+            cmd = new SqlCommand("select IdTypeAccount as 'الرقم' ,NameTypeAccount as 'نوع الحساب' from Debit ", con);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+
+        }
+
+
+
+        //////////////////////////////////////////////////////
+        //////////////////////////////////
+        ////////////
+        ////// typeCreditor
+        // add new Creditor
+        public int AddNewCreditor(string nameType)
+        {
+            int reslt = 0;
+            cmd = new SqlCommand("insert into Creditor (NameTypeAccount) values(@name) ", con);
+            cmd.Parameters.AddWithValue("@name", nameType);
+            con.Open();
+            try
+            {
+                reslt = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                reslt = 0;
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return reslt;
+        }
+        ////////////
+        //// update Creditor
+        public int UpdateCreditor(int idtypeAccount, string nameType)
+        {
+            int reslt = 0;
+            cmd = new SqlCommand("update  Creditor set NameTypeAccount = @name where IdTypeAccount=@id ", con);
+            cmd.Parameters.AddWithValue("@name", nameType);
+            cmd.Parameters.AddWithValue("@id", idtypeAccount);
+            con.Open();
+            try
+            {
+                reslt = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                reslt = 0;
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return reslt;
+        }
+        ///////////////////////////////////////////
+        /////////////////////
+        //// delete Creditor
+
+        public int DeleteCreditor(int idtypeAccount)
+        {
+            int reslt = 0;
+            cmd = new SqlCommand("delete from Creditor where IdTypeAccount=@id ", con);
+
+            cmd.Parameters.AddWithValue("@id", idtypeAccount);
+            con.Open();
+            try
+            {
+                reslt = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                reslt = 0;
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return reslt;
+        }
+        //////////////////////////////////////////
+        ///////////////
+        /// GetAllCreditor
+        /// 
+        public DataTable GetAllCreditor()
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("select  IdTypeAccount as 'الرقم' ,NameTypeAccount as 'نوع الحساب' from Creditor ", con);
             adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dt);
             return dt;

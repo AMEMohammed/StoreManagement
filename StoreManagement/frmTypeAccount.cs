@@ -20,22 +20,22 @@ namespace StoreManagement
         private void frmTypeAccount_Load(object sender, EventArgs e)
         {
             this.BackColor = Properties.Settings.Default.colorBackGround;
-            try
+          //  try
             {
-                dataGridView1.DataSource = dbsql.GetAllTypeAccount();
+                dataGridView1.DataSource = dbsql.GetAllDebit();
                 MessageBoxManager.Yes = "نعم";
                 MessageBoxManager.No = "الغاء";
                 MessageBoxManager.Register();
                 changeLanguage();
             }
-            catch (Exception ex)
+          //  catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+            //    MessageBox.Show(ex.Message);
             }
         }
         public void Refersh1()
         {
-            dataGridView1.DataSource = dbsql.GetAllTypeAccount();
+            dataGridView1.DataSource = dbsql.GetAllDebit();
             textBox1.Text = "";
             textBox2.Text = "";
 
@@ -59,7 +59,8 @@ namespace StoreManagement
             {
                 try
                 {
-                    dbsql.AddNewTypeAccount(textBox1.Text);
+                    dbsql.AddNewDebit(textBox1.Text);
+                    dbsql.AddNewCreditor(textBox1.Text);
                     Refersh1();
                     textBox1.Focus();
                 }
@@ -109,7 +110,8 @@ namespace StoreManagement
                 try
                 {
                     name = textBox2.Text;
-                    dbsql.UpdateTypeAccount(id, name);
+                    dbsql.UpdateDebit(id, name);
+                    dbsql.UpdateCreditor(id, name);
                     Refersh1();
                 }
                 catch (Exception ex)
@@ -128,7 +130,9 @@ namespace StoreManagement
             {
                 try
                 {
-                    dbsql.DeleteTypeAccount(id);
+                    dbsql.DeleteDebit(id);
+                    dbsql.DeleteCreditor(id);
+                 
                     Refersh1();
                 }
                 catch (Exception ex)

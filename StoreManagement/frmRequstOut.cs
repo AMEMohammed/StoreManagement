@@ -67,11 +67,11 @@ namespace StoreManagement
 
                 comboBox5.ValueMember = "الرقم";
                 comboBox5.DisplayMember = "نوع الحساب";
-                comboBox5.DataSource = dbsql.GetAllTypeAccount();
+                comboBox5.DataSource = dbsql.GetAllDebit();
 
                 comboBox6.ValueMember = "الرقم";
                 comboBox6.DisplayMember = "نوع الحساب";
-                comboBox6.DataSource = dbsql.GetAllTypeAccount();
+                comboBox6.DataSource = dbsql.GetAllCreditor();
                 dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.Date, DateTime.Now); // جلب طلبات الصرف لليوم الحالي
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[12].Visible = false;
