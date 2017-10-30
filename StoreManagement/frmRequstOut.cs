@@ -201,7 +201,7 @@ namespace StoreManagement
         {
             try
             {
-                if ((int)comboBox1.SelectedValue > 0 & (int)comboBox2.SelectedValue > 0 & (int)comboBox3.SelectedValue > 0 & (int)comboBox4.SelectedValue > 0 & textBox2.Text.Length > 0 & textBox3.Text.Length > 0 & textBox4.Text.Length > 0)
+                if ((int)comboBox1.SelectedValue > 0 & (int)comboBox2.SelectedValue > 0 & (int)comboBox5.SelectedValue > 0 &  (int)comboBox3.SelectedValue > 0 & (int)comboBox6.SelectedValue > 0 & (int)comboBox4.SelectedValue > 0 & textBox2.Text.Length > 0 & textBox3.Text.Length > 0 & textBox4.Text.Length > 0)
                 {
                     if ((MessageBox.Show("هل تريد ترحيل طلب الصرف ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                     {

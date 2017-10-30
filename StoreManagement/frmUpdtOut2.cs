@@ -31,6 +31,10 @@ namespace StoreManagement
             comboBox3.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox4.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBox5.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBox5.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBox6.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBox6.AutoCompleteSource = AutoCompleteSource.ListItems;
             getDate1();
             ConfDate();
             ////////////
@@ -54,8 +58,13 @@ namespace StoreManagement
             comboBox3.DataSource = dbsql.GetAllCurrency();
             comboBox4.ValueMember = "رقم الجهة";
             comboBox4.DisplayMember = "اسم الجهة";
-
             comboBox4.DataSource = dbsql.GetAllPlace();
+            comboBox5.ValueMember = "الرقم";
+            comboBox5.DisplayMember = "نوع الحساب";
+            comboBox5.DataSource = dbsql.GetAllDebit();
+            comboBox6.ValueMember = "الرقم";
+            comboBox6.DisplayMember = "نوع الحساب";
+            comboBox6.DataSource = dbsql.GetAllDebit();
 
         }
         /////////////////////////////////
@@ -88,6 +97,9 @@ namespace StoreManagement
             comboBox2.SelectedValue = Convert.ToInt32(dt.Rows[0]["IDType"].ToString());
             comboBox3.SelectedValue = Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString());
             comboBox4.SelectedValue = Convert.ToInt32(dt.Rows[0]["IDPlace"].ToString());
+                    comboBox5.SelectedValue = Convert.ToInt32(dt.Rows[0]["Debit"].ToString());
+            comboBox6.SelectedValue = Convert.ToInt32(dt.Rows[0]["Creditor"].ToString());
+
             textBox1.Text = dt.Rows[0]["Quntity"].ToString();
             textBox2.Text = dt.Rows[0]["Price"].ToString();
             textBox4.Text = dt.Rows[0]["NameOut"].ToString();
@@ -104,11 +116,11 @@ namespace StoreManagement
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
-        {  if ((int)comboBox4.SelectedValue > 0 && textBox4.Text.Length > 0 && textBox5.Text.Length > 0 && textBox3.Text.Length > 0)
+        {  if ((int)comboBox4.SelectedValue > 0 && (int)comboBox5.SelectedValue > 0 && (int)comboBox6.SelectedValue > 0 && textBox4.Text.Length > 0 && textBox5.Text.Length > 0 && textBox3.Text.Length > 0 )
             {
                 if ((MessageBox.Show("هل تريد ترحيل طلب  تعديل الصرف واعتماده ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                 {
-                    dbsql.UpdateRequstOut(IdOut,(int) comboBox4.SelectedValue, textBox4.Text, textBox3.Text, textBox5.Text,DateTime.Now,Contrl.UserId);
+                    dbsql.UpdateRequstOut(IdOut,(int) comboBox4.SelectedValue, textBox4.Text, textBox3.Text, textBox5.Text,DateTime.Now,Contrl.UserId, (int) comboBox5.SelectedValue, (int) comboBox6.SelectedValue);
                     this.Close();
                 }
             }

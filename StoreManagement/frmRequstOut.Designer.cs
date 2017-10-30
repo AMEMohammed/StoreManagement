@@ -82,9 +82,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Location = new System.Drawing.Point(770, 25);
+            this.groupBox1.Location = new System.Drawing.Point(749, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(179, 69);
+            this.groupBox1.Size = new System.Drawing.Size(200, 69);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "اسم  الصنف ";
@@ -92,11 +92,11 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(6, 25);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(166, 32);
+            this.comboBox1.Size = new System.Drawing.Size(186, 27);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.Leave += new System.EventHandler(this.comboBox1_Leave);
             // 
@@ -105,7 +105,7 @@
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Location = new System.Drawing.Point(581, 25);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(183, 69);
+            this.groupBox2.Size = new System.Drawing.Size(162, 69);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "نوع الكمية";
@@ -117,7 +117,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(6, 25);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(170, 32);
+            this.comboBox2.Size = new System.Drawing.Size(148, 32);
             this.comboBox2.TabIndex = 1;
             this.comboBox2.Leave += new System.EventHandler(this.comboBox2_Leave);
             // 
@@ -331,11 +331,11 @@
             // 
             // comboBox5
             // 
-            this.comboBox5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(6, 25);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(439, 32);
+            this.comboBox5.Size = new System.Drawing.Size(439, 27);
             this.comboBox5.TabIndex = 9;
             // 
             // groupBox13
@@ -350,11 +350,11 @@
             // 
             // comboBox6
             // 
-            this.comboBox6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Location = new System.Drawing.Point(6, 25);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(467, 32);
+            this.comboBox6.Size = new System.Drawing.Size(467, 27);
             this.comboBox6.TabIndex = 10;
             // 
             // groupBox12

@@ -41,9 +41,13 @@ namespace StoreManagement
             comboBox2.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox3.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox3.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBox4.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBox5.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBox5.AutoCompleteSource = AutoCompleteSource.ListItems;
             getDate1();
             ConfDate();
-            ////////////
+            //////////// 
             changeLanguage();
             MessageBoxManager.Yes = "نعم";
             MessageBoxManager.No = "الغاء";
@@ -63,7 +67,12 @@ namespace StoreManagement
             comboBox3.DisplayMember = "اسم العملة";
             comboBox3.ValueMember = "رقم العملة";
             comboBox3.DataSource = dbsql.GetAllCurrency();
-
+            comboBox4.ValueMember = "الرقم";
+            comboBox4.DisplayMember = "نوع الحساب";
+            comboBox4.DataSource = dbsql.GetAllDebit();
+            comboBox5.ValueMember = "الرقم";
+            comboBox5.DisplayMember = "نوع الحساب";
+            comboBox5.DataSource = dbsql.GetAllDebit();
         }
         /////////////////////////////////
         ////////////////
@@ -93,6 +102,8 @@ namespace StoreManagement
             comboBox1.SelectedValue = Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString());
             comboBox2.SelectedValue = Convert.ToInt32(dt.Rows[0]["IDType"].ToString());
             comboBox3.SelectedValue = Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString());
+            comboBox4.SelectedValue= Convert.ToInt32(dt.Rows[0]["Debit"].ToString());
+            comboBox5.SelectedValue = Convert.ToInt32(dt.Rows[0]["Creditor"].ToString());
             textBox1.Text = dt.Rows[0]["Quntity"].ToString();
             textBox2.Text = dt.Rows[0]["Price"].ToString();
             textBox4.Text = dt.Rows[0]["NameSupply"].ToString();
@@ -109,7 +120,7 @@ namespace StoreManagement
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length > 0 && textBox2.Text.Length > 0 && (int)comboBox1.SelectedValue > 0 && (int)comboBox2.SelectedValue > 0 &&(int)comboBox3.SelectedValue>0 && textBox5.Text.Length>0)
+            if (textBox1.Text.Length > 0 && textBox2.Text.Length > 0 && (int)comboBox1.SelectedValue > 0 && (int)comboBox4.SelectedValue > 0 && (int)comboBox5.SelectedValue > 0 && (int)comboBox2.SelectedValue > 0 &&(int)comboBox3.SelectedValue>0 && textBox5.Text.Length>0)
             {
                 if ((MessageBox.Show("هل تريد ترحيل طلب  تعديل التوريد واعتماده ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                 {   ////////////////////////////////////
@@ -130,6 +141,8 @@ namespace StoreManagement
                             int IDCAT = (int)comboBox1.SelectedValue;
                             int IDTYPE = (int)comboBox2.SelectedValue;
                             int idcurrn = (int)comboBox3.SelectedValue;
+                            int debit= (int)comboBox4.SelectedValue;
+                            int crd= (int)comboBox5.SelectedValue;
                             string nameNEW = textBox4.Text;
                             string decNew = textBox5.Text;
                             int idAcount = dbsql.CheckAccountIsHere(IDCAT, IDTYPE, NewPrice, idcurrn);
@@ -151,7 +164,7 @@ namespace StoreManagement
                             /////////////////////////////////
                             ///////////////////////////////////////////////////////////////
                             // عملية التعديل في جدول التوريد
-                            dbsql.UPateRequstSupply(IDSupply, IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn, nameNEW, dt.Rows[0]["DescSupply"].ToString());
+                            dbsql.UPateRequstSupply(IDSupply, IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn, nameNEW, dt.Rows[0]["DescSupply"].ToString(), debit, crd);
                             //////////////////
                             ////////////
                             // عملية الحفظ في جدول التعديلات
