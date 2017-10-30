@@ -76,9 +76,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Location = new System.Drawing.Point(730, 25);
+            this.groupBox1.Location = new System.Drawing.Point(633, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(219, 70);
+            this.groupBox1.Size = new System.Drawing.Size(316, 70);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "اسم الصنف ";
@@ -90,7 +90,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(6, 22);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(206, 27);
+            this.comboBox1.Size = new System.Drawing.Size(304, 27);
             this.comboBox1.TabIndex = 0;
             // 
             // groupBox2
@@ -98,7 +98,7 @@
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Location = new System.Drawing.Point(499, 25);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(225, 70);
+            this.groupBox2.Size = new System.Drawing.Size(128, 70);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "نوع الكمية";
@@ -110,7 +110,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(7, 22);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(212, 30);
+            this.comboBox2.Size = new System.Drawing.Size(115, 30);
             this.comboBox2.TabIndex = 1;
             // 
             // groupBox3
