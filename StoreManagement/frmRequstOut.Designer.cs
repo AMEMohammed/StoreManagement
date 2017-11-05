@@ -127,7 +127,7 @@
             this.groupBox3.Location = new System.Drawing.Point(286, 25);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(184, 69);
-            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "الجهة المستفيدة";
             this.toolTip1.SetToolTip(this.groupBox3, "اختار الجهة المستفيدة من الطلب");
@@ -139,7 +139,7 @@
             this.comboBox3.Location = new System.Drawing.Point(6, 25);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(174, 32);
-            this.comboBox3.TabIndex = 2;
+            this.comboBox3.TabIndex = 3;
             // 
             // groupBox4
             // 
@@ -363,7 +363,7 @@
             this.groupBox12.Location = new System.Drawing.Point(476, 25);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Size = new System.Drawing.Size(99, 69);
-            this.groupBox12.TabIndex = 3;
+            this.groupBox12.TabIndex = 2;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "العملة";
             this.toolTip1.SetToolTip(this.groupBox12, "اختر العملة");
@@ -375,7 +375,7 @@
             this.comboBox4.Location = new System.Drawing.Point(6, 25);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(87, 30);
-            this.comboBox4.TabIndex = 3;
+            this.comboBox4.TabIndex = 2;
             this.comboBox4.Leave += new System.EventHandler(this.comboBox4_Leave);
             // 
             // groupBox11
