@@ -166,7 +166,7 @@
             this.groupBox7.Size = new System.Drawing.Size(589, 63);
             this.groupBox7.TabIndex = 6;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "ملاحظات";
+            this.groupBox7.Text = "وصف";
             // 
             // textBox5
             // 

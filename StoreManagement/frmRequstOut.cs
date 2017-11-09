@@ -100,6 +100,7 @@ namespace StoreManagement
                 comboBox4.DataSource = dbsql.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue);
                 textBox1.Text = "";
                 textBox2.Text = "";
+                textBox5.Text = "";
                 dataGridView1.DataSource = dbsql.SearchINRequstOutDate(DateTime.Now.Date, DateTime.Now); // جلب طلبات الصرف لليوم الحالي
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[12].Visible = false;
@@ -260,7 +261,7 @@ namespace StoreManagement
                             comboBox3.Enabled = false;
                             textBox3.Enabled = false;
                             textBox4.Enabled = false;
-                            textBox5.Enabled = false;
+                        
                             comboBox5.Enabled = false;
                             comboBox6.Enabled = false;
                             flagAddAgin = true;

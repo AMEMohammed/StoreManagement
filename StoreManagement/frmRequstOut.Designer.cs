@@ -230,7 +230,7 @@
             this.groupBox8.Size = new System.Drawing.Size(942, 69);
             this.groupBox8.TabIndex = 8;
             this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "المحلاظات";
+            this.groupBox8.Text = "وصف";
             this.toolTip1.SetToolTip(this.groupBox8, "ادخل ملاحظات");
             // 
             // textBox5

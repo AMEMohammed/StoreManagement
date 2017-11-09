@@ -104,9 +104,10 @@ namespace StoreManagement
          
         
           
-            rt.SetDataSource(dtttt);
+            rt.SetDataSource(dtttt); 
 
             crystalReportViewer1.ReportSource = rt;
+          rt.PrintToPrinter(1, false, 0, 0); //print dicret
             crystalReportViewer1.Refresh();
 
         }
@@ -114,13 +115,10 @@ namespace StoreManagement
         public void PrintReSupply(int id)
         {
 
-            RPT.RptRqustSupply rt = new RPT.RptRqustSupply();
-            
-           
-           
-               
+            RPT.RptRqustSupply rt = new RPT.RptRqustSupply();                          
             rt.SetDataSource(dbsql.PrintRequstSupply(id,Contrl.UserId));
             crystalReportViewer1.ReportSource = rt;
+
             crystalReportViewer1.Refresh();
         }
         ////
@@ -129,6 +127,7 @@ namespace StoreManagement
           
             RPT.RptRequstSupplyAll rt = new RPT.RptRequstSupplyAll();
             rt.SetDataSource(dtt);
+ 
             crystalReportViewer1.ReportSource = rt;
             crystalReportViewer1.Refresh();
         }
