@@ -118,7 +118,7 @@ namespace StoreManagement
             RPT.RptRqustSupply rt = new RPT.RptRqustSupply();                          
             rt.SetDataSource(dbsql.PrintRequstSupply(id,Contrl.UserId));
             crystalReportViewer1.ReportSource = rt;
-
+            rep
             crystalReportViewer1.Refresh();
         }
         ////
