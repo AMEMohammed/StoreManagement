@@ -46,6 +46,7 @@ namespace StoreManagement
                 try
                 {
                     dbsql.AddNewCategory(textBox1.Text);
+                   
                     Refersh1();
                     textBox1.Focus();
                 }

@@ -129,7 +129,7 @@ namespace StoreManagement
                 {
                     int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[11].Value.ToString());
                     this.Cursor = Cursors.WaitCursor;
-                    frmREPORT frm = new frmREPORT(id, 1);
+                    frmREPORT frm = new frmREPORT(id, 1,Contrl.UserId);
                     frm.ShowDialog();
                     this.Cursor = Cursors.Default;
                 }

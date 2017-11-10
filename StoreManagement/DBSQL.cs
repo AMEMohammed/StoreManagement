@@ -681,13 +681,14 @@ namespace StoreManagement
         }
         ////////////////
         //////// print requst out
-        public DataTable PrintRequstOut(int Check,int UserId)
+        public DataTable PrintRequstOut(int Check,int UserId,int user)
         {
             DataTable dt = new DataTable();
-
-            cmd = new SqlCommand("select RequstOut.IDOut as  'رقم الطلب',Category.NameCategory as 'اسم الصنف',TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف',Users.Name as 'اسم الموظف',RequstOut.DesOut as 'الملاحظات' ,Debit.NameTypeAccount as 'مدين' ,Creditor.NameTypeAccount as 'دائن'  from Users,RequstOut,Category,TypeQuntity,PlaceSend,Currency,Debit,Creditor where RequstOut.IDCategory = Category.IDCategory and Users.UserID=@idUser and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency and Debit.IdTypeAccount=RequstOut.Debit and Creditor.IdTypeAccount=RequstOut.Creditor  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack=@check", con);
+            
+            cmd = new SqlCommand("select RequstOut.IDOut as  'رقم الطلب',Category.NameCategory as 'اسم الصنف',TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف',Users.Name as 'اسم الموظف',RequstOut.DesOut as 'الملاحظات' ,Debit.NameTypeAccount as 'مدين' ,Creditor.NameTypeAccount as 'دائن'  from Users,RequstOut,Category,TypeQuntity,PlaceSend,Currency,Debit,Creditor where RequstOut.IDCategory = Category.IDCategory and Users.UserID=@idUser and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency and Debit.IdTypeAccount=RequstOut.Debit and Creditor.IdTypeAccount=RequstOut.Creditor  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack=@check and RequstOut.UserId=@uuu ", con);
             cmd.Parameters.AddWithValue("@check", Check);
             cmd.Parameters.AddWithValue("@idUser", UserId);
+            cmd.Parameters.AddWithValue("@uuu", user);
             cmd.CommandType = CommandType.Text;
             adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dt);
@@ -775,13 +776,14 @@ namespace StoreManagement
         /////////////////////
         ////////////////////////////////////////////
         /////// GetRequstSupply
-        public DataTable PrintRequstSupply(int IDreqSup,int UserId)
+        public DataTable PrintRequstSupply(int IDreqSup,int UserId,int user)
         {
             DataTable dt = new DataTable();
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,  Category.NameCategory  as 'الصنف', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية', RequstSupply.Price as 'السعر'  , RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي' ,Currency.NameCurrency as 'العملة', RequstSupply.DateSupply as 'تاريخ' , RequstSupply.NameSupply  as'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply AS 'ملاحظات',Debit.NameTypeAccount as 'مدين' ,Creditor.NameTypeAccount as 'دائن'  from Debit,Creditor ,Category,Users,TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and Debit.IdTypeAccount=RequstSupply.Debit and Creditor.IdTypeAccount=RequstSupply.Creditor and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency and Users.UserID=@UserId  and RequstSupply.chek =@id", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,  Category.NameCategory  as 'الصنف', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية', RequstSupply.Price as 'السعر'  , RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي' ,Currency.NameCurrency as 'العملة', RequstSupply.DateSupply as 'تاريخ' , RequstSupply.NameSupply  as'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply AS 'ملاحظات',Debit.NameTypeAccount as 'مدين' ,Creditor.NameTypeAccount as 'دائن'  from Debit,Creditor ,Category,Users,TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and Debit.IdTypeAccount=RequstSupply.Debit and Creditor.IdTypeAccount=RequstSupply.Creditor and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency and Users.UserID=@UserId  and RequstSupply.chek =@id and RequstSupply.UserId =@uuu ", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@id",IDreqSup);
             cmd.Parameters.AddWithValue("@UserId", UserId);
+            cmd.Parameters.AddWithValue("@uuu", user);
             adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dt);
             return dt;
@@ -1831,6 +1833,30 @@ namespace StoreManagement
             adapter.Fill(dt);
             return dt;
 
+        }
+        public int GetIdUser(string NameUser)
+        {
+            int reslt = 0;
+            cmd = new SqlCommand("select UserID from Users where Name=@name ", con);
+
+            cmd.Parameters.AddWithValue("@name",NameUser);
+            con.Open();
+            try
+            {
+                reslt = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                reslt = 0;
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return reslt;
         }
     }
 

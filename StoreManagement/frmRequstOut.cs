@@ -272,7 +272,7 @@ namespace StoreManagement
                             flagAddAgin = false;
                             if ((MessageBox.Show("هل تريد طباعة سند صرف؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                             {
-                                frmREPORT frm = new frmREPORT(MaxCheckRequstOut, 2);
+                                frmREPORT frm = new frmREPORT(MaxCheckRequstOut, 2,Contrl.UserId);
                                 frm.ShowDialog();
                                 refrsh1();
                             }
@@ -354,7 +354,9 @@ namespace StoreManagement
                 {
 
                     int IDcheck = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[13].Value.ToString());
-                    frmREPORT frm = new frmREPORT(IDcheck, 2);
+             //      string name = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
+                  
+                    frmREPORT frm = new frmREPORT(IDcheck, 2,Contrl.UserId);
                     this.Cursor = Cursors.WaitCursor;
                     frm.ShowDialog();
                     this.Cursor = Cursors.Default;

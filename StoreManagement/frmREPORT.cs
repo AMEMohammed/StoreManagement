@@ -15,6 +15,7 @@ namespace StoreManagement
         DBSQL dbsql = new DBSQL();
         int Tag1 = -1;
         int Id = -1;
+        int user = 0;
         DataTable dt1 =new DataTable();
         public frmREPORT()
         {
@@ -27,6 +28,15 @@ namespace StoreManagement
             Tag1 = tag;
 
         }
+        public frmREPORT(int id, int tag,int userid)
+        {
+            InitializeComponent();
+            Id = id;
+            Tag1 = tag;
+            user = userid;
+
+        }
+
         public frmREPORT(int tag, DataTable dt)
         {
             InitializeComponent();
@@ -92,22 +102,14 @@ namespace StoreManagement
 
         public void PrintReOut(int id)
         {
-
-            
             RPT.RequstOut rt = new RPT.RequstOut();
             DataTable dtttt = new DataTable();
-            dtttt = dbsql.PrintRequstOut(id,Contrl.UserId);
-          
-      
-            
-           
+            dtttt = dbsql.PrintRequstOut(id,Contrl.UserId,user);
          
-        
-          
             rt.SetDataSource(dtttt); 
 
             crystalReportViewer1.ReportSource = rt;
-          rt.PrintToPrinter(1, false, 0, 0); //print dicret
+       //   rt.PrintToPrinter(1, false, 0, 0); //print dicret
             crystalReportViewer1.Refresh();
 
         }
@@ -116,9 +118,9 @@ namespace StoreManagement
         {
 
             RPT.RptRqustSupply rt = new RPT.RptRqustSupply();                          
-            rt.SetDataSource(dbsql.PrintRequstSupply(id,Contrl.UserId));
+            rt.SetDataSource(dbsql.PrintRequstSupply(id,Contrl.UserId,user));
             crystalReportViewer1.ReportSource = rt;
-            rep
+            
             crystalReportViewer1.Refresh();
         }
         ////
