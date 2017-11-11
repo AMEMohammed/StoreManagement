@@ -199,7 +199,8 @@ namespace StoreManagement
                 try
                 {
                     int IDcheck = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[13].Value.ToString());
-                    frmREPORT frm = new frmREPORT(IDcheck, 2,Contrl.UserId);
+                    string name = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
+                    frmREPORT frm = new frmREPORT(IDcheck, 2,dbsql.GetIdUser(name));
                     this.Cursor = Cursors.WaitCursor;
                     frm.ShowDialog();
                     this.Cursor = Cursors.Default;

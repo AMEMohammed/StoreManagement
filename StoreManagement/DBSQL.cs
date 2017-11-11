@@ -1837,14 +1837,15 @@ namespace StoreManagement
         public int GetIdUser(string NameUser)
         {
             int reslt = 0;
-            cmd = new SqlCommand("select UserID from Users where Name=@name ", con);
+       
+            cmd = new SqlCommand("select UserID from Users where Name=N'"+NameUser+"' ", con);
 
-            cmd.Parameters.AddWithValue("@name",NameUser);
+        
             con.Open();
             try
-            {
-                reslt = cmd.ExecuteNonQuery();
-
+           {
+                reslt =(int) cmd.ExecuteScalar();
+             
             }
             catch (Exception ex)
             {
