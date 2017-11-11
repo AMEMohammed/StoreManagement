@@ -696,12 +696,51 @@ namespace StoreManagement
            
             return dt;
         }
+       /// <summary>
+       /// ////// print exit Rerquset
+       /// </summary>
+       /// <param name="Check"></param>
+       /// <param name="UserId"></param>
+       /// <param name="user"></param>
+       /// <returns></returns>
+        public DataTable printrequstOutExit(int Check, int UserId, int user)
+        {
+            DataTable dt = new DataTable();
+
+            cmd = new SqlCommand("select RequstOut.IDOut as  'الرقم المخزني',Category.NameCategory as 'الاسم',TypeQuntity.NameType as 'النوع',RequstOut.Quntity as'الكمية',RequstOut.NameSend as'اسم المستلم',Users.Name as 'اسم الموظف' ,Users.Name as 'العنوان'  from Users,RequstOut,Category,TypeQuntity,PlaceSend,Currency,Debit,Creditor where RequstOut.IDCategory = Category.IDCategory and Users.UserID=@idUser and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency and Debit.IdTypeAccount=RequstOut.Debit and Creditor.IdTypeAccount=RequstOut.Creditor  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack=@check and RequstOut.UserId=@uuu ", con);
+            cmd.Parameters.AddWithValue("@check", Check);
+            cmd.Parameters.AddWithValue("@idUser", UserId);
+            cmd.Parameters.AddWithValue("@uuu", user);
+            cmd.CommandType = CommandType.Text;
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+/// <summary>
+///
+/// </summary>
+/// <param name="Check"></param>
+/// <param name="UserId"></param>
+/// <param name="user"></param>
+/// <returns></returns>
+        public DataTable printrequstOutExit1(int IDreqSup, int UserId, int user)
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("select IDSupply as 'الرقم المخزني' ,  Category.NameCategory  as 'الاسم', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية',    RequstSupply.NameSupply  as'اسم المستلم',Users.Name as 'اسم الموظف' , Users.Name as 'العنوان'  from Debit,Creditor ,Category,Users,TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and Debit.IdTypeAccount=RequstSupply.Debit and Creditor.IdTypeAccount=RequstSupply.Creditor and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency and Users.UserID=@UserId  and RequstSupply.chek =@id and RequstSupply.UserId =@uuu ", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@id", IDreqSup);
+            cmd.Parameters.AddWithValue("@UserId", UserId);
+            cmd.Parameters.AddWithValue("@uuu", user);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
         /// <summary>
         /// / جلب الاجمالي حق الطلبات المحددة
         /// </summary>
         /// <param name="check"></param>
         /// <returns></returns>
-       public int GetPraceInRequstOut(int check)
+        public int GetPraceInRequstOut(int check)
         {
             int r = 0;
             cmd = new SqlCommand("select  SUM((RequstOut.Price*RequstOut.Quntity)) as totle  from RequstOut where RequstOut.Chack=@check", con);

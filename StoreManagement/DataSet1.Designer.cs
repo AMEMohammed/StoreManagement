@@ -4100,7 +4100,7 @@ namespace StoreManagement {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class exit1DataTable : global::System.Data.TypedTableBase<exit1Row> {
             
-            private global::System.Data.DataColumn columnالرقم;
+            private global::System.Data.DataColumn columnاسم_المستلم;
             
             private global::System.Data.DataColumn columnالرقم_المخزني;
             
@@ -4109,6 +4109,10 @@ namespace StoreManagement {
             private global::System.Data.DataColumn columnالكمية;
             
             private global::System.Data.DataColumn columnالنوع;
+            
+            private global::System.Data.DataColumn columnاسم_الموظف;
+            
+            private global::System.Data.DataColumn columnالعنوان;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -4145,9 +4149,9 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn الرقمColumn {
+            public global::System.Data.DataColumn اسم_المستلمColumn {
                 get {
-                    return this.columnالرقم;
+                    return this.columnاسم_المستلم;
                 }
             }
             
@@ -4180,6 +4184,22 @@ namespace StoreManagement {
             public global::System.Data.DataColumn النوعColumn {
                 get {
                     return this.columnالنوع;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn اسم_الموظفColumn {
+                get {
+                    return this.columnاسم_الموظف;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn العنوانColumn {
+                get {
+                    return this.columnالعنوان;
                 }
             }
             
@@ -4220,14 +4240,16 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public exit1Row Addexit1Row(string الرقم, string الرقم_المخزني, string الاسم, string الكمية, string النوع) {
+            public exit1Row Addexit1Row(string اسم_المستلم, string الرقم_المخزني, string الاسم, string الكمية, string النوع, string اسم_الموظف, string العنوان) {
                 exit1Row rowexit1Row = ((exit1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        الرقم,
+                        اسم_المستلم,
                         الرقم_المخزني,
                         الاسم,
                         الكمية,
-                        النوع};
+                        النوع,
+                        اسم_الموظف,
+                        العنوان};
                 rowexit1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowexit1Row);
                 return rowexit1Row;
@@ -4250,18 +4272,20 @@ namespace StoreManagement {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnالرقم = base.Columns["الرقم"];
+                this.columnاسم_المستلم = base.Columns["اسم المستلم"];
                 this.columnالرقم_المخزني = base.Columns["الرقم المخزني"];
                 this.columnالاسم = base.Columns["الاسم"];
                 this.columnالكمية = base.Columns["الكمية"];
                 this.columnالنوع = base.Columns["النوع"];
+                this.columnاسم_الموظف = base.Columns["اسم الموظف"];
+                this.columnالعنوان = base.Columns["العنوان"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnالرقم = new global::System.Data.DataColumn("الرقم", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnالرقم);
+                this.columnاسم_المستلم = new global::System.Data.DataColumn("اسم المستلم", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_المستلم);
                 this.columnالرقم_المخزني = new global::System.Data.DataColumn("الرقم المخزني", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnالرقم_المخزني);
                 this.columnالاسم = new global::System.Data.DataColumn("الاسم", typeof(string), null, global::System.Data.MappingType.Element);
@@ -4270,6 +4294,10 @@ namespace StoreManagement {
                 base.Columns.Add(this.columnالكمية);
                 this.columnالنوع = new global::System.Data.DataColumn("النوع", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnالنوع);
+                this.columnاسم_الموظف = new global::System.Data.DataColumn("اسم الموظف", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_الموظف);
+                this.columnالعنوان = new global::System.Data.DataColumn("العنوان", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnالعنوان);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7347,17 +7375,17 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string الرقم {
+            public string اسم_المستلم {
                 get {
                     try {
-                        return ((string)(this[this.tableexit1.الرقمColumn]));
+                        return ((string)(this[this.tableexit1.اسم_المستلمColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'الرقم\' in table \'exit1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'اسم المستلم\' in table \'exit1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableexit1.الرقمColumn] = value;
+                    this[this.tableexit1.اسم_المستلمColumn] = value;
                 }
             }
             
@@ -7427,14 +7455,46 @@ namespace StoreManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsالرقمNull() {
-                return this.IsNull(this.tableexit1.الرقمColumn);
+            public string اسم_الموظف {
+                get {
+                    try {
+                        return ((string)(this[this.tableexit1.اسم_الموظفColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'اسم الموظف\' in table \'exit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableexit1.اسم_الموظفColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetالرقمNull() {
-                this[this.tableexit1.الرقمColumn] = global::System.Convert.DBNull;
+            public string العنوان {
+                get {
+                    try {
+                        return ((string)(this[this.tableexit1.العنوانColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'العنوان\' in table \'exit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableexit1.العنوانColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isاسم_المستلمNull() {
+                return this.IsNull(this.tableexit1.اسم_المستلمColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setاسم_المستلمNull() {
+                this[this.tableexit1.اسم_المستلمColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7483,6 +7543,30 @@ namespace StoreManagement {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetالنوعNull() {
                 this[this.tableexit1.النوعColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isاسم_الموظفNull() {
+                return this.IsNull(this.tableexit1.اسم_الموظفColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setاسم_الموظفNull() {
+                this[this.tableexit1.اسم_الموظفColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsالعنوانNull() {
+                return this.IsNull(this.tableexit1.العنوانColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetالعنوانNull() {
+                this[this.tableexit1.العنوانColumn] = global::System.Convert.DBNull;
             }
         }
         

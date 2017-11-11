@@ -130,7 +130,18 @@ namespace StoreManagement
                     int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[11].Value.ToString());
                     string name = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
                     this.Cursor = Cursors.WaitCursor;
-                    frmREPORT frm = new frmREPORT(id, 1,dbsql.GetIdUser(name));
+                    bool printExit = false;
+                    if (checkBox2.Checked)
+                    {
+                        printExit = true;
+                    }
+                    else
+                    {
+                        printExit = false;
+                    }
+                 
+
+                    frmREPORT frm = new frmREPORT(id, 1,dbsql.GetIdUser(name),printExit);
                     frm.ShowDialog();
                     this.Cursor = Cursors.Default;
                 }

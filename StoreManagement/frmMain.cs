@@ -30,6 +30,10 @@ namespace StoreManagement
                 MessageBox.Show("تمت عملية انشاء نسخة احتياطية بنجاح");
                 Application.Exit();
             }
+           else
+            {
+                Application.Exit();
+            }
         }
 
        void checkIcon(bool check)

@@ -16,6 +16,7 @@ namespace StoreManagement
         int Tag1 = -1;
         int Id = -1;
         int user = 0;
+        bool printexit = false;
         DataTable dt1 =new DataTable();
         public frmREPORT()
         {
@@ -28,12 +29,13 @@ namespace StoreManagement
             Tag1 = tag;
 
         }
-        public frmREPORT(int id, int tag,int userid)
+        public frmREPORT(int id, int tag,int userid,bool print1)
         {
             InitializeComponent();
             Id = id;
             Tag1 = tag;
             user = userid;
+            printexit = print1;
 
         }
 
@@ -103,14 +105,30 @@ namespace StoreManagement
         public void PrintReOut(int id)
         {
             RPT.RequstOut rt = new RPT.RequstOut();
-            DataTable dtttt = new DataTable();
-            dtttt = dbsql.PrintRequstOut(id,Contrl.UserId,user);
+           DataTable dtttt = new DataTable();
+           dtttt = dbsql.PrintRequstOut(id,Contrl.UserId,user);
          
-            rt.SetDataSource(dtttt); 
+           rt.SetDataSource(dtttt); 
 
-            crystalReportViewer1.ReportSource = rt;
-       //   rt.PrintToPrinter(1, false, 0, 0); //print dicret
-            crystalReportViewer1.Refresh();
+           crystalReportViewer1.ReportSource = rt;
+        
+           crystalReportViewer1.Refresh();
+            if (printexit == true)
+            {
+                DataTable dtt1 = new DataTable();
+                RPT.ExitStatement rt1 = new RPT.ExitStatement();
+                dtt1 = dbsql.printrequstOutExit(id, Contrl.UserId, user);
+            
+                for (int i = 0; i < dtt1.Rows.Count; i++)
+                {
+                   dtt1.Rows[i][6] = "تصريح خروج مواد";
+                }
+                rt1.SetDataSource(dtt1);
+                // rt1.PrintToPrinter(1, false, 0, 0); //print dicret
+                crystalReportViewer1.ReportSource = rt1;
+
+                crystalReportViewer1.Refresh();
+            }
 
         }
         ///////
@@ -122,6 +140,23 @@ namespace StoreManagement
             crystalReportViewer1.ReportSource = rt;
             
             crystalReportViewer1.Refresh();
+            if (printexit == true)
+            {
+                DataTable dtt1 = new DataTable();
+                RPT.ExitStatement rt1 = new RPT.ExitStatement();
+                dtt1 = dbsql.printrequstOutExit1(id, Contrl.UserId, user);
+                for(int i=0;i<dtt1.Rows.Count;i++)
+                {
+                    dtt1.Rows[i][4] = "مسؤول المخازن";
+                    dtt1.Rows[i][6] = "تصريح توريد مخزني";
+                }
+                rt1.SetDataSource(dtt1);
+                crystalReportViewer1.ReportSource = rt1;
+
+                crystalReportViewer1.Refresh();
+                //   rt1.PrintToPrinter(1, false, 0, 0); //print dicret
+
+            }
         }
         ////
         public void PrintSupplyAll(DataTable dtt)

@@ -183,8 +183,16 @@ namespace StoreManagement
                                     {
                                         Refrsh1();
                                         int IDRequstSupply = dbsql.GetMaxCheckSupply();
-
-                                        frmREPORT frmr = new frmREPORT(IDRequstSupply, 1,Contrl.UserId);
+                                        bool printExit = false;
+                                        if (checkBox1.Checked)
+                                        {
+                                            printExit = true;
+                                        }
+                                        else
+                                        {
+                                            printExit = false;
+                                        }
+                                        frmREPORT frmr = new frmREPORT(IDRequstSupply, 1,Contrl.UserId,printExit);
 
                                         frmr.ShowDialog();
                                     }
@@ -244,7 +252,7 @@ namespace StoreManagement
             textBox1.Text = "";
             textBox2.Text = "";
 
-            textBox4.Text = "";
+          //  textBox4.Text = "";
             textBox5.Text = "";
             comboBox4.Enabled = false;
             comboBox5.Enabled = false;
@@ -277,12 +285,26 @@ namespace StoreManagement
                     string name = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
 
                     this.Cursor = Cursors.WaitCursor;
-                    frmREPORT frm = new frmREPORT(id, 1,dbsql.GetIdUser(name));
+                    bool printExit = false;
+                    if (checkBox1.Checked)
+                    {
+                        printExit = true;
+                    }
+                    else
+                    {
+                        printExit = false;
+                    }
+                    frmREPORT frm = new frmREPORT(id, 1,dbsql.GetIdUser(name),printExit);
                     frm.ShowDialog();
                     this.Cursor = Cursors.Default;
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
         /////////
 

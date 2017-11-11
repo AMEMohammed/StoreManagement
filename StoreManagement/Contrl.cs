@@ -9,5 +9,6 @@ namespace StoreManagement
     {
 
         static public int UserId;
+     
     }
 }
