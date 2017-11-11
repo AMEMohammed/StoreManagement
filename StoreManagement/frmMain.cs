@@ -22,9 +22,12 @@ namespace StoreManagement
         }
 
         private void الخروجمنالنظامToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if ((MessageBox.Show("هل تريد الخروج من النظام ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+        {   
+            if ((MessageBox.Show("هل تريد عمل نسخة احتياطية قبل الخروج من النظام ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
             {
+                string path = Properties.Settings.Default.pathbukup + "\\StoreManagement" + DateTime.Now.ToShortDateString().Replace('/', '-') + DateTime.Now.ToShortTimeString().Replace(':', '-') + ".bak";
+                dbsql.BuckUpdatabase(path);
+                MessageBox.Show("تمت عملية انشاء نسخة احتياطية بنجاح");
                 Application.Exit();
             }
         }

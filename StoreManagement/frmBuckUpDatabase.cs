@@ -27,6 +27,8 @@ namespace StoreManagement
                 {
                     string path = textBox1.Text + "\\StoreManagement" + DateTime.Now.ToShortDateString().Replace('/', '-')+DateTime.Now.ToShortTimeString().Replace(':','-')+".bak";
                     dbsql.BuckUpdatabase(path);
+                    Properties.Settings.Default.pathbukup = textBox1.Text ;
+                    Properties.Settings.Default.Save();
                     MessageBox.Show("تمت عملية انشاء نسخة احتياطية بنجاح");
                     textBox1.Text = "";
                 }
@@ -75,6 +77,7 @@ namespace StoreManagement
         private void frmBuckUpDatabase_Load(object sender, EventArgs e)
         {
             this.BackColor = Properties.Settings.Default.colorBackGround;
+            textBox1.Text = Properties.Settings.Default.pathbukup;
         }
     }
 }
