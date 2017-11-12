@@ -29,9 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.عددالاسطرالمحددةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.عددكلالاسطرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.اجماليالكميةالمحددةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.اجماليالسعرالمحددToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
@@ -60,8 +65,10 @@
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.اجماليالاجماليالمحددToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -88,22 +95,62 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(6, 25);
-            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(943, 426);
             this.dataGridView1.TabIndex = 12;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.عددالاسطرالمحددةToolStripMenuItem,
+            this.عددكلالاسطرToolStripMenuItem,
+            this.اجماليالكميةالمحددةToolStripMenuItem,
+            this.اجماليالسعرالمحددToolStripMenuItem,
+            this.اجماليالاجماليالمحددToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 114);
+            // 
+            // عددالاسطرالمحددةToolStripMenuItem
+            // 
+            this.عددالاسطرالمحددةToolStripMenuItem.Name = "عددالاسطرالمحددةToolStripMenuItem";
+            this.عددالاسطرالمحددةToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.عددالاسطرالمحددةToolStripMenuItem.Text = "عدد الاسطر المحددة";
+            this.عددالاسطرالمحددةToolStripMenuItem.Click += new System.EventHandler(this.عددالاسطرالمحددةToolStripMenuItem_Click);
+            // 
+            // عددكلالاسطرToolStripMenuItem
+            // 
+            this.عددكلالاسطرToolStripMenuItem.Name = "عددكلالاسطرToolStripMenuItem";
+            this.عددكلالاسطرToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.عددكلالاسطرToolStripMenuItem.Text = "عدد كل الاسطر";
+            this.عددكلالاسطرToolStripMenuItem.Click += new System.EventHandler(this.عددكلالاسطرToolStripMenuItem_Click);
+            // 
+            // اجماليالكميةالمحددةToolStripMenuItem
+            // 
+            this.اجماليالكميةالمحددةToolStripMenuItem.Name = "اجماليالكميةالمحددةToolStripMenuItem";
+            this.اجماليالكميةالمحددةToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.اجماليالكميةالمحددةToolStripMenuItem.Text = "اجمالي الكمية المحددة";
+            this.اجماليالكميةالمحددةToolStripMenuItem.Click += new System.EventHandler(this.اجماليالكميةالمحددةToolStripMenuItem_Click);
+            // 
+            // اجماليالسعرالمحددToolStripMenuItem
+            // 
+            this.اجماليالسعرالمحددToolStripMenuItem.Name = "اجماليالسعرالمحددToolStripMenuItem";
+            this.اجماليالسعرالمحددToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.اجماليالسعرالمحددToolStripMenuItem.Text = "اجمالي السعر المحدد";
+            this.اجماليالسعرالمحددToolStripMenuItem.Click += new System.EventHandler(this.اجماليالسعرالمحددToolStripMenuItem_Click);
             // 
             // groupBox5
             // 
@@ -428,6 +475,13 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "تقارير طلبات الصرف";
             // 
+            // اجماليالاجماليالمحددToolStripMenuItem
+            // 
+            this.اجماليالاجماليالمحددToolStripMenuItem.Name = "اجماليالاجماليالمحددToolStripMenuItem";
+            this.اجماليالاجماليالمحددToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.اجماليالاجماليالمحددToolStripMenuItem.Text = "اجمالي الاجمالي المحدد";
+            this.اجماليالاجماليالمحددToolStripMenuItem.Click += new System.EventHandler(this.اجماليالاجماليالمحددToolStripMenuItem_Click);
+            // 
             // frmRPTOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -448,6 +502,7 @@
             this.Load += new System.EventHandler(this.frmRPTOut_Load);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -501,5 +556,11 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem عددالاسطرالمحددةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem عددكلالاسطرToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem اجماليالكميةالمحددةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem اجماليالسعرالمحددToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem اجماليالاجماليالمحددToolStripMenuItem;
     }
 }

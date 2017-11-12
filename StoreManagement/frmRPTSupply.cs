@@ -312,5 +312,73 @@ namespace StoreManagement
                 comboBox4.Enabled = true;
             }
         }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void عددالاسطرالمحددةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                MessageBox.Show(dataGridView1.SelectedRows.Count.ToString());
+            }
+        }
+
+        private void عددجميعالاسطرToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.RowCount > 0)
+            {
+                MessageBox.Show(dataGridView1.RowCount.ToString());
+            }
+        }
+
+        private void اجماليالكميةالمحددةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int count11 = dataGridView1.SelectedRows.Count;
+                int sum = 0;
+                for(int i=0;i<count11;i++)
+                {
+                      sum+= Convert .ToInt32(dataGridView1.SelectedRows[i].Cells[3].Value.ToString());
+                 
+                }
+                 MessageBox.Show(sum.ToString());
+
+            }
+
+        }
+
+        private void اجماليالسعرالمحددToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int count11 = dataGridView1.SelectedRows.Count;
+                int sum = 0;
+                for (int i = 0; i < count11; i++)
+                {
+                    sum += Convert.ToInt32(dataGridView1.SelectedRows[i].Cells[4].Value.ToString());
+                }
+                MessageBox.Show(sum.ToString());
+
+            }
+        }
+
+        private void اجماليالاجماليالمحددToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int count11 = dataGridView1.SelectedRows.Count;
+                int sum = 0;
+                for (int i = 0; i < count11; i++)
+                {
+                    sum += Convert.ToInt32(dataGridView1.SelectedRows[i].Cells[5].Value.ToString());
+                }
+                MessageBox.Show(sum.ToString());
+
+            }
+        }
     }
 }
