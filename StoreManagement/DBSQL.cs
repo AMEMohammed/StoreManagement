@@ -1150,7 +1150,7 @@ namespace StoreManagement
             txt = "%" + txt + "%";
             iduser = "%" + iduser;
             DataTable dt = new DataTable();
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,RequstSupply.IDCurrency) like @IDCu and convert(varchar,RequstSupply.IDType) like @IDTy and convert(varchar,RequstSupply.IDCategory)like @IDCa and convert(varchar,RequstSupply.UserId)like @iduser and  NameSupply like @txt and DateSupply between @d1 and @d2 order by RequstSupply.IDCategory,RequstSupply.IDType,RequstSupply.DateSupply ,RequstSupply.IDCurrency", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,RequstSupply.IDCurrency) like @IDCu and convert(varchar,RequstSupply.IDType) like @IDTy and convert(varchar,RequstSupply.IDCategory)like @IDCa and convert(varchar,RequstSupply.UserId)like @iduser and  NameSupply like @txt and DateSupply between @d1 and @d2 order by RequstSupply.IDSupply", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@IDCa", IDCate);
             cmd.Parameters.AddWithValue("@IDTy", IDType);
@@ -1164,6 +1164,14 @@ namespace StoreManagement
         }
 
         //////////////////////////////
+
+
+
+
+
+
+
+
         //////////////// search in RequsetSupplythwTXT and Date
         public DataTable PrintRequstRPT( string IDCate, string IDType, string IDCurrn, string txt,string iduser)
         { //
@@ -1173,7 +1181,7 @@ namespace StoreManagement
             txt = "%" + txt + "%";
             iduser = "%" + iduser;
             DataTable dt = new DataTable();
-            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,RequstSupply.IDCurrency) like @IDCu and convert(varchar,RequstSupply.IDType) like @IDTy and convert(varchar,RequstSupply.IDCategory)like @IDCa and convert(varchar,RequstSupply.UserId)like @iduser and NameSupply like @txt  order by RequstSupply.IDCategory,RequstSupply.IDType,RequstSupply.DateSupply ,RequstSupply.IDCurrency", con);
+            cmd = new SqlCommand("select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد', RequstSupply.DescSupply as 'ملاحظات' from Category, TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,RequstSupply.IDCurrency) like @IDCu and convert(varchar,RequstSupply.IDType) like @IDTy and convert(varchar,RequstSupply.IDCategory)like @IDCa and convert(varchar,RequstSupply.UserId)like @iduser and NameSupply like @txt  order by RequstSupply.IDSupply", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@IDCa", IDCate);
             cmd.Parameters.AddWithValue("@IDTy", IDType);
@@ -1192,7 +1200,7 @@ namespace StoreManagement
             idtyp = "%" + idtyp;
             idcu = "%" + idcu;
             DataTable dt = new DataTable();
-            cmd = new SqlCommand("select Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية' ,Account.Quntity as 'الكمية الحالية',Account.Price as 'السعر' ,Currency.NameCurrency as 'العملة' from Account,Category,TypeQuntity,Currency where Account.IDCategory=Category.IDCategory and Account.IDType =TypeQuntity.IDType and Account.IDCurrency=Currency.IDCurrency and Account.Quntity>0 and    convert(varchar,Account.IDCategory) like @idcat and convert(varchar,Account.IDType) like @idtyp and convert(varchar,Account.IDCurrency) like @idcur  order by Account.IDCategory,Account.IDType ,Account.IDCurrency", con);
+            cmd = new SqlCommand("select  Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية' ,Account.Quntity as 'الكمية الحالية',Account.Price as 'السعر' ,Currency.NameCurrency as 'العملة' from Account,Category,TypeQuntity,Currency where Account.IDCategory=Category.IDCategory and Account.IDType =TypeQuntity.IDType and Account.IDCurrency=Currency.IDCurrency and Account.Quntity>0 and    convert(varchar,Account.IDCategory) like @idcat and convert(varchar,Account.IDType) like @idtyp and convert(varchar,Account.IDCurrency) like @idcur  order by Account.IDCategory,Account.IDType ,Account.IDCurrency", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@idcat", idcat);
             cmd.Parameters.AddWithValue("@idtyp", idtyp);
@@ -1214,7 +1222,7 @@ namespace StoreManagement
             idcurrnt = "%" + idcurrnt;
             name = "%" + name + "%";
             iduser = "%" + iduser;
-            cmd = new SqlCommand("select RequstOut.IDOut as'رقم الطلب' ,Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace AS 'الجهة المستفيدة' ,RequstOut.Quntity as 'الكمية',RequstOut.Price AS 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as 'الاجمالي' ,Currency.NameCurrency AS 'العملة',RequstOut.NameOut AS 'يصرف بامر',RequstOut.NameSend as 'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,RequstOut.DesOut as 'الملاحظات' from RequstOut,Category,TypeQuntity,Currency,PlaceSend where RequstOut.IDCategory=Category.IDCategory and RequstOut.IDType=TypeQuntity.IDType and RequstOut.IDPlace=PlaceSend.IDPlace and RequstOut.IDCurrency=Currency.IDCurrency and convert(varchar,RequstOut.IDCategory) like @idca and convert(varchar,RequstOut.IDType) like @idty and convert(varchar,RequstOut.UserId) like @iduser and convert(varchar,RequstOut.IDCurrency) like @idcurr and convert(varchar,RequstOut.IDPlace) like @idplac and RequstOut.NameSend like @nmsend and RequstOut.DateOut between @d1 and @d2 order by RequstOut.IDCategory,RequstOut.IDType,RequstOut.DateOut ,RequstSupply.IDCurrency", con);
+            cmd = new SqlCommand("select RequstOut.IDOut as'رقم الطلب' ,Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace AS 'الجهة المستفيدة' ,RequstOut.Quntity as 'الكمية',RequstOut.Price AS 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as 'الاجمالي' ,Currency.NameCurrency AS 'العملة',RequstOut.NameOut AS 'يصرف بامر',RequstOut.NameSend as 'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,RequstOut.DesOut as 'الملاحظات' from RequstOut,Category,TypeQuntity,Currency,PlaceSend where RequstOut.IDCategory=Category.IDCategory and RequstOut.IDType=TypeQuntity.IDType and RequstOut.IDPlace=PlaceSend.IDPlace and RequstOut.IDCurrency=Currency.IDCurrency and convert(varchar,RequstOut.IDCategory) like @idca and convert(varchar,RequstOut.IDType) like @idty and convert(varchar,RequstOut.UserId) like @iduser and convert(varchar,RequstOut.IDCurrency) like @idcurr and convert(varchar,RequstOut.IDPlace) like @idplac and RequstOut.NameSend like @nmsend and RequstOut.DateOut between @d1 and @d2 order by RequstOut.IDOut", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@idca",idca);
             cmd.Parameters.AddWithValue("@idty",idtyp);
@@ -1242,7 +1250,7 @@ namespace StoreManagement
             idcurrnt = "%" + idcurrnt;
             name = "%" + name + "%";
             iduser = "%" + iduser;
-            cmd = new SqlCommand("select RequstOut.IDOut as'رقم الطلب' ,Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace AS 'الجهة المستفيدة' ,RequstOut.Quntity as 'الكمية',RequstOut.Price AS 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as 'الاجمالي' ,Currency.NameCurrency AS 'العملة',RequstOut.NameOut AS 'يصرف بامر',RequstOut.NameSend as 'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,RequstOut.DesOut as 'الملاحظات' from RequstOut,Category,TypeQuntity,Currency,PlaceSend where RequstOut.IDCategory=Category.IDCategory and RequstOut.IDType=TypeQuntity.IDType and RequstOut.IDPlace=PlaceSend.IDPlace and RequstOut.IDCurrency=Currency.IDCurrency and convert(varchar,RequstOut.IDCategory) like @idca and convert(varchar,RequstOut.IDType) like @idty and convert(varchar,RequstOut.IDCurrency) like @idcurr and convert(varchar,RequstOut.UserId) like @iduser and convert(varchar,RequstOut.IDPlace) like @idplac and RequstOut.NameSend like @nmsend order by RequstOut.IDCategory,RequstOut.IDType,RequstOut.DateOut", con);
+            cmd = new SqlCommand("select RequstOut.IDOut as'رقم الطلب' ,Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace AS 'الجهة المستفيدة' ,RequstOut.Quntity as 'الكمية',RequstOut.Price AS 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as 'الاجمالي' ,Currency.NameCurrency AS 'العملة',RequstOut.NameOut AS 'يصرف بامر',RequstOut.NameSend as 'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,RequstOut.DesOut as 'الملاحظات' from RequstOut,Category,TypeQuntity,Currency,PlaceSend where RequstOut.IDCategory=Category.IDCategory and RequstOut.IDType=TypeQuntity.IDType and RequstOut.IDPlace=PlaceSend.IDPlace and RequstOut.IDCurrency=Currency.IDCurrency and convert(varchar,RequstOut.IDCategory) like @idca and convert(varchar,RequstOut.IDType) like @idty and convert(varchar,RequstOut.IDCurrency) like @idcurr and convert(varchar,RequstOut.UserId) like @iduser and convert(varchar,RequstOut.IDPlace) like @idplac and RequstOut.NameSend like @nmsend order by RequstOut.IDOut", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@idca", idca);
             cmd.Parameters.AddWithValue("@idty", idtyp);
@@ -1257,7 +1265,9 @@ namespace StoreManagement
 
 
 
+        
 
+        
 
         /////////////////////////////// 
         ///////////Get form Update supply
@@ -1286,6 +1296,71 @@ namespace StoreManagement
             return dt;
         }
         ////////////////////////////////////////////////////////
+        // get by Date
+        public DataTable GetUpdateSupplyByDate1()
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("SELECT  dbo.UpdSupply.IDUpt as 'رقم', dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد', dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'التعديل' ,Users.Name as 'اسم الموظف' FROM Users, dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency  where UpdSupply.IDCategory=Category.IDCategory and UpdSupply.IDType=TypeQuntity.IDType and UpdSupply.IDCurrency =Currency.IDCurrency and UpdSupply.UserId = Users.UserID  ", con);
+            cmd.CommandType = CommandType.Text;
+          
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        /// <summary>
+        /// ///
+        /// 
+        public DataTable GetUpdateSupplyByDateUpdateWithDate(DateTime d1, DateTime d2)
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("SELECT  dbo.UpdSupply.IDUpt as 'رقم', dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد', dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'التعديل' ,Users.Name as 'اسم الموظف' FROM Users, dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency  where UpdSupply.IDCategory=Category.IDCategory and UpdSupply.IDType=TypeQuntity.IDType and UpdSupply.IDCurrency =Currency.IDCurrency and UpdSupply.UserId = Users.UserID and dbo.UpdSupply.dateUpd between @d1 and @d2  and UpdSupply.DescUpd !=N'تم حذف الطلب' ", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@d1", d1);
+            cmd.Parameters.AddWithValue("@d2", d2);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        ////////////////////////////////////////////////////////
+        // get by Date
+        public DataTable GetUpdateSupplyByDate1Update()
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("SELECT  dbo.UpdSupply.IDUpt as 'رقم', dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد', dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'التعديل' ,Users.Name as 'اسم الموظف' FROM Users, dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency  where UpdSupply.IDCategory=Category.IDCategory and UpdSupply.IDType=TypeQuntity.IDType and UpdSupply.IDCurrency =Currency.IDCurrency and UpdSupply.UserId = Users.UserID and UpdSupply.DescUpd !=N'تم حذف الطلب' ", con);
+            cmd.CommandType = CommandType.Text;
+
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        /// </summary>
+        /// 
+        /// 
+        public DataTable GetUpdateSupplyByDateDeleteWithDate(DateTime d1, DateTime d2)
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("SELECT  dbo.UpdSupply.IDUpt as 'رقم', dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد', dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'التعديل' ,Users.Name as 'اسم الموظف' FROM Users, dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency  where UpdSupply.IDCategory=Category.IDCategory and UpdSupply.IDType=TypeQuntity.IDType and UpdSupply.IDCurrency =Currency.IDCurrency and UpdSupply.UserId = Users.UserID and dbo.UpdSupply.dateUpd between @d1 and @d2  and UpdSupply.DescUpd =N'تم حذف الطلب' ", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@d1", d1);
+            cmd.Parameters.AddWithValue("@d2", d2);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        ////////////////////////////////////////////////////////
+        // get by Date
+        public DataTable GetUpdateSupplyByDate1delete()
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("SELECT  dbo.UpdSupply.IDUpt as 'رقم', dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد', dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'التعديل' ,Users.Name as 'اسم الموظف' FROM Users, dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency  where UpdSupply.IDCategory=Category.IDCategory and UpdSupply.IDType=TypeQuntity.IDType and UpdSupply.IDCurrency =Currency.IDCurrency and UpdSupply.UserId = Users.UserID and UpdSupply.DescUpd =N'تم حذف الطلب' ", con);
+            cmd.CommandType = CommandType.Text;
+
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        /// <param name="IDOutRequst"></param>
+        /// <returns></returns>
         /////////////////////////
         /////
         //
@@ -1419,11 +1494,84 @@ namespace StoreManagement
             adapter.Fill(dt);
             return dt;
         }
-       ////////////////////////////////////////
-       /////////////////
-       ////// users
-       // add new Users
-       public int AddNewUser( string name,string user,string pass,bool supply,bool outt,bool upd,bool printr,bool userAdd,bool Active)
+        /// <summary>
+        /// ///////
+        /// 
+          public DataTable GetUpdOutByDate1()
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("SELECT    dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' ,Users.Name as 'اسم الموظف' FROM  Users, dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.UserId=Users.UserID and  UpdateOut.IdType = TypeQuntity.IDType  ", con);
+
+            adapter = new SqlDataAdapter(cmd);
+        adapter.Fill(dt);
+            return dt;
+        }
+    /// </summary>
+    /// <param name="d1"></param>
+    /// <param name="d2"></param>
+    /// <returns></returns>
+    public DataTable GetUpdOutByDateUpdte()
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("SELECT    dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' ,Users.Name as 'اسم الموظف' FROM  Users, dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.UserId=Users.UserID and  UpdateOut.IdType = TypeQuntity.IDType  and UpdateOut.TxtReson !=N'تم حذف الطلب'", con);
+
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        /// <summary>
+        /// ///////
+        /// </summary>
+        /// <param name="d1"></param>
+        /// <param name="d2"></param>
+        /// <returns></returns>
+        public DataTable GetUpdOutByDateUpdtewithdate(DateTime d1, DateTime d2)
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("SELECT    dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' ,Users.Name as 'اسم الموظف' FROM  Users, dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.UserId=Users.UserID and  UpdateOut.IdType = TypeQuntity.IDType and UpdateOut.DateUpdate between @d1 and @d2 and UpdateOut.TxtReson !=N'تم حذف الطلب'", con);
+            cmd.Parameters.AddWithValue("@d1", d1);
+            cmd.Parameters.AddWithValue("@d2", d2);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        ////////////////////////////////////////
+        /////////////////
+
+        /// </summary>
+        /// <param name="d1"></param>
+        /// <param name="d2"></param>
+        /// <returns></returns>
+        public DataTable GetUpdOutByDatedelte()
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("SELECT    dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' ,Users.Name as 'اسم الموظف' FROM  Users, dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.UserId=Users.UserID and  UpdateOut.IdType = TypeQuntity.IDType  and UpdateOut.TxtReson =N'تم حذف الطلب'", con);
+
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        /// <summary>
+        /// ///////
+        /// </summary>
+        /// <param name="d1"></param>
+        /// <param name="d2"></param>
+        /// <returns></returns>
+        public DataTable GetUpdOutByDateDetle2tewithdate(DateTime d1, DateTime d2)
+        {
+            DataTable dt = new DataTable();
+            cmd = new SqlCommand("SELECT    dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' ,Users.Name as 'اسم الموظف' FROM  Users, dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.UserId=Users.UserID and  UpdateOut.IdType = TypeQuntity.IDType and UpdateOut.DateUpdate between @d1 and @d2 and UpdateOut.TxtReson =N'تم حذف الطلب'", con);
+            cmd.Parameters.AddWithValue("@d1", d1);
+            cmd.Parameters.AddWithValue("@d2", d2);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        ////////////////////////////////////////
+        /////////////////
+        ////// users
+        // add new Users
+        public int AddNewUser( string name,string user,string pass,bool supply,bool outt,bool upd,bool printr,bool userAdd,bool Active)
         {
             int res = 0;
 
@@ -1897,6 +2045,29 @@ namespace StoreManagement
                 con.Close();
             }
             return reslt;
+        }
+        public int delteAccount(int id)
+        {
+
+            int res = 0;
+            cmd = new SqlCommand("delete from Account where IDAccount=@id", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                con.Open();
+                res = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            { con.Close(); }
+
+            return res;
         }
     }
 

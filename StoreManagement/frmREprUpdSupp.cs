@@ -59,14 +59,42 @@ namespace StoreManagement
                 {
                     dataGridView1.DataSource = dbsql.GetUpdateSupplyByIDSupply(Convert.ToInt32(textBox1.Text));
                 }
-                else if (checkBox1.Checked == true)
+                else if (radioButton1.Checked)
                 {
-                    dataGridView1.DataSource = dbsql.GetUpdateSupplyByDate(dateTimePicker1.Value, dateTimePicker2.Value);
+                    if (checkBox1.Checked == true)
+                    {
+                        dataGridView1.DataSource = dbsql.GetUpdateSupplyByDate(dateTimePicker1.Value, dateTimePicker2.Value);
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource = dbsql.GetUpdateSupplyByDate1();
+                    }
                 }
-                else
+                else if(radioButton2.Checked)
                 {
-                    dataGridView1.DataSource = dbsql.GetUpdateSupplyByDate(DateTime.Now.AddDays(-7), DateTime.Now);
+                    if (checkBox1.Checked == true)
+                    {
+                        dataGridView1.DataSource = dbsql.GetUpdateSupplyByDateUpdateWithDate(dateTimePicker1.Value, dateTimePicker2.Value);
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource = dbsql.GetUpdateSupplyByDate1Update();
+                    }
+
                 }
+                else if (radioButton3.Checked)
+                {
+                    if (checkBox1.Checked == true)
+                    {
+                        dataGridView1.DataSource = dbsql.GetUpdateSupplyByDateDeleteWithDate(dateTimePicker1.Value, dateTimePicker2.Value);
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource = dbsql.GetUpdateSupplyByDate1delete();
+                    }
+
+                }
+
 
             }
             catch(Exception ex)
@@ -195,6 +223,16 @@ namespace StoreManagement
         }
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
 
         }

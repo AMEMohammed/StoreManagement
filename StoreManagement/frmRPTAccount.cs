@@ -213,6 +213,16 @@ namespace StoreManagement
 
 
         }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
         }
+
+        private void حذفToolStripMenuItem_Click(object sender, EventArgs e)
+        {  
+          
+        }
+    }
     
 }

@@ -86,6 +86,12 @@ namespace StoreManagement
                             PrintUpdteSupply(dt1);
                             break;
                         }
+                    case 7:
+                        {
+                            PrintUpdteOUt(dt1);
+                            break;
+                        }
+
 
 
 
@@ -186,5 +192,14 @@ namespace StoreManagement
             crystalReportViewer1.ReportSource = updSupp;
             crystalReportViewer1.Refresh();
         }
+        public void PrintUpdteOUt(DataTable dt11)
+        {
+            RPT.UpdOut updSupp = new RPT.UpdOut();
+            updSupp.SetDataSource(dt11);
+            crystalReportViewer1.ReportSource = updSupp;
+            crystalReportViewer1.Refresh();
+
+        }
+
     }
 }

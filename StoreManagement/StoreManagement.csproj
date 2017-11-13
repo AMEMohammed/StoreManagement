@@ -256,6 +256,12 @@
       <DependentUpon>RptRqustSupply.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RPT\UpdOut.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdOut.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RPT\UpdSupply.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -376,6 +382,10 @@
     <EmbeddedResource Include="RPT\RptRqustSupply.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptRqustSupply.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\UpdOut.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>UpdOut.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RPT\UpdSupply.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
