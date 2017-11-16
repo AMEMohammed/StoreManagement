@@ -34,6 +34,7 @@ namespace StoreManagement
                 }
                 catch
                 {
+                    MessageBox.Show("خطا في عملية النسخ الاحتياطي");
                     Application.Exit();
                 }
             }
