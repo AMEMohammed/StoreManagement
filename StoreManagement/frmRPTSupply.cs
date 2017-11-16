@@ -260,12 +260,17 @@ namespace StoreManagement
 
                     }
                     dt.Columns.Add("اسم الموظفف");
-
+                    dt.Columns.Add("اجمالي الكمية");
+                    dt.Columns.Add("اجمالي السعر");
+                    dt.Columns.Add("اجمالي الاجمالي");
                 }
                 catch(Exception ex) { MessageBox.Show(ex.Message); }
                 ///////////////////  أاضافة سطور 
                 try
                 {
+                    int sumQint = 0;
+                    int SumPrice = 0;
+                    int SumAll = 0;
                     foreach (DataGridViewRow dgr in dataGridView1.Rows)
                     {
 
@@ -274,14 +279,18 @@ namespace StoreManagement
                         string nmCa = dr[1].ToString();
                         string nmty = dr[2].ToString();
                         int Qun = Convert.ToInt32(dr[3].ToString());
+                        sumQint += Qun;
                         int prs = Convert.ToInt32(dr[4].ToString());
+                        SumPrice += prs;
                         int totl = Convert.ToInt32(dr[5].ToString());
+                        SumAll += totl;
                         string currn = dr[6].ToString();
                         DateTime dd = DateTime.Parse(dr[7].ToString());
                         string namee = dr[8].ToString();
                         string dec = dr[9].ToString();
                         string nameUser = dbsql.GetUserNameBYIdUser(Contrl.UserId);
-                        dt.Rows.Add(idS, nmCa, nmty, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, dd.Date.ToShortDateString(), namee, dec,nameUser);
+                        dt.Rows.Add(idS, nmCa, nmty, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, dd.Date.ToShortDateString(), namee, dec,nameUser, string.Format("{0:##,##}",sumQint), string.Format("{0:##,##}",SumPrice), string.Format("{0:##,##}", SumAll));
+                        
                     }
                 }
                 catch(Exception ex)

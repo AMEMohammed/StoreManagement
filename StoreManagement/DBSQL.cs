@@ -707,7 +707,7 @@ namespace StoreManagement
         {
             DataTable dt = new DataTable();
 
-            cmd = new SqlCommand("select RequstOut.IDOut as  'الرقم المخزني',Category.NameCategory as 'الاسم',TypeQuntity.NameType as 'النوع',RequstOut.Quntity as'الكمية',RequstOut.NameSend as'اسم المستلم',Users.Name as 'اسم الموظف' ,Users.Name as 'العنوان'  from Users,RequstOut,Category,TypeQuntity,PlaceSend,Currency,Debit,Creditor where RequstOut.IDCategory = Category.IDCategory and Users.UserID=@idUser and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency and Debit.IdTypeAccount=RequstOut.Debit and Creditor.IdTypeAccount=RequstOut.Creditor  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack=@check and RequstOut.UserId=@uuu ", con);
+            cmd = new SqlCommand("select RequstOut.IDOut as  'الرقم المخزني',Category.NameCategory as 'الاسم',TypeQuntity.NameType as 'النوع',RequstOut.Quntity as'الكمية',RequstOut.NameSend as'اسم المستلم',Users.Name as 'اسم الموظف' ,Users.Name as 'العنوان' ,PlaceSend.NamePlace as 'الجهة' from Users,RequstOut,Category,TypeQuntity,PlaceSend,Currency,Debit,Creditor where RequstOut.IDCategory = Category.IDCategory and Users.UserID=@idUser and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency and Debit.IdTypeAccount=RequstOut.Debit and Creditor.IdTypeAccount=RequstOut.Creditor  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack=@check and RequstOut.UserId=@uuu ", con);
             cmd.Parameters.AddWithValue("@check", Check);
             cmd.Parameters.AddWithValue("@idUser", UserId);
             cmd.Parameters.AddWithValue("@uuu", user);
@@ -726,7 +726,7 @@ namespace StoreManagement
         public DataTable printrequstOutExit1(int IDreqSup, int UserId, int user)
         {
             DataTable dt = new DataTable();
-            cmd = new SqlCommand("select IDSupply as 'الرقم المخزني' ,  Category.NameCategory  as 'الاسم', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية',    RequstSupply.NameSupply  as'اسم المستلم',Users.Name as 'اسم الموظف' , Users.Name as 'العنوان'  from Debit,Creditor ,Category,Users,TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and Debit.IdTypeAccount=RequstSupply.Debit and Creditor.IdTypeAccount=RequstSupply.Creditor and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency and Users.UserID=@UserId  and RequstSupply.chek =@id and RequstSupply.UserId =@uuu ", con);
+            cmd = new SqlCommand("select IDSupply as 'الرقم المخزني' ,  Category.NameCategory  as 'الاسم', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية',    RequstSupply.NameSupply  as'اسم المستلم',Users.Name as 'اسم الموظف' , Users.Name as 'العنوان' ,Users.Name as 'الجهة'  from Debit,Creditor ,Category,Users,TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and Debit.IdTypeAccount=RequstSupply.Debit and Creditor.IdTypeAccount=RequstSupply.Creditor and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency and Users.UserID=@UserId  and RequstSupply.chek =@id and RequstSupply.UserId =@uuu ", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@id", IDreqSup);
             cmd.Parameters.AddWithValue("@UserId", UserId);
@@ -969,7 +969,7 @@ namespace StoreManagement
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@txt", name);
             con.Open();
-         res=   cmd.ExecuteNonQuery();
+            res=   cmd.ExecuteNonQuery();
             con.Close();
             return res;
         }
@@ -1023,7 +1023,6 @@ namespace StoreManagement
             int res = 0;
             cmd = new SqlCommand("delete from Currency where IDCurrency=@id", con);
             cmd.CommandType = CommandType.Text;
-        
             cmd.Parameters.AddWithValue("@id", id);
             con.Open();
             res = cmd.ExecuteNonQuery();
@@ -1079,7 +1078,7 @@ namespace StoreManagement
         ////////////////////////////////
       
         //////////////
-        //////////
+        ////////// 
         /// <summary>
         ///  get user in setting
         /// </summary>

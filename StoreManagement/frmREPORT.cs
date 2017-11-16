@@ -130,8 +130,8 @@ namespace StoreManagement
                    dtt1.Rows[i][6] = "تصريح خروج مواد";
                 }
                 rt1.SetDataSource(dtt1);
-               rt1.PrintToPrinter(1, false, 0, 0); //print dicret
-              
+                  rt1.PrintToPrinter(1, false, 0, 0); //print dicret
+               
             }
 
         }
@@ -153,10 +153,11 @@ namespace StoreManagement
                 {
                     dtt1.Rows[i][4] = "مسؤول المخازن";
                     dtt1.Rows[i][6] = "تصريح توريد مخزني";
+                    dtt1.Rows[i][7] = "المخازن";
                 }
                 rt1.SetDataSource(dtt1);
-             
-                  rt1.PrintToPrinter(1, false, 0, 0); //print dicret
+
+                 rt1.PrintToPrinter(1, false, 0, 0); //print dicret
 
             }
         }

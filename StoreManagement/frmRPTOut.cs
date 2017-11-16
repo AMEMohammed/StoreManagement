@@ -249,12 +249,18 @@ namespace StoreManagement
 
                     }
                     dt.Columns.Add("اسم الموظفف");
+                    dt.Columns.Add("اجمالي الكمية");
+                    dt.Columns.Add("اجمالي السعر");
+                    dt.Columns.Add("اجمالي الاجمالي");
                 }
                 catch(Exception ex)
                 { MessageBox.Show(ex.Message); }
                 ///////////////////  أاضافة سطور 
                 try
                 {
+                    int sumQu = 0;
+                    int sumprice = 0;
+                    int sumAll = 0;
                     foreach (DataGridViewRow dgr in dataGridView1.Rows)
                     {
                         this.Cursor = Cursors.WaitCursor;
@@ -264,8 +270,11 @@ namespace StoreManagement
                         string nmty = dr[2].ToString();
                         string palce = dr[3].ToString();
                         int Qun = Convert.ToInt32(dr[4].ToString());
+                        sumQu += Qun;
                         int prs = Convert.ToInt32(dr[5].ToString());
+                        sumprice += prs;
                         int totl = Convert.ToInt32(dr[6].ToString());
+                        sumAll += totl;
                         string currn = dr[7].ToString();
                         string amer = dr[8].ToString();
                         string astalm = dr[9].ToString(); ;
@@ -273,7 +282,7 @@ namespace StoreManagement
 
                         string dec = dr[11].ToString();
                         string nameUser = dbsql.GetUserNameBYIdUser(Contrl.UserId);
-                        dt.Rows.Add(ido, nmCa, nmty, palce, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, amer, astalm, dd.Date.ToShortDateString(), dec,nameUser);
+                        dt.Rows.Add(ido, nmCa, nmty, palce, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, amer, astalm, dd.Date.ToShortDateString(), dec,nameUser, string.Format("{0:##,##}", sumQu), string.Format("{0:##,##}", sumprice), string.Format("{0:##,##}", sumAll));
                         this.Cursor = Cursors.Default;
                     }
                 }
