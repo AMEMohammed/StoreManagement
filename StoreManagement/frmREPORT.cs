@@ -156,8 +156,7 @@ namespace StoreManagement
                     dtt1.Rows[i][7] = "المخازن";
                 }
                 rt1.SetDataSource(dtt1);
-
-                 rt1.PrintToPrinter(1, false, 0, 0); //print dicret
+                rt1.PrintToPrinter(1, false, 0, 0); //print dicret
 
             }
         }
