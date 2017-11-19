@@ -37,6 +37,7 @@
             this.عددكلالاسطرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اجماليالكميةالمحددةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اجماليالسعرالمحددToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.اجماليالاجماليالمحددToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
@@ -65,7 +66,7 @@
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.اجماليالاجماليالمحددToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -152,6 +153,13 @@
             this.اجماليالسعرالمحددToolStripMenuItem.Text = "اجمالي السعر المحدد";
             this.اجماليالسعرالمحددToolStripMenuItem.Click += new System.EventHandler(this.اجماليالسعرالمحددToolStripMenuItem_Click);
             // 
+            // اجماليالاجماليالمحددToolStripMenuItem
+            // 
+            this.اجماليالاجماليالمحددToolStripMenuItem.Name = "اجماليالاجماليالمحددToolStripMenuItem";
+            this.اجماليالاجماليالمحددToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.اجماليالاجماليالمحددToolStripMenuItem.Text = "اجمالي الاجمالي المحدد";
+            this.اجماليالاجماليالمحددToolStripMenuItem.Click += new System.EventHandler(this.اجماليالاجماليالمحددToolStripMenuItem_Click);
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.groupBox9);
@@ -210,9 +218,9 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.textBox1);
-            this.groupBox7.Location = new System.Drawing.Point(801, 125);
+            this.groupBox7.Location = new System.Drawing.Point(801, 131);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(145, 100);
+            this.groupBox7.Size = new System.Drawing.Size(145, 94);
             this.groupBox7.TabIndex = 10;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "باستلام";
@@ -222,7 +230,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(6, 39);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 26);
+            this.textBox1.Size = new System.Drawing.Size(133, 26);
             this.textBox1.TabIndex = 0;
             // 
             // groupBox4
@@ -311,9 +319,9 @@
             // 
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Location = new System.Drawing.Point(694, 25);
+            this.groupBox1.Location = new System.Drawing.Point(652, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(255, 94);
+            this.groupBox1.Size = new System.Drawing.Size(297, 94);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "اسم الصنف ";
@@ -325,7 +333,7 @@
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(199, 38);
+            this.checkBox1.Location = new System.Drawing.Point(238, 34);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(53, 26);
             this.checkBox1.TabIndex = 0;
@@ -338,15 +346,16 @@
             // comboBox1
             // 
             this.comboBox1.Enabled = false;
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(6, 33);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(187, 30);
+            this.comboBox1.Size = new System.Drawing.Size(226, 27);
             this.comboBox1.TabIndex = 1;
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.button2);
             this.groupBox8.Controls.Add(this.button1);
             this.groupBox8.Controls.Add(this.button5);
             this.groupBox8.Controls.Add(this.button4);
@@ -359,21 +368,21 @@
             // 
             // button1
             // 
-            this.button1.Image = global::StoreManagement.Properties.Resources.printer_;
-            this.button1.Location = new System.Drawing.Point(93, 25);
+            this.button1.Image = global::StoreManagement.Properties.Resources.print;
+            this.button1.Location = new System.Drawing.Point(76, 26);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 54);
+            this.button1.Size = new System.Drawing.Size(57, 54);
             this.button1.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.button1, "طباعة التقرير المطلوب");
+            this.toolTip1.SetToolTip(this.button1, "طباعة الكل");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button5
             // 
             this.button5.Image = global::StoreManagement.Properties.Resources.logout__1_;
-            this.button5.Location = new System.Drawing.Point(6, 25);
+            this.button5.Location = new System.Drawing.Point(11, 26);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(81, 54);
+            this.button5.Size = new System.Drawing.Size(57, 54);
             this.button5.TabIndex = 11;
             this.toolTip1.SetToolTip(this.button5, "خروج");
             this.button5.UseVisualStyleBackColor = true;
@@ -381,9 +390,9 @@
             // button4
             // 
             this.button4.Image = global::StoreManagement.Properties.Resources.magnifying_glass;
-            this.button4.Location = new System.Drawing.Point(180, 25);
+            this.button4.Location = new System.Drawing.Point(202, 26);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(81, 54);
+            this.button4.Size = new System.Drawing.Size(57, 54);
             this.button4.TabIndex = 9;
             this.toolTip1.SetToolTip(this.button4, "بحث");
             this.button4.UseVisualStyleBackColor = true;
@@ -395,7 +404,7 @@
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Location = new System.Drawing.Point(432, 25);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(256, 94);
+            this.groupBox2.Size = new System.Drawing.Size(214, 94);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "نوع الكمية";
@@ -407,7 +416,7 @@
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(199, 37);
+            this.checkBox2.Location = new System.Drawing.Point(149, 37);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(53, 26);
             this.checkBox2.TabIndex = 2;
@@ -424,7 +433,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(6, 33);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(187, 30);
+            this.comboBox2.Size = new System.Drawing.Size(137, 30);
             this.comboBox2.TabIndex = 3;
             // 
             // groupBox6
@@ -458,11 +467,11 @@
             // comboBox4
             // 
             this.comboBox4.Enabled = false;
-            this.comboBox4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(4, 32);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(187, 30);
+            this.comboBox4.Size = new System.Drawing.Size(187, 27);
             this.comboBox4.TabIndex = 3;
             // 
             // label1
@@ -475,12 +484,16 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "تقارير طلبات الصرف";
             // 
-            // اجماليالاجماليالمحددToolStripMenuItem
+            // button2
             // 
-            this.اجماليالاجماليالمحددToolStripMenuItem.Name = "اجماليالاجماليالمحددToolStripMenuItem";
-            this.اجماليالاجماليالمحددToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.اجماليالاجماليالمحددToolStripMenuItem.Text = "اجمالي الاجمالي المحدد";
-            this.اجماليالاجماليالمحددToolStripMenuItem.Click += new System.EventHandler(this.اجماليالاجماليالمحددToolStripMenuItem_Click);
+            this.button2.Image = global::StoreManagement.Properties.Resources.printer_;
+            this.button2.Location = new System.Drawing.Point(139, 26);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(57, 54);
+            this.button2.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.button2, "طباعة المحدد");
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmRPTOut
             // 
@@ -562,5 +575,6 @@
         private System.Windows.Forms.ToolStripMenuItem اجماليالكميةالمحددةToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem اجماليالسعرالمحددToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem اجماليالاجماليالمحددToolStripMenuItem;
+        private System.Windows.Forms.Button button2;
     }
 }

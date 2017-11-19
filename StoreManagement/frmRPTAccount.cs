@@ -223,6 +223,58 @@ namespace StoreManagement
         {  
           
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+
+                DataTable dt = new DataTable();
+                try
+                {
+
+                    ////////// اضافة الاعمدة 
+                    for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                    {
+                        dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
+
+
+                    }
+                    dt.Columns.Add("اسم الموظفف");
+                }
+                catch (Exception ex)
+                { MessageBox.Show(ex.Message); }
+
+                ///////////////////  أاضافة سطور 
+                try
+                {
+                    foreach (DataGridViewRow dgr in dataGridView1.SelectedRows)
+                    {
+
+                        DataRow dr = ((DataRowView)dgr.DataBoundItem).Row;
+                        string nmca = dr[0].ToString();
+                        string nmty = dr[1].ToString();
+                        int qunt = Convert.ToInt32(dr[2].ToString());
+                        int pres = Convert.ToInt32(dr[3].ToString());
+                        string currnt = dr[4].ToString();
+                        string nameUser = dbsql.GetUserNameBYIdUser(Contrl.UserId);
+                        dt.Rows.Add(nmca, nmty, string.Format("{0:##,##}", qunt), string.Format("{0:##,##}", pres), currnt, nameUser);
+                    }
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+                try
+                {
+                    this.Cursor = Cursors.WaitCursor;
+                    frmREPORT frm = new frmREPORT(5, dt);
+                    frm.ShowDialog();
+                    this.Cursor = Cursors.Default;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
     
 }
