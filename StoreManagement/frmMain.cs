@@ -68,7 +68,7 @@ namespace StoreManagement
                     this.تعديلالمستخدمToolStripMenuItem.Visible = true;
                     this.اعدادتالنظامToolStripMenuItem.Visible = true;
                     this.صلاحياتالمستخدمينToolStripMenuItem.Visible = true;
-                }
+                    this.فترةالصلاحيةToolStripMenuItem.Visible = true;                }
                 else
                 {
                     DataTable dt2 = new DataTable();
@@ -83,6 +83,7 @@ namespace StoreManagement
                     this.البحثToolStripMenuItem.Visible = Convert.ToBoolean(dt2.Rows[0][6].ToString());
                     this.بحثToolStripMenuItem.Visible = Convert.ToBoolean(dt2.Rows[0][6].ToString());
                     this.استعادةالنسخةالاحتياطيةToolStripMenuItem.Visible = false;
+                    this.فترةالصلاحيةToolStripMenuItem.Visible = false;
                     this.انشاءنسخةاحتياطيةToolStripMenuItem.Visible = Convert.ToBoolean(dt2.Rows[0][4].ToString()); 
                     this.اضافةطلبToolStripMenuItem.Visible = Convert.ToBoolean(dt2.Rows[0][4].ToString());
                     this.تعديلالمستخدمToolStripMenuItem.Visible = check;
@@ -321,6 +322,13 @@ namespace StoreManagement
             new frmTypeAccount().ShowDialog();
             this.Cursor = Cursors.Default;
 
+        }
+
+        private void فترةالصلاحيةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            new frmEnd().ShowDialog();
+            this.Cursor = Cursors.Default;
         }
     }
 }

@@ -20,5 +20,8 @@
     <Setting Name="pathbukup" Type="System.String" Scope="User">
       <Value Profile="(Default)">c:\\</Value>
     </Setting>
+    <Setting Name="dateEnd" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2017-01-01</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

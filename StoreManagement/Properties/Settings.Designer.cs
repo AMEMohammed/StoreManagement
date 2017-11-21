@@ -94,5 +94,17 @@ namespace StoreManagement.Properties {
                 this["pathbukup"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2017-01-01")]
+        public global::System.DateTime dateEnd {
+            get {
+                return ((global::System.DateTime)(this["dateEnd"]));
+            }
+            set {
+                this["dateEnd"] = value;
+            }
+        }
     }
 }

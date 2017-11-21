@@ -51,3 +51,4 @@ D:\progaming\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmUser.r
 D:\progaming\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Properties.Resources.resources
 D:\progaming\StoreManagement\StoreManagement\obj\Debug\StoreManagement.UpdateOut.resources
 D:\progaming\StoreManagement\StoreManagement\obj\Debug\StoreManagement.csproj.GenerateResource.Cache
+D:\progaming\StoreManagement\StoreManagement\obj\Debug\StoreManagement.frmEnd.resources

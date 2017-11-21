@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.دخولالنظامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.دخولالنظامToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.خروجمنالنظامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +57,8 @@
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.تعديلالمستخدمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.صلاحياتالمستخدمينToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.فترةالصلاحيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -78,17 +79,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1074, 29);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::StoreManagement.Properties.Resources.rr;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1074, 450);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // دخولالنظامToolStripMenuItem
             // 
@@ -298,7 +288,8 @@
             this.الاتصالبالسيرفيرToolStripMenuItem,
             this.انشاءنسخةاحتياطيةToolStripMenuItem,
             this.استعادةالنسخةالاحتياطيةToolStripMenuItem,
-            this.تعديلالمستخدمToolStripMenuItem});
+            this.تعديلالمستخدمToolStripMenuItem,
+            this.فترةالصلاحيةToolStripMenuItem});
             this.اعدادتالنظامToolStripMenuItem.Image = global::StoreManagement.Properties.Resources.settings_gears;
             this.اعدادتالنظامToolStripMenuItem.Name = "اعدادتالنظامToolStripMenuItem";
             this.اعدادتالنظامToolStripMenuItem.Size = new System.Drawing.Size(130, 25);
@@ -347,6 +338,24 @@
             this.صلاحياتالمستخدمينToolStripMenuItem.Text = "صلاحيات المستخدمين";
             this.صلاحياتالمستخدمينToolStripMenuItem.Visible = false;
             this.صلاحياتالمستخدمينToolStripMenuItem.Click += new System.EventHandler(this.صلاحياتالمستخدمينToolStripMenuItem_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::StoreManagement.Properties.Resources.rr;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1074, 450);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // فترةالصلاحيةToolStripMenuItem
+            // 
+            this.فترةالصلاحيةToolStripMenuItem.Name = "فترةالصلاحيةToolStripMenuItem";
+            this.فترةالصلاحيةToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
+            this.فترةالصلاحيةToolStripMenuItem.Text = "فترة الصلاحية";
+            this.فترةالصلاحيةToolStripMenuItem.Click += new System.EventHandler(this.فترةالصلاحيةToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -407,5 +416,6 @@
         private System.Windows.Forms.ToolStripMenuItem تقاريرتعديلاتالصرفToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem صلاحياتالمستخدمينToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem انواعالحساباتToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem فترةالصلاحيةToolStripMenuItem;
     }
 }
